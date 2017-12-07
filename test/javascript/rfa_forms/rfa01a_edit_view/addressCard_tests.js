@@ -135,15 +135,4 @@ describe('Verify Address card fields', function () {
     relationShipField.simulate('change', {target: {selectedOptions: [{value: '17', text: 'Illinois'}]}})
     expect(addressCardMount.instance().onAddressChange).toHaveBeenCalledWith('Mailing', 'state', {id: '17', value: 'Illinois'})
   })
-  it('verify mailing address', () => {
-    let relationShipField = addressCardMount.find('#mailing_similar').hostNodes()
-    relationShipField.simulate('change', {target: {selectedOptions: [{value: 'yes', text: 'yes'}]}})
-    expect(setParentStateSpy).toHaveBeenCalledWith('physical_mailing_similar', 'yes')
-  })
-  // On Select is failing. Need to take a deeper look into it.
-  // it('verify mailing address on Selection', () => {
-  //   let relationShipField = addressCardMount.find('#street_address').at(0)
-  //   relationShipField.simulate('select', {target: {value: '17'}})
-  //   expect(setParentStateSpy).toHaveBeenCalledWith('addresses', '17')
-  // })
 })
