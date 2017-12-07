@@ -114,16 +114,6 @@ describe('Verify RFA 01C child desired', function () {
     relationField.simulate('change', {target: {value: '01/01/2000'}})
     expect(setParentStateSpy).toHaveBeenCalledWith('date_of_birth', '2000-01-01', 0)
   })
-  it('verify date of birth on blur', () => {
-    let relationField = childCardComp.find('#date_of_birth')
-    relationField.simulate('blur', {target: {value: '01/01/2000'}})
-    expect(setParentStateSpy).toHaveBeenCalledWith('date_of_birth', '2000-01-01', 0)
-  })
-  it('verify date of placement', () => {
-    let relationField = childCardComp.find('#date_of_placement')
-    relationField.simulate('blur', {target: {value: '01/01/2000'}})
-    expect(setParentStateSpy).toHaveBeenCalledWith('date_of_placement', '2000-01-01', 0)
-  })
   it('verify date of placement on change', () => {
     let relationField = childCardComp.find('#date_of_placement')
     relationField.simulate('change', {target: {value: '01/01/2000'}})
