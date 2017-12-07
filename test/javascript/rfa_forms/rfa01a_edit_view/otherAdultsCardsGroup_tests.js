@@ -21,9 +21,9 @@ describe('Verify other adults Component View', function () {
       }
     ],
     index: 0,
-    'firstName': '',
-    'middleName': '',
-    'lastName': '',
+    'first_name': '',
+    'middle_name': '',
+    'last_name': '',
     date_of_birth: '2017-01-01'
   }
 
@@ -37,22 +37,17 @@ describe('Verify other adults Component View', function () {
       relationship_types: relationshipTypes,
       relationshipToApplicantTypes: relationshipTypes,
       setParentState: setParentStateSpy,
+      onFieldChange: onFieldChangeSpy,
+      handleRelationshipTypeToApplicant: handleRelationshipTypeToApplicantSpy,
       validator: validator
     }
     component = shallow(
       <OtherAdultsCardsGroup {...props} />
     )
-    componentMount = mount(<OtherAdultsCardsGroup {...props} />)
-  })
-  describe('Verify other adult card Component View', () => {
-    it('has class name', function () {
-      componentMount.update()
-      spyOn(componentMount.instance(), 'handleRelationshipTypeToApplicant').and.callThrough()
-      let relationShipField = componentMount.find('#relationshipType').hostNodes()
-      relationShipField.simulate('change', {target: {selectedOptions: [{value: '2', text: 'Sibling'}]}})
-      OtherAdultsCard.relationship_to_applicants[0].relationship_to_applicant = { id: '2', value: 'Sibling' }
-      expect(setParentStateSpy).toHaveBeenCalledWith('otherAdults', [OtherAdultsCard])
-    })
+
+    componentMount = mount(
+      <OtherAdultsCardsGroup {...props} />
+    )
   })
 
   describe('Verify other adults Component View', () => {
@@ -104,6 +99,14 @@ describe('Verify other adults Component View', function () {
       component.update()
       expect(component.instance().clickClose).toHaveBeenCalledWith(0)
       expect(props.otherAdults.length).toEqual(1)
+    })
+
+    it('Verify application State Change', () => {
+      let NameFields = componentMount.find('input[type="text"]')
+      let firstNameField = NameFields.find('#lastName')
+      firstNameField.simulate('change', {target: {value: 'dude'}})
+      OtherAdultsCard.last_name = 'dude'
+      expect(setParentStateSpy).toHaveBeenCalledWith('otherAdults', [OtherAdultsCard])
     })
   })
 })

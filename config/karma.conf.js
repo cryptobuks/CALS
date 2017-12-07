@@ -59,7 +59,7 @@ module.exports = function (config) {
         global: {
           statements: 73,
           branches: 61,
-          functions: 64,
+          functions: 65,
           lines: 74,
           excludes: []
         }
@@ -106,7 +106,7 @@ module.exports = function (config) {
           '--remote-debugging-port=9222'
         ]
       }
-    },
+    }, 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

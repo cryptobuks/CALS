@@ -50,67 +50,8 @@ const DateField = ({
   )
 }
 
-const DatePickerField = ({
-  disabled,
-  errors,
-  gridClassName,
-  id,
-  label,
-  format,
-  labelClassName,
-  required,
-  value,
-  hasCalendar,
-  onBlur,
-  onChange,
-  hasTime,
-  max,
-  min
-}) => {
-  const formFieldProps = {
-    disabled: disabled,
-    errors: errors,
-    gridClassName: gridClassName,
-    id: id,
-    label: label,
-    labelClassName: labelClassName,
-    required: required
-  }
-  const parseDate = (date) => (moment(date, ['YYYY-MM-DD', 'MM/DD/YYYY', moment.ISO_8601]))
-
-  return (
-    <FormField {...formFieldProps}>
-      <DateTimePicker
-        aria-required={required}
-        calendar={hasCalendar}
-        defaultValue={(value && parseDate(value).toDate()) || null}
-        hasTime={hasTime}
-        format={format}
-        id={id}
-        onBlur={onBlur}
-        onChange={(event) => onChange(parseDate(event))}
-        placeholder={placeholder}
-        required={required}
-        time={hasTime}
-        max={max}
-        min={min} />
-    </FormField>
-  )
-}
 DateField.propTypes = {
   onChange: PropTypes.func.isRequired
 }
 
-DatePickerField.propTypes = {
-  hasCalendar: PropTypes.bool,
-  hasTime: PropTypes.bool,
-  dateValue: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  gridClassName: PropTypes.string,
-  max: PropTypes.instanceOf(Date),
-  min: PropTypes.instanceOf(Date),
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired
-}
-
-export {DateField, DatePickerField}
+export {DateField}

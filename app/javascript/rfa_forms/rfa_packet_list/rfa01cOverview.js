@@ -20,12 +20,12 @@ export default class Rfa01COverview extends React.Component {
         label='Rfa-01C Section Summary'
         handleOnClick={() => this.props.setFocusState('Rfa01COverview')}
         focusClassName={this.props.getFocusClassName('Rfa01COverview') + ' ' + 'card phone-section double-gap-top'}>
+
         {childIdentified && rfa01CForm.length > 0 ? <Rfa01cEditLink
           applicationId={applicationId}
           rfa01CForm={rfa01CForm} /> : (childIdentified ? <Rfa01cCreateLink
           applicationId={applicationId}
           rfa01CForm={rfa01CForm} /> : '')
-
         }
 
       </CardLayout>

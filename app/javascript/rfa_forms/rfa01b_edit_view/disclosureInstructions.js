@@ -1,19 +1,56 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
+import {BinarySelectorField} from 'components/common/binarySelectorField'
+import CardLayout from 'components/common/cardLayout'
+import {Rfa01bDisclosureInstructions, toggleInstructionStyle} from 'constants/rfaText'
 export default class DisclosureInstructions extends React.Component {
   render () {
+    const disclosureList = Rfa01bDisclosureInstructions.disclosureInstructions_array.map((element, index) =>
+      <li key={index}>
+        {element}
+      </li>
+    )
     return (
-      <div className='disclosure_instructions'>
-        <div id='DisclosureInstructionsCard' onClick={() => this.props.setFocusState('DisclosureInstructionsCard')}
-          className={this.props.getFocusClassName('disclosure_instructions') + ' ' + 'card phone-section double-gap-top'}>
-          <div className='card-header'><span>Disclosure Instructions (Must read before section II is completed)</span></div>
-          <div className='card-body'>
-            <div className='row list-item'>
-            I'm Disclosure Instructions
-            </div>
+      <CardLayout
+        idClassName='disclosure_instructions'
+        id='DisclosureInstructionsCard'
+        textAlignment='left'
+        label='Disclosure Instructions (Must read before section II is completed)'
+        handleOnClick={() => this.props.setFocusState('DisclosureInstructionsCard')}
+        focusClassName={this.props.getFocusClassName('DisclosureInstructionsCard') + ' ' + 'card phone-section double-gap-top'}>
+        <div>
+          <div id='disclosureInstructionsToggle'
+            style={toggleInstructionStyle}
+            className='text-right'
+            onClick={() => this.props.setDisplayState('disclosureInstructionsDisplay',
+              !this.props.disclosureInstructionsDisplay)}>
+            {this.props.disclosureInstructionsDisplay ? 'hide' : 'view'}
           </div>
+          {
+            this.props.disclosureInstructionsDisplay
+              ? <div className='row list-item'>
+                <div> {Rfa01bDisclosureInstructions.disclosure_instructions_start}</div>
+                <div> {Rfa01bDisclosureInstructions.disclosure_instructions_if}</div>
+                <div>{ <ul>{ disclosureList }</ul>}</div>
+                <div> {Rfa01bDisclosureInstructions.disclosureInstructions_note}</div>
+              </div>
+              : null
+          }
         </div>
-      </div>
+      </CardLayout>
     )
   }
+}
+DisclosureInstructions.propTypes = {
+  focusComponentName: PropTypes.string,
+  getFocusClassName: PropTypes.func,
+  disclosureInstructionsDisplay: PropTypes.bool,
+  setDisplayState: PropTypes.func,
+  setFocusState: PropTypes.func,
+  setParentState: PropTypes.func
+}
+
+DisclosureInstructions.defaultProps = {
+  disclosureInstructionsDisplay: false,
+  errors: []
 }

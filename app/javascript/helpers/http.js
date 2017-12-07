@@ -1,3 +1,4 @@
+import 'whatwg-fetch'
 import {urlPrefixHelper} from './url_prefix_helper.js.erb'
 
 export const getCsrfToken = function getCsrfToken (value) {

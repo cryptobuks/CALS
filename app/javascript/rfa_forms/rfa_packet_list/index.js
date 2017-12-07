@@ -29,9 +29,13 @@ export default class Rfa01PacketList extends React.Component {
   render () {
     let applicationId = this.props.application_id
     let application = this.props.rfa_01a_application
+    let rfaPacketSummary = this.props.rfa_packet_summary
+    let rfa01c = this.props.rfa_01c
+
     let rfa01BForms = this.props.rfa_01b_forms
     let childDesired = application.child_desired
     let rfa01CForm = this.props.rfa_01c_application
+
     return (
       <div>
         <CardsGroupLayout>
@@ -47,6 +51,7 @@ export default class Rfa01PacketList extends React.Component {
             focusComponentName={this.state.focusComponentName}
             applicationId={applicationId}
             rfa01A={application}
+            rfaPacketSummary={rfaPacketSummary}
             setFocusState={this.setFocusState}
             getFocusClassName={this.getFocusClassName} />
         </CardsGroupLayout>

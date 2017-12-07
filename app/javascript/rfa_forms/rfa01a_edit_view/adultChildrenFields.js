@@ -12,15 +12,6 @@ export default class AdultChildrenFields extends React.Component {
     const adultChild = this.props.adultChild
     const livesInHome = adultChild.lives_in_home === 'true'
 
-    let adultChildNameFieldValues = {
-      first_name: adultChild.first_name,
-      middle_name: adultChild.middle_name,
-      last_name: adultChild.last_name,
-      name_suffix: adultChild.name_suffix,
-      name_prefix: adultChild.name_prefix,
-      name_type: adultChild.name_type
-    }
-
     return (
       <form>
         <DropDownField
@@ -45,7 +36,16 @@ export default class AdultChildrenFields extends React.Component {
           <div className='col-md-12'>
             <CompleteNameFields
               index={this.props.index}
-              fieldValues={adultChildNameFieldValues}
+              namePrefixId='name_prefix'
+              nameSuffixId='name_suffix'
+              firstNameId='first_name'
+              middleNameId='middle_name'
+              lastNameId='last_name'
+              firstName={adultChild.first_name}
+              middleName={adultChild.middle_name}
+              lastName={adultChild.last_name}
+              nameSuffix={adultChild.name_suffix}
+              namePrefix={adultChild.name_prefix}
               onChange={this.props.changeAdultChild}
               suffixTypes={this.props.suffixTypes}
               prefixTypes={this.props.prefixTypes} />

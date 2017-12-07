@@ -1,236 +1,236 @@
 const stateTypes = Object.freeze({
   items: [
     {
-      'id': 1,
-      'value': 'Alabama'
+      'value': 'Alaska',
+      'id': 'AK'
     },
     {
-      'id': 2,
-      'value': 'Alaska'
+      'value': 'Alabama',
+      'id': 'AL'
     },
     {
-      'id': 3,
-      'value': 'American Samoa'
+      'value': 'American Samoa',
+      'id': 'AM'
     },
     {
-      'id': 4,
-      'value': 'Arizona'
+      'value': 'Arkansas',
+      'id': 'AR'
     },
     {
-      'id': 5,
-      'value': 'Arkansas'
+      'value': 'Arizona',
+      'id': 'AZ'
     },
     {
-      'id': 6,
-      'value': 'California'
+      'value': 'California',
+      'id': 'CA'
     },
     {
-      'id': 7,
-      'value': 'Canal Zone'
+      'value': 'Northern Marianas Islands',
+      'id': 'CM'
     },
     {
-      'id': 8,
-      'value': 'Colorado'
+      'value': 'Colorado',
+      'id': 'CO'
     },
     {
-      'id': 9,
-      'value': 'Connecticut'
+      'value': 'Connecticut',
+      'id': 'CT'
     },
     {
-      'id': 10,
-      'value': 'Delaware'
+      'value': 'Canal Zone',
+      'id': 'CZ'
     },
     {
-      'id': 11,
-      'value': 'District of Columbia'
+      'value': 'District of Columbia',
+      'id': 'DC'
     },
     {
-      'id': 12,
-      'value': 'Florida'
+      'value': 'Delaware',
+      'id': 'DE'
     },
     {
-      'id': 13,
-      'value': 'Georgia'
+      'value': 'Florida',
+      'id': 'FL'
     },
     {
-      'id': 14,
-      'value': 'Guam'
+      'value': 'Georgia',
+      'id': 'GA'
     },
     {
-      'id': 15,
-      'value': 'Hawaii'
+      'value': 'Guam',
+      'id': 'GU'
     },
     {
-      'id': 16,
-      'value': 'Idaho'
+      'value': 'Hawaii',
+      'id': 'HI'
     },
     {
-      'id': 17,
-      'value': 'Illinois'
+      'value': 'Iowa',
+      'id': 'IA'
     },
     {
-      'id': 18,
-      'value': 'Indiana'
+      'value': 'Idaho',
+      'id': 'ID'
     },
     {
-      'id': 19,
-      'value': 'Iowa'
+      'value': 'Illinois',
+      'id': 'IL'
     },
     {
-      'id': 20,
-      'value': 'Kansas'
+      'value': 'Indiana',
+      'id': 'IN'
     },
     {
-      'id': 21,
-      'value': 'Kentucky'
+      'value': 'Kansas',
+      'id': 'KS'
     },
     {
-      'id': 22,
-      'value': 'Louisiana'
+      'value': 'Kentucky',
+      'id': 'KY'
     },
     {
-      'id': 23,
-      'value': 'Maine'
+      'value': 'Louisiana',
+      'id': 'LA'
     },
     {
-      'id': 24,
-      'value': 'Maryland'
+      'value': 'Massachusetts',
+      'id': 'MA'
     },
     {
-      'id': 25,
-      'value': 'Massachusetts'
+      'value': 'Maryland',
+      'id': 'MD'
     },
     {
-      'id': 26,
-      'value': 'Michigan'
+      'value': 'Maine',
+      'id': 'ME'
     },
     {
-      'id': 27,
-      'value': 'Minnesota'
+      'value': 'Michigan',
+      'id': 'MI'
     },
     {
-      'id': 28,
-      'value': 'Mississippi'
+      'value': 'Minnesota',
+      'id': 'MN'
     },
     {
-      'id': 29,
-      'value': 'Missouri'
+      'value': 'Missouri',
+      'id': 'MO'
     },
     {
-      'id': 30,
-      'value': 'Montana'
+      'value': 'Mississippi',
+      'id': 'MS'
     },
     {
-      'id': 31,
-      'value': 'Nebraska'
+      'value': 'Montana',
+      'id': 'MT'
     },
     {
-      'id': 32,
-      'value': 'Nevada'
+      'value': 'North Carolina',
+      'id': 'NC'
     },
     {
-      'id': 33,
-      'value': 'New Hampshire'
+      'value': 'North Dakota',
+      'id': 'ND'
     },
     {
-      'id': 34,
-      'value': 'New Jersey'
+      'value': 'Nebraska',
+      'id': 'NE'
     },
     {
-      'id': 35,
-      'value': 'New Mexico'
+      'value': 'New Hampshire',
+      'id': 'NH'
     },
     {
-      'id': 36,
-      'value': 'New York'
+      'value': 'New Jersey',
+      'id': 'NJ'
     },
     {
-      'id': 37,
-      'value': 'North Carolina'
+      'value': 'New Mexico',
+      'id': 'NM'
     },
     {
-      'id': 38,
-      'value': 'North Dakota'
+      'value': 'Nevada',
+      'id': 'NV'
     },
     {
-      'id': 39,
-      'value': 'Northern Marianas Islands'
+      'value': 'New York',
+      'id': 'NY'
     },
     {
-      'id': 40,
-      'value': 'Ohio'
+      'value': 'Ohio',
+      'id': 'OH'
     },
     {
-      'id': 41,
-      'value': 'Oklahoma'
+      'value': 'Oklahoma',
+      'id': 'OK'
     },
     {
-      'id': 42,
-      'value': 'Oregon'
+      'value': 'Oregon',
+      'id': 'OR'
     },
     {
-      'id': 43,
-      'value': 'Pennsylvania'
+      'value': 'Pennsylvania',
+      'id': 'PA'
     },
     {
-      'id': 44,
-      'value': 'Puerto Rico'
+      'value': 'Puerto Rico',
+      'id': 'PR'
     },
     {
-      'id': 45,
-      'value': 'Rhode Island'
+      'value': 'Rhode Island',
+      'id': 'RI'
     },
     {
-      'id': 46,
-      'value': 'South Carolina'
+      'value': 'South Carolina',
+      'id': 'SC'
     },
     {
-      'id': 47,
-      'value': 'South Dakota'
+      'value': 'South Dakota',
+      'id': 'SD'
     },
     {
-      'id': 48,
-      'value': 'Tennessee'
+      'value': 'Tennessee',
+      'id': 'TN'
     },
     {
-      'id': 49,
-      'value': 'Texas'
+      'value': 'Trust Territories',
+      'id': 'TT'
     },
     {
-      'id': 50,
-      'value': 'Trust Territories'
+      'value': 'Texas',
+      'id': 'TX'
     },
     {
-      'id': 51,
-      'value': 'Utah'
+      'value': 'Utah',
+      'id': 'UT'
     },
     {
-      'id': 52,
-      'value': 'Vermont'
+      'value': 'Virginia',
+      'id': 'VA'
     },
     {
-      'id': 53,
-      'value': 'Virgin Islands'
+      'value': 'Virgin Islands',
+      'id': 'VI'
     },
     {
-      'id': 54,
-      'value': 'Virginia'
+      'value': 'Vermont',
+      'id': 'VT'
     },
     {
-      'id': 55,
-      'value': 'Washington'
+      'value': 'Washington',
+      'id': 'WA'
     },
     {
-      'id': 56,
-      'value': 'West Virginia'
+      'value': 'Wisconsin',
+      'id': 'WI'
     },
     {
-      'id': 57,
-      'value': 'Wisconsin'
+      'value': 'West Virginia',
+      'id': 'WV'
     },
     {
-      'id': 58,
-      'value': 'Wyoming'
+      'value': 'Wyoming',
+      'id': 'WY'
     }
   ]}
 )

@@ -1,5 +1,8 @@
 import React from 'react'
 import Immutable from 'immutable'
+import _ from 'lodash'
+import {fetchRequest} from 'helpers/http'
+
 import OutOfStateDisclosureCard from './outOfStateDisclosureCard'
 import ApplicantDetailsCard from './applicantDetailsCard'
 import DisclosureInstructions from './disclosureInstructions'
@@ -10,24 +13,66 @@ import PrivacyStatement from './privacyStatement'
 import {CountyUseOnlyCard} from 'components/rfa_forms/countyUseOnlyCard.js'
 import {getDictionaryId, dictionaryNilSelect, checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
 import CardsGroupLayout from 'components/common/cardsGroupLayout.js'
+import {addCardAsJS, getFocusClassName, removeCard} from 'helpers/cardsHelper.jsx'
+import Validator from 'helpers/validator'
 
-import '../rfa01a_edit_view/stylesheets/cards-main.scss'
+// import '../rfa01a_edit_view/stylesheets/cards-main.scss'
+
+export const DisclosureDefaults = Object.freeze({
+  'offense': '',
+  'offense_city': '',
+  'offense_state': {},
+  'offense_date': '',
+  'when_offense_happen': '',
+  'offense_details': ''
+})
 
 export default class Rfa01bList extends React.Component {
   constructor (props) {
     super(props)
     this.submitForm = this.submitForm.bind(this)
-    this.getFocusClassName = this.submitForm.bind(this)
-    this.setFocusState = this.submitForm.bind(this)
+    this.getFocusClassName = this.getFocusClassName.bind(this)
+    this.setFocusState = this.setFocusState.bind(this)
+    this.setApplicationState = this.setApplicationState.bind(this)
+    this.setDisplayState = this.setDisplayState.bind(this)
+    this.validator = new Validator({})
+    this.validator.validateFieldSetErrorState = this.validateFieldSetErrorState.bind(this)
 
     this.state = {
+      application_id: this.props.application_id,
+      application: this.props.rfa_b01_application,
+      disclosureInstructionsDisplay: null,
+      privacyStatementDisplay: null,
       focusComponentName: '',
       errors: {}
     }
   }
 
+  validateFieldSetErrorState (fieldName, value) {
+    const error = this.validator.validateFieldAndGetError(fieldName, value)
+
+    let currentErrors = this.state.errors
+    if (error === undefined) {
+      _.unset(currentErrors, fieldName)
+    } else {
+      _.set(currentErrors, fieldName, error)
+    }
+    this.setState({errors: currentErrors})
+  }
+
   submitForm () {
-    console.log('TODO submit')
+    let url = '/rfa/b01/' + this.props.application_id
+    fetchRequest(url, 'PUT', this.state).then(
+      response => response.json()).then((response) => {
+        return this.setState({
+          formData: response
+        })
+      })
+      .catch(error => {
+        return this.setState({
+          data: error
+        })
+      })
   }
 
   setFocusState (focusComponentName) {
@@ -38,18 +83,20 @@ export default class Rfa01bList extends React.Component {
     return this.state.focusComponentName === componentName ? 'edit' : 'show'
   }
 
-  onFieldChange () {
-    console.log('TODO field change')
-  }
-
   setApplicationState (key, value) {
     let newState = Immutable.fromJS(this.state)
     newState = newState.setIn(['application', key], value)
     this.setState(newState.toJS())
   }
 
+  setDisplayState (key, value) {
+    let newState = Immutable.fromJS(this.state)
+    newState = newState.set(key, value)
+    this.setState(newState.toJS())
+  }
+
   render () {
-    const countyValue = getDictionaryId(this.state.application_county) || (this.props.user && this.props.user.county_code)
+    const countyValue = getDictionaryId(this.state.application.application_county) || (this.props.user && this.props.user.county_code)
 
     return (
 
@@ -68,10 +115,9 @@ export default class Rfa01bList extends React.Component {
                     Record Statement</p>
               </div>
               <div className='col-xs-2 col-sm-2 col-md-2 col-lg-2'>
-                <button id='saveProgress' className='btn btn-default' onClick={this.submitForm}>TODO Save</button>
+                <button id='saveProgress' className='btn btn-default' onClick={this.submitForm}>Save Progress</button>
               </div>
             </div>
-
             <CardsGroupLayout>
               <CountyUseOnlyCard
                 countyUseOnlyCardId='county_use_only'
@@ -86,41 +132,62 @@ export default class Rfa01bList extends React.Component {
             <CardsGroupLayout>
               <h2>I.<span>Out of State Disclosure</span></h2>
               <OutOfStateDisclosureCard
+                livedInOtherState={this.state.application.lived_in_other_state}
+                otherStatesOfLiving={this.state.application.other_states_of_living}
+                stateTypes={this.props.stateTypes}
                 focusComponentName={this.state.focusComponentName}
                 getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState} />
+                setFocusState={this.setFocusState}
+                setParentState={this.setApplicationState} />
             </CardsGroupLayout>
             <CardsGroupLayout>
               <h2>II.<span>Criminal Record Statement</span></h2>
               <DisclosureInstructions
                 focusComponentName={this.state.focusComponentName}
                 getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState} />
+                disclosureInstructionsDisplay={this.state.disclosureInstructionsDisplay}
+                setDisplayState={this.setDisplayState}
+                setFocusState={this.setFocusState}
+                setParentState={this.setApplicationState} />
             </CardsGroupLayout>
 
             <CardsGroupLayout>
               <CaliforniaCriminalBackground
+                convictedInCalifornia={this.state.application.convicted_in_california}
+                disclosures={this.state.application.convicted_in_california_disclosures}
+                onDisclosureChange={this.onDisclosureChange}
                 focusComponentName={this.state.focusComponentName}
                 getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState} />
+                setFocusState={this.setFocusState}
+                setParentState={this.setApplicationState} />
             </CardsGroupLayout>
 
-            <CardsGroupLayout>
+            {/* <CardsGroupLayout>
               <OutsideCACriminalBackground
+                convictedInAnotherState={this.state.application.convicted_in_another_state}
+                disclosures={this.state.application.disclosures}
+                onDisclosureChange= {this.onDisclosureChange}
                 focusComponentName={this.state.focusComponentName}
                 getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState} />
+                setFocusState={this.setFocusState}
+                setParentState={this.setApplicationState} />
             </CardsGroupLayout>
 
             <CardsGroupLayout>
               <CrimeBackgroundAgainstCohabitant
+                arrestedForCrime={this.state.application.arrested_for_crime}
+                disclosures={this.state.application.disclosures}
+                onDisclosureChange= {this.onDisclosureChange}
                 focusComponentName={this.state.focusComponentName}
                 getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState} />
-            </CardsGroupLayout>
+                setFocusState={this.setFocusState}
+                setParentState={this.setApplicationState} />
+            </CardsGroupLayout> */}
 
             <CardsGroupLayout>
               <PrivacyStatement
+                privacyStatementDisplay={this.state.privacyStatementDisplay}
+                setDisplayState={this.setDisplayState}
                 focusComponentName={this.state.focusComponentName}
                 getFocusClassName={this.getFocusClassName}
                 setFocusState={this.setFocusState} />
@@ -129,15 +196,16 @@ export default class Rfa01bList extends React.Component {
             <CardsGroupLayout>
               <h2><span>Applicant or Other Adult </span></h2>
               <ApplicantDetailsCard
+                application={this.state.application}
+                validator={this.validator}
                 focusComponentName={this.state.focusComponentName}
                 getFocusClassName={this.getFocusClassName}
                 setFocusState={this.setFocusState}
-                onFieldChange={this.onFieldChange}
+                setParentState={this.setApplicationState}
                 stateTypes={this.props.stateTypes}
                 namePrefixTypes={this.props.namePrefixTypes}
                 nameSuffixTypes={this.props.nameSuffixTypes} />
             </CardsGroupLayout>
-
           </div>
         </div>
       </div>

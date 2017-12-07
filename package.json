@@ -62,7 +62,8 @@
     "all-tests": "./bin/karma;  npm run spec;",
     "spec-end2end-features": "TEST_END_TO_END=true SELENIUM_BROWSER=HEADLESS_CHROME rspec spec/features",
     "spec-end2end-features-chrome": "TEST_END_TO_END=true SELENIUM_BROWSER=CHROME rspec spec/features",
-    "postinstall": "npm rebuild node-sass"
+    "postinstall": "npm rebuild node-sass",
+    "rebuild-assets": "rake tmp:cache:clear; rm -rf public/assets public/packs public/packs-test; rails assets:precompile RAILS_ENV=test"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

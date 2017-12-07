@@ -1,19 +1,54 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
+import {BinarySelectorField} from 'components/common/binarySelectorField'
+import CardLayout from 'components/common/cardLayout'
+import {Rfa01bPrivacyStatement, toggleInstructionStyle} from 'constants/rfaText'
 
 export default class PrivacyStatement extends React.Component {
   render () {
     return (
-      <div className='privacy_statement'>
-        <div id='PrivacyStatementCard' onClick={() => this.props.setFocusState('PrivacyStatementCard')}
-          className={this.props.getFocusClassName('privacy_statement') + ' ' + 'card phone-section double-gap-top'}>
-          <div className='card-header'><span>Privacy Statement</span></div>
-          <div className='card-body'>
-            <div className='row list-item'>
-            I'm PrivacyStatement
-            </div>
+      <CardLayout
+        idClassName='privacy_statement'
+        id='PrivacyStatementCard'
+        textAlignment='left'
+        label='Privacy Statement'
+        handleOnClick={() => this.props.setFocusState('PrivacyStatementCard')}
+        focusClassName={this.props.getFocusClassName('PrivacyStatementCard') +
+        ' ' + 'card phone-section double-gap-top'}>
+        <div >
+          <div id='privacyStatementToggle'
+            style={toggleInstructionStyle}
+            className='text-right'
+            onClick={() => this.props.setDisplayState('privacyStatementDisplay',
+              !this.props.privacyStatementDisplay)}>
+            {this.props.privacyStatementDisplay ? 'hide' : 'view'}
           </div>
+          {
+            this.props.privacyStatementDisplay
+              ? <div className='row list-item'>
+                <div>{Rfa01bPrivacyStatement.privacyStatememtA} </div>
+                <br />
+                <div>{Rfa01bPrivacyStatement.privacyStatememtB} </div>
+              </div>
+              : null
+          }
         </div>
-      </div>
+      </CardLayout>
     )
   }
+}
+
+PrivacyStatement.propTypes = {
+  focusComponentName: PropTypes.string,
+  getFocusClassName: PropTypes.func,
+  privacyStatementDisplay: PropTypes.bool,
+  setDisplayState: PropTypes.func,
+  setFocusState: PropTypes.func,
+  setParentState: PropTypes.func
+}
+
+PrivacyStatement.defaultProps = {
+  privacyStatementDisplay: false,
+  errors: []
 }

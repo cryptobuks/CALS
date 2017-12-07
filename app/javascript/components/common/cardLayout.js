@@ -6,6 +6,7 @@ const CardLayout = ({
   idClassName,
   focusClassName,
   handleOnClick,
+  textAlignment,
   id,
   label
 }) => (
@@ -18,8 +19,8 @@ const CardLayout = ({
         <span>{label}</span>
       </div>
       <div className='card-body'>
-        <div className='row list-item'>
-          <div className='text-center'>
+        <div className='row'>
+          <div className={'text-' + textAlignment}>
             {children}
           </div>
         </div>
@@ -31,6 +32,7 @@ const CardLayout = ({
 CardLayout.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
+  textAlignment: PropTypes.string,
   idClassName: PropTypes.string,
   focusClassName: PropTypes.string,
   handleOnClick: PropTypes.func,
@@ -38,6 +40,10 @@ CardLayout.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ])
+}
+
+CardLayout.defaultProps = {
+  textAlignment: 'center'
 }
 
 export default CardLayout

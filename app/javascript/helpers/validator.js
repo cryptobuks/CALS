@@ -75,13 +75,13 @@ export default class Validator {
     return true
   }
 
-  // isNotInTheFuture ({value}) {
-  //   return !(value > moment().toISOString())
-  // }
+  isNotInTheFuture ({value}) {
+    return !(value > moment().toISOString())
+  }
 
-  // isBeforeOtherDate ({value, otherValue}) {
-  //   return !(value && otherValue() && value >= otherValue())
-  // }
+  isBeforeOtherDate ({value, otherValue}) {
+    return !(value && otherValue() && value >= otherValue())
+  }
 
   is10digits (opt) {
     return (opt.value.length === 10) || (opt.value.length === 0)
@@ -119,14 +119,6 @@ export default class Validator {
 
   allIsRequiredRules () {
     return this.allValidationsWithOnlyRule('isRequired')
-  }
-
-  validateAllRequired (data) {
-    let requiredRules = this.allIsRequiredRules()
-    requiredRules.map((fieldRules, fieldName) => {
-      const fieldValue = _.get(data, fieldName)
-      this.validateField(fieldName, fieldValue)
-    })
   }
 
   validateFieldAndGetError (fieldName, value) {
@@ -174,6 +166,14 @@ export default class Validator {
     }
   }
 
+  validateAllRequired (data) {
+    let requiredRules = this.allIsRequiredRules()
+    requiredRules.map((fieldRules, fieldName) => {
+      const fieldValue = _.get(data, fieldName)
+      this.validateField(fieldName, fieldValue)
+    })
+  }
+
   validateAll (data) {
     // validate all fields
     this.validations.map((fieldRules, fieldName) => {
@@ -181,11 +181,11 @@ export default class Validator {
       this.validateField(fieldName, fieldValue)
     })
 
-    // validate all sub validators
-    // this.validators.map(v => {
-    //   console.log(v.datakey)
-    //   v.validateAll(immutableData.get(v.dataKey))
-    // })
+    //  validate all sub validators
+    this.validators.map(v => {
+      console.log(v.datakey)
+      v.validateAll(immutableData.get(v.dataKey))
+    })
   }
 
   validateAllFields (container) {

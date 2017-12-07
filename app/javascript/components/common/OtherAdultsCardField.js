@@ -23,7 +23,7 @@ export class OtherAdultsCardField extends React.Component {
 
     return (
       <form>
-        <DropDownField gridClassName='col-md-4' id='relationshipType'
+        <DropDownField gridClassName='col-md-4' id={this.props.idPrefix + 'relationshipType'}
           selectClassName='reusable-select'
           optionList={this.props.relationship_types}
           label='Relationship Type'
@@ -41,13 +41,13 @@ export class OtherAdultsCardField extends React.Component {
           onChange={(event) => this.props.onFieldChange(this.props.index,
             FormatDateForPersistance(event.target.value), 'date_of_birth')}
           onBlur={(event) => this.props.validator.validateFieldSetErrorState(otherAdultsRuleId, event.target.value)} />
-        <InputComponent gridClassName='col-md-4' id='firstName' value={adult.first_name}
+        <InputComponent gridClassName='col-md-4' id={this.props.idPrefix + 'firstName'} value={adult.first_name}
           label='First Name' placeholder='Enter First Name'
           type='text' onChange={(event) => this.props.onFieldChange(this.props.index, event.target.value, ('first_name'))} />
-        <InputComponent gridClassName='col-md-4' id='middleName' value={adult.middle_name}
+        <InputComponent gridClassName='col-md-4' id={this.props.idPrefix + 'middleName'} value={adult.middle_name}
           label='Middle Name' placeholder='Enter Middle Name'
           type='text' onChange={(event, id) => this.props.onFieldChange(this.props.index, event.target.value, ('middle_name'))} />
-        <InputComponent gridClassName='col-md-4' id='lastName' value={adult.last_name}
+        <InputComponent gridClassName='col-md-4' id={'lastName'} value={adult.last_name}
           label='Last Name' placeholder='Enter Last Name'
           type='text' onChange={(event, id) => this.props.onFieldChange(this.props.index, event.target.value, ('last_name'))} />
       </form>

@@ -48,12 +48,22 @@ export default class NameCard extends React.Component {
   }
 
   render () {
-    let nameCardsList = this.props.nameFields.other_names
+    let nameFields = this.props.nameFields
+    let nameCardsList = nameFields.other_names
     return (
       <div className='card-body'>
         <div className='row'>
           <CompleteNameFields
-            fieldValues={this.props.nameFields}
+            namePrefixId='name_prefix'
+            nameSuffixId='name_suffix'
+            firstNameId='first_name'
+            middleNameId='middle_name'
+            lastNameId='last_name'
+            firstName={nameFields.first_name}
+            middleName={nameFields.middle_name}
+            lastName={nameFields.last_name}
+            nameSuffix={nameFields.name_suffix}
+            namePrefix={nameFields.name_prefix}
             onChange={this.props.setParentState}
             suffixTypes={this.props.suffixTypes}
             prefixTypes={this.props.prefixTypes}
@@ -69,7 +79,16 @@ export default class NameCard extends React.Component {
                   className='pull-right glyphicon glyphicon-remove' />
                 <CompleteNameFields
                   index={index}
-                  fieldValues={nameCardFields}
+                  namePrefixId='name_prefix'
+                  nameSuffixId='name_suffix'
+                  firstNameId='first_name'
+                  middleNameId='middle_name'
+                  lastNameId='last_name'
+                  firstName={nameCardFields.first_name}
+                  middleName={nameCardFields.middle_name}
+                  lastName={nameCardFields.last_name}
+                  nameSuffix={nameCardFields.name_suffix}
+                  namePrefix={nameCardFields.name_prefix}
                   onChange={this.handleNameChange}
                   nameTypes={removeLegalNameType(this.props.nameTypes)}
                   suffixTypes={this.props.suffixTypes}

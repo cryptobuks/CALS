@@ -1,0 +1,669 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/1/rfa-1b-forms/applicants/1
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - "..Ge198rd32YFJD7nc.fWxHCvJA7H2KTuOE-hgw_J5HnZJ5Fmv1tOBl21QLc3liuiawE568AsaNyTTL6WALtkcd7w-QZ9MX4NcgjsSNinKZZ7g8PJp8JnKUrwypxO_BsDt8j-p4JZuAF_3h16UhHT7m2tqZgThu_txSVbgZgoKWLBeiCyBwU3P2m91kvqecS6Ni5VqVlLpoSnCkUNakJ-JL287aNaM72d-QMAZWE1WBjqWtzDgzPP1j4wmnGWgB9VlGXJJQdWZb1Ky_rVroKGki3or1wQYe2_kkvdJHDwafgi9qvX8OmhDuLSJwpDRQox_lLcDeSjGLlE6iI6CBIhATZC07RF7-tzf-4THlzgqmi10xYcH6KsCUe4IOS0kY4fTbaYFrr2A469moT2LPdox5aVYhKmHYvRx3ciPGUrb2lBC7VKmad6Khh77VIB4f1E8vyoFEE6X95oPOBQmLf860RBCC_r09iplz-LCL5-eDziPLpc87hzC4rK_HhFGccKpA4fQJIcZ7dwoH8BMVlTwr7NyzPoSpiPo4_GAduXL3iexe9yD_kCqWJfy8LNNM6vXycK8cP_np8gyMDARrICN9iBwBUIV4METaCBNbXz0Idx1qJq7RRqP6xXhG1cLHfPoDxzCo81SJlhcElspuwF0-O2nP5k45hXfk1IuXP6rO-vQZknH4dXfr1GGlLtt4l61ELYRZDQcwlKnifTYEvRPenTn4evZHoepz_ZHn0nOUvcEvOOZxcYMEmDnOwZP3nc2NlA62NI8HXD4oyXNAPrSQbVWm5Y0oOup1PcpNol6XGvX3enNfah9tZZbSsNz3-G-0U1awKV1Ns_ELFvvRBXzkUH3FS0f4LoSnY62nIQElRMQ2o1uCDqtXxiSAzKal4ZnAO1me4o98RAHwiIqGuhiNIceFJD-1vbbgL7dmZ0EnO1nSJVVe9KeRTupOfxWsTwZCcf9YxDgX3Yec0sOrESpboVG0RfWYjtLy8FG6YhDpWKVhK79I7wMjVjUp_FimzaqPAb0zpRp0MLhLBFbtiq3MwtMXUpm4QpwW45ajSbicCGXKpvsU2MRhPsFGL6Tk7Nt2wE1vVrd5e5y7K4fzojRs1A.fJwN-4e2JDJQskA-MC5YYg"
+  response:
+    status:
+      code: 201
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Wed, 29 Nov 2017 20:18:28 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 28-Nov-2017 20:18:28
+        GMT
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '39'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id" : 105,
+          "disclosures" : [ ]
+        }
+    http_version: 
+  recorded_at: Wed, 29 Nov 2017 20:18:28 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/counties
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - "..Ge198rd32YFJD7nc.fWxHCvJA7H2KTuOE-hgw_J5HnZJ5Fmv1tOBl21QLc3liuiawE568AsaNyTTL6WALtkcd7w-QZ9MX4NcgjsSNinKZZ7g8PJp8JnKUrwypxO_BsDt8j-p4JZuAF_3h16UhHT7m2tqZgThu_txSVbgZgoKWLBeiCyBwU3P2m91kvqecS6Ni5VqVlLpoSnCkUNakJ-JL287aNaM72d-QMAZWE1WBjqWtzDgzPP1j4wmnGWgB9VlGXJJQdWZb1Ky_rVroKGki3or1wQYe2_kkvdJHDwafgi9qvX8OmhDuLSJwpDRQox_lLcDeSjGLlE6iI6CBIhATZC07RF7-tzf-4THlzgqmi10xYcH6KsCUe4IOS0kY4fTbaYFrr2A469moT2LPdox5aVYhKmHYvRx3ciPGUrb2lBC7VKmad6Khh77VIB4f1E8vyoFEE6X95oPOBQmLf860RBCC_r09iplz-LCL5-eDziPLpc87hzC4rK_HhFGccKpA4fQJIcZ7dwoH8BMVlTwr7NyzPoSpiPo4_GAduXL3iexe9yD_kCqWJfy8LNNM6vXycK8cP_np8gyMDARrICN9iBwBUIV4METaCBNbXz0Idx1qJq7RRqP6xXhG1cLHfPoDxzCo81SJlhcElspuwF0-O2nP5k45hXfk1IuXP6rO-vQZknH4dXfr1GGlLtt4l61ELYRZDQcwlKnifTYEvRPenTn4evZHoepz_ZHn0nOUvcEvOOZxcYMEmDnOwZP3nc2NlA62NI8HXD4oyXNAPrSQbVWm5Y0oOup1PcpNol6XGvX3enNfah9tZZbSsNz3-G-0U1awKV1Ns_ELFvvRBXzkUH3FS0f4LoSnY62nIQElRMQ2o1uCDqtXxiSAzKal4ZnAO1me4o98RAHwiIqGuhiNIceFJD-1vbbgL7dmZ0EnO1nSJVVe9KeRTupOfxWsTwZCcf9YxDgX3Yec0sOrESpboVG0RfWYjtLy8FG6YhDpWKVhK79I7wMjVjUp_FimzaqPAb0zpRp0MLhLBFbtiq3MwtMXUpm4QpwW45ajSbicCGXKpvsU2MRhPsFGL6Tk7Nt2wE1vVrd5e5y7K4fzojRs1A.fJwN-4e2JDJQskA-MC5YYg"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Wed, 29 Nov 2017 20:18:28 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 28-Nov-2017 20:18:28
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '591'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Alameda",
+            "id" : 1
+          }, {
+            "value" : "Alpine",
+            "id" : 2
+          }, {
+            "value" : "Amador",
+            "id" : 3
+          }, {
+            "value" : "Butte",
+            "id" : 4
+          }, {
+            "value" : "Calaveras",
+            "id" : 5
+          }, {
+            "value" : "Colusa",
+            "id" : 6
+          }, {
+            "value" : "Contra Costa",
+            "id" : 7
+          }, {
+            "value" : "Del Norte",
+            "id" : 8
+          }, {
+            "value" : "El Dorado",
+            "id" : 9
+          }, {
+            "value" : "Fresno",
+            "id" : 10
+          }, {
+            "value" : "Glenn",
+            "id" : 11
+          }, {
+            "value" : "Humboldt",
+            "id" : 12
+          }, {
+            "value" : "Imperial",
+            "id" : 13
+          }, {
+            "value" : "Inyo",
+            "id" : 14
+          }, {
+            "value" : "Kern",
+            "id" : 15
+          }, {
+            "value" : "Kings",
+            "id" : 16
+          }, {
+            "value" : "Lake",
+            "id" : 17
+          }, {
+            "value" : "Lassen",
+            "id" : 18
+          }, {
+            "value" : "Los Angeles",
+            "id" : 19
+          }, {
+            "value" : "Madera",
+            "id" : 20
+          }, {
+            "value" : "Marin",
+            "id" : 21
+          }, {
+            "value" : "Mariposa",
+            "id" : 22
+          }, {
+            "value" : "Mendocino",
+            "id" : 23
+          }, {
+            "value" : "Merced",
+            "id" : 24
+          }, {
+            "value" : "Modoc",
+            "id" : 25
+          }, {
+            "value" : "Mono",
+            "id" : 26
+          }, {
+            "value" : "Monterey",
+            "id" : 27
+          }, {
+            "value" : "Napa",
+            "id" : 28
+          }, {
+            "value" : "Nevada",
+            "id" : 29
+          }, {
+            "value" : "Orange",
+            "id" : 30
+          }, {
+            "value" : "Placer",
+            "id" : 31
+          }, {
+            "value" : "Plumas",
+            "id" : 32
+          }, {
+            "value" : "Riverside",
+            "id" : 33
+          }, {
+            "value" : "Sacramento",
+            "id" : 34
+          }, {
+            "value" : "San Benito",
+            "id" : 35
+          }, {
+            "value" : "San Bernardino",
+            "id" : 36
+          }, {
+            "value" : "San Diego",
+            "id" : 37
+          }, {
+            "value" : "San Francisco",
+            "id" : 38
+          }, {
+            "value" : "San Joaquin",
+            "id" : 39
+          }, {
+            "value" : "San Luis Obispo",
+            "id" : 40
+          }, {
+            "value" : "San Mateo",
+            "id" : 41
+          }, {
+            "value" : "Santa Barbara",
+            "id" : 42
+          }, {
+            "value" : "Santa Clara",
+            "id" : 43
+          }, {
+            "value" : "Santa Cruz",
+            "id" : 44
+          }, {
+            "value" : "Shasta",
+            "id" : 45
+          }, {
+            "value" : "Sierra",
+            "id" : 46
+          }, {
+            "value" : "Siskiyou",
+            "id" : 47
+          }, {
+            "value" : "Solano",
+            "id" : 48
+          }, {
+            "value" : "Sonoma",
+            "id" : 49
+          }, {
+            "value" : "Stanislaus",
+            "id" : 50
+          }, {
+            "value" : "Sutter",
+            "id" : 51
+          }, {
+            "value" : "Tehama",
+            "id" : 52
+          }, {
+            "value" : "Trinity",
+            "id" : 53
+          }, {
+            "value" : "Tulare",
+            "id" : 54
+          }, {
+            "value" : "Tuolumne",
+            "id" : 55
+          }, {
+            "value" : "Ventura",
+            "id" : 56
+          }, {
+            "value" : "Yolo",
+            "id" : 57
+          }, {
+            "value" : "Yuba",
+            "id" : 58
+          }, {
+            "value" : "State of California",
+            "id" : 59
+          } ]
+        }
+    http_version: 
+  recorded_at: Wed, 29 Nov 2017 20:18:28 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/name-suffix-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - "..Ge198rd32YFJD7nc.fWxHCvJA7H2KTuOE-hgw_J5HnZJ5Fmv1tOBl21QLc3liuiawE568AsaNyTTL6WALtkcd7w-QZ9MX4NcgjsSNinKZZ7g8PJp8JnKUrwypxO_BsDt8j-p4JZuAF_3h16UhHT7m2tqZgThu_txSVbgZgoKWLBeiCyBwU3P2m91kvqecS6Ni5VqVlLpoSnCkUNakJ-JL287aNaM72d-QMAZWE1WBjqWtzDgzPP1j4wmnGWgB9VlGXJJQdWZb1Ky_rVroKGki3or1wQYe2_kkvdJHDwafgi9qvX8OmhDuLSJwpDRQox_lLcDeSjGLlE6iI6CBIhATZC07RF7-tzf-4THlzgqmi10xYcH6KsCUe4IOS0kY4fTbaYFrr2A469moT2LPdox5aVYhKmHYvRx3ciPGUrb2lBC7VKmad6Khh77VIB4f1E8vyoFEE6X95oPOBQmLf860RBCC_r09iplz-LCL5-eDziPLpc87hzC4rK_HhFGccKpA4fQJIcZ7dwoH8BMVlTwr7NyzPoSpiPo4_GAduXL3iexe9yD_kCqWJfy8LNNM6vXycK8cP_np8gyMDARrICN9iBwBUIV4METaCBNbXz0Idx1qJq7RRqP6xXhG1cLHfPoDxzCo81SJlhcElspuwF0-O2nP5k45hXfk1IuXP6rO-vQZknH4dXfr1GGlLtt4l61ELYRZDQcwlKnifTYEvRPenTn4evZHoepz_ZHn0nOUvcEvOOZxcYMEmDnOwZP3nc2NlA62NI8HXD4oyXNAPrSQbVWm5Y0oOup1PcpNol6XGvX3enNfah9tZZbSsNz3-G-0U1awKV1Ns_ELFvvRBXzkUH3FS0f4LoSnY62nIQElRMQ2o1uCDqtXxiSAzKal4ZnAO1me4o98RAHwiIqGuhiNIceFJD-1vbbgL7dmZ0EnO1nSJVVe9KeRTupOfxWsTwZCcf9YxDgX3Yec0sOrESpboVG0RfWYjtLy8FG6YhDpWKVhK79I7wMjVjUp_FimzaqPAb0zpRp0MLhLBFbtiq3MwtMXUpm4QpwW45ajSbicCGXKpvsU2MRhPsFGL6Tk7Nt2wE1vVrd5e5y7K4fzojRs1A.fJwN-4e2JDJQskA-MC5YYg"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Wed, 29 Nov 2017 20:18:28 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 28-Nov-2017 20:18:28
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '123'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Esq",
+            "id" : 1
+          }, {
+            "value" : "II",
+            "id" : 2
+          }, {
+            "value" : "III",
+            "id" : 3
+          }, {
+            "value" : "IV",
+            "id" : 4
+          }, {
+            "value" : "JD",
+            "id" : 9
+          }, {
+            "value" : "Jr",
+            "id" : 5
+          }, {
+            "value" : "MD",
+            "id" : 7
+          }, {
+            "value" : "PhD",
+            "id" : 8
+          }, {
+            "value" : "Sr",
+            "id" : 6
+          } ]
+        }
+    http_version: 
+  recorded_at: Wed, 29 Nov 2017 20:18:28 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/name-prefix-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - "..Ge198rd32YFJD7nc.fWxHCvJA7H2KTuOE-hgw_J5HnZJ5Fmv1tOBl21QLc3liuiawE568AsaNyTTL6WALtkcd7w-QZ9MX4NcgjsSNinKZZ7g8PJp8JnKUrwypxO_BsDt8j-p4JZuAF_3h16UhHT7m2tqZgThu_txSVbgZgoKWLBeiCyBwU3P2m91kvqecS6Ni5VqVlLpoSnCkUNakJ-JL287aNaM72d-QMAZWE1WBjqWtzDgzPP1j4wmnGWgB9VlGXJJQdWZb1Ky_rVroKGki3or1wQYe2_kkvdJHDwafgi9qvX8OmhDuLSJwpDRQox_lLcDeSjGLlE6iI6CBIhATZC07RF7-tzf-4THlzgqmi10xYcH6KsCUe4IOS0kY4fTbaYFrr2A469moT2LPdox5aVYhKmHYvRx3ciPGUrb2lBC7VKmad6Khh77VIB4f1E8vyoFEE6X95oPOBQmLf860RBCC_r09iplz-LCL5-eDziPLpc87hzC4rK_HhFGccKpA4fQJIcZ7dwoH8BMVlTwr7NyzPoSpiPo4_GAduXL3iexe9yD_kCqWJfy8LNNM6vXycK8cP_np8gyMDARrICN9iBwBUIV4METaCBNbXz0Idx1qJq7RRqP6xXhG1cLHfPoDxzCo81SJlhcElspuwF0-O2nP5k45hXfk1IuXP6rO-vQZknH4dXfr1GGlLtt4l61ELYRZDQcwlKnifTYEvRPenTn4evZHoepz_ZHn0nOUvcEvOOZxcYMEmDnOwZP3nc2NlA62NI8HXD4oyXNAPrSQbVWm5Y0oOup1PcpNol6XGvX3enNfah9tZZbSsNz3-G-0U1awKV1Ns_ELFvvRBXzkUH3FS0f4LoSnY62nIQElRMQ2o1uCDqtXxiSAzKal4ZnAO1me4o98RAHwiIqGuhiNIceFJD-1vbbgL7dmZ0EnO1nSJVVe9KeRTupOfxWsTwZCcf9YxDgX3Yec0sOrESpboVG0RfWYjtLy8FG6YhDpWKVhK79I7wMjVjUp_FimzaqPAb0zpRp0MLhLBFbtiq3MwtMXUpm4QpwW45ajSbicCGXKpvsU2MRhPsFGL6Tk7Nt2wE1vVrd5e5y7K4fzojRs1A.fJwN-4e2JDJQskA-MC5YYg"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Wed, 29 Nov 2017 20:18:29 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 28-Nov-2017 20:18:29
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '105'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Dr.",
+            "id" : 4
+          }, {
+            "value" : "Miss",
+            "id" : 5
+          }, {
+            "value" : "Mr.",
+            "id" : 1
+          }, {
+            "value" : "Mrs.",
+            "id" : 3
+          }, {
+            "value" : "Ms.",
+            "id" : 2
+          }, {
+            "value" : "Rev.",
+            "id" : 6
+          } ]
+        }
+    http_version: 
+  recorded_at: Wed, 29 Nov 2017 20:18:29 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/states
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - "..Ge198rd32YFJD7nc.fWxHCvJA7H2KTuOE-hgw_J5HnZJ5Fmv1tOBl21QLc3liuiawE568AsaNyTTL6WALtkcd7w-QZ9MX4NcgjsSNinKZZ7g8PJp8JnKUrwypxO_BsDt8j-p4JZuAF_3h16UhHT7m2tqZgThu_txSVbgZgoKWLBeiCyBwU3P2m91kvqecS6Ni5VqVlLpoSnCkUNakJ-JL287aNaM72d-QMAZWE1WBjqWtzDgzPP1j4wmnGWgB9VlGXJJQdWZb1Ky_rVroKGki3or1wQYe2_kkvdJHDwafgi9qvX8OmhDuLSJwpDRQox_lLcDeSjGLlE6iI6CBIhATZC07RF7-tzf-4THlzgqmi10xYcH6KsCUe4IOS0kY4fTbaYFrr2A469moT2LPdox5aVYhKmHYvRx3ciPGUrb2lBC7VKmad6Khh77VIB4f1E8vyoFEE6X95oPOBQmLf860RBCC_r09iplz-LCL5-eDziPLpc87hzC4rK_HhFGccKpA4fQJIcZ7dwoH8BMVlTwr7NyzPoSpiPo4_GAduXL3iexe9yD_kCqWJfy8LNNM6vXycK8cP_np8gyMDARrICN9iBwBUIV4METaCBNbXz0Idx1qJq7RRqP6xXhG1cLHfPoDxzCo81SJlhcElspuwF0-O2nP5k45hXfk1IuXP6rO-vQZknH4dXfr1GGlLtt4l61ELYRZDQcwlKnifTYEvRPenTn4evZHoepz_ZHn0nOUvcEvOOZxcYMEmDnOwZP3nc2NlA62NI8HXD4oyXNAPrSQbVWm5Y0oOup1PcpNol6XGvX3enNfah9tZZbSsNz3-G-0U1awKV1Ns_ELFvvRBXzkUH3FS0f4LoSnY62nIQElRMQ2o1uCDqtXxiSAzKal4ZnAO1me4o98RAHwiIqGuhiNIceFJD-1vbbgL7dmZ0EnO1nSJVVe9KeRTupOfxWsTwZCcf9YxDgX3Yec0sOrESpboVG0RfWYjtLy8FG6YhDpWKVhK79I7wMjVjUp_FimzaqPAb0zpRp0MLhLBFbtiq3MwtMXUpm4QpwW45ajSbicCGXKpvsU2MRhPsFGL6Tk7Nt2wE1vVrd5e5y7K4fzojRs1A.fJwN-4e2JDJQskA-MC5YYg"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Wed, 29 Nov 2017 20:18:29 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 28-Nov-2017 20:18:29
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '647'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Alaska",
+            "id" : "AK"
+          }, {
+            "value" : "Alabama",
+            "id" : "AL"
+          }, {
+            "value" : "American Samoa",
+            "id" : "AM"
+          }, {
+            "value" : "Arkansas",
+            "id" : "AR"
+          }, {
+            "value" : "Arizona",
+            "id" : "AZ"
+          }, {
+            "value" : "California",
+            "id" : "CA"
+          }, {
+            "value" : "Northern Marianas Islands",
+            "id" : "CM"
+          }, {
+            "value" : "Colorado",
+            "id" : "CO"
+          }, {
+            "value" : "Connecticut",
+            "id" : "CT"
+          }, {
+            "value" : "Canal Zone",
+            "id" : "CZ"
+          }, {
+            "value" : "District of Columbia",
+            "id" : "DC"
+          }, {
+            "value" : "Delaware",
+            "id" : "DE"
+          }, {
+            "value" : "Florida",
+            "id" : "FL"
+          }, {
+            "value" : "Georgia",
+            "id" : "GA"
+          }, {
+            "value" : "Guam",
+            "id" : "GU"
+          }, {
+            "value" : "Hawaii",
+            "id" : "HI"
+          }, {
+            "value" : "Iowa",
+            "id" : "IA"
+          }, {
+            "value" : "Idaho",
+            "id" : "ID"
+          }, {
+            "value" : "Illinois",
+            "id" : "IL"
+          }, {
+            "value" : "Indiana",
+            "id" : "IN"
+          }, {
+            "value" : "Kansas",
+            "id" : "KS"
+          }, {
+            "value" : "Kentucky",
+            "id" : "KY"
+          }, {
+            "value" : "Louisiana",
+            "id" : "LA"
+          }, {
+            "value" : "Massachusetts",
+            "id" : "MA"
+          }, {
+            "value" : "Maryland",
+            "id" : "MD"
+          }, {
+            "value" : "Maine",
+            "id" : "ME"
+          }, {
+            "value" : "Michigan",
+            "id" : "MI"
+          }, {
+            "value" : "Minnesota",
+            "id" : "MN"
+          }, {
+            "value" : "Missouri",
+            "id" : "MO"
+          }, {
+            "value" : "Mississippi",
+            "id" : "MS"
+          }, {
+            "value" : "Montana",
+            "id" : "MT"
+          }, {
+            "value" : "North Carolina",
+            "id" : "NC"
+          }, {
+            "value" : "North Dakota",
+            "id" : "ND"
+          }, {
+            "value" : "Nebraska",
+            "id" : "NE"
+          }, {
+            "value" : "New Hampshire",
+            "id" : "NH"
+          }, {
+            "value" : "New Jersey",
+            "id" : "NJ"
+          }, {
+            "value" : "New Mexico",
+            "id" : "NM"
+          }, {
+            "value" : "Nevada",
+            "id" : "NV"
+          }, {
+            "value" : "New York",
+            "id" : "NY"
+          }, {
+            "value" : "Ohio",
+            "id" : "OH"
+          }, {
+            "value" : "Oklahoma",
+            "id" : "OK"
+          }, {
+            "value" : "Oregon",
+            "id" : "OR"
+          }, {
+            "value" : "Pennsylvania",
+            "id" : "PA"
+          }, {
+            "value" : "Puerto Rico",
+            "id" : "PR"
+          }, {
+            "value" : "Rhode Island",
+            "id" : "RI"
+          }, {
+            "value" : "South Carolina",
+            "id" : "SC"
+          }, {
+            "value" : "South Dakota",
+            "id" : "SD"
+          }, {
+            "value" : "Tennessee",
+            "id" : "TN"
+          }, {
+            "value" : "Trust Territories",
+            "id" : "TT"
+          }, {
+            "value" : "Texas",
+            "id" : "TX"
+          }, {
+            "value" : "Utah",
+            "id" : "UT"
+          }, {
+            "value" : "Virginia",
+            "id" : "VA"
+          }, {
+            "value" : "Virgin Islands",
+            "id" : "VI"
+          }, {
+            "value" : "Vermont",
+            "id" : "VT"
+          }, {
+            "value" : "Washington",
+            "id" : "WA"
+          }, {
+            "value" : "Wisconsin",
+            "id" : "WI"
+          }, {
+            "value" : "West Virginia",
+            "id" : "WV"
+          }, {
+            "value" : "Wyoming",
+            "id" : "WY"
+          } ]
+        }
+    http_version: 
+  recorded_at: Wed, 29 Nov 2017 20:18:29 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/1/rfa-1b-forms/105
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - "..Ge198rd32YFJD7nc.fWxHCvJA7H2KTuOE-hgw_J5HnZJ5Fmv1tOBl21QLc3liuiawE568AsaNyTTL6WALtkcd7w-QZ9MX4NcgjsSNinKZZ7g8PJp8JnKUrwypxO_BsDt8j-p4JZuAF_3h16UhHT7m2tqZgThu_txSVbgZgoKWLBeiCyBwU3P2m91kvqecS6Ni5VqVlLpoSnCkUNakJ-JL287aNaM72d-QMAZWE1WBjqWtzDgzPP1j4wmnGWgB9VlGXJJQdWZb1Ky_rVroKGki3or1wQYe2_kkvdJHDwafgi9qvX8OmhDuLSJwpDRQox_lLcDeSjGLlE6iI6CBIhATZC07RF7-tzf-4THlzgqmi10xYcH6KsCUe4IOS0kY4fTbaYFrr2A469moT2LPdox5aVYhKmHYvRx3ciPGUrb2lBC7VKmad6Khh77VIB4f1E8vyoFEE6X95oPOBQmLf860RBCC_r09iplz-LCL5-eDziPLpc87hzC4rK_HhFGccKpA4fQJIcZ7dwoH8BMVlTwr7NyzPoSpiPo4_GAduXL3iexe9yD_kCqWJfy8LNNM6vXycK8cP_np8gyMDARrICN9iBwBUIV4METaCBNbXz0Idx1qJq7RRqP6xXhG1cLHfPoDxzCo81SJlhcElspuwF0-O2nP5k45hXfk1IuXP6rO-vQZknH4dXfr1GGlLtt4l61ELYRZDQcwlKnifTYEvRPenTn4evZHoepz_ZHn0nOUvcEvOOZxcYMEmDnOwZP3nc2NlA62NI8HXD4oyXNAPrSQbVWm5Y0oOup1PcpNol6XGvX3enNfah9tZZbSsNz3-G-0U1awKV1Ns_ELFvvRBXzkUH3FS0f4LoSnY62nIQElRMQ2o1uCDqtXxiSAzKal4ZnAO1me4o98RAHwiIqGuhiNIceFJD-1vbbgL7dmZ0EnO1nSJVVe9KeRTupOfxWsTwZCcf9YxDgX3Yec0sOrESpboVG0RfWYjtLy8FG6YhDpWKVhK79I7wMjVjUp_FimzaqPAb0zpRp0MLhLBFbtiq3MwtMXUpm4QpwW45ajSbicCGXKpvsU2MRhPsFGL6Tk7Nt2wE1vVrd5e5y7K4fzojRs1A.fJwN-4e2JDJQskA-MC5YYg"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Wed, 29 Nov 2017 20:18:29 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 28-Nov-2017 20:18:29
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '39'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id" : 105,
+          "disclosures" : [ ]
+        }
+    http_version: 
+  recorded_at: Wed, 29 Nov 2017 20:18:29 GMT
+recorded_with: VCR 3.0.3

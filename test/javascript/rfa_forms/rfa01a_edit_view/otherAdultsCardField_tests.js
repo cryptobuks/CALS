@@ -3,6 +3,7 @@ import {OtherAdultsCardField} from 'components/common/OtherAdultsCardField'
 import {shallow} from 'enzyme'
 import {relationshipTypes} from './../../helpers/constants'
 import Validator from 'helpers/validator'
+
 describe('Verify other adultsFields', function () {
   const applicants = [{
     first_name: 'gdfghfhgv',
@@ -43,6 +44,12 @@ describe('Verify other adultsFields', function () {
       onFieldChange={onFieldChangeSpy}
       otherAdults={OtherAdultsCard}
       validator={validator} />)
+  })
+
+  it('verifies relationship type field', () => {
+    let relationShipField = otherAdultsCardComp.find('#relationshipType')
+    relationShipField.simulate('change', {target: {selectedOptions: [{value: '2', text: 'Sibling'}]}})
+    expect(handleRelationshipTypeToApplicantSpy).toHaveBeenCalledWith(0, { id: '2', value: 'Sibling' }, 'relationship_to_applicant')
   })
 
   it('verifies applicantid field', () => {

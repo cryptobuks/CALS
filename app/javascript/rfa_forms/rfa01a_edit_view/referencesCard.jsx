@@ -34,12 +34,21 @@ export default class ReferencesCard extends React.Component {
 
   render () {
     const phoneNumberId = this.props.idPrefix + 'phone_number'
-
+    const reference = this.props.reference
     return (
       <div>
         <CompleteNameFields
           index={this.props.index}
-          fieldValues={this.props.reference}
+          namePrefixId='name_prefix'
+          nameSuffixId='name_suffix'
+          firstNameId='first_name'
+          middleNameId='middle_name'
+          lastNameId='last_name'
+          firstName={reference.first_name}
+          middleName={reference.middle_name}
+          lastName={reference.last_name}
+          nameSuffix={reference.name_suffix}
+          namePrefix={reference.name_prefix}
           suffixTypes={this.props.suffixTypes}
           prefixTypes={this.props.prefixTypes}
           onChange={this.props.setParentState} />
@@ -47,7 +56,7 @@ export default class ReferencesCard extends React.Component {
           index={this.props.index}
           stateTypes={this.props.stateTypes}
           addressTitle='Physical Address'
-          id="street_address"
+          id='street_address'
           addressFields={this.props.reference.mailing_address}
           onSelection={(suggestionData) => this.onSelection(suggestionData, this.props.index)}
           onChange={(fieldId, event) => this.handleAddressChange(fieldId, event, this.props.index)}

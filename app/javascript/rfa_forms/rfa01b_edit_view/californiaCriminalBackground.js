@@ -1,46 +1,113 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import Immutable from 'immutable'
+
 import CriminalFields from './criminalFields'
 import {DropDownField} from 'components/common/dropDownField'
-import {yesNo} from 'constants/constants'
+import YesNoRadioComponent from 'components/common/yesNoFields'
+
+import CardLayout from 'components/common/cardLayout'
+import Button from 'components/common/button'
+import {Rfa01bCaliforniaCriminalBackGroundCardText} from 'constants/rfaText'
+import {addCardAsJS, removeCard} from 'helpers/cardsHelper.jsx'
+
+const disclosureDefaults = Object.freeze({
+  'offense': '',
+  'offense_city': '',
+  'offense_state': {
+    value: 'California',
+    id: 'CA'},
+  'offense_date': '',
+  'when_offense_happen': '',
+  'offense_details': ''
+})
 
 export default class CaliforniaCriminalBackground extends React.Component {
-  addCard () {
-    console.log('add card')
+  constructor (props) {
+    super(props)
+    this.addCard = this.addCard.bind(this)
+    this.clickClose = this.clickClose.bind(this)
+    this.onFieldChange = this.onFieldChange.bind(this)
+  }
+
+  addCard (event) {
+    this.props.setParentState('convicted_in_california_disclosures', addCardAsJS(this.props.disclosures, disclosureDefaults))
+  }
+  clickClose (cardIndex) {
+    this.props.setParentState('convicted_in_california_disclosures', removeCard(this.props.disclosures, cardIndex, disclosureDefaults))
+  }
+
+  onFieldChange (cardIndex, key, value) {
+    let disclosures = Immutable.fromJS(this.props.disclosures)
+    disclosures = disclosures.update(cardIndex, x => x.set(key, value))
+    this.props.setParentState('convicted_in_california_disclosures', disclosures.toJS())
   }
 
   render () {
-    let crimes = this.props.crimes || []
+    const convictedInCalifornia = this.props.convictedInCalifornia
+    const disclosures = this.props.disclosures
     return (
-      <div className='ca_criminal_background'>
-        <div id='CACriminalBackgroundCard' onClick={() => this.props.setFocusState('CACriminalBackgroundCard')}
-          className={this.props.getFocusClassName('ca_criminal_background') + ' ' + 'card phone-section double-gap-top'}>
-          <div className='card-header'><span>Disclosure of Criminal Background - California (only)</span></div>
-          <div className='card-body'>
-            <div className='row list-item'>
-              <div>Have you ever been convicted of a crime in California?</div>
-              <div>You need not disclose any marijuana-related offenses covered by the marijuana reform legislation codified in Health and Safety Code
- sections 11361.5 and 11361.7.</div>
-              <DropDownField
-                gridClassName='col-md-4'
-                id='YesNo'
-                selectClassName={'reusable-select'}
-                value={''}
-                optionList={yesNo.items}
-                label={''}
-                onChange={(event) => this.props.onFieldChange()} />
-              {crimes.map((crime, index) => {
-                return (
-                  <CriminalFields
-                    onFieldChange={this.props.onFieldChange()} />
-                )
-              })}
-            </div>
-            <div className='text-center'>
-              <button onClick={this.addCard} className='btn btn-default'>Add Another Offense - California (only) +</button>
-            </div>
+
+      <CardLayout
+        idClassName='ca_criminal_background'
+        id='CACriminalBackgroundCard'
+        textAlignment='left'
+        label='Disclosure of Criminal Background - California (only)'
+        handleOnClick={() => this.props.setFocusState('CACriminalBackgroundCard')}
+        focusClassName={this.props.getFocusClassName('CACriminalBackgroundCard') + ' ' + 'card phone-section double-gap-top'}>
+        <div>
+          <div>{Rfa01bCaliforniaCriminalBackGroundCardText.convicted}</div>
+          <div>{Rfa01bCaliforniaCriminalBackGroundCardText.marijuana}</div>
+          <div>
+            <YesNoRadioComponent
+              idPrefix='californiaCriminalBackgroundRadio'
+              value={convictedInCalifornia}
+              onFieldChange={(event) => this.props.setParentState('convicted_in_california', !convictedInCalifornia)} />
           </div>
         </div>
-      </div>
+        {convictedInCalifornia
+          ? disclosures.map((crime, index) => {
+            return (
+              <div key={'californiaCriminalBackgroundKey' + index}>
+                <CriminalFields
+                  index={index}
+                  crime={crime}
+                  idPrefix='californiaCriminalBackground'
+                  clickClose={this.clickClose}
+                  onFieldChange={this.onFieldChange} />
+              </div>
+            )
+          })
+          : null
+        }
+
+        {convictedInCalifornia
+          ? <div>
+            <Button
+              id='CACrimeAdd'
+              label='Add Another Offense - California (only) +'
+              onClick={this.addCard} />
+          </div>
+          : null }
+
+      </CardLayout>
     )
   }
+}
+
+CaliforniaCriminalBackground.propTypes = {
+  convictedInCalifornia: PropTypes.bool,
+  getFocusClassName: PropTypes.func,
+  setFocusState: PropTypes.func,
+  setParentState: PropTypes.func,
+  stateTypes: PropTypes.array,
+  namePrefixTypes: PropTypes.array,
+  nameSuffixTypes: PropTypes.array,
+  errors: PropTypes.array
+}
+
+CaliforniaCriminalBackground.defaultProps = {
+  convictedInCalifornia: false,
+  disclosures: [disclosureDefaults],
+  errors: []
 }

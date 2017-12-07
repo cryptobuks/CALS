@@ -45,6 +45,16 @@ export default class DesiredChildCard extends React.Component {
         <CompleteNameFields
           index={0}
           fieldValues={child}
+          namePrefixId='name_prefix'
+          nameSuffixId='name_suffix'
+          firstNameId='first_name'
+          middleNameId='middle_name'
+          lastNameId='last_name'
+          firstName={child.first_name}
+          middleName={child.middle_name}
+          lastName={child.last_name}
+          nameSuffix={child.name_suffix}
+          namePrefix={child.name_prefix}
           suffixTypes={this.props.suffixTypes || []}
           onChange={(key, event) => this.props.setParentState(key, event, this.props.index)} />
         <div className='col-md-12'>

@@ -21,15 +21,6 @@ export default class ApplicantMaritalHistoryCard extends React.Component {
     let previousRelationshipPrefixId = this.props.idPrefix + 'PreviousRelationship.'
     let previousDissolutionPrefixId = this.props.idPrefix + 'PreviousDissolution.'
 
-    let nameFieldValues = {
-      first_name: maritalHistory.first_name,
-      middle_name: maritalHistory.middle_name,
-      last_name: maritalHistory.last_name,
-      name_suffix: maritalHistory.name_suffix,
-      name_prefix: maritalHistory.name_prefix,
-      name_type: maritalHistory.name_type
-    }
-
     return (
       <form>
         <div className='col-md-12'>
@@ -56,7 +47,16 @@ export default class ApplicantMaritalHistoryCard extends React.Component {
         <div className='col-md-12'>
           <CompleteNameFields
             index={this.props.index}
-            fieldValues={nameFieldValues}
+            namePrefixId='name_prefix'
+            nameSuffixId='name_suffix'
+            firstNameId='first_name'
+            middleNameId='middle_name'
+            lastNameId='last_name'
+            firstName={maritalHistory.first_name}
+            middleName={maritalHistory.middle_name}
+            lastName={maritalHistory.last_name}
+            nameSuffix={maritalHistory.name_suffix}
+            namePrefix={maritalHistory.name_prefix}
             suffixTypes={this.props.suffixTypes}
             prefixTypes={this.props.prefixTypes}
             onChange={this.props.changeMaritalHistory} />
