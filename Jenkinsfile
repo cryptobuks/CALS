@@ -8,7 +8,7 @@ def notify(String status)
     def colorCode = status == 'SUCCESS' ? '11AB1B' : '#FF0000'
     slackSend(
         color: colorCode,
-        message: "${env.JOB_NAME} - #${env.BUILD_NUMBER} *${status}* (Details at ${env.BUILD_URL})"
+        message: "${env.JOB_NAME} #${env.BUILD_NUMBER} - *${currentBuild.currentResult}* after ${currentBuild.durationString} (Details at ${env.BUILD_URL})"
     )
 }
 def reports()
