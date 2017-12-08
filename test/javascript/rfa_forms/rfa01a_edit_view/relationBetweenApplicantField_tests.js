@@ -41,13 +41,13 @@ describe('Verify relation between applicant', function () {
 
   it('verify relation ship state', () => {
     let relationField = relationCardComp.find('#place_of_relationship_state')
-    relationField.simulate('change', {target: {selectedOptions: [{value: '1', text: 'Alabama'}]}})
+    relationField.simulate('change', {target: {options: {'1': {value: '1', text: 'Alabama'}, selectedIndex: 1}}})
     expect(setParentStateSpy).toHaveBeenCalledWith('place_of_relationship_state', {id: '1', value: 'Alabama'})
   })
 
   it('verify relationship_type', () => {
     let relationField = relationCardComp.find('#relationship_type')
-    relationField.simulate('change', {target: {selectedOptions: [{value: '1', text: 'Married'}]}})
+    relationField.simulate('change', {target: {options: {'1': {value: '1', text: 'Married'}, selectedIndex: 1}}})
     expect(setParentStateSpy).toHaveBeenCalledWith('relationship_type', {id: '1', value: 'Married'})
   })
 

@@ -41,6 +41,7 @@ describe('Verify Applicant Card', () => {
       setParentState={setApplicantsStateSpy}
       validator={new Validator({})}
       setFocusState={setFocusStateSpy}
+      focusComponentName={'NameCard'}
       getFocusClassName={getFocusClassNameSpy} />)
   })
   it('individual card load', () => {
@@ -67,7 +68,9 @@ describe('Verify Applicant Card', () => {
     expect(setFocusStateSpy).toHaveBeenCalledWith('applicants[0].PhoneNumbersCard')
   })
   it('Verify application State Change', () => {
-    let firstNameField = applicantCardComponent.find('#firstname').hostNodes()
+    let namecardComponent = applicantCardComponent.find('.name-section').hostNodes()
+    let NameFields = namecardComponent.find('input[type="text"]')
+    let firstNameField = NameFields.find('#first_name')
     firstNameField.simulate('change', {target: {value: 'Anuroop'}})
     applicantFields.first_name = 'Anuroop'
     expect(setApplicantsStateSpy).toHaveBeenCalledWith(0, applicantFields)

@@ -76,7 +76,7 @@ export default class Employment extends React.Component {
               optionList={this.props.salaryTypes}
               label='Interval'
               disableNullVal
-              onChange={(event) => this.onEmploymentChange('income_type', dictionaryNilSelect(event.target.selectedOptions[0]))} />
+              onChange={(event) => this.onEmploymentChange('income_type', dictionaryNilSelect(event.target.options))} />
 
             <InputComponent gridClassName='col-md-12' id='street_address'
               value={employmentFields.physical_address.street_address}
@@ -98,7 +98,7 @@ export default class Employment extends React.Component {
               value={getDictionaryId(employmentFields.physical_address.state)}
               optionList={this.props.stateTypes}
               label='State'
-              onChange={(event) => this.onPhysicalAddressChange('state', dictionaryNilSelect(event.target.selectedOptions[0]))} />
+              onChange={(event) => this.onPhysicalAddressChange('state', dictionaryNilSelect(event.target.options))} />
           </form>
         </div>
       </div>

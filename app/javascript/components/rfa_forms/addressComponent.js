@@ -32,7 +32,7 @@ export default class AddressComponent extends React.Component {
     let updateSuggetions
     fetchRequest(url, 'POST', params).then(
       response => response.json()).then((response) => {
-      updateSuggetions = response[0]
+      updateSuggetions = Array.isArray(response) ? response[0] : suggestion
       this.props.onSelection(updateSuggetions)
     }).catch(() => {
       updateSuggetions = suggestion

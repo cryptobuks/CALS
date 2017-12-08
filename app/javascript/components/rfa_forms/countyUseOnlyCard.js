@@ -19,7 +19,7 @@ const CountyUseOnlyCard = ({
             <span>For County Use Only</span>
           </div>
           <div className='card-body'>
-            <div className='row list-item'>
+            <div className='row'>
               <DropDownField
                 gridClassName='col-md-4'
                 id='county'

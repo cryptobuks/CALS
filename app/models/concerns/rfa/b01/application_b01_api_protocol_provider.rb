@@ -12,5 +12,15 @@ module Concerns::Rfa::B01::ApplicationB01ApiProtocolProvider
       response = FaradayCals.get("/rfa-1a-forms/#{application_id}/rfa-1b-forms/", auth_header)
       JSON.parse(response.body)
     end
+
+    def find_by_id(id, application_id, auth_header)
+      response = FaradayCals.get( "/rfa-1a-forms/#{application_id}/rfa-1b-forms/#{id}", auth_header)
+      new(JSON.parse(response.body))
+    end
+
+    def update(id, application_id, body, auth_header)
+      response = FaradayCals.put( "/rfa-1a-forms/#{application_id}/rfa-1b-forms/#{id}", auth_header, body)
+      new(JSON.parse(response.body))
+    end
   end
 end

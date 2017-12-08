@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/1/rfa-1b-forms/applicants/1
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - "..Ge198rd32YFJD7nc.fWxHCvJA7H2KTuOE-hgw_J5HnZJ5Fmv1tOBl21QLc3liuiawE568AsaNyTTL6WALtkcd7w-QZ9MX4NcgjsSNinKZZ7g8PJp8JnKUrwypxO_BsDt8j-p4JZuAF_3h16UhHT7m2tqZgThu_txSVbgZgoKWLBeiCyBwU3P2m91kvqecS6Ni5VqVlLpoSnCkUNakJ-JL287aNaM72d-QMAZWE1WBjqWtzDgzPP1j4wmnGWgB9VlGXJJQdWZb1Ky_rVroKGki3or1wQYe2_kkvdJHDwafgi9qvX8OmhDuLSJwpDRQox_lLcDeSjGLlE6iI6CBIhATZC07RF7-tzf-4THlzgqmi10xYcH6KsCUe4IOS0kY4fTbaYFrr2A469moT2LPdox5aVYhKmHYvRx3ciPGUrb2lBC7VKmad6Khh77VIB4f1E8vyoFEE6X95oPOBQmLf860RBCC_r09iplz-LCL5-eDziPLpc87hzC4rK_HhFGccKpA4fQJIcZ7dwoH8BMVlTwr7NyzPoSpiPo4_GAduXL3iexe9yD_kCqWJfy8LNNM6vXycK8cP_np8gyMDARrICN9iBwBUIV4METaCBNbXz0Idx1qJq7RRqP6xXhG1cLHfPoDxzCo81SJlhcElspuwF0-O2nP5k45hXfk1IuXP6rO-vQZknH4dXfr1GGlLtt4l61ELYRZDQcwlKnifTYEvRPenTn4evZHoepz_ZHn0nOUvcEvOOZxcYMEmDnOwZP3nc2NlA62NI8HXD4oyXNAPrSQbVWm5Y0oOup1PcpNol6XGvX3enNfah9tZZbSsNz3-G-0U1awKV1Ns_ELFvvRBXzkUH3FS0f4LoSnY62nIQElRMQ2o1uCDqtXxiSAzKal4ZnAO1me4o98RAHwiIqGuhiNIceFJD-1vbbgL7dmZ0EnO1nSJVVe9KeRTupOfxWsTwZCcf9YxDgX3Yec0sOrESpboVG0RfWYjtLy8FG6YhDpWKVhK79I7wMjVjUp_FimzaqPAb0zpRp0MLhLBFbtiq3MwtMXUpm4QpwW45ajSbicCGXKpvsU2MRhPsFGL6Tk7Nt2wE1vVrd5e5y7K4fzojRs1A.fJwN-4e2JDJQskA-MC5YYg"
+  response:
+    status:
+      code: 201
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Wed, 29 Nov 2017 20:18:28 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 28-Nov-2017 20:18:28
+        GMT
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '39'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id" : 103,
+          "disclosures" : [ ]
+        }
+    http_version: 
+  recorded_at: Wed, 29 Nov 2017 20:18:28 GMT
+- request:
+    method: post
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/1/rfa-1b-forms/applicants/1
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - "..Ge198rd32YFJD7nc.fWxHCvJA7H2KTuOE-hgw_J5HnZJ5Fmv1tOBl21QLc3liuiawE568AsaNyTTL6WALtkcd7w-QZ9MX4NcgjsSNinKZZ7g8PJp8JnKUrwypxO_BsDt8j-p4JZuAF_3h16UhHT7m2tqZgThu_txSVbgZgoKWLBeiCyBwU3P2m91kvqecS6Ni5VqVlLpoSnCkUNakJ-JL287aNaM72d-QMAZWE1WBjqWtzDgzPP1j4wmnGWgB9VlGXJJQdWZb1Ky_rVroKGki3or1wQYe2_kkvdJHDwafgi9qvX8OmhDuLSJwpDRQox_lLcDeSjGLlE6iI6CBIhATZC07RF7-tzf-4THlzgqmi10xYcH6KsCUe4IOS0kY4fTbaYFrr2A469moT2LPdox5aVYhKmHYvRx3ciPGUrb2lBC7VKmad6Khh77VIB4f1E8vyoFEE6X95oPOBQmLf860RBCC_r09iplz-LCL5-eDziPLpc87hzC4rK_HhFGccKpA4fQJIcZ7dwoH8BMVlTwr7NyzPoSpiPo4_GAduXL3iexe9yD_kCqWJfy8LNNM6vXycK8cP_np8gyMDARrICN9iBwBUIV4METaCBNbXz0Idx1qJq7RRqP6xXhG1cLHfPoDxzCo81SJlhcElspuwF0-O2nP5k45hXfk1IuXP6rO-vQZknH4dXfr1GGlLtt4l61ELYRZDQcwlKnifTYEvRPenTn4evZHoepz_ZHn0nOUvcEvOOZxcYMEmDnOwZP3nc2NlA62NI8HXD4oyXNAPrSQbVWm5Y0oOup1PcpNol6XGvX3enNfah9tZZbSsNz3-G-0U1awKV1Ns_ELFvvRBXzkUH3FS0f4LoSnY62nIQElRMQ2o1uCDqtXxiSAzKal4ZnAO1me4o98RAHwiIqGuhiNIceFJD-1vbbgL7dmZ0EnO1nSJVVe9KeRTupOfxWsTwZCcf9YxDgX3Yec0sOrESpboVG0RfWYjtLy8FG6YhDpWKVhK79I7wMjVjUp_FimzaqPAb0zpRp0MLhLBFbtiq3MwtMXUpm4QpwW45ajSbicCGXKpvsU2MRhPsFGL6Tk7Nt2wE1vVrd5e5y7K4fzojRs1A.fJwN-4e2JDJQskA-MC5YYg"
+  response:
+    status:
+      code: 201
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Wed, 29 Nov 2017 20:18:28 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 28-Nov-2017 20:18:28
+        GMT
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '39'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id" : 104,
+          "disclosures" : [ ]
+        }
+    http_version: 
+  recorded_at: Wed, 29 Nov 2017 20:18:28 GMT
+recorded_with: VCR 3.0.3

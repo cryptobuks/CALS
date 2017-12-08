@@ -124,7 +124,7 @@ export default class Rfa01EditView extends React.Component {
               county={countyValue}
               CountyList={this.props.countyTypes}
               onFieldChange={(event) => this.setApplicationState('application_county',
-                dictionaryNilSelect(event.target.selectedOptions[0]))} />
+                dictionaryNilSelect(event.target.options))} />
 
             <ApplicantCardsGroup
               suffixTypes={this.props.suffixTypes}
@@ -164,7 +164,7 @@ export default class Rfa01EditView extends React.Component {
               <h3>III.<span>Relationship Between Applicant</span></h3>
               <RelationshipBetweenApplicantsCardMain
                 focusComponentName={this.state.focusComponentName}
-                relationshipBetweenApplicants={this.state.application.relationshipBetweenApplicants || {}}
+                relationshipBetweenApplicants={this.state.application.relationshipBetweenApplicants || undefined}
                 getFocusClassName={this.getFocusClassName}
                 setParentState={this.setApplicationState}
                 setFocusState={this.setFocusState}

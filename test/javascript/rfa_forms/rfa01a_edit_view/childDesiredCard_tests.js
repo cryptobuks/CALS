@@ -1,6 +1,6 @@
 import React from 'react'
 import ChildDesiredCard from 'rfa_forms/rfa01a_edit_view/childDesiredCard.jsx'
-import {siblingGroups, ageGroups} from './../../helpers/constants'
+import {siblingGroups, ageGroups, selec} from './../../helpers/constants'
 import {shallow, mount} from 'enzyme'
 
 describe('Verify relation between applicant', function () {
@@ -27,7 +27,7 @@ describe('Verify relation between applicant', function () {
   })
   it('verify child_identified', () => {
     let relationField = childCardComp.find('#child_identified')
-    relationField.simulate('change', {target: {selectedOptions: [{value: 'yes', text: 'yes'}]}})
+    relationField.simulate('change', {target: {options: {'2': {value: 'yes', text: 'yes'}, selectedIndex: 2}}})
     expect(setParentStateSpy).toHaveBeenCalledWith('child_identified', 'yes')
   })
   it('test Sibling onChange event', () => {
@@ -47,7 +47,7 @@ describe('Verify relation between applicant', function () {
     />)
     newChildDesired.child_in_home = 'true'
     let childInHomeField = newchildCardComp.find('#child_in_home').hostNodes()
-    childInHomeField.simulate('change', {target: {selectedOptions: [{value: 'true', text: 'Yes'}]}})
+    childInHomeField.simulate('change', {target: {options: {'2': {value: 'true', text: 'yes'}, selectedIndex: 2}}})
     expect(setParentStateSpy).toHaveBeenCalledWith('child_in_home', newChildDesired.child_in_home)
   })
 })

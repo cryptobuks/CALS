@@ -23,13 +23,13 @@ export default class RelationshipBetweenApplicantsCard extends React.Component {
   }
 
   setState (key, value) {
-    let newData = Immutable.fromJS(this.props.relationshipBetweenApplicants || blankValues)
+    let newData = Immutable.fromJS(this.props.relationshipBetweenApplicants)
     newData = newData.set(key, value)
     this.props.setParentState('relationshipBetweenApplicants', newData.toJS())
   }
 
   render () {
-    let data = this.props.relationshipBetweenApplicants || blankValues
+    let data = this.props.relationshipBetweenApplicants
     const idPrefix = 'relationshipBetweenApplicants.'
 
     return (
@@ -59,5 +59,6 @@ export default class RelationshipBetweenApplicantsCard extends React.Component {
 }
 
 RelationshipBetweenApplicantsCard.defaultProps = {
+  relationshipBetweenApplicants: blankValues,
   errors: {}
 }

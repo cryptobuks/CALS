@@ -49,13 +49,13 @@ describe('Verify References Main', () => {
     expect(referenceMainComp.length).toEqual(1)
   })
   it('verify reference card to create reference Object', () => {
-    let firstNameFieldChange = referenceMainComp.find('#firstname').hostNodes()
+    let firstNameFieldChange = referenceMainComp.find('#first_name').hostNodes()
     fieldRefValues.first_name = 'First Name'
     firstNameFieldChange.simulate('change', {target: {value: 'First Name'}})
     expect(setApplicationStateSpy).toHaveBeenCalledWith('references', [fieldRefValues])
   })
   it('verify reference card to check focus', () => {
-    let firstNameFieldChange = referenceMainComp.find('#firstname').hostNodes()
+    let firstNameFieldChange = referenceMainComp.find('#first_name').hostNodes()
     firstNameFieldChange.simulate('change', {target: {value: 'First Name'}})
     expect(getFocusClassNameSpy).toHaveBeenCalledWith('referenceMain_0')
     let firstReferenceSection = referenceMainComp.find('#referenceMain_0')

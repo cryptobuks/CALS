@@ -76,7 +76,7 @@ describe('Employment Card', function () {
     let incomeTypeField = employmentCardComp.find('#income_type')
     employmentCardComp.update()
     spyOn(employmentCardComp.instance(), 'onEmploymentChange').and.callThrough()
-    incomeTypeField.simulate('change', {target: {selectedOptions: [{value: '2', text: 'Monthly'}]}})
+    incomeTypeField.simulate('change', {target: {options: {'2': {value: '2', text: 'Monthly'}, selectedIndex: 2}}})
     expect(employmentCardComp.instance().onEmploymentChange).toHaveBeenCalledWith('income_type', {id: '2', value: 'Monthly'})
   })
   it('verify Physical Street Address Change', () => {
@@ -103,7 +103,7 @@ describe('Employment Card', function () {
     let physicalStateField = employmentCardComp.find('#state_type')
     employmentCardComp.update()
     spyOn(employmentCardComp.instance(), 'onPhysicalAddressChange').and.callThrough()
-    physicalStateField.simulate('change', {target: {selectedOptions: [{value: '17', text: 'Illinois'}]}})
+    physicalStateField.simulate('change', {target: {options: {'17': {value: '17', text: 'Illinois'}, selectedIndex: 17}}})
     expect(employmentCardComp.instance().onPhysicalAddressChange).toHaveBeenCalledWith('state', {id: '17', value: 'Illinois'})
   })
 })

@@ -1,8 +1,10 @@
 <div id="index_page">
   <%= react_component('rfa_forms/rfa_packet_list',
     {application_id: @application_id,
-      rfa_01a_application: @rfa_01a_application,
-      rfa_01c_application: @rfa_01c_application,
-        user: @user }, {prerender: false}) %>
+     rfa_01a_application: @rfa_01a_application,
+     rfa_01c_application: @rfa_01c_application,
+     rfa_packet_summary:  @rfa_packet_summary,
+     user: @user },
+    {prerender: false}) %>
   <%= javascript_pack_tag 'rfa_forms/rfa_packet_list' %>
 </div>

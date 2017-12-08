@@ -5,7 +5,7 @@ import {InputComponent} from 'components/common/inputFields'
 import {TextAreaComponent} from 'components/common/textArea'
 import {DropDownField} from 'components/common/dropDownField'
 import CheckboxGroup from 'components/common/checkboxGroup'
-import {dictionaryNilSelect, getDictionaryId} from 'helpers/commonHelper.jsx'
+import {dictionaryNilSelect, getDictionaryId, dictionaryNilSelectValue} from 'helpers/commonHelper.jsx'
 import {arrayLastToFirst} from 'helpers/cardsHelper.jsx'
 import {yesNo} from 'constants/constants'
 import {BinarySelectorField} from 'components/common/binarySelectorField'
@@ -31,13 +31,13 @@ export default class ChildDesiredCard extends React.Component {
           value={(this.props.desiredChildSection.child_identified)}
           optionList={yesNo.items}
           label={'Has the child been identified?'}
-          onChange={(event) => this.props.setParentState('child_identified', event.target.selectedOptions[0].value)} />
+          onChange={(event) => this.props.setParentState('child_identified', dictionaryNilSelectValue(event.target.options))} />
         {childCurrentlyInHomeVisible && <DropDownField id='child_in_home' gridClassName='col-md-12 '
           selectClassName='reusable-select col-md-4'
           value={(this.props.desiredChildSection.child_in_home)}
           optionList={yesNo.items}
           label={'Is the child currently in your home?'}
-          onChange={(event) => this.props.setParentState('child_in_home', event.target.selectedOptions[0].value)} />}
+          onChange={(event) => this.props.setParentState('child_in_home', dictionaryNilSelectValue(event.target.options))} />}
 
         <CheckboxGroup name='age'
           gridClassName='col-md-12 age'

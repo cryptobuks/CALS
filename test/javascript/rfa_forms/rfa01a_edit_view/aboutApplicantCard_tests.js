@@ -49,7 +49,7 @@ describe('Verify More About Applican', () => {
   it('High Level Education DropDown Change', () => {
     // spyOn(aboutApplicantComp.instance().props.setParentState, setCardState).and.callThrough()
     let higherEducationField = aboutApplicantComp.find('#highest_education_level')
-    higherEducationField.simulate('change', {target: {selectedOptions: [{value: '2', text: 'GED'}]}})
+    higherEducationField.simulate('change', {target: {options: {'2': {value: '2', text: 'GED'}, selectedIndex: 2}}})
     expect(setCardState).toHaveBeenCalledWith('highest_education_level', {id: '2', value: 'GED'})
   })
   it('Date Of Birth Change', () => {
@@ -59,12 +59,12 @@ describe('Verify More About Applican', () => {
   })
   it('Gender DropDown Change', () => {
     let genderField = aboutApplicantComp.find('#gender')
-    genderField.simulate('change', {target: {selectedOptions: [{value: '2', text: 'Female'}]}})
+    genderField.simulate('change', {target: {options: {'2': {value: '2', text: 'Female'}, selectedIndex: 2}}})
     expect(setCardState).toHaveBeenCalledWith('gender', {id: '2', value: 'Female'})
   })
   it('Race/Ethnicity DropDown Change', () => {
     let ethnicityField = aboutApplicantComp.find('#ethnicity')
-    ethnicityField.simulate('change', {target: {selectedOptions: [{value: '2', text: 'Hispanic'}]}})
+    ethnicityField.simulate('change', {target: {options: {'2': {value: '2', text: 'Hispanic'}, selectedIndex: 2}}})
     expect(setCardState).toHaveBeenCalledWith('ethnicity', {id: '2', value: 'Hispanic'})
   })
   it('Driver License Number Change', () => {
@@ -74,7 +74,7 @@ describe('Verify More About Applican', () => {
   })
   it('Driver License Sate DropDown Change', () => {
     let DLStateField = aboutApplicantComp.find('#applicant0driver_license_state')
-    DLStateField.simulate('change', {target: {selectedOptions: [{value: '17', text: 'Illinois'}]}})
+    DLStateField.simulate('change', {target: {options: {'17': {value: '17', text: 'Illinois'}, selectedIndex: 17}}})
     expect(setCardState).toHaveBeenCalledWith('driver_license_state', {id: '17', value: 'Illinois'})
   })
   it('Email Address Change', () => {

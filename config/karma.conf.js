@@ -59,7 +59,7 @@ module.exports = function (config) {
         global: {
           statements: 73,
           branches: 61,
-          functions: 64,
+          functions: 65,
           lines: 74,
           excludes: []
         }

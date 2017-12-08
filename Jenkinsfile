@@ -3,9 +3,13 @@
 DOCKER_GROUP = 'cwds'
 DOCKER_IMAGE = 'cals'
 
-def notifyGithub(String status, String description)
+def notify(String status)
 {
-
+    def colorCode = status == 'SUCCESS' ? '11AB1B' : '#FF0000'
+    slackSend(
+        color: colorCode,
+        message: "${env.JOB_NAME} - #${env.BUILD_NUMBER} *${status}* (Details at ${env.BUILD_URL})"
+    )
 }
 def reports()
 {
@@ -115,6 +119,7 @@ node {
     }
     finally {
         reports()
+        notify(pipelineStatus)
         // cleanWs()
     }
 }

@@ -45,6 +45,16 @@ export default class DesiredChildCard extends React.Component {
         <CompleteNameFields
           index={0}
           fieldValues={child}
+          namePrefixId='name_prefix'
+          nameSuffixId='name_suffix'
+          firstNameId='first_name'
+          middleNameId='middle_name'
+          lastNameId='last_name'
+          firstName={child.first_name}
+          middleName={child.middle_name}
+          lastName={child.last_name}
+          nameSuffix={child.name_suffix}
+          namePrefix={child.name_prefix}
           suffixTypes={this.props.suffixTypes || []}
           onChange={(key, event) => this.props.setParentState(key, event, this.props.index)} />
         <div className='col-md-12'>
@@ -56,13 +66,13 @@ export default class DesiredChildCard extends React.Component {
             optionList={this.props.genderTypes}
             label='Gender'
             value={getDictionaryId(child.gender)}
-            onChange={(event) => this.props.setParentState('gender', dictionaryNilSelect(event.target.selectedOptions[0]), this.props.index)} />
+            onChange={(event) => this.props.setParentState('gender', dictionaryNilSelect(event.target.options), this.props.index)} />
           <DropDownField id='county_of_juridiction' gridClassName='col-md-4'
             selectClassName={'reusable-select'}
             value={getDictionaryId(child.county_of_jurisdiction)}
             optionList={this.props.countyTypes}
             label={'County of Juridiction'}
-            onChange={(event) => this.props.setParentState('county_of_jurisdiction', dictionaryNilSelect(event.target.selectedOptions[0]), this.props.index)} />
+            onChange={(event) => this.props.setParentState('county_of_jurisdiction', dictionaryNilSelect(event.target.options), this.props.index)} />
         </div>
 
         <div className='col-md-12'>
@@ -89,7 +99,7 @@ export default class DesiredChildCard extends React.Component {
             value={getDictionaryId(child.school_grade)}
             optionList={this.props.schoolGrades}
             label={'Grade'}
-            onChange={(event) => this.props.setParentState('school_grade', dictionaryNilSelect(event.target.selectedOptions[0]), this.props.index)} />
+            onChange={(event) => this.props.setParentState('school_grade', dictionaryNilSelect(event.target.options), this.props.index)} />
 
           <InputComponent gridClassName='col-md-8' id='name_of_school'
             value={child.school_name}

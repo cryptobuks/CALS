@@ -7,5 +7,6 @@ module Concerns::Rfa::C01::ApplicationC01ApiProtocolProvider
       response = FaradayCals.get('/rfa-1a-forms/' + application_id + '/rfa-1c-forms/' + rfa_c01_form_id, auth_header)
       JSON.parse(response.body)
     end
+
   end
 end
