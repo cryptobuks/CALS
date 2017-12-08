@@ -119,9 +119,4 @@ describe('Verify RFA 01C child desired', function () {
     relationField.simulate('change', {target: {value: '01/01/2000'}})
     expect(setParentStateSpy).toHaveBeenCalledWith('date_of_placement', '2000-01-01', 0)
   })
-  it('verify street address field', () => {
-    let relationField = childCardComp.find('#street_address').at(0)
-    relationField.simulate('change', {target: {value: '1'}})
-    expect(setParentStateSpy).toHaveBeenCalledWith('school_address', Object({ street_address: Object({ target: Object({ value: '1' }) }), zip: '', city: '', state: Object({ value: '', id: 0 }), type: Object({ value: '', id: 0 }) }), undefined)
-  })
 })
