@@ -70,7 +70,7 @@ export default class CommonAddressFields extends React.Component {
           value={getDictionaryId(addressFields.state)}
           optionList={this.props.stateTypes}
           label='State'
-          onChange={(event) => this.props.onChange('state', dictionaryNilSelect(event.target.selectedOptions[0]))} />
+          onChange={(event) => this.props.onChange('state', dictionaryNilSelect(event.target.options))} />
       </div>
     )
   }

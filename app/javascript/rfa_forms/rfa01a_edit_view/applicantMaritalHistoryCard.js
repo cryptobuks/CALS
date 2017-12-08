@@ -32,7 +32,7 @@ export default class ApplicantMaritalHistoryCard extends React.Component {
             optionList={setToWhomOptionList(this.props.applicants)}
             value={maritalHistory.applicant_id}
             onChange={(event) => this.props.changeMaritalHistory('applicant_id',
-              dictionaryNilSelect(event.target.selectedOptions[0]).id, this.props.index)} />
+              dictionaryNilSelect(event.target.options).id, this.props.index)} />
 
           <DropDownField
             gridClassName='col-md-4'
@@ -42,7 +42,7 @@ export default class ApplicantMaritalHistoryCard extends React.Component {
             optionList={this.props.relationshipTypes}
             value={getDictionaryId(maritalHistory.relationship_type)}
             onChange={(event) => this.props.changeMaritalHistory('relationship_type',
-              dictionaryNilSelect(event.target.selectedOptions[0]), this.props.index)} />
+              dictionaryNilSelect(event.target.options), this.props.index)} />
         </div>
         <div className='col-md-12'>
           <CompleteNameFields
@@ -73,7 +73,7 @@ export default class ApplicantMaritalHistoryCard extends React.Component {
             cityValue={maritalHistory.place_of_marriage_city}
             onDateChange={(event) => this.props.changeMaritalHistory('date_of_marriage', FormatDateForPersistance(event.target.value), this.props.index)}
             onCityChange={(event) => this.props.changeMaritalHistory('place_of_marriage_city', event.target.value, this.props.index)}
-            onStateChange={(event) => this.props.changeMaritalHistory('place_of_marriage_state', dictionaryNilSelect(event.target.selectedOptions[0]), this.props.index)}
+            onStateChange={(event) => this.props.changeMaritalHistory('place_of_marriage_state', dictionaryNilSelect(event.target.options), this.props.index)}
             stateTypes={this.props.stateTypes}
             onBlurChange={(event) => this.props.validator.validateFieldSetErrorState(this.props.idPrefix + 'date_of_marriage', event.target.value)}
             errors={fieldErrorsAsImmutableSet(this.props.errors.date_of_marriage)} />
@@ -90,7 +90,7 @@ export default class ApplicantMaritalHistoryCard extends React.Component {
             cityValue={maritalHistory.place_of_marriage_end_city}
             onDateChange={(event) => this.props.changeMaritalHistory('date_of_marriage_end', FormatDateForPersistance(event.target.value), this.props.index)}
             onCityChange={(event) => this.props.changeMaritalHistory('place_of_marriage_end_city', event.target.value, this.props.index)}
-            onStateChange={(event) => this.props.changeMaritalHistory('place_of_marriage_end_state', dictionaryNilSelect(event.target.selectedOptions[0]), this.props.index)}
+            onStateChange={(event) => this.props.changeMaritalHistory('place_of_marriage_end_state', dictionaryNilSelect(event.target.options), this.props.index)}
             stateTypes={this.props.stateTypes}
             onBlurChange={(event) => this.props.validator.validateFieldSetErrorState(this.props.idPrefix + 'date_of_marriage_end', event.target.value)}
             errors={fieldErrorsAsImmutableSet(this.props.errors.date_of_marriage_end)} />
@@ -103,7 +103,7 @@ export default class ApplicantMaritalHistoryCard extends React.Component {
             selectClassName={'reusable-select'}
             optionList={this.props.marriageTerminationReasons}
             label={'Relationship Terminated by'}
-            onChange={(event) => this.props.changeMaritalHistory('marriage_termination_reason', dictionaryNilSelect(event.target.selectedOptions[0]), this.props.index)} />
+            onChange={(event) => this.props.changeMaritalHistory('marriage_termination_reason', dictionaryNilSelect(event.target.options), this.props.index)} />
         </div>
       </form>
     )

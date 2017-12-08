@@ -21,7 +21,7 @@ export class AgencyComponent extends React.Component {
           selectClassName={'reusable-select'}
           optionList={this.props.optionList}
           label={this.props.dropdownLabel}
-          onChange={(event, id) => this.props.onAgencyChange(event, this.props.agencies, this.props.index, 'type', this.props.defKey, this.props.subKey, dictionaryNilSelect(event.target.selectedOptions[0]))} />
+          onChange={(event, id) => this.props.onAgencyChange(event, this.props.agencies, this.props.index, 'type', this.props.defKey, this.props.subKey, dictionaryNilSelect(event.target.options))} />
       </div>
     )
   }

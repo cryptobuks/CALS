@@ -67,7 +67,7 @@ describe('Adult Children Component', () => {
   })
   it('relation ship type DropDown Change', () => {
     let selectRelationType = adultChildComponent.find('select').at(0)
-    selectRelationType.simulate('change', {target: {selectedOptions: [{value: '1', text: 'Child'}]}})
+    selectRelationType.simulate('change', {target: {options: {'1': {value: '1', text: 'Child'}, selectedIndex: 1}}})
     expect(onChangeSpy).toHaveBeenCalledWith(0, {id: '1', value: 'Child'}, 'relationship_to_applicant')
   })
   it('Available applicants type DropDown Change', () => {
@@ -77,7 +77,7 @@ describe('Adult Children Component', () => {
   })
   it('Child Name Prefix type DropDown Change', () => {
     let selectNamePrefix = adultChildComponent.find('select').at(2)
-    selectNamePrefix.simulate('change', {target: {selectedOptions: [{value: '1', text: 'Mr.'}]}})
+    selectNamePrefix.simulate('change', {target: {options: {'1': {value: '1', text: 'Mr.'}, selectedIndex: 1}}})
     expect(onChangeSpy).toHaveBeenCalledWith('name_prefix', {id: '1', value: 'Mr.'}, 0)
   })
   describe('verify lives in Home logic', () => {

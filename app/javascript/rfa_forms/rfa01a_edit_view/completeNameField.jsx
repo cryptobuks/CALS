@@ -33,7 +33,7 @@ const CompleteNameFields = ({
           selectClassName={'reusable-select'}
           optionList={prefixTypes}
           label={'Prefix'}
-          onChange={(event, id) => onChange(namePrefixId, dictionaryNilSelect(event.target.selectedOptions[0]), index)} />
+          onChange={(event, id) => onChange(namePrefixId, dictionaryNilSelect(event.target.options), index)} />
       </div>
     }
     <div className='col-md-12 remove-padding'>
@@ -56,7 +56,7 @@ const CompleteNameFields = ({
         selectClassName={'reusable-select'}
         optionList={suffixTypes}
         label={'Suffix'}
-        onChange={(event, id) => onChange(nameSuffixId, dictionaryNilSelect(event.target.selectedOptions[0]), index)} />
+        onChange={(event, id) => onChange(nameSuffixId, dictionaryNilSelect(event.target.options), index)} />
     </div>
     {
       nameTypes && <div className='col-md-4 remove-padding'>
@@ -67,7 +67,7 @@ const CompleteNameFields = ({
           selectClassName={'reusable-select'}
           optionList={nameTypes}
           label={'Name Type'}
-          onChange={(event, id) => onChange(nameTypeId, dictionaryNilSelect(event.target.selectedOptions[0]), index)} />
+          onChange={(event, id) => onChange(nameTypeId, dictionaryNilSelect(event.target.options), index)} />
       </div>
     }
   </div>)

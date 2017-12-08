@@ -25,6 +25,9 @@ RSpec.feature 'RFA', js: true do
     fill_in('middle_name', with: 'k', :match => :prefer_exact)
     fill_in('last_name', with: Faker::Name.name, :match => :prefer_exact)
     fill_in 'applicants[0].driver_license_number', with: 'ABC123'
+    fill_in('first_name', with: Faker::Name.name, :match => :prefer_exact)
+    fill_in('middle_name', with: 'k', :match => :prefer_exact)
+    fill_in('last_name', with: Faker::Name.name, :match => :prefer_exact)
     expect(page).to have_content 'More About Applicant'
     find(:select, 'highest_education_level').first(:option, 'Some High School').select_option
     find(:select, 'ethnicity').first(:option, 'Black').select_option
@@ -50,6 +53,27 @@ RSpec.feature 'RFA', js: true do
     expect(find_field('income').value).to eq '$10'
     expect(find_field('income_type').value).to eq '1'
     expect(find_field('applicants[0].phones[0].number').value).to eq '(201) 222-2345'
+  end
+
+  scenario 'validate Relationship between Applicant', set_auth_header: true do
+    visit root_path
+    click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+    expect(page).to have_content 'Applicant 1 - Information'
+    fill_in('first_name', with: Faker::Name.name, :match => :prefer_exact)
+    fill_in('middle_name', with: 'k', :match => :prefer_exact)
+    fill_in('last_name', with: Faker::Name.name, :match => :prefer_exact)
+    click_button('Add Another Applicant +')
+    fill_in('first_name', with: Faker::Name.name, :match => :prefer_exact)
+    fill_in('middle_name', with: 'k', :match => :prefer_exact)
+    fill_in('last_name', with: Faker::Name.name, :match => :prefer_exact)
+    find(:select, 'relationship_type').first(:option, 'Married').select_option
+    find(:select, 'place_of_relationship_state').first(:option, 'Alaska').select_option
+    click_button('Save Progress')
+    visit page.driver.current_url
+    expect(find_field('relationship_type').value).to eq '1'
+    expect(find_field('place_of_relationship_state').value).to eq 'AK'
   end
 
   scenario 'validate Residence card', set_auth_header: true do

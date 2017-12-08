@@ -4,7 +4,7 @@ import {DropDownField} from 'components/common/dropDownField'
 import {TextAreaComponent} from 'components/common/textArea'
 import {yesNo} from 'constants/constants'
 import {InputComponent} from 'components/common/inputFields'
-import {getDictionaryId, dictionaryNilSelect2, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
+import {getDictionaryId, dictionaryNilSelectValue, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
 import MultiSelect from 'components/common/multiSelect'
 import PropTypes from 'prop-types'
 
@@ -18,7 +18,6 @@ export default class AboutThisResidenceCard extends React.Component {
   constructor (props) {
     super(props)
     this.onChange = this.onChange.bind(this)
-    // this.onSelectChange = this.onSelectChange.bind(this)
   }
 
   onChange (key, value) {
@@ -26,11 +25,6 @@ export default class AboutThisResidenceCard extends React.Component {
     othersMailing = othersMailing.update(0, x => x.set(key, value))
     this.props.setParentState('other_people_using_residence_as_mailing', othersMailing.toJS())
   }
-
-  // onSelectChange (event) {
-  // this.props.setParentState('residence_ownership', ({id: event.target.options[event.target.options.selectedIndex].value, value: event.target.options[event.target.options.selectedIndex].text}))
-  //  this.props.setParentState('residence_ownership', dictionaryNilSelect2(event.target.options))
-  // }
 
   render () {
     const aboutResidence = this.props.aboutResidence
@@ -48,7 +42,7 @@ export default class AboutThisResidenceCard extends React.Component {
               value={getDictionaryId(aboutResidence.residence_ownership)}
               optionList={this.props.residenceTypes}
               label={'Do you own, rent or lease the residence?'}
-              onChange={(event) => this.props.setParentState('residence_ownership', dictionaryNilSelect2(event.target.options))}
+              onChange={(event) => this.props.setParentState('residence_ownership', dictionaryNilSelect(event.target.options))}
             />
             <DropDownField id='weapons' gridClassName='col-md-7'
               selectClassName={'reusable-select'}
@@ -56,7 +50,7 @@ export default class AboutThisResidenceCard extends React.Component {
               value={(aboutResidence.weapon_in_home)}
               optionList={yesNo.items}
               label={'Weapons in home?'}
-              onChange={(event) => this.props.setParentState('weapon_in_home', event.target.selectedOptions[0].value)} />
+              onChange={(event) => this.props.setParentState('weapon_in_home', dictionaryNilSelectValue(event.target.options))} />
 
             <DropDownField id='body_of_water_exist' gridClassName='col-md-7'
               selectClassName={'reusable-select'}
@@ -64,7 +58,7 @@ export default class AboutThisResidenceCard extends React.Component {
               text={aboutResidence.body_of_water_exist}
               optionList={yesNo.items}
               label={'Body of Water?'}
-              onChange={(event) => this.props.setParentState('body_of_water_exist', event.target.selectedOptions[0].value)} />
+              onChange={(event) => this.props.setParentState('body_of_water_exist', dictionaryNilSelectValue(event.target.options))} />
 
             <div className={hiddenBodyOfWater}>
               <TextAreaComponent gridClassName='col-md-12' id='body_of_water_description'
@@ -79,7 +73,7 @@ export default class AboutThisResidenceCard extends React.Component {
               value={(aboutResidence.others_using_residence_as_mailing)}
               optionList={yesNo.items}
               label={'Does any person not listed in this document use the residence as their mailing address?'}
-              onChange={(event) => this.props.setParentState('others_using_residence_as_mailing', event.target.selectedOptions[0].value)} />
+              onChange={(event) => this.props.setParentState('others_using_residence_as_mailing', dictionaryNilSelectValue(event.target.options))} />
 
             <div className={hiddenUseAsMailingAddress} >
               <InputComponent gridClassName='col-md-4' id='firstName' value={othersMailing[0]['first_name']}

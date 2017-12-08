@@ -3,7 +3,7 @@ import Immutable from 'immutable'
 import {DropDownField} from 'components/common/dropDownField'
 import {AgencyComponent} from 'components/rfa_forms/agencyComponentFields'
 import {FacilityComponent} from 'components/rfa_forms/fosterFacilityComponent'
-import {checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
+import {checkArrayObjectPresence, dictionaryNilSelectValue} from 'helpers/commonHelper.jsx'
 import {addCardAsJS, removeCard} from 'helpers/cardsHelper.jsx'
 
 export const blankFosterCareFields = Object.freeze(
@@ -196,7 +196,7 @@ export class FosterCareHistoryFields extends React.Component {
                 value={q1History.was_previously_licensed}
                 optionList={this.props.yesNo.items}
                 label='Have you been previously licensed, certified, or approved to provide foster care?'
-                onChange={(event) => this.setFosterCareNestedState('foster_care_licenses_q1', 'was_previously_licensed', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('foster_care_licenses_q1', 'was_previously_licensed', dictionaryNilSelectValue(event.target.options))} />
             </div>
             <div className={hiddenQ1}>
               {
@@ -240,7 +240,7 @@ export class FosterCareHistoryFields extends React.Component {
                 value={q2History.have_applied_for_adoption}
                 optionList={this.props.yesNo.items}
                 label='Have you previously applied for adoption?'
-                onChange={(event) => this.setFosterCareNestedState('applications_for_adoption_q2', 'have_applied_for_adoption', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('applications_for_adoption_q2', 'have_applied_for_adoption', dictionaryNilSelectValue(event.target.options))} />
             </div>
 
             <div className={hiddenQ2}>
@@ -279,7 +279,7 @@ export class FosterCareHistoryFields extends React.Component {
                 optionList={this.props.yesNo.items}
                 label='Have you previously been licensed to operate a non-foster care community care facility, child care center, family child
                 care home, or residential care facility for the elderly or chronically ill?'
-                onChange={(event) => this.setFosterCareNestedState('facility_operation_licenses_q3', 'was_previously_licensed', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('facility_operation_licenses_q3', 'was_previously_licensed', dictionaryNilSelectValue(event.target.options))} />
             </div>
 
             <div className={hiddenQ3}>
@@ -323,7 +323,7 @@ export class FosterCareHistoryFields extends React.Component {
                 value={q4History.was_employed_or_volunteered}
                 label='Have you previously been employed by or volunteered at a community care facility, child care center, family child care
                     home, or residential care facility for the elderly or chromincally ill?'
-                onChange={(event) => this.setFosterCareNestedState('employment_in_facilities_q4', 'was_employed_or_volunteered', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('employment_in_facilities_q4', 'was_employed_or_volunteered', dictionaryNilSelectValue(event.target.options))} />
             </div>
 
             <div className={hiddenQ4}>
@@ -361,7 +361,7 @@ export class FosterCareHistoryFields extends React.Component {
                 value={q5History.had_denials}
                 label='Have you had a previous license, certification, relative or nonrelative extended family member approval, or resource
                       family approval application denial?'
-                onChange={(event) => this.setFosterCareNestedState('denial_history_q5', 'had_denials', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('denial_history_q5', 'had_denials', dictionaryNilSelectValue(event.target.options))} />
             </div>
 
             <div className={hiddenQ5}>
@@ -404,7 +404,7 @@ export class FosterCareHistoryFields extends React.Component {
                 optionList={this.props.yesNo.items}
                 value={q6History.had_suspensions_revocations}
                 label='Have you had a license, certification, or approval suspended, revoked, or rescinded?'
-                onChange={(event) => this.setFosterCareNestedState('suspension_revocation_history_q6', 'had_suspensions_revocations', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('suspension_revocation_history_q6', 'had_suspensions_revocations', dictionaryNilSelectValue(event.target.options))} />
             </div>
 
             <div className={hiddenQ6}>
@@ -447,7 +447,7 @@ export class FosterCareHistoryFields extends React.Component {
                 optionList={this.props.yesNo.items}
                 value={q7History}
                 label='Have you been subject to an exclusion order?'
-                onChange={(event) => this.setFosterCareHistoryState('was_subject_for_exclusion_order_q7', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareHistoryState('was_subject_for_exclusion_order_q7', dictionaryNilSelectValue(event.target.options))} />
             </div>
           </form>
         </div>

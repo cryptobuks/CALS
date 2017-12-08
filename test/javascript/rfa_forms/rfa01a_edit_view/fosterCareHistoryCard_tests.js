@@ -2,7 +2,7 @@ import React from 'react'
 import FosterCareHistoryCard from 'rfa_forms/rfa01a_edit_view/FosterCareHistoryCard.jsx'
 import {FosterCareHistoryFields, blankFosterCareFields} from 'rfa_forms/rfa01a_edit_view/FosterCareHistoryFields.js'
 import {shallow, mount} from 'enzyme'
-import {yesNo, licenseTypes} from './../../helpers/constants'
+import {yesNo, licenseTypes, selectedYes} from './../../helpers/constants'
 var TestUtils = require('react-dom/test-utils')
 
 describe('foster car card tests', function () {
@@ -69,7 +69,7 @@ describe('foster car card tests', function () {
     it('expect set foster care nested state to be called', function () {
       const onChangeSpy = jasmine.createSpy('setFosterCareNestedState')
       const wrapper = shallow(<FosterCareHistoryFields {...props} onChange={onChangeSpy('foster_care_licenses_q1', 'was_previously_licensed', true)} />)
-      wrapper.find('#q1-select-dropdown').simulate('change', {target: {selectedOptions: [{'value': true}]}})
+      wrapper.find('#q1-select-dropdown').simulate('change', selectedYes)
       wrapper.instance().setFosterCareNestedState('foster_care_licenses_q1', 'was_previously_licensed', true)
 
       spyOn(wrapper.instance(), 'setFosterCareNestedState').and.callThrough()

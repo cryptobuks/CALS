@@ -64,10 +64,10 @@ export default class Rfa01bList extends React.Component {
     let url = '/rfa/b01/' + this.props.application_id
     fetchRequest(url, 'PUT', this.state).then(
       response => response.json()).then((response) => {
-        return this.setState({
-          formData: response
-        })
+      return this.setState({
+        formData: response
       })
+    })
       .catch(error => {
         return this.setState({
           data: error

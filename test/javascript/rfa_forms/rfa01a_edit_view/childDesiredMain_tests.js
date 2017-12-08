@@ -42,7 +42,7 @@ describe('Verify Child Desired Component', () => {
   })
   it('verify child component change State', () => {
     let componentId = childDesiredComp.find('#child_identified').hostNodes()
-    componentId.simulate('change', {target: {selectedOptions: [{value: 'true', text: 'yes'}]}})
+    componentId.simulate('change', {target: {options: {'2': {value: 'true', text: 'yes'}, selectedIndex: 2}}})
     childDesired.child_identified = 'true'
     expect(setParentStateSpy).toHaveBeenCalledWith('childDesired', childDesired)
   })

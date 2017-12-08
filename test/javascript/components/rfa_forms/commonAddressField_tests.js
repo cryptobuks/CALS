@@ -38,7 +38,7 @@ describe('Verify Common Address Fields Component', () => {
   })
   it('verify mailing Address State change', () => {
     let stateDropDownField = commonAddressComp.find('#state_type').hostNodes()
-    stateDropDownField.simulate('change', {target: {selectedOptions: [{value: 1, text: 'Alabama'}]}})
-    expect(onChangeSpy).toHaveBeenCalledWith('state', { id: 1, value: 'Alabama' })
+    stateDropDownField.simulate('change', {target: {options: {'1': {value: '1', text: 'Alabama'}, selectedIndex: 1}}})
+    expect(onChangeSpy).toHaveBeenCalledWith('state', { id: '1', value: 'Alabama' })
   })
 })

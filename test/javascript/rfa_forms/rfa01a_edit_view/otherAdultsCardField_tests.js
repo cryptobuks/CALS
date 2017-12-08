@@ -48,7 +48,7 @@ describe('Verify other adultsFields', function () {
 
   it('verifies relationship type field', () => {
     let relationShipField = otherAdultsCardComp.find('#relationshipType')
-    relationShipField.simulate('change', {target: {selectedOptions: [{value: '2', text: 'Sibling'}]}})
+    relationShipField.simulate('change', {target: {options: {'2': {value: '2', text: 'Sibling'}, selectedIndex: 2}}})
     expect(handleRelationshipTypeToApplicantSpy).toHaveBeenCalledWith(0, { id: '2', value: 'Sibling' }, 'relationship_to_applicant')
   })
 

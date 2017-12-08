@@ -38,17 +38,25 @@ describe('Verify Complete Name Field Component', () => {
   })
   it('onChange event on Prefix dropdown', () => {
     let prefixDropDown = component.find('#name_prefix')
-    prefixDropDown.simulate('change', {target: {selectedOptions: [{value: '4', text: 'Dr'}]}})
+    prefixDropDown.simulate('change', {target: {options: {'4': {value: '4', text: 'Dr'}, selectedIndex: 4}}})
     expect(onChangeSpy).toHaveBeenCalledWith('name_prefix', {id: '4', value: 'Dr'}, 0)
   })
   it('onChange event on Prefix dropdown', () => {
     let suffixDropDown = component.find('#name_suffix')
-    suffixDropDown.simulate('change', {target: {selectedOptions: [{value: '2', text: 'II'}]}})
+    suffixDropDown.simulate('change', {target: {options: {'2': {value: '2', text: 'II'}, selectedIndex: 2}}})
     expect(onChangeSpy).toHaveBeenCalledWith('name_suffix', {id: '2', value: 'II'}, 0)
   })
-  it('onChange event on type dropdown', () => {
-    let suffixDropDown = component.find('#name_type')
-    suffixDropDown.simulate('change', {target: {selectedOptions: [{value: '2', text: 'Legal'}]}})
+  it('onChange event on Prefix dropdown', () => {
+    let addedNameComponent = shallow(<CompleteNameField
+      index={0}
+      fieldValues={fieldValues}
+      prefixTypes={prefixTypes.items}
+      nameTypes={nameTypes.items}
+      suffixTypes={suffixTypes.items}
+      nameTypeId='name_type'
+      onChange={onChangeSpy} />)
+    let suffixDropDown = addedNameComponent.find('#name_type')
+    suffixDropDown.simulate('change', {target: {options: {'2': {value: '2', text: 'Legal'}, selectedIndex: 2}}})
     expect(onChangeSpy).toHaveBeenCalledWith('name_type', {id: '2', value: 'Legal'}, 0)
   })
 })

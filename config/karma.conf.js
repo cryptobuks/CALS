@@ -106,7 +106,7 @@ module.exports = function (config) {
           '--remote-debugging-port=9222'
         ]
       }
-    }, 
+    },
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

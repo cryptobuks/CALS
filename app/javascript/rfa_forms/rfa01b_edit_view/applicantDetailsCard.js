@@ -156,7 +156,7 @@ export default class ApplicantDetailsCard extends React.Component {
             value={getDictionaryId(application.driver_license_state)}
             optionList={this.props.stateTypes}
             label='Driver License State'
-            onChange={(event) => this.props.setParentState('driver_license_state', dictionaryNilSelect(event.target.selectedOptions[0]))}
+            onChange={(event) => this.props.setParentState('driver_license_state', dictionaryNilSelect(event.target.options))}
             errors={fieldErrorsAsImmutableSet()}
           //  onBlur={(event) => this.validateDLcombo()}
           />

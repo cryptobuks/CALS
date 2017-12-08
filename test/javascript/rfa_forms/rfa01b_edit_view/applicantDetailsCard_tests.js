@@ -106,7 +106,7 @@ describe('Verify ApplicantDetailsCard card', function () {
 
     it('onChange event on driver_license_state', () => {
       let applicantDetails = componentMount.find('#driversLicenseStateId')
-      applicantDetails.simulate('change', {target: {selectedOptions: [{value: '17', text: 'Illinois'}]}})
+      applicantDetails.simulate('change', {target: {options: {'17': {value: '17', text: 'Illinois'}, selectedIndex: 17}}})
       expect(setParentStateSpy).toHaveBeenCalledWith('driver_license_state', {id: '17', value: 'Illinois'})
     })
 

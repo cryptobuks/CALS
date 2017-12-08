@@ -28,7 +28,7 @@ export class OtherAdultsCardField extends React.Component {
           optionList={this.props.relationship_types}
           label='Relationship Type'
           value={getDictionaryId(adult.relationship_to_applicants[0].relationship_to_applicant)}
-          onChange={(event) => this.props.handleRelationshipTypeToApplicant(this.props.index, dictionaryNilSelect(event.target.selectedOptions[0]), 'relationship_to_applicant')} />
+          onChange={(event) => this.props.handleRelationshipTypeToApplicant(this.props.index, dictionaryNilSelect(event.target.options), 'relationship_to_applicant')} />
         <DropDownField gridClassName='col-md-4' id='availableApplicants'
           selectClassName='reusable-select'
           optionList={setToWhomOptionList(this.props.applicants)}

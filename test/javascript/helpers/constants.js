@@ -235,6 +235,24 @@ const stateTypes = Object.freeze({
   ]}
 )
 
+const selectedYes = Object.freeze({
+  target: {
+    options: {
+      '1': {
+        value: '1',
+        'text': 'No'
+      },
+      '2': {
+        value: '2',
+        text: 'Yes'
+      },
+      selectedIndex: 2
+    }
+  }
+
+}
+)
+
 const salaryTypes = Object.freeze({
   'items': [
     {
@@ -546,4 +564,4 @@ const countyTypes = Object.freeze({
     }]})
 export {siblingGroups, ageGroups, marriageTerminationReasons, relationshipToApplicantTypes,
   nameTypes, suffixTypes, prefixTypes, salaryTypes, relationshipTypes, applicantrelationTypes,
-  educationLevels, ethnicityTypes, genderTypes, schoolGrades, stateTypes, languageTypes, residenceTypes, countyTypes }
+  educationLevels, ethnicityTypes, genderTypes, schoolGrades, stateTypes, languageTypes, residenceTypes, countyTypes, selectedYes }

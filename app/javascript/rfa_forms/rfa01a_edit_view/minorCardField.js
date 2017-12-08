@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {DropDownField} from 'components/common/dropDownField'
 import {DateField} from '../../components/common/dateFields'
-import {getDictionaryId, dictionaryNilSelect, FormatDateForDisplay, FormatDateForPersistance} from 'helpers/commonHelper.jsx'
+import {getDictionaryId, dictionaryNilSelect, dictionaryNilSelectValue, FormatDateForDisplay, FormatDateForPersistance} from 'helpers/commonHelper.jsx'
 import {yesNo} from 'constants/constants'
 import {setToWhomOptionList, handleToWhomValue} from 'helpers/cardsHelper.jsx'
 import Validator from 'helpers/validator'
@@ -26,7 +26,7 @@ export class MinorCardField extends React.Component {
           selectClassName='reusable-select'
           optionList={this.props.relationshipToApplicantTypes}
           value={getDictionaryId(minor.relationship_to_applicants[0].relationship_to_applicant)}
-          label='Relationship Type' onChange={(event) => this.props.handleRelationshipTypeToApplicant(this.props.index, dictionaryNilSelect(event.target.selectedOptions[0]), 'relationship_to_applicant')} />
+          label='Relationship Type' onChange={(event) => this.props.handleRelationshipTypeToApplicant(this.props.index, dictionaryNilSelect(event.target.options), 'relationship_to_applicant')} />
         <DropDownField gridClassName='col-md-4' id='applicant_id'
           selectClassName='reusable-select'
           optionList={setToWhomOptionList(this.props.applicants)}
@@ -44,17 +44,17 @@ export class MinorCardField extends React.Component {
           optionList={this.props.genderTypes}
           value={getDictionaryId(minor.gender)}
           label='Gender'
-          onChange={(event) => this.props.onFieldChange(this.props.index, dictionaryNilSelect(event.target.selectedOptions[0]), 'gender')} />
+          onChange={(event) => this.props.onFieldChange(this.props.index, dictionaryNilSelect(event.target.options), 'gender')} />
         <DropDownField id='child_financially_supported' gridClassName='col-md-4' value={minor.child_financially_supported}
           selectClassName={'reusable-select'}
           optionList={yesNo.items}
           label={'Do you financially support this child?'}
-          onChange={(event) => this.props.onFieldChange(this.props.index, event.target.selectedOptions[0].value, 'child_financially_supported')} />
+          onChange={(event) => this.props.onFieldChange(this.props.index, dictionaryNilSelectValue(event.target.options), 'child_financially_supported')} />
         <DropDownField id='child_adopted' gridClassName='col-md-4' value={minor.child_adopted}
           selectClassName={'reusable-select'}
           optionList={yesNo.items}
           label={'Is this child adopted?'}
-          onChange={(event) => this.props.onFieldChange(this.props.index, event.target.selectedOptions[0].value, 'child_adopted')} />
+          onChange={(event) => this.props.onFieldChange(this.props.index, dictionaryNilSelectValue(event.target.options), 'child_adopted')} />
       </form>
     )
   }

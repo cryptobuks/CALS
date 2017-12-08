@@ -44,10 +44,17 @@ describe('Verify other adults Component View', function () {
     component = shallow(
       <OtherAdultsCardsGroup {...props} />
     )
-
-    componentMount = mount(
-      <OtherAdultsCardsGroup {...props} />
-    )
+    componentMount = mount(<OtherAdultsCardsGroup {...props} />)
+  })
+  describe('Verify other adult card Component View', () => {
+    it('has simulates relationship field change', function () {
+      componentMount.update()
+      spyOn(componentMount.instance(), 'handleRelationshipTypeToApplicant').and.callThrough()
+      let relationShipField = componentMount.findWhere(n => n.props().id === 'otherAdults[0].relationshipType').hostNodes()
+      relationShipField.simulate('change', {target: {options: {'2': {value: '2', text: 'Sibling'}, selectedIndex: 2}}})
+      OtherAdultsCard.relationship_to_applicants[0].relationship_to_applicant = { id: '2', value: 'Sibling' }
+      expect(setParentStateSpy).toHaveBeenCalledWith('otherAdults', [OtherAdultsCard])
+    })
   })
 
   describe('Verify other adults Component View', () => {

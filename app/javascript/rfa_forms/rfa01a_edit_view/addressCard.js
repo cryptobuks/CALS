@@ -3,7 +3,7 @@ import Immutable from 'immutable'
 import {InputComponent} from 'components/common/inputFields'
 import {DropDownField} from 'components/common/dropDownField'
 import {yesNo} from 'constants/constants'
-import {getDictionaryId, dictionaryNilSelect, findArrayValueByMethod} from 'helpers/commonHelper.jsx'
+import {getDictionaryId, dictionaryNilSelect, dictionaryNilSelectValue, findArrayValueByMethod} from 'helpers/commonHelper.jsx'
 import AddressComponent from 'components/rfa_forms/addressComponent.js'
 
 import {fetchRequest} from 'helpers/http'
@@ -94,7 +94,7 @@ export default class AddressCard extends React.Component {
               text={this.props.physicalMailingSimilar}
               optionList={yesNo.items}
               label='Mailing address the same as Physical Address?'
-              onChange={(event) => this.props.setParentState('physical_mailing_similar', event.target.selectedOptions[0].value)} />
+              onChange={(event) => this.props.setParentState('physical_mailing_similar', dictionaryNilSelectValue(event.target.options))} />
             <div className={hiddenMailingSameAsPhysical}>
               <AddressComponent
                 stateTypes={this.props.stateTypes}
