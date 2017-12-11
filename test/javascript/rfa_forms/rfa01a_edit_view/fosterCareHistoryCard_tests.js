@@ -78,7 +78,7 @@ describe('foster car card tests', function () {
     //  expect(wrapper.instance().setFosterCareNestedState.calls.count()).toEqual(1)
     })
 
-    describe('when "Add agency" is clicked', () => {
+    describe('when "Add another agency" is clicked', () => {
       it('adds a agency', () => {
         const addAgencySpy = jasmine.createSpy('addAgencyCard')
         const event = jasmine.createSpy('e', ['preventDefault'])
@@ -111,7 +111,7 @@ describe('foster car card tests', function () {
         expect(wrapper.instance().removeAgencyCard.calls.count()).toEqual(1)
       })
     })
-    describe('when "add facility" is clicked', () => {
+    describe('when "add another facility" is clicked', () => {
       it('calls add facility', () => {
         const addFacilitySpy = jasmine.createSpy('addFacilityCard')
         const event = jasmine.createSpy('e', ['preventDefault'])
@@ -128,6 +128,70 @@ describe('foster car card tests', function () {
         expect(wrapper.instance().addFacilityCard.calls.count()).toEqual(1)
 
         expect(wrapper.instance().props.fosterCareHistory.applications_for_adoption_q2.facilities.length).toEqual(2)
+      })
+    })
+    describe('when "Add Another facility q4" is clicked', () => {
+      it('adds a agency', () => {
+        let event
+        const addAgencySpy = jasmine.createSpy('addAgencyCard')
+        const wrapper = shallow(<FosterCareHistoryFields {...props} addAgencyCard={addAgencySpy(event, [{name: '', type: {}}], 'employment_in_facilities_q4', 'facilities')} />)
+        // find the button and type check
+        const button = wrapper.find('#addAgency_q4')
+        // simulate click and check to see if called
+        button.simulate('click', { preventDefault () {} })
+
+        spyOn(wrapper.instance(), 'addAgencyCard').and.callThrough()
+        wrapper.instance().addAgencyCard({ preventDefault () {} }, [{name: '', type: {}}], 'employment_in_facilities_q4', 'facilities')
+
+        expect(wrapper.instance().props.fosterCareHistory.employment_in_facilities_q4.facilities.length).toEqual(2)
+      })
+    })
+    describe('when "Add another agency q3" is clicked', () => {
+      it('adds a agency', () => {
+        let event
+        const addAgencySpy = jasmine.createSpy('addAgencyCard')
+        const wrapper = shallow(<FosterCareHistoryFields {...props} addAgencyCard={addAgencySpy(event, [{name: '', type: {}}], 'facility_operation_licenses_q3', 'agencies')} />)
+        // find the button and type check
+        const button = wrapper.find('#addFacility_q3')
+        // simulate click and check to see if called
+        button.simulate('click', { preventDefault () {} })
+
+        spyOn(wrapper.instance(), 'addAgencyCard').and.callThrough()
+        wrapper.instance().addAgencyCard({ preventDefault () {} }, [{name: '', type: {}}], 'facility_operation_licenses_q3', 'agencies')
+
+        expect(wrapper.instance().props.fosterCareHistory.facility_operation_licenses_q3.agencies.length).toEqual(2)
+      })
+    })
+    describe('when "Add agency q5" is clicked', () => {
+      it('adds a agency', () => {
+        let event
+        const addAgencySpy = jasmine.createSpy('addAgencyCard')
+        const wrapper = shallow(<FosterCareHistoryFields {...props} addAgencyCard={addAgencySpy(event, [{name: '', type: {}}], 'denial_history_q5', 'agencies')} />)
+        // find the button and type check
+        const button = wrapper.find('#denial_history_q5')
+        // simulate click and check to see if called
+        button.simulate('click', { preventDefault () {} })
+
+        spyOn(wrapper.instance(), 'addAgencyCard').and.callThrough()
+        wrapper.instance().addAgencyCard({ preventDefault () {} }, [{name: '', type: {}}], 'denial_history_q5', 'agencies')
+
+        expect(wrapper.instance().props.fosterCareHistory.denial_history_q5.agencies.length).toEqual(2)
+      })
+    })
+    describe('when "Add agency q6" is clicked', () => {
+      it('adds a agency', () => {
+        let event
+        const addAgencySpy = jasmine.createSpy('addAgencyCard')
+        const wrapper = shallow(<FosterCareHistoryFields {...props} addAgencyCard={addAgencySpy(event, [{name: '', type: {}}], 'suspension_revocation_history_q6', 'agencies')} />)
+        // find the button and type check
+        const button = wrapper.find('#addAgency_suspension_q6')
+        // simulate click and check to see if called
+        button.simulate('click', { preventDefault () {} })
+
+        spyOn(wrapper.instance(), 'addAgencyCard').and.callThrough()
+        wrapper.instance().addAgencyCard({ preventDefault () {} }, [{name: '', type: {}}], 'suspension_revocation_history_q6', 'agencies')
+
+        expect(wrapper.instance().props.fosterCareHistory.suspension_revocation_history_q6.agencies.length).toEqual(2)
       })
     })
     describe('when "Remove facility" is clicked', () => {

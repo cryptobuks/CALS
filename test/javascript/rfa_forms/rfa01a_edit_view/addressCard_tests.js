@@ -135,4 +135,9 @@ describe('Verify Address card fields', function () {
     relationShipField.simulate('change', {target: {selectedOptions: [{value: '17', text: 'Illinois'}]}})
     expect(addressCardMount.instance().onAddressChange).toHaveBeenCalledWith('Mailing', 'state', {id: '17', value: 'Illinois'})
   })
+  it('verify mailing address', () => {
+    let relationShipField = addressCardMount.find('#mailing_similar').hostNodes()
+    relationShipField.simulate('change', {target: {options: {'2': {value: 'yes', text: 'yes'}, selectedIndex: 2}}})
+    expect(setParentStateSpy).toHaveBeenCalledWith('physical_mailing_similar', 'yes')
+  })
 })

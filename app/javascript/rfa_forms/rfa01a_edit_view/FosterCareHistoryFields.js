@@ -308,7 +308,7 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <div className={agencyQ3List ? '' : 'hidden'}>
                 <div className='text-center'>
-                  <button onClick={(event) => { this.addAgencyCard(event, q3History.agencies, 'facility_operation_licenses_q3', 'agencies') }} className='btn btn-default'>Add another Agency +</button>
+                  <button onClick={(event) => { this.addAgencyCard(event, q3History.agencies, 'facility_operation_licenses_q3', 'agencies') }} className='btn btn-default' id='addFacility_q3'>Add another Agency +</button>
                 </div>
               </div>
             </div>
@@ -345,7 +345,7 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <div className={facilityQ4List ? '' : 'hidden'}>
                 <div className='text-center'>
-                  <button onClick={(event) => { this.addFacilityCard(event, q4History.facilities, 'employment_in_facilities_q4', 'facilities') }} className='btn btn-default'>Add another Facility +</button>
+                  <button onClick={(event) => { this.addFacilityCard(event, q4History.facilities, 'employment_in_facilities_q4', 'facilities') }} className='btn btn-default' id='addAgency_q4'>Add another Facility +</button>
                 </div>
               </div>
 
@@ -390,7 +390,7 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <div className={agencyQ5List ? '' : 'hidden'}>
                 <div className='text-center'>
-                  <button onClick={(event) => { this.addAgencyCard(event, q5History.agencies, 'denial_history_q5', 'agencies') }} className='btn btn-default'>Add another Agency +</button>
+                  <button onClick={(event) => { this.addAgencyCard(event, q5History.agencies, 'denial_history_q5', 'agencies') }} className='btn btn-default' id='denial_history_q5'>Add another Agency +</button>
                 </div>
               </div>
             </div>
@@ -433,7 +433,7 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <div className={agencyQ6List ? '' : 'hidden'}>
                 <div className='text-center'>
-                  <button onClick={(event) => { this.addAgencyCard(event, q6History.agencies, 'suspension_revocation_history_q6', 'agencies') }} className='btn btn-default'>Add another Agency +</button>
+                  <button onClick={(event) => { this.addAgencyCard(event, q6History.agencies, 'suspension_revocation_history_q6', 'agencies') }} className='btn btn-default' id='addAgency_suspension_q6'>Add another Agency +</button>
                 </div>
               </div>
             </div>
