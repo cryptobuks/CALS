@@ -5,6 +5,12 @@ import {shallow, mount} from 'enzyme'
 import Validator from 'helpers/validator'
 
 describe('Verify RFA 01C child desired', function () {
+  const applicants = [{
+    id: 20,
+    first_name: 'gdfghfhgv',
+    last_name: 'hgbhg',
+    middle_name: ''
+  }]
   const childDesired = {
     id: 0,
     application_county: {
@@ -35,6 +41,7 @@ describe('Verify RFA 01C child desired', function () {
         relationship_to_applicants: [
           {
             applicant_id: '',
+            relationship_to_applicant_freeform: '',
             relationship_to_applicant: {
               value: '',
               id: 0
@@ -70,6 +77,7 @@ describe('Verify RFA 01C child desired', function () {
     setParentStateSpy = jasmine.createSpy('setParentState')
     onChangeSpy = jasmine.createSpy('')
     childCardComp = mount(<DesiredChildCard
+      applicants={applicants}
       desiredChild={childDesired.identified_children[0]}
       setParentState={setParentStateSpy}
       genderTypes={genderTypes.items}
@@ -115,6 +123,13 @@ describe('Verify RFA 01C child desired', function () {
     let relationField = childCardComp.find('#desiredChildCarddate_of_placement').hostNodes()
     relationField.simulate('change', {target: {value: '01/01/2000'}})
     expect(setParentStateSpy).toHaveBeenCalledWith(0, 'date_of_placement', '2000-01-01')
+  })
+
+  it('verify relationship to applicant on change', () => {
+    let relationField = childCardComp.find('#relationship_to_applicant0').hostNodes()
+    relationField.simulate('change', {target: {value: 'test'}})
+    expect(setParentStateSpy).toHaveBeenCalledWith(0, 'relationship_to_applicants',
+      [{applicant_id: 20, relationship_to_applicant_freeform: 'test', relationship_to_applicant: {value: '', id: 0}}])
   })
 
   describe('Address component mount', () => {

@@ -27,6 +27,7 @@ describe('Verify Facility Details', function () {
         'value': 'PROBATIONARY LICENSE'
       },
       'capacity': 10,
+      'capacity_last_changed': '2012-10-01',
       'license_effective_date': '2012-10-01',
       'original_application_recieved_date': '2012-07-18',
       'last_visit_date': '2017-04-14 00:00:00',
@@ -100,6 +101,10 @@ describe('Verify Facility Details', function () {
     let originalApplicationRecievedDate = detailsCompShallow.props().children[2].props.children[2].props.children.props.children[1].props.value
     expect(originalApplicationRecievedDate).toBe('2012-07-18')
   })
+  it(' verify capacity last changed', function () {
+    let verifyCapacityAndCapacityLastChanged = detailsCompShallow.props().children[2].props.children[1].props.children.props.children[2].props.value
+    expect(verifyCapacityAndCapacityLastChanged).toBe('10 / 2012-10-01')
+  })
 })
 
 describe('Verify Facility Details Null Value', function () {
@@ -125,6 +130,7 @@ describe('Verify Facility Details Null Value', function () {
         'value': 'PROBATIONARY LICENSE'
       },
       'capacity': 10,
+      'capacity_last_changed': null,
       'license_effective_date': '2012-10-01',
       'original_application_recieved_date': null,
       'last_visit_date': '2017-04-14 00:00:00',
@@ -197,5 +203,9 @@ describe('Verify Facility Details Null Value', function () {
   it('Original Application Recieved Date', function () {
     let originalApplicationRecievedDate = detailsCompShallow.props().children[2].props.children[2].props.children.props.children[1].props.value
     expect(originalApplicationRecievedDate).toBe('N/A')
+  })
+  it(' verify capacity last changed', function () {
+    let verifyCapacityAndCapacityLastChanged = detailsCompShallow.props().children[2].props.children[1].props.children.props.children[2].props.value
+    expect(verifyCapacityAndCapacityLastChanged).toBe('10 / N/A')
   })
 })

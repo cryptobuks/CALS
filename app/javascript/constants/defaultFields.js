@@ -28,6 +28,12 @@ export const facilityDataDefaults = Object.freeze({
   phones: [phoneDefaults]
 })
 
+export const relationshipToApplicantDefaults = Object.freeze({
+  applicant_id: '',
+  relationship_to_applicant: null,
+  relationship_to_applicant_freeform: ''
+})
+
 export const blankIdentifiedChild = Object.freeze({
   first_name: '',
   middle_name: '',

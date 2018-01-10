@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {SmallInnerBlockDetails} from './smallInnerBlockDetails.js'
-import {checkForNA, checkValueForNull} from '../search/common/commonUtils'
+import {checkForNA, checkValueForNull, checkforDateOrNa} from '../search/common/commonUtils'
 
 export default class FacilityDetails extends React.Component {
   render () {
@@ -49,8 +49,8 @@ export default class FacilityDetails extends React.Component {
                 value={result.status.value} />
               <SmallInnerBlockDetails
                 classNameTitle=''
-                title='CAPACITY'
-                value={result.capacity} />
+                title='CAPACITY / CAPACITY LAST CHANGED'
+                value={result.capacity + ' / ' + checkforDateOrNa(result.capacity_last_changed)} />
             </div>
           </div>
           <div className='col-xs-12 col-sm-4 col-md-4 col-lg-4'>

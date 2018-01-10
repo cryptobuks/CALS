@@ -1,28 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
-import {checkForNA, addressStringValueOrNa, phoneNumberOrNa} from './common/commonUtils'
+import {checkForNA, checkValueForNull, respectiveFullAddressOrNA, respectiveNumberOrNA} from './common/commonUtils'
 
 export default class SearchList extends React.Component {
   render () {
     const searchResult = this.props.searchResults
+    const primaryPhoneRelation = 'primary'
+    const alternativePhoneRelation = 'Alternative'
+    const physicalAddressType = 'Residential'
     const resultTable = searchResult.map((result, index) => {
-      const fullAddress = addressStringValueOrNa(result.addresses)
-      const phoneNo = phoneNumberOrNa(result.phones)
-
       return (
         <tr key={index}>
           <td><a href={urlPrefixHelper('/facilities/' + result.license_number)}>{result.name}</a></td>
           <td>{result.license_number}</td>
-          <td>{checkForNA(result.type) + ' / ' + checkForNA(result.facility_source)}</td>
+          <td>{checkForNA(result.type) + ' / ' + checkValueForNull(result.facility_source)}</td>
           <td>{checkForNA(result.status)}</td>
           <td>{result.name}</td>
-          <td>{fullAddress}</td>
+          <td>{respectiveFullAddressOrNA(result.addresses, physicalAddressType)}</td>
           <td>{result.county.value}</td>
-          <td>{phoneNo}</td>
+          <td>{respectiveNumberOrNA(result.phones, primaryPhoneRelation)}</td>
           <td>{checkForNA(result.email_address)}</td>
-          <td>{'N/A'
-          }<p>Phone: <span>{phoneNo}</span></p></td>
+          <td>{checkForNA(result.assigned_worker)}</td>
+          <td>{respectiveNumberOrNA(result.phones, alternativePhoneRelation)}</td>
         </tr>
       )
     })
@@ -41,6 +41,7 @@ export default class SearchList extends React.Component {
               <th>Phone Number</th>
               <th>Facility Email</th>
               <th>Assigned Worker</th>
+              <th>Alternative Number</th>
             </tr>
           </thead>
           <tbody>

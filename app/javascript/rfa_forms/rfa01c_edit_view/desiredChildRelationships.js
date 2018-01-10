@@ -17,7 +17,8 @@ const DesiredChildRelationships = ({
             <div className='row' key={'desiredChildRelationships_' + index} >
               <InputComponent
                 gridClassName='col-md-4'
-                id={'relationship_to_applicant ' + index}
+                id={'relationship_to_applicant' + index}
+                value={child.relationship_to_applicants && child.relationship_to_applicants[index] ? child.relationship_to_applicants[index].relationship_to_applicant_freeform : ''}
                 label={'Relationship to Applicant ' + applicant.first_name + ' ' + applicant.last_name}
                 placeholder=''
                 onChange={(event) => handleRelationshipChange(applicant, event.target.value, index)} />

@@ -10,8 +10,10 @@ describe('Render Search Inputs', function () {
         value: ''
       }
     ],
-    userDetails: {
-      county_name: 'Los Angeles'
+    searchId: {
+      userDetails: {
+        county_name: 'Los Angeles'
+      }
     },
     countyList: [
       {

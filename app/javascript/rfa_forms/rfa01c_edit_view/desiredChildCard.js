@@ -3,10 +3,11 @@ import Immutable from 'immutable'
 import DesiredChildDetails from './desiredChildDetails'
 import DesiredChildEducation from './desiredChildEducation'
 import DesiredChildRelationships from './desiredChildRelationships'
-import {dictionaryNilSelect, getDictionaryId, FormatDateForPersistance, FormatDateForDisplay} from 'helpers/commonHelper.jsx'
+import {dictionaryNilSelect, checkArrayObjectPresence, getDictionaryId, FormatDateForPersistance, FormatDateForDisplay} from 'helpers/commonHelper.jsx'
 import YesNoRadioComponent from 'components/common/yesNoFields'
 import Button from 'components/common/button'
 import PropTypes from 'prop-types'
+import {relationshipToApplicantDefaults} from 'constants/defaultFields'
 
 const dateValidator = {rule: 'isValidDate', message: 'date is invalid'}
 
@@ -25,7 +26,10 @@ export default class DesiredChildCard extends React.Component {
   }
 
   handleRelationshipChange (applicant, value, index) {
-    console.log('to implement upon relationship card final design')
+    let relationshipToApplicant = Immutable.fromJS(checkArrayObjectPresence(this.props.desiredChild.relationship_to_applicants) || [relationshipToApplicantDefaults])
+    relationshipToApplicant = relationshipToApplicant.setIn([0, 'applicant_id'], applicant.id)
+    relationshipToApplicant = relationshipToApplicant.setIn([0, 'relationship_to_applicant_freeform'], value)
+    this.props.setParentState(index, 'relationship_to_applicants', relationshipToApplicant.toJS())
   }
 
   render () {

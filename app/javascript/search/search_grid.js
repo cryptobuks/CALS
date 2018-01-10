@@ -3,15 +3,15 @@ import PropTypes from 'prop-types'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
 import GridInnerLayout from './common/gridInnerLayout.js'
 import GridOuterLayout from './common/gridOuterLayout.js'
-import {checkForNA, addressStringValueOrNa, phoneNumberOrNa} from './common/commonUtils'
+import {checkForNA, checkValueForNull, respectiveNumberOrNA, respectiveFullAddressOrNA} from './common/commonUtils'
 
 export default class SearchGrid extends React.Component {
   render () {
     const searchResults = this.props.searchResults
+    const primaryPhoneRelation = 'primary'
+    const alternativePhoneRelation = 'Alternative'
+    const physicalAddressType = 'Residential'
     const gridResult = searchResults.map((result, index) => {
-      const fullAddress = addressStringValueOrNa(result.addresses)
-      const phoneNo = phoneNumberOrNa(result.phones)
-
       return (
         <div key={index} className='grid_view_inner col-xs-12 col-sm-12 col-md-12 col-lg-12' >
           <div className='col-xs-12 col-sm-1 col-md-1 col-lg-1'>
@@ -33,7 +33,7 @@ export default class SearchGrid extends React.Component {
                 value={checkForNA(result.type)} />
               <GridInnerLayout
                 title='Facility Source'
-                value={checkForNA(result.facility_source)} />
+                value={checkValueForNull(result.facility_source)} />
               <GridInnerLayout
                 title='Status'
                 value={checkForNA(result.status)} />
@@ -44,13 +44,13 @@ export default class SearchGrid extends React.Component {
                 value={result.name} />
               <GridInnerLayout
                 title='Facility Address'
-                value = {fullAddress} />
+                value = {respectiveFullAddressOrNA(result.addresses, physicalAddressType)} />
               <GridInnerLayout
                 title='County'
                 value={checkForNA(result.county)} />
               <GridInnerLayout
                 title='Facility Phone Number'
-                value={phoneNo} />
+                value={respectiveNumberOrNA(result.phones, primaryPhoneRelation)} />
               <GridInnerLayout
                 title='Facility Email'
                 value={checkForNA(result.email_address)} />
@@ -60,8 +60,8 @@ export default class SearchGrid extends React.Component {
                 title='Assigned Worker'
                 value={checkForNA(result.assigned_worker)} />
               <GridInnerLayout
-                title='Assigned Worker'
-                value={phoneNo} />
+                title='Alternative Number'
+                value={respectiveNumberOrNA(result.phones, alternativePhoneRelation)} />
             </GridOuterLayout>
           </div>
         </div>
