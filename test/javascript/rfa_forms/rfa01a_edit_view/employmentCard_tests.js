@@ -105,11 +105,13 @@ describe('Employment Card', function () {
       expect(employmentCardComp.instance().onPhysicalAddressChange).toHaveBeenCalledWith('city', 'San Mateo', 0)
     })
     it('verify State Type Change', () => {
-      let physicalStateField = employmentCardComp.find('#state_type').hostNodes()
-      employmentCardComp.update()
+      let physicalStateField = employmentCardComp.find('.Select-control').at(0)
       spyOn(employmentCardComp.instance(), 'onPhysicalAddressChange').and.callThrough()
-      physicalStateField.simulate('change', {target: {selectedOptions: [{value: '17', text: 'Illinois'}]}})
-      expect(employmentCardComp.instance().onPhysicalAddressChange).toHaveBeenCalledWith('state', {id: '17', value: 'Illinois'}, 0)
+      employmentCardComp.update()
+      physicalStateField.simulate('keyDown', { keyCode: 40 })
+      physicalStateField.simulate('keyDown', { keyCode: 13 })
+
+      expect(employmentCardComp.instance().onPhysicalAddressChange).toHaveBeenCalledWith('state', { id: 'CA', value: 'California' }, 0)
     })
   })
 })

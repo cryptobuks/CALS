@@ -132,7 +132,7 @@ describe('Adult Children Component', () => {
 
     it('Lives in Home set to false as props', () => {
       expect(selectLivesInHomeForNotInHomeChild.props().value).toBe('true')
-      expect(adultChildNotInHomeComponent.find('select').length).toEqual(5)
+      expect(adultChildNotInHomeComponent.find('select').length).toEqual(4)
     })
 
     it('set lives in Home to true', () => {
@@ -141,7 +141,7 @@ describe('Adult Children Component', () => {
     })
     it('Lives in Home set to true', () => {
       expect(selectLivesInHome.props().value).toBe('true')
-      expect(adultChildNotInHomeComponent.find('select').length).toEqual(5)
+      expect(adultChildNotInHomeComponent.find('select').length).toEqual(4)
     })
   })
 })
