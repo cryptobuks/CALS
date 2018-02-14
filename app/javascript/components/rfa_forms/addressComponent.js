@@ -8,7 +8,8 @@ export default class AddressComponent extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      suggestions: []
+      suggestions: [],
+      timeout: null
     }
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this)
     this.onSelectionUpdateProp = this.onSelectionUpdateProp.bind(this)
@@ -28,18 +29,24 @@ export default class AddressComponent extends React.Component {
   }
 
   onSuggestionsFetchRequested ({value, reason}) {
-    let url = '/geoservice/'
-    let params = encodeURIComponent(value)
-    fetchRequest(url, 'POST', params).then(
-      response => response.json()).then((response) => {
-      return this.setState({
-        suggestions: response
+    let current = this;
+    if(this.state.timeout) {
+      clearTimeout(this.state.timeout);
+    }
+    this.state.timeout = setTimeout(function () {
+      let url = '/geoservice/'
+      let params = encodeURIComponent(value)
+      fetchRequest(url, 'POST', params).then(
+          response => response.json()).then((response) => {
+          return current.setState({
+              suggestions: response
+          })
+      }).catch(() => {
+          return current.setState({
+              suggestions: []
+          })
       })
-    }).catch(() => {
-      return this.setState({
-        suggestions: []
-      })
-    })
+    }, 1000);
   }
 
   onSelectionUpdateProp (updateSuggetions) {
