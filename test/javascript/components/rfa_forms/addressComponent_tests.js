@@ -9,7 +9,7 @@ describe('verify Reusable Address Component', () => {
     addressFields, onChangeSpy, url, data
 
   beforeEach(() => {
-    jasmine.clock().install();
+    jasmine.clock().install()
     onChangeSpy = jasmine.createSpy('onChange')
     spyOn(window, 'fetch').and.callThrough()
 
@@ -43,12 +43,12 @@ describe('verify Reusable Address Component', () => {
     })
   })
   afterEach(() => {
-    jasmine.clock().uninstall();
+    jasmine.clock().uninstall()
     fetchMock.restore()
   })
   it('Api success call', () => {
     addressComponent.instance().onSuggestionsFetchRequested('home', '')
-    jasmine.clock().tick(1000);
+    jasmine.clock().tick(1000)
     expect(fetchMock.called(url)).toBe(true)
     expect(fetchMock._calls[url][0][1].method).toEqual('POST')
   })
@@ -61,7 +61,7 @@ describe('verify Reusable Address Component', () => {
       headers: { 'content-type': 'application/json' }
     })
     addressComponent.instance().onSuggestionSelected('click', {})
-    jasmine.clock().tick(1000);
+    jasmine.clock().tick(1000)
     expect(fetchMock.called(url)).toBe(true)
     expect(fetchMock._calls[url][0][1].method).toEqual('POST')
   })
