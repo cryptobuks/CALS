@@ -29,9 +29,9 @@ export default class AddressComponent extends React.Component {
   }
 
   onSuggestionsFetchRequested ({value, reason}) {
-    let current = this;
+    let current = this
     if (this.state.timeout) {
-      clearTimeout(this.state.timeout);
+      clearTimeout(this.state.timeout)
     }
     let timeout = setTimeout(function () {
       let url = '/geoservice/'
@@ -46,8 +46,8 @@ export default class AddressComponent extends React.Component {
           suggestions: []
         })
       })
-    }, 300);
-    this.setState({timeout:timeout});
+    }, 300)
+    this.setState({timeout: timeout})
   }
 
   onSelectionUpdateProp (updateSuggetions) {
