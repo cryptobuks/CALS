@@ -30,21 +30,21 @@ export default class AddressComponent extends React.Component {
 
   onSuggestionsFetchRequested ({value, reason}) {
     let current = this;
-    if(this.state.timeout) {
+    if (this.state.timeout) {
       clearTimeout(this.state.timeout);
     }
     let timeout = setTimeout(function () {
       let url = '/geoservice/'
       let params = encodeURIComponent(value)
       fetchRequest(url, 'POST', params).then(
-          response => response.json()).then((response) => {
-          return current.setState({
-              suggestions: response
-          })
+        response => response.json()).then((response) => {
+        return current.setState({
+          suggestions: response
+        })
       }).catch(() => {
-          return current.setState({
-              suggestions: []
-          })
+        return current.setState({
+          suggestions: []
+        })
       })
     }, 300);
     this.setState({timeout:timeout});
