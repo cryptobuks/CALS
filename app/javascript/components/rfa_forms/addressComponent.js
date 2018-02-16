@@ -4,7 +4,7 @@ import {CommonAddressComponent} from 'react-wood-duck'
 import {fetchRequest} from 'helpers/http'
 import Immutable from 'immutable'
 
-export default class AddressComponent extends React.Component {
+export default class AddressComponent extends React.PureComponent {
   constructor (props) {
     super(props)
     this.state = {
