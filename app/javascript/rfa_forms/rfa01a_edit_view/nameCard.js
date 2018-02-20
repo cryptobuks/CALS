@@ -19,7 +19,7 @@ const blankNameFields = Object.freeze({
 
 const requiredNameRule = {rule: 'isRequired', message: 'Required'}
 
-export default class NameCard extends React.Component {
+export default class NameCard extends React.PureComponent {
   constructor (props) {
     super(props)
     this.addCard = this.addCard.bind(this)

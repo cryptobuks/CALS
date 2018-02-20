@@ -193,7 +193,7 @@ export default class Rfa01EditView extends React.Component {
               <h3>III.<span>Relationship Between Applicant</span></h3>
               <RelationshipBetweenApplicantsCardMain
                 focusComponentName={this.state.focusComponentName}
-                relationshipBetweenApplicants={this.state.application.relationshipBetweenApplicants || undefined}
+                relationshipBetweenApplicants={this.state.application.applicants_relationship || undefined}
                 getFocusClassName={this.getFocusClassName}
                 setParentState={this.setApplicationState}
                 setFocusState={this.setFocusState}

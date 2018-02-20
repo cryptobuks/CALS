@@ -96,6 +96,7 @@ RSpec.feature 'RFA', js: true do
     select 'Married', from: 'relationship_type'
     select 'Alaska', from: 'place_of_relationship_state'
     click_button('Save Progress')
+    expect(find_field('relationship_type').value).to eq '1'
     visit page.driver.current_url
     expect(find_field('relationship_type').value).to eq '1'
     expect(find_field('place_of_relationship_state').value).to eq 'AK'

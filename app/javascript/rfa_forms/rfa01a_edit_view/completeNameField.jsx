@@ -21,51 +21,52 @@ const CompleteNameFields = ({
   nameTypes,
   validator
 }) => {
-  return (<div>
-    {
-      prefixTypes && <div className='col-md-12'>
-        <DropDownField gridClassName='col-md-4'
-          id={idPrefix + 'name_prefix'} value={getDictionaryId(namePrefix)}
-          selectClassName={'reusable-select'}
-          optionList={prefixTypes}
-          label={'Prefix'}
-          onChange={(event, id) => onChange(onChangePrefix + 'name_prefix', dictionaryNilSelect(event.target.options), index)} />
+  return (
+    <div>
+      {
+        prefixTypes && <div className='col-md-12'>
+          <DropDownField gridClassName='col-md-4'
+            id={idPrefix + 'name_prefix'} value={getDictionaryId(namePrefix)}
+            selectClassName={'reusable-select'}
+            optionList={prefixTypes}
+            label={'Prefix'}
+            onChange={(event, id) => onChange(onChangePrefix + 'name_prefix', dictionaryNilSelect(event.target.options), index)} />
+        </div>
+      }
+      <div className='col-md-12'>
+        <NameCommonFields
+          index={index}
+          onChangePrefix={onChangePrefix}
+          idPrefix={idPrefix}
+          firstName={firstName}
+          middleName={middleName}
+          lastName={lastName}
+          onChange={onChange}
+          validator={validator} />
       </div>
-    }
-    <div className='col-md-12'>
-      <NameCommonFields
-        index={index}
-        onChangePrefix={onChangePrefix}
-        idPrefix={idPrefix}
-        firstName={firstName}
-        middleName={middleName}
-        lastName={lastName}
-        onChange={onChange}
-        validator={validator} />
-    </div>
-    <div className='col-md-12'>
-      <DropDownField
-        gridClassName='col-md-4'
-        id={idPrefix + 'name_suffix'}
-        value={getDictionaryId(nameSuffix)}
-        selectClassName={'reusable-select'}
-        optionList={suffixTypes}
-        label={'Suffix'}
-        onChange={(event, id) => onChange(onChangePrefix + 'name_suffix', dictionaryNilSelect(event.target.options), index)} />
-    </div>
-    {
-      nameTypes && <div className='col-md-12'>
+      <div className='col-md-12'>
         <DropDownField
           gridClassName='col-md-4'
-          id={idPrefix + 'name_type'}
-          value={getDictionaryId(nameType)}
+          id={idPrefix + 'name_suffix'}
+          value={getDictionaryId(nameSuffix)}
           selectClassName={'reusable-select'}
-          optionList={nameTypes}
-          label={'Name Type'}
-          onChange={(event, id) => onChange(onChangePrefix + 'name_type', dictionaryNilSelect(event.target.options), index)} />
+          optionList={suffixTypes}
+          label={'Suffix'}
+          onChange={(event, id) => onChange(onChangePrefix + 'name_suffix', dictionaryNilSelect(event.target.options), index)} />
       </div>
-    }
-  </div>)
+      {
+        nameTypes && <div className='col-md-12'>
+          <DropDownField
+            gridClassName='col-md-4'
+            id={idPrefix + 'name_type'}
+            value={getDictionaryId(nameType)}
+            selectClassName={'reusable-select'}
+            optionList={nameTypes}
+            label={'Name Type'}
+            onChange={(event, id) => onChange(onChangePrefix + 'name_type', dictionaryNilSelect(event.target.options), index)} />
+        </div>
+      }
+    </div>)
 }
 
 CompleteNameFields.propTypes = {
