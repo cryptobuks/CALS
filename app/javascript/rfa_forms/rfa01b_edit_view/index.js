@@ -2,7 +2,6 @@ import React from 'react'
 import Immutable from 'immutable'
 import _ from 'lodash'
 import {fetchRequest} from 'helpers/http'
-
 import OutOfStateDisclosureCard from './outOfStateDisclosureCard'
 import ApplicantDetailsCard from './applicantDetailsCard'
 import DisclosureInstructions from './disclosureInstructions'
@@ -16,6 +15,7 @@ import {getDictionaryId, dictionaryNilSelect, checkArrayObjectPresence} from 'he
 import CardsGroupLayout from 'components/common/cardsGroupLayout.js'
 import {addCardAsJS, getFocusClassName, removeCard} from 'helpers/cardsHelper.jsx'
 import Validator from 'helpers/validator'
+import PageTemplate from 'components/common/pageTemplate'
 import {disclosureDefaults} from 'constants/defaultFields'
 
 export default class Rfa01bList extends React.Component {
@@ -61,9 +61,16 @@ export default class Rfa01bList extends React.Component {
       .then((response) => {
         return response.json()
       }).then((data) => {
-        this.setState({
-          application: data
-        })
+        if (!data.issue_details) {
+          this.setState({
+            application: data,
+            errors: {}
+          })
+        } else {
+          this.setState({
+            errors: data
+          })
+        }
       }).catch((errors) => {
         this.setState({
           errors: errors
@@ -114,132 +121,113 @@ export default class Rfa01bList extends React.Component {
 
   render () {
     const countyValue = getDictionaryId(this.state.application.application_county) || (this.props.user && this.props.user.county_code)
-
     return (
-
-      <div className='main_page'>
-        <div className='header_cwds col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-          <div className='header-logo' />
-        </div>
-        <div className='form-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-          <div className='left-content col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-
-            <RfaSideBar
-              rfa01aApplicationId={this.state.rfa_a01_application.id}
-              rfa01cForms={this.state.rfa_a01_application.rfa1c_forms}
-              applicants={this.state.rfa_a01_application.applicants}
-              otherAdults={this.state.rfa_a01_application.other_adults}
-              childIdentified={this.state.rfa_a01_application.child_desired &&
+      <PageTemplate
+        headerLabel='Resource Family Application - Confidential (RFA 01B)'
+        buttonId='saveProgress'
+        buttonLabel='Save Progress'
+        buttonTextAlignment='right'
+        onButtonClick={this.submitForm}
+        rfa01aApplicationId={this.state.rfa_a01_application.id}
+        rfa01cForms={this.state.rfa_a01_application.rfa1c_forms}
+        applicants={this.state.rfa_a01_application.applicants}
+        otherAdults={this.state.rfa_a01_application.other_adults}
+        childIdentified={this.state.rfa_a01_application.child_desired &&
               this.state.rfa_a01_application.child_desired.child_identified}
-              isNavLinkActive={this.isNavLinkActive}
-              handleNavLinkClick={this.handleNavLinkClick} />
-          </div>
-          <div className='right-content col-xs-9 col-sm-9 col-md-9 col-lg-9'>
-            <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-              <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
-                <h1 className='page-header'>Resource Family Criminal Record Statement (RFA 01B)</h1>
-                <h3><span>Confidential Document - For County Use Only</span></h3>
-                <p>Instructions: Each Resource Family applicant and adult residing
-                   in or regularly present in the home must complete this Criminal
-                    Record Statement</p>
-              </div>
-              <div className='col-xs-2 col-sm-2 col-md-2 col-lg-2'>
-                <button id='saveProgress' className='btn btn-default' onClick={this.submitForm}>Save Progress</button>
-              </div>
-            </div>
-            <CardsGroupLayout>
-              <CountyUseOnlyCard
-                countyUseOnlyCardId='county_use_only'
-                setFocusState={this.setFocusState}
-                getFocusClassName={this.getFocusClassName}
-                county={countyValue}
-                CountyList={this.props.countyTypes}
-                onFieldChange={(event) => this.setApplicationState('application_county',
-                  dictionaryNilSelect(event.target.options))} />
-            </CardsGroupLayout>
+        isNavLinkActive={this.isNavLinkActive}
+        handleNavLinkClick={this.handleNavLinkClick}
+        errors={this.state.errors.issue_details} >
 
-            <CardsGroupLayout>
-              <h2>I.<span>Out of State Disclosure</span></h2>
-              <OutOfStateDisclosureCard
-                livedInOtherState={this.state.application.lived_in_other_state}
-                otherStatesOfLiving={this.state.application.other_states_of_living}
-                stateTypes={this.props.stateTypes}
-                focusComponentName={this.state.focusComponentName}
-                getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState}
-                handleClearOnConditionalChange={this.handleClearOnConditionalChange}
-                setParentState={this.setApplicationState} />
-            </CardsGroupLayout>
-            <CardsGroupLayout>
-              <h2>II.<span>Criminal Record Statement</span></h2>
-              <DisclosureInstructions
-                focusComponentName={this.state.focusComponentName}
-                getFocusClassName={this.getFocusClassName}
-                disclosureInstructionsDisplay={this.state.disclosureInstructionsDisplay}
-                setDisplayState={this.setDisplayState}
-                setFocusState={this.setFocusState}
-                setParentState={this.setApplicationState} />
-            </CardsGroupLayout>
+        <CardsGroupLayout>
+          <CountyUseOnlyCard
+            countyUseOnlyCardId='county_use_only'
+            setFocusState={this.setFocusState}
+            getFocusClassName={this.getFocusClassName}
+            county={countyValue}
+            CountyList={this.props.countyTypes}
+            onFieldChange={(event) => this.setApplicationState('application_county',
+              dictionaryNilSelect(event.target.options))} />
+        </CardsGroupLayout>
 
-            <CardsGroupLayout>
-              <CaliforniaCriminalBackground
-                convictedInCalifornia={this.state.application.convicted_in_california}
-                disclosures={checkArrayObjectPresence(this.state.application.convicted_in_california_disclosures) || [disclosureDefaults]}
-                focusComponentName={this.state.focusComponentName}
-                getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState}
-                handleClearOnConditionalChange={this.handleClearOnConditionalChange}
-                setParentState={this.setApplicationState} />
-            </CardsGroupLayout>
+        <CardsGroupLayout>
+          <h2>I.<span>Out of State Disclosure</span></h2>
+          <OutOfStateDisclosureCard
+            livedInOtherState={this.state.application.lived_in_other_state}
+            otherStatesOfLiving={this.state.application.other_states_of_living}
+            stateTypes={this.props.stateTypes}
+            focusComponentName={this.state.focusComponentName}
+            getFocusClassName={this.getFocusClassName}
+            setFocusState={this.setFocusState}
+            handleClearOnConditionalChange={this.handleClearOnConditionalChange}
+            setParentState={this.setApplicationState} />
+        </CardsGroupLayout>
+        <CardsGroupLayout>
+          <h2>II.<span>Criminal Record Statement</span></h2>
+          <DisclosureInstructions
+            focusComponentName={this.state.focusComponentName}
+            getFocusClassName={this.getFocusClassName}
+            disclosureInstructionsDisplay={this.state.disclosureInstructionsDisplay}
+            setDisplayState={this.setDisplayState}
+            setFocusState={this.setFocusState}
+            setParentState={this.setApplicationState} />
+        </CardsGroupLayout>
 
-            <CardsGroupLayout>
-              <OutsideCACriminalBackground
-                convictedInAnotherState={this.state.application.convicted_in_another_state}
-                disclosures={checkArrayObjectPresence(this.state.application.convicted_in_another_state_disclosures) || [disclosureDefaults]}
-                focusComponentName={this.state.focusComponentName}
-                getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState}
-                handleClearOnConditionalChange={this.handleClearOnConditionalChange}
-                setParentState={this.setApplicationState} />
-            </CardsGroupLayout>
+        <CardsGroupLayout>
+          <CaliforniaCriminalBackground
+            convictedInCalifornia={this.state.application.convicted_in_california}
+            disclosures={checkArrayObjectPresence(this.state.application.convicted_in_california_disclosures) || [disclosureDefaults]}
+            focusComponentName={this.state.focusComponentName}
+            getFocusClassName={this.getFocusClassName}
+            setFocusState={this.setFocusState}
+            handleClearOnConditionalChange={this.handleClearOnConditionalChange}
+            setParentState={this.setApplicationState} />
+        </CardsGroupLayout>
 
-            <CardsGroupLayout>
-              <CrimeBackgroundAgainstCohabitant
-                arrestedForCrime={this.state.application.arrested_for_crime}
-                disclosures={checkArrayObjectPresence(this.state.application.arrested_for_crime_disclosures) || [disclosureDefaults]}
-                focusComponentName={this.state.focusComponentName}
-                getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState}
-                handleClearOnConditionalChange={this.handleClearOnConditionalChange}
-                setParentState={this.setApplicationState} />
-            </CardsGroupLayout>
+        <CardsGroupLayout>
+          <OutsideCACriminalBackground
+            convictedInAnotherState={this.state.application.convicted_in_another_state}
+            disclosures={checkArrayObjectPresence(this.state.application.convicted_in_another_state_disclosures) || [disclosureDefaults]}
+            focusComponentName={this.state.focusComponentName}
+            getFocusClassName={this.getFocusClassName}
+            setFocusState={this.setFocusState}
+            handleClearOnConditionalChange={this.handleClearOnConditionalChange}
+            setParentState={this.setApplicationState} />
+        </CardsGroupLayout>
 
-            <CardsGroupLayout>
-              <PrivacyStatement
-                privacyStatementDisplay={this.state.privacyStatementDisplay}
-                setDisplayState={this.setDisplayState}
-                focusComponentName={this.state.focusComponentName}
-                getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState} />
-            </CardsGroupLayout>
+        <CardsGroupLayout>
+          <CrimeBackgroundAgainstCohabitant
+            arrestedForCrime={this.state.application.arrested_for_crime}
+            disclosures={checkArrayObjectPresence(this.state.application.arrested_for_crime_disclosures) || [disclosureDefaults]}
+            focusComponentName={this.state.focusComponentName}
+            getFocusClassName={this.getFocusClassName}
+            setFocusState={this.setFocusState}
+            handleClearOnConditionalChange={this.handleClearOnConditionalChange}
+            setParentState={this.setApplicationState} />
+        </CardsGroupLayout>
 
-            <CardsGroupLayout>
-              <h2><span>Applicant or Other Adult </span></h2>
-              <ApplicantDetailsCard
-                application={this.state.application}
-                validator={this.validator}
-                focusComponentName={this.state.focusComponentName}
-                getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState}
-                setParentState={this.setApplicationState}
-                stateTypes={this.props.stateTypes}
-                namePrefixTypes={this.props.namePrefixTypes}
-                nameSuffixTypes={this.props.nameSuffixTypes} />
-            </CardsGroupLayout>
-          </div>
-        </div>
-      </div>
+        <CardsGroupLayout>
+          <PrivacyStatement
+            privacyStatementDisplay={this.state.privacyStatementDisplay}
+            setDisplayState={this.setDisplayState}
+            focusComponentName={this.state.focusComponentName}
+            getFocusClassName={this.getFocusClassName}
+            setFocusState={this.setFocusState} />
+        </CardsGroupLayout>
 
+        <CardsGroupLayout>
+          <h2><span>Applicant or Other Adult </span></h2>
+          <ApplicantDetailsCard
+            application={this.state.application}
+            validator={this.validator}
+            focusComponentName={this.state.focusComponentName}
+            getFocusClassName={this.getFocusClassName}
+            setFocusState={this.setFocusState}
+            setParentState={this.setApplicationState}
+            stateTypes={this.props.stateTypes}
+            namePrefixTypes={this.props.namePrefixTypes}
+            nameSuffixTypes={this.props.nameSuffixTypes} />
+        </CardsGroupLayout>
+      </PageTemplate>
     )
   }
 }

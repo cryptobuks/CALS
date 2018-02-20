@@ -12,6 +12,7 @@ import ApplicantMaritalHistoryCardGroup from './applicantMaritalHistoryCardGroup
 import ChildDesiredMain from './childDesiredMain'
 import {CountyUseOnlyCard} from 'components/rfa_forms/countyUseOnlyCard.js'
 import RfaSideBar from 'rfa_forms/rfa_sidebar/index.js'
+import PageTemplate from 'components/common/pageTemplate'
 import './stylesheets/cards-main.scss'
 import {fetchRequest} from 'helpers/http'
 import {getDictionaryId, dictionaryNilSelect, checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
@@ -67,9 +68,16 @@ export default class Rfa01EditView extends React.Component {
       .then((response) => {
         return response.json()
       }).then((data) => {
-        this.setState({
-          application: data
-        })
+        if (!data.issue_details) {
+          this.setState({
+            application: data,
+            errors: {}
+          })
+        } else {
+          this.setState({
+            errors: data
+          })
+        }
       }).catch((errors) => {
         this.setState({
           errors: errors
@@ -117,188 +125,174 @@ export default class Rfa01EditView extends React.Component {
 
   render () {
     const hideRelationshipBetweenApplicants = this.state.application.applicants !== null && this.state.application.applicants.length === 2 ? 'cards-section' + 'col-xs-12 col-sm-12 col-md-12 col-lg-12' : 'hidden'
-
     return (
-      <div className='main_page'>
-        <div className='form-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-          <div className='left-content col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-            <RfaSideBar
-              rfa01aApplicationId={this.state.application.id}
-              onRfa01AForm
-              rfa01cForms={this.state.application.rfa1c_forms}
-              otherAdults={this.state.application.other_adults}
-              applicants={this.state.application.applicants}
-              childIdentified={this.state.application.child_desired &&
-                this.state.application.child_desired.child_identified}
-              isNavLinkActive={this.isNavLinkActive}
-              handleNavLinkClick={this.handleNavLinkClick} />
-          </div>
-          <div className='right-content col-xs-9 col-sm-9 col-md-9 col-lg-9'>
-            <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-              <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
-                <h1 className='page-header'>Resource Family Applications (RFA 01A)</h1>
-                <p>Instructions: This is the application form for
-                  Resource Family Approval by a County. Please type or print clearly</p>
-              </div>
-              <div className='col-xs-2 col-sm-2 col-md-2 col-lg-2'>
-                <button disabled={this.state.disableSave} id='saveProgress' className='btn btn-default' onClick={this.submitForm}>Save Progress</button>
-              </div>
-            </div>
+      <PageTemplate
+        headerLabel='Resource Family Application - Confidential (RFA 01A)'
+        buttonId='saveProgress'
+        buttonLabel='Save Progress'
+        buttonTextAlignment='right'
+        onButtonClick={this.submitForm}
+        rfa01aApplicationId={this.state.application.id}
+        onRfa01AForm
+        rfa01cForms={this.state.application.rfa1c_forms}
+        otherAdults={this.state.application.other_adults}
+        applicants={this.state.application.applicants}
+        childIdentified={this.state.application.child_desired &&
+          this.state.application.child_desired.child_identified}
+        isNavLinkActive={this.isNavLinkActive}
+        handleNavLinkClick={this.handleNavLinkClick}
+        errors={this.state.errors.issue_details} >
+        <CountyUseOnlyCard
+          countyUseOnlyCardId='county_use_only'
+          setFocusState={this.setFocusState}
+          getFocusClassName={this.getFocusClassName}
+          county={getDictionaryId(this.state.application.application_county)}
+          CountyList={this.props.countyTypes}
+          onFieldChange={(event) => this.setApplicationState('application_county',
+            dictionaryNilSelect(event.target.options))} />
 
-            <CountyUseOnlyCard
-              countyUseOnlyCardId='county_use_only'
-              setFocusState={this.setFocusState}
-              getFocusClassName={this.getFocusClassName}
-              county={getDictionaryId(this.state.application.application_county)}
-              CountyList={this.props.countyTypes}
-              onFieldChange={(event) => this.setApplicationState('application_county',
-                dictionaryNilSelect(event.target.options))} />
+        <ApplicantCardsGroup
+          suffixTypes={this.props.suffixTypes}
+          prefixTypes={this.props.prefixTypes}
+          nameTypes={this.props.nameTypes}
+          phoneTypes={this.props.phoneTypes}
+          salaryTypes={this.props.salaryTypes}
+          stateTypes={this.props.stateTypes}
+          educationLevels={this.props.educationLevels}
+          genderTypes={this.props.genderTypes}
+          // raceTypes={this.props.raceTypes}
+          ethnicityTypes={this.props.ethnicityTypes}
+          languageTypes={this.props.languageTypes}
+          focusComponentName={this.state.focusComponentName}
+          applicants={this.state.application.applicants || []}
+          setParentState={this.setApplicationState}
+          setFocusState={this.setFocusState}
+          getFocusClassName={this.getFocusClassName}
+          hasValidName={this.state.disableSave}
+          validator={this.validator}
+          errors={this.state.errors.applicants} />
 
-            <ApplicantCardsGroup
-              suffixTypes={this.props.suffixTypes}
-              prefixTypes={this.props.prefixTypes}
-              nameTypes={this.props.nameTypes}
-              phoneTypes={this.props.phoneTypes}
-              salaryTypes={this.props.salaryTypes}
-              stateTypes={this.props.stateTypes}
-              educationLevels={this.props.educationLevels}
-              genderTypes={this.props.genderTypes}
-              // raceTypes={this.props.raceTypes}
-              ethnicityTypes={this.props.ethnicityTypes}
-              languageTypes={this.props.languageTypes}
-              focusComponentName={this.state.focusComponentName}
-              applicants={this.state.application.applicants || []}
-              setParentState={this.setApplicationState}
-              setFocusState={this.setFocusState}
-              getFocusClassName={this.getFocusClassName}
-              hasValidName={this.state.disableSave}
-              validator={this.validator}
-              errors={this.state.errors.applicants} />
-
-            <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-              id='applicant-residence-card'>
-              <h3>II. Applicant (S) - <span>Residence</span></h3>
-              <ResidenceCards
-                focusComponentName={this.state.focusComponentName}
-                residence={this.state.application.residence || undefined}
-                languageTypes={this.props.languageTypes}
-                residenceTypes={this.props.residenceTypes}
-                stateTypes={this.props.stateTypes}
-                setFocusState={this.setFocusState}
-                setParentState={this.setApplicationState} />
-            </div>
-
-            <div className={hideRelationshipBetweenApplicants}
-              id='relationship-between-applicants-card'>
-              <h3>III.<span>Relationship Between Applicant</span></h3>
-              <RelationshipBetweenApplicantsCardMain
-                focusComponentName={this.state.focusComponentName}
-                relationshipBetweenApplicants={this.state.application.applicants_relationship || undefined}
-                getFocusClassName={this.getFocusClassName}
-                setParentState={this.setApplicationState}
-                setFocusState={this.setFocusState}
-                stateTypes={this.props.stateTypes}
-                relationshipTypes={this.props.relationshipTypes}
-                validator={this.validator}
-                errors={this.state.errors.relationshipBetweenApplicants}
-                applicants={this.state.application.applicants || []} />
-            </div>
-
-            <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-              id='minor-child-card'>
-              <h3>IV. <span>Minor Children Residing in the Home</span></h3>
-              <MinorCardsGroup
-                genderTypes={this.props.genderTypes}
-                relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
-                getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState}
-                setParentState={this.setApplicationState}
-                validator={this.validator}
-                errors={this.state.errors.minorChildren}
-                applicants={this.state.application.applicants || []}
-                minorChildren={this.state.application.minorChildren || undefined} />
-            </div>
-
-            <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-              id='other-adults-card'>
-              <h3>V.<span>Other Adults Residing or Regularly Present in the Home</span></h3>
-              <p> Each adult residing or regularly present in the home must complete a Criminal Record Statement RFA 01B</p>
-              <OtherAdultsCard
-                getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState}
-                setParentState={this.setApplicationState}
-                validator={this.validator}
-                errors={this.state.errors.otherAdults}
-                applicants={this.state.application.applicants || []}
-                otherAdults={this.state.application.other_adults || undefined}
-                relationship_types={this.props.relationshipToApplicantTypes} />
-            </div>
-
-            <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-              id='marital-history-card'>
-              <h3>VI.<span>Applicant's Marital History</span></h3>
-              <ApplicantMaritalHistoryCardGroup
-                focusComponentName={this.state.focusComponentName}
-                getFocusClassName={this.getFocusClassName}
-                applicants={this.state.application.applicants || []}
-                applicantsHistory={this.state.application.applicantsHistory || undefined}
-                setFocusState={this.setFocusState}
-                setParentState={this.setApplicationState}
-                relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
-                relationshipTypes={this.props.relationshipTypes}
-                suffixTypes={this.props.suffixTypes}
-                prefixTypes={this.props.prefixTypes}
-                nameTypes={this.props.nameTypes}
-                stateTypes={this.props.stateTypes}
-                marriageTerminationReasons={this.props.marriageTerminationReasons}
-                validator={this.validator}
-                errors={this.state.errors.applicantsHistory} />
-            </div>
-
-            <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-              id='child-desired-card'>
-              <h3>VII.<span>Child Desired </span></h3>
-              <ChildDesiredMain
-                focusComponentName={this.state.focusComponentName}
-                childDesired={this.state.application.child_desired || undefined}
-                getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState}
-                setParentState={this.setApplicationState}
-                siblingGroups={this.props.siblingGroups}
-                ageGroups={this.props.ageGroups} />
-            </div>
-
-            <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-              id='foster-care-card'>
-              <h3>VIII. Foster Care / Adoption / Licensure History</h3>
-              <FosterCareHistoryCardMain
-                focusComponentName={this.state.focusComponentName}
-                fosterCareHistory={this.state.application.fosterCareHistory || {}}
-                getFocusClassName={this.getFocusClassName}
-                setParentState={this.setApplicationState}
-                setFocusState={this.setFocusState}
-                {...this.props} />
-            </div>
-            <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-              id='reference-card'>
-              <h3>IX. References</h3>
-              <ReferencesMain
-                focusComponentName={this.state.focusComponentName}
-                setParentState={this.setApplicationState}
-                getFocusClassName={this.getFocusClassName}
-                setFocusState={this.setFocusState}
-                stateTypes={this.props.stateTypes}
-                references={this.state.application.references || undefined}
-                suffixTypes={this.props.suffixTypes}
-                prefixTypes={this.props.prefixTypes}
-                nameTypes={this.props.nameTypes}
-                validator={this.validator}
-                errors={this.state.errors.reference} />
-            </div>
-          </div>
+        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+          id='applicant-residence-card'>
+          <h3>II. Applicant (S) - <span>Residence</span></h3>
+          <ResidenceCards
+            focusComponentName={this.state.focusComponentName}
+            residence={this.state.application.residence || undefined}
+            languageTypes={this.props.languageTypes}
+            residenceTypes={this.props.residenceTypes}
+            stateTypes={this.props.stateTypes}
+            setFocusState={this.setFocusState}
+            setParentState={this.setApplicationState} />
         </div>
-      </div>
 
+        <div className={hideRelationshipBetweenApplicants}
+          id='relationship-between-applicants-card'>
+          <h3>III.<span>Relationship Between Applicant</span></h3>
+          <RelationshipBetweenApplicantsCardMain
+            focusComponentName={this.state.focusComponentName}
+            relationshipBetweenApplicants={this.state.application.applicants_relationship || undefined}
+            getFocusClassName={this.getFocusClassName}
+            setParentState={this.setApplicationState}
+            setFocusState={this.setFocusState}
+            stateTypes={this.props.stateTypes}
+            relationshipTypes={this.props.relationshipTypes}
+            validator={this.validator}
+            errors={this.state.errors.relationshipBetweenApplicants}
+            applicants={this.state.application.applicants || []} />
+        </div>
+
+        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+          id='minor-child-card'>
+          <h3>IV. <span>Minor Children Residing in the Home</span></h3>
+          <MinorCardsGroup
+            genderTypes={this.props.genderTypes}
+            relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
+            getFocusClassName={this.getFocusClassName}
+            setFocusState={this.setFocusState}
+            setParentState={this.setApplicationState}
+            validator={this.validator}
+            errors={this.state.errors.minorChildren}
+            applicants={this.state.application.applicants || []}
+            minorChildren={this.state.application.minorChildren || undefined} />
+        </div>
+
+        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+          id='other-adults-card'>
+          <h3>V.<span>Other Adults Residing or Regularly Present in the Home</span></h3>
+          <p> Each adult residing or regularly present in the home must complete a Criminal Record Statement RFA 01B</p>
+          <OtherAdultsCard
+            getFocusClassName={this.getFocusClassName}
+            setFocusState={this.setFocusState}
+            setParentState={this.setApplicationState}
+            validator={this.validator}
+            errors={this.state.errors.otherAdults}
+            applicants={this.state.application.applicants || []}
+            otherAdults={this.state.application.other_adults || undefined}
+            relationship_types={this.props.relationshipToApplicantTypes} />
+        </div>
+
+        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+          id='marital-history-card'>
+          <h3>VI.<span>Applicant's Marital History</span></h3>
+          <ApplicantMaritalHistoryCardGroup
+            focusComponentName={this.state.focusComponentName}
+            getFocusClassName={this.getFocusClassName}
+            applicants={this.state.application.applicants || []}
+            applicantsHistory={this.state.application.applicantsHistory || undefined}
+            setFocusState={this.setFocusState}
+            setParentState={this.setApplicationState}
+            relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
+            relationshipTypes={this.props.relationshipTypes}
+            suffixTypes={this.props.suffixTypes}
+            prefixTypes={this.props.prefixTypes}
+            nameTypes={this.props.nameTypes}
+            stateTypes={this.props.stateTypes}
+            marriageTerminationReasons={this.props.marriageTerminationReasons}
+            validator={this.validator}
+            errors={this.state.errors.applicantsHistory} />
+        </div>
+
+        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+          id='child-desired-card'>
+          <h3>VII.<span>Child Desired </span></h3>
+          <ChildDesiredMain
+            focusComponentName={this.state.focusComponentName}
+            childDesired={this.state.application.child_desired || undefined}
+            getFocusClassName={this.getFocusClassName}
+            setFocusState={this.setFocusState}
+            setParentState={this.setApplicationState}
+            siblingGroups={this.props.siblingGroups}
+            ageGroups={this.props.ageGroups} />
+        </div>
+
+        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+          id='foster-care-card'>
+          <h3>VIII. Foster Care / Adoption / Licensure History</h3>
+          <FosterCareHistoryCardMain
+            focusComponentName={this.state.focusComponentName}
+            fosterCareHistory={this.state.application.fosterCareHistory || {}}
+            getFocusClassName={this.getFocusClassName}
+            setParentState={this.setApplicationState}
+            setFocusState={this.setFocusState}
+            {...this.props} />
+        </div>
+        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+          id='reference-card'>
+          <h3>IX. References</h3>
+          <ReferencesMain
+            focusComponentName={this.state.focusComponentName}
+            setParentState={this.setApplicationState}
+            getFocusClassName={this.getFocusClassName}
+            setFocusState={this.setFocusState}
+            stateTypes={this.props.stateTypes}
+            references={this.state.application.references || undefined}
+            suffixTypes={this.props.suffixTypes}
+            prefixTypes={this.props.prefixTypes}
+            nameTypes={this.props.nameTypes}
+            validator={this.validator}
+            errors={this.state.errors.reference} />
+        </div>
+      </PageTemplate>
     )
   }
 }

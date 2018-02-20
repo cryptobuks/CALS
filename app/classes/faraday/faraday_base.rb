@@ -29,12 +29,18 @@ class Faraday::FaradayBase
       Rails.logger.info("Method : #{method}")
     end
 
-    response = Faraday.send(method) do |req|
+    conn = Faraday.new(url: url) do |c|
+      c.use CalsFaradayMiddleware::ApiErrorException
+      c.adapter Faraday.default_adapter
+    end
+
+    response = conn.send(method) do |req|
       req.url url
       req.headers = default_headers(auth_header)
       req.body = body if method.in?(BODY_METHODS)
       req.options.timeout = 5
     end
+
     unless Rails.env.test?
       Rails.logger.info('API call response:')
       Rails.logger.info(response)

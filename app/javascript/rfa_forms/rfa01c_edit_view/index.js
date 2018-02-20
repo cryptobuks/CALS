@@ -8,10 +8,9 @@ import {checkForNameValidation} from 'helpers/cardsHelper.jsx'
 import Validator from 'helpers/validator'
 import CardsGroupLayout from 'components/common/cardsGroupLayout'
 import PageTemplate from 'components/common/pageTemplate'
-
 import {getCountyValue, checkArrayObjectPresence, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
-
 import Button from 'components/common/button'
+
 export default class Rfa01cList extends React.Component {
   constructor (props) {
     super(props)
@@ -50,11 +49,17 @@ export default class Rfa01cList extends React.Component {
       .then((response) => {
         return response.json()
       }).then((data) => {
-        this.setState({
-          application: data
-        })
-      })
-      .catch((error) => {
+        if (!data.issue_details) {
+          this.setState({
+            application: data,
+            errors: {}
+          })
+        } else {
+          this.setState({
+            errors: data
+          })
+        }
+      }).catch((error) => {
         this.setState({
           errors: error
         })

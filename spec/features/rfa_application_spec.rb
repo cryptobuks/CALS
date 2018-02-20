@@ -55,6 +55,45 @@ RSpec.feature 'RFA', js: true do
     expect(find_field('applicants[0].phones[0].number').value).to eq '(201) 222-2345'
   end
 
+  scenario 'show error validation message on full Applicant Card', set_auth_header: true do
+    visit root_path
+    click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+    expect(page).to have_content 'Applicant 1 - Information'
+    fill_in('applicants[0].first_name', with: 'Geovanni', :match => :prefer_exact)
+    fill_in('applicants[0].last_name', with: 'Moen', :match => :prefer_exact)
+    click_button('Add Another Applicant +')
+    fill_in('applicants[1].first_name', with: 'Geovanni', :match => :prefer_exact)
+    fill_in('applicants[1].last_name', with: 'Moen', :match => :prefer_exact)
+    click_button('Save Progress')
+    expect(page).to have_content "Message: Applicant with first name - [Geovanni], last name - [Moen] and name suffix - [] already exists in application"
+  end
+
+  scenario 'remove error validation on full Applicant card', set_auth_header: true do
+    visit root_path
+    click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+    expect(page).to have_content 'Applicant 1 - Information'
+    applicant_first_name = Faker::Name.first_name
+    applicant_last_name = Faker::Name.last_name
+    fill_in('applicants[0].first_name', with: applicant_first_name, :match => :prefer_exact)
+    fill_in('applicants[0].last_name', with: applicant_last_name, :match => :prefer_exact)
+    click_button('Add Another Applicant +')
+    fill_in('applicants[1].first_name', with: applicant_first_name, :match => :prefer_exact)
+    fill_in('applicants[1].last_name', with: applicant_last_name, :match => :prefer_exact)
+    click_button('Save Progress')
+    #expect(page).to have_content "Message: Applicant with first name - [Geovanni], last name - [Moen] and name suffix - [] already exists in application"
+    click_button('Add Another Applicant +')
+    fill_in('applicants[1].first_name', with: Faker::Name.first_name, :match => :prefer_exact)
+    fill_in('applicants[1].last_name', with: Faker::Name.last_name, :match => :prefer_exact)
+    click_button('Save Progress')
+    visit page.driver.current_url
+    expect(page).not_to have_content "Message: Applicant with first name - [Geovanni], last name - [Moen] and name suffix - [] already exists in application"
+
+  end
+
   scenario 'prevent backspace navigation on IE', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'

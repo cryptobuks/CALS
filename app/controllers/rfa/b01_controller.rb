@@ -1,7 +1,7 @@
 class Rfa::B01Controller < CalsBaseController
   def index
-    rfa_b01_response = rfa_b01_application_helper.create_application(
-      params[:application_id], params[:adult_id], params[:api_url_path])
+    rfa_b01_response = rfa_b01_application_helper.create_application(params[:application_id],
+                                                                     params[:adult_id], params[:api_url_path])
     @rfa_b01_application = Rfa::B01::Application.new
     @rfa_b01_application.id = rfa_b01_response['id']
     redirect_to edit_rfa_b01_path(id: @rfa_b01_application.id,
@@ -20,6 +20,8 @@ class Rfa::B01Controller < CalsBaseController
     rfa_b01_application_helper.update(params[:b01][:id], params[:id], b01_params.to_json)
 
     render json: rfa_b01_application_helper.find_by_id(params[:b01][:id], params[:id])
+  rescue ApiError => e
+    render json: e.response, status: e.status
   end
 
   private

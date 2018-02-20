@@ -43,6 +43,8 @@ class Rfa::A01Controller < CalsBaseController
     @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, params[:id]) if params[:references].present?
 
     render json: rfa_application_helper.find_by_application_id(params[:id])
+  rescue ApiError => e
+    render json: e.response, status: e.status
   end
 
   private
@@ -122,7 +124,7 @@ class Rfa::A01Controller < CalsBaseController
 
   def child_desired_params
     params.require(:child_desired).permit(:to_delete, :child_identified, :child_in_home, preferred_ages: %i[id value],
-                                         preferred_sibling_group_up_to: %i[id value])
+                                          preferred_sibling_group_up_to: %i[id value])
   end
 
   def adoption_history_params
