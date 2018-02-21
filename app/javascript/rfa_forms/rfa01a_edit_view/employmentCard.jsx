@@ -6,25 +6,16 @@ import {DropDownField} from 'components/common/dropDownField'
 import {getDictionaryId, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
 import CurrencyInput from 'react-currency-input'
 import AddressComponent from 'components/rfa_forms/addressComponent.js'
+import {blankEmploymentFields} from 'constants/defaultFields'
 import Cleave from 'cleave.js/react'
 
-const blankEmploymentFields = Object.freeze({
-  employer_name: '',
-  occupation: '',
-  income: '',
-  income_type: {
-    id: 1,
-    value: 'yearly'
-  },
-  physical_address: {
-    street_address: '',
-    zip: '',
-    city: '',
-    state: null
-  }
-})
-
 export default class Employment extends React.Component {
+  constructor (props) {
+    super(props)
+    this.onEmploymentChange = this.onEmploymentChange.bind(this)
+    this.onPhysicalAddressChange = this.onPhysicalAddressChange.bind(this)
+  }
+
   onEmploymentChange (key, value) {
     let newData = Immutable.fromJS(this.props.employment)
     newData = newData.set(key, value)
@@ -32,16 +23,10 @@ export default class Employment extends React.Component {
   }
   onPhysicalAddressChange (key, value) {
     let newData = Immutable.fromJS(this.props.employment)
-    // newData.physical_address[key] = value
     newData = newData.setIn(['physical_address', key], value)
     this.props.setParentState('employment', newData.toJS())
   }
 
-  onSelection (key, value) {
-    let newData = Immutable.fromJS(this.props.employment)
-    newData = newData.set(key, value)
-    this.props.setParentState('employment', newData.toJS())
-  }
   render () {
     const employmentFields = this.props.employment
     return (
@@ -52,15 +37,12 @@ export default class Employment extends React.Component {
               value={employmentFields.employer_name}
               label='Name of the Employer' placeholder=''
               type='text' onChange={(event) => this.onEmploymentChange('employer_name', event.target.value)} />
-
             <InputComponent gridClassName='col-md-4' id='occupation'
               value={employmentFields.occupation}
               label='Occupation' placeholder=''
               type='text' onChange={(event) => this.onEmploymentChange('occupation', event.target.value)} />
-
             <div className='col-md-2' >
               <label>Income</label>
-
               <Cleave placeholder='$0'
                 id='income'
                 value={employmentFields.income}
@@ -73,7 +55,6 @@ export default class Employment extends React.Component {
                   rawValueTrimPrefix: true
                 }}
                 onChange={(event) => this.onEmploymentChange('income', event.target.rawValue)} />
-
             </div>
 
             <DropDownField gridClassName='col-md-2' id='income_type'
@@ -87,9 +68,10 @@ export default class Employment extends React.Component {
               index={this.props.index}
               stateTypes={this.props.stateTypes}
               addressTitle='Physical Address'
-              id="street_address"
+              id='street_address'
               addressFields={employmentFields.physical_address}
-              onSelection={(autofillData) => this.onSelection('physical_address', autofillData)}
+              setParentState={this.onEmploymentChange}
+              parentStateKey='physical_address'
               onChange={(fieldId, event) => this.onPhysicalAddressChange(fieldId, event, this.props.index)} />
           </form>
         </div>

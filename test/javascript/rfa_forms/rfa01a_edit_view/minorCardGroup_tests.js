@@ -65,7 +65,7 @@ describe('Verify minor children Component View', function () {
       let relationShipField = componentMount.find('#relationship_to_applicant').hostNodes()
       relationShipField.simulate('change', {target: {options: {'2': {value: '2', text: 'Sibling'}, selectedIndex: 2}}})
       minorCardChild.relationship_to_applicants[0].relationship_to_applicant = { id: '2', value: 'Sibling' }
-      expect(setParentStateSpy).toHaveBeenCalledWith('minorChildren', [minorCardChild])
+      expect(setParentStateSpy).toHaveBeenCalledWith('minor_children', [minorCardChild])
     })
 
     it('verify date of birth', () => {
@@ -98,7 +98,7 @@ describe('Verify minor children Component View', function () {
       newData[1] = minorDefaults
 
       // expect(props.minorchil.length).toEqual(1)
-      expect(setParentStateSpy).toHaveBeenCalledWith('minorChildren', newData)
+      expect(setParentStateSpy).toHaveBeenCalledWith('minor_children', newData)
     })
 
     describe('when close minor card is clicked', () => {
@@ -110,7 +110,7 @@ describe('Verify minor children Component View', function () {
         newData[1] = minorDefaults
         expect(component.instance().clickClose).toHaveBeenCalled()
         expect(props.minorChildren.length).toEqual(1)
-        expect(setParentStateSpy).toHaveBeenCalledWith('minorChildren', [minorDefaults])
+        expect(setParentStateSpy).toHaveBeenCalledWith('minor_children', [minorDefaults])
       })
 
       it('Deletes minor children when 2 cards are present', () => {
@@ -126,7 +126,7 @@ describe('Verify minor children Component View', function () {
         expect(component.instance().clickClose).toHaveBeenCalledWith(0)
 
         // check if setParent is called
-        expect(setParentStateSpy).toHaveBeenCalledWith('minorChildren', [minorDefaults])
+        expect(setParentStateSpy).toHaveBeenCalledWith('minor_children', [minorDefaults])
         expect(props.minorChildren.length).toEqual(1)
       })
     })

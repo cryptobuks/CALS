@@ -84,7 +84,7 @@ export class FosterCareHistoryFields extends React.Component {
     let newData = Immutable.fromJS((Object.keys(this.props.fosterCareHistory).length !== 0) ? this.props.fosterCareHistory : blankFosterCareFields)
     let newerData = newData.update(key,
       data => data.set(subKey, value))
-    this.props.setParentState('fosterCareHistory', newerData.toJS())
+    this.props.setParentState('adoption_history', newerData.toJS())
   }
 
   handleClearOnConditionalChange (key, subKey, value, hiddenKey, hiddenDefaultValue) {
@@ -92,7 +92,7 @@ export class FosterCareHistoryFields extends React.Component {
       let newData = Immutable.fromJS((Object.keys(this.props.fosterCareHistory).length !== 0) ? this.props.fosterCareHistory : blankFosterCareFields)
       let newerData = newData.update(key, data => data.set(subKey, value))
       newerData = newerData.update(key, data => data.set(hiddenKey, hiddenDefaultValue))
-      this.props.setParentState('fosterCareHistory', newerData.toJS())
+      this.props.setParentState('adoption_history', newerData.toJS())
     } else {
       this.setFosterCareNestedState(key, subKey, value)
     }
@@ -101,7 +101,7 @@ export class FosterCareHistoryFields extends React.Component {
   setFosterCareHistoryState (key, value) {
     let newData = Immutable.fromJS((Object.keys(this.props.fosterCareHistory).length !== 0) ? this.props.fosterCareHistory : blankFosterCareFields)
     let newerData = newData.set(key, value)
-    this.props.setParentState('fosterCareHistory', newerData.toJS())
+    this.props.setParentState('adoption_history', newerData.toJS())
   }
 
   addAgencyCard (event, agency, key, subKey) {
@@ -111,7 +111,7 @@ export class FosterCareHistoryFields extends React.Component {
     let newData = Immutable.fromJS(this.props.fosterCareHistory)
     let newerData = newData.update(key,
       data => data.set(subKey, agencyCardsList))
-    this.props.setParentState('fosterCareHistory', newerData.toJS())
+    this.props.setParentState('adoption_history', newerData.toJS())
     // let newData = Immutable.fromJS(this.props.fosterCareHistory)
     // let newerData = newData.update(key,
     //   data => data.set(subKey, addCardAsJS(agency, blankAgencyFields)))
@@ -130,7 +130,7 @@ export class FosterCareHistoryFields extends React.Component {
     let newData = Immutable.fromJS(this.props.fosterCareHistory)
     let newerData = newData.update(key,
       data => data.set(subKey, facilityCardsList))
-    this.props.setParentState('fosterCareHistory', newerData.toJS())
+    this.props.setParentState('adoption_history', newerData.toJS())
     // let newData = Immutable.fromJS(this.props.fosterCareHistory)
     // let newerData = newData.update(key,
     //   data => data.set(subKey, addCardAsJS(facility, '')))
@@ -151,7 +151,7 @@ export class FosterCareHistoryFields extends React.Component {
     let newerData = newData.update(key,
       data => data.set(subKey, agencyCardsList))
 
-    this.props.setParentState('fosterCareHistory', newerData.toJS())
+    this.props.setParentState('adoption_history', newerData.toJS())
   }
 
   onFacilityChange (event, facility, index, key, subKey, value) {
@@ -163,7 +163,7 @@ export class FosterCareHistoryFields extends React.Component {
     let newerData = newData.update(key,
       data => data.set(subKey, facilityList))
 
-    this.props.setParentState('fosterCareHistory', newerData.toJS())
+    this.props.setParentState('adoption_history', newerData.toJS())
   }
 
   render () {

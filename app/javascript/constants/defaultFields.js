@@ -98,3 +98,84 @@ export const applicantsHistoryDefaults = Object.freeze({
   former_spouses: [formerSpousesDefaults],
   adult_children: [adultChildrenDefaults]
 })
+
+export const blankPhysicalAddress = Object.freeze({
+  street_address: '',
+  zip: '',
+  city: '',
+  state: null,
+  type: {
+    id: '1',
+    value: 'Residential'
+  }
+})
+
+export const blankMailingAddress = Object.freeze({
+  street_address: '',
+  zip: '',
+  city: '',
+  state: null,
+  type: {
+    id: '3',
+    value: 'Mailing'
+  }
+})
+
+export const blankResidenceFields = Object.freeze({
+  residence_ownership: '',
+  physical_mailing_similar: '',
+  weapon_in_home: '',
+  body_of_water_exist: '',
+  body_of_water_description: '',
+  others_using_residence_as_mailing: '',
+  directions_to_home: '',
+  addresses: [],
+  home_languages: []
+})
+
+export const blankEmploymentFields = Object.freeze({
+  employer_name: '',
+  occupation: '',
+  income: '',
+  income_type: {
+    id: 1,
+    value: 'yearly'
+  },
+  physical_address: {
+    street_address: '',
+    zip: '',
+    city: '',
+    state: null
+  }
+})
+
+export const residenceAddressValueDefaults = Object.freeze({
+  street_address: '',
+  zip: '',
+  city: '',
+  state: null,
+  type: {
+    id: '1',
+    value: 'Residential'
+  }
+})
+
+export const rfa01BapplicantDefaults = Object.freeze({
+  resource_family_name: '',
+  applicant_first_name: '',
+  applicant_middle_name: '',
+  applicant_last_name: '',
+  applicant_name_suffix: null,
+  applicant_name_prefix: null,
+  ssn: '',
+  date_of_birth: '',
+  driver_license: '',
+  driver_license_state: null,
+  residence_address: residenceAddressValueDefaults
+})
+
+export const othersUsingAddressMailing = Object.freeze({
+  first_name: '',
+  middle_name: '',
+  last_name: ''
+})

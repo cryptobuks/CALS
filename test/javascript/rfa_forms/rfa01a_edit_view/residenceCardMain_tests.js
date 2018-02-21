@@ -15,6 +15,7 @@ describe('Verify Residence main', function () {
     body_of_water_description: '',
     others_using_residence_as_mailing: '',
     directions_to_home: '',
+    addresses: [],
     home_languages: [{
       id: '',
       value: ''
@@ -39,22 +40,22 @@ describe('Verify Residence main', function () {
     componentMount = mount(<ResidenceCards {...props} />)
   })
   describe('verify default props', () => {
-    props.residence = undefined
+    // props.residence = undefined
     componentMount = mount(<ResidenceCards {...props} />)
     it('load the component', () => {
       expect(componentMount.length).toBe(1)
     })
   })
   describe('Verify minor card Component View', () => {
-    props.residence = blankResidenceFields
+  //  props.residence = blankResidenceFields
     it('verify on click address card', () => {
-      let relationShipField = componentMount.find('#residentAddress')
+      let relationShipField = componentMount.find('#residentAddress').hostNodes()
       relationShipField.simulate('click')
       expect(setFocusStateSpy).toHaveBeenCalledWith('residentAddress')
     })
 
     it('verify on about the residence card', () => {
-      let relationShipField = componentMount.find('#aboutResidence')
+      let relationShipField = componentMount.find('#aboutResidence').hostNodes()
       relationShipField.simulate('click')
       expect(setFocusStateSpy).toHaveBeenCalledWith('aboutResidence')
     })

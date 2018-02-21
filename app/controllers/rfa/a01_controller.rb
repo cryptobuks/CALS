@@ -18,10 +18,10 @@ class Rfa::A01Controller < CalsBaseController
     @application = rfa_application_helper.find_by_id(params[:id])
     @application.applicants = rfa_applicant_helper.find_items_by_application_id(params[:id])
     @application.residence = rfa_residence_helper.find_by_application_id(params[:id])
-    @application.applicantsHistory = rfa_applicant_history_helper.find_by_application_id(params[:id])
-    @application.minorChildren = rfa_minor_children_helper.find_items_by_application_id(params[:id])
+    @application.applicants_history = rfa_applicant_history_helper.find_by_application_id(params[:id])
+    @application.minor_children = rfa_minor_children_helper.find_items_by_application_id(params[:id])
     @application.other_adults = rfa_other_adults_helper.find_items_by_application_id(params[:id])
-    @application.fosterCareHistory = rfa_adoption_history_helper.find_by_application_id(params[:id])
+    @application.adoption_history = rfa_adoption_history_helper.find_by_application_id(params[:id])
     @application.applicants_relationship = rfa_relation_between_applicants_helper.find_by_application_id(params[:id])
     @application.child_desired = rfa_child_desired_helper.find_by_application_id(params[:id])
     @application.references = rfa_references_helper.find_items_by_application_id(params[:id])
@@ -33,11 +33,11 @@ class Rfa::A01Controller < CalsBaseController
     @application_response[:application_county] = process_items_for_persistance(application_county_params, rfa_application_helper, params[:id]) if params[:application_county].present?
     @application_response[:applicants] = process_items_for_persistance(applicant_params, rfa_applicant_helper, params[:id]) if params[:applicants].present?
     @application_response[:residence] = process_items_for_persistance(residence_params, rfa_residence_helper, params[:id]) if params[:residence].present?
-    @application_response[:applicantsHistory] = process_items_for_persistance(applicants_history_params, rfa_applicant_history_helper, params[:id]) if params[:applicantsHistory].present?
-    @application_response[:minorChildren] = process_items_for_persistance(minor_children_params, rfa_minor_children_helper, params[:id]) if params[:minorChildren].present?
+    @application_response[:applicants_history] = process_items_for_persistance(applicants_history_params, rfa_applicant_history_helper, params[:id]) if params[:applicants_history].present?
+    @application_response[:minor_children] = process_items_for_persistance(minor_children_params, rfa_minor_children_helper, params[:id]) if params[:minor_children].present?
     @application_response[:other_adults] = process_items_for_persistance(other_adults_params, rfa_other_adults_helper, params[:id]) if params[:other_adults].present?
-    @application_response[:fosterCareHistory] = process_items_for_persistance(adoption_history_params, rfa_adoption_history_helper, params[:id]) if params[:fosterCareHistory].present?
-    @application_response[:relationshipBetweenApplicants] = process_items_for_persistance(relationship_between_applicants_params, rfa_relation_between_applicants_helper, params[:id]) if params[:applicants_relationship].present?
+    @application_response[:adoption_history] = process_items_for_persistance(adoption_history_params, rfa_adoption_history_helper, params[:id]) if params[:adoption_history].present?
+    @application_response[:applicants_relationship] = process_items_for_persistance(relationship_between_applicants_params, rfa_relation_between_applicants_helper, params[:id]) if params[:applicants_relationship].present?
     @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, params[:id]) if params[:references].present?
     @application_response[:child_desired] = process_items_for_persistance(child_desired_params, rfa_child_desired_helper, params[:id]) if params[:child_desired].present?
     @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, params[:id]) if params[:references].present?
@@ -79,14 +79,24 @@ class Rfa::A01Controller < CalsBaseController
   end
 
   def applicants_history_params
-    params.require(:applicantsHistory).permit(:to_delete, former_spouses: [:first_name, :middle_name, :last_name,
-                                                                           :applicant_id, :date_of_marriage, :place_of_marriage_city,
-                                                                           :date_of_marriage_end, :place_of_marriage_end_city,
-                                                                           relationship_type:  %i[id value],
-                                                                           name_prefix:  %i[id value], name_suffix:  %i[id value],
-                                                                           place_of_marriage_state:  %i[id value],
-                                                                           marriage_termination_reason:  %i[id value],
-                                                                           place_of_marriage_end_state:  %i[id value]],
+    applicants_history = params.require(:applicants_history)
+    applicants = @application_response[:applicants]
+    applicants_history['former_spouses'].each do |former_spouse|
+      set_relationship_to_applicants(former_spouse, applicants)
+    end
+    applicants_history['adult_children'].each do |adult_child|
+      set_relationship_to_applicants(adult_child['relationship_to_applicants'][0], applicants)
+    end
+    applicants_history.permit!
+    ActionController::Parameters.new(applicants_history.to_h).permit(:to_delete,
+                                              former_spouses: [:first_name, :middle_name, :last_name,
+                                                               :applicant_id, :date_of_marriage, :place_of_marriage_city,
+                                                               :date_of_marriage_end, :place_of_marriage_end_city,
+                                                               relationship_type:  %i[id value],
+                                                               name_prefix:  %i[id value], name_suffix:  %i[id value],
+                                                               place_of_marriage_state:  %i[id value],
+                                                               marriage_termination_reason:  %i[id value],
+                                                               place_of_marriage_end_state:  %i[id value]],
                                               adult_children: [:first_name, :middle_name, :last_name, :lives_in_home,
                                                                name_prefix: %i[id value], name_suffix: %i[id value],
                                                                address: [:street_address, :zip, :city, state: %i[id value], type: %i[id value]],
@@ -94,9 +104,9 @@ class Rfa::A01Controller < CalsBaseController
   end
 
   def minor_children_params
-    params.require(:minorChildren).map do |minor|
+    params.require(:minor_children).map do |minor|
       minor.permit!
-      minor = set_relationship_to_applicants(minor, @application_response[:applicants])
+      minor['relationship_to_applicants'][0] = set_relationship_to_applicants(minor['relationship_to_applicants'][0], @application_response[:applicants])
       ActionController::Parameters.new(minor.to_h).permit(
         :id, :to_delete, :child_financially_supported, :date_of_birth, :child_adopted, gender: %i[id value],
         relationship_to_applicants: [:applicant_id, relationship_to_applicant: %i[id value]]
@@ -107,7 +117,7 @@ class Rfa::A01Controller < CalsBaseController
   def other_adults_params
     params.require(:other_adults).map do |adult|
       adult.permit!
-      adult = set_relationship_to_applicants(adult, @application_response[:applicants])
+      adult['relationship_to_applicants'][0] = set_relationship_to_applicants(adult['relationship_to_applicants'][0], @application_response[:applicants])
       ActionController::Parameters.new(adult.to_h).permit(
         :id, :to_delete, :first_name, :middle_name, :last_name, :date_of_birth,
         relationship_to_applicants: [:applicant_id, relationship_to_applicant: %i[id value]]
@@ -128,7 +138,7 @@ class Rfa::A01Controller < CalsBaseController
   end
 
   def adoption_history_params
-    params.require(:fosterCareHistory).permit(:id, :to_delete, :was_subject_for_exclusion_order_q7,
+    params.require(:adoption_history).permit(:id, :to_delete, :was_subject_for_exclusion_order_q7,
                                               foster_care_licenses_q1: [:was_previously_licensed, agencies: [:name, type: %i[id value]]],
                                               applications_for_adoption_q2: [:have_applied_for_adoption, facilities: []],
                                               facility_operation_licenses_q3: [:was_previously_licensed, agencies: [:name, type: %i[id value]]],

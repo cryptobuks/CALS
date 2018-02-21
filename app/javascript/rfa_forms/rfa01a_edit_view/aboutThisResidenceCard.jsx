@@ -8,12 +8,7 @@ import {getDictionaryId, dictionaryNilSelectValue, dictionaryNilSelect} from 'he
 import MultiSelect from 'components/common/multiSelect'
 import PropTypes from 'prop-types'
 import YesNoRadioComponent from 'components/common/yesNoFields'
-
-const othersUsingAddressMailing = Object.freeze({
-  first_name: '',
-  middle_name: '',
-  last_name: ''
-})
+import {othersUsingAddressMailing} from 'constants/defaultFields'
 
 export default class AboutThisResidenceCard extends React.Component {
   constructor (props) {

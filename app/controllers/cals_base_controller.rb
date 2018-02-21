@@ -33,10 +33,10 @@ class CalsBaseController < ApplicationController
     end
   end
 
-  def set_relationship_to_applicants(parameters, response)
-    applicant_names = response.map { |app| [app.id, "#{app.first_name} #{app.middle_name} #{app.last_name}".squish] }.to_h
-    if 0.eql?(parameters['relationship_to_applicants'][0]['applicant_id'].to_i)
-      parameters['relationship_to_applicants'][0].merge!(ActionController::Parameters.new('applicant_id' => applicant_names.key(parameters['relationship_to_applicants'][0]['applicant_id'])).permit!)
+  def set_relationship_to_applicants(parameters, applicants)
+    applicant_names = applicants.map { |app| [app.id, "#{app.first_name} #{app.middle_name} #{app.last_name}".squish] }.to_h
+    if 0.eql?(parameters['applicant_id'].to_i)
+      parameters.merge!(ActionController::Parameters.new('applicant_id' => applicant_names.key(parameters['applicant_id'])).permit!)
     end
     parameters
   end

@@ -25,7 +25,7 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
   updateNestedCards (newCardFields, type) {
     let maritalHistory = Immutable.fromJS(this.props.applicantsHistory)
     let updatedMaritalHistory = maritalHistory.set(type, Immutable.fromJS(newCardFields))
-    this.props.setParentState('applicantsHistory', updatedMaritalHistory.toJS())
+    this.props.setParentState('applicants_history', updatedMaritalHistory.toJS())
   }
 
   addMaritalHistoryCard (formerSpouses) {
@@ -53,7 +53,7 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
     let adultChildrenList = Immutable.fromJS(this.props.applicantsHistory.adult_children)
     adultChildrenList = adultChildrenList.update(adultChildIndex, x => x.set(type, value))
     let updatedMaritalHistory = maritalHistory.set('adult_children', adultChildrenList)
-    this.props.setParentState('applicantsHistory', updatedMaritalHistory.toJS())
+    this.props.setParentState('applicants_history', updatedMaritalHistory.toJS())
   }
 
   changeMaritalHistory (type, value, formerSpuseIndex) {
@@ -61,15 +61,17 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
     let formerSpousesList = Immutable.fromJS(this.props.applicantsHistory.former_spouses)
     formerSpousesList = formerSpousesList.update(formerSpuseIndex, x => x.set(type, value))
     let updatedMaritalHistory = maritalHistory.set('former_spouses', formerSpousesList)
-    this.props.setParentState('applicantsHistory', updatedMaritalHistory.toJS())
+    this.props.setParentState('applicants_history', updatedMaritalHistory.toJS())
   }
 
   changeAdultHistoryAddress (type, value, index) {
-    let maritalHistory = Immutable.fromJS(this.props.applicantsHistory)
-    let adultChildrenList = Immutable.fromJS(this.props.applicantsHistory.adult_children)
-    let address = Immutable.fromJS(this.props.applicantsHistory.adult_children[index].address)
-    address = address.set(type, value)
-    this.changeAdultChild('address', address, index)
+    if (type === 'address') {
+      this.changeAdultChild(type, value, index)
+    } else {
+      let address = Immutable.fromJS(this.props.applicantsHistory.adult_children[index].address)
+      address = address.set(type, value)
+      this.changeAdultChild('address', address.toJS(), index)
+    }
   }
 
   handleRelationshipTypeToApplicantFormerSpouse (index, value, type) {
@@ -77,7 +79,7 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
     let formerSpousesList = Immutable.fromJS(this.props.applicantsHistory.former_spouses)
     formerSpousesList = formerSpousesList.setIn([index, 'relationship_to_applicants', 0, type], value)
     let updatedMaritalHistory = maritalHistory.set('former_spouses', formerSpousesList)
-    this.props.setParentState('applicantsHistory', updatedMaritalHistory.toJS())
+    this.props.setParentState('applicants_history', updatedMaritalHistory.toJS())
   }
 
   handleRelationshipTypeToApplicantAdultChild (index, value, type) {
@@ -85,7 +87,7 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
     let adultChildrenList = Immutable.fromJS(this.props.applicantsHistory.adult_children)
     adultChildrenList = adultChildrenList.setIn([index, 'relationship_to_applicants', 0, type], value)
     let updatedMaritalHistory = maritalHistory.set('adult_children', adultChildrenList)
-    this.props.setParentState('applicantsHistory', updatedMaritalHistory.toJS())
+    this.props.setParentState('applicants_history', updatedMaritalHistory.toJS())
   }
 
   handleClearOnConditionalChange (key, hiddenKey, value, hiddenDefaultValue, index) {
@@ -95,7 +97,7 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
       newData = newData.update(index, x => x.set(key, value))
       newData = newData.update(index, x => x.set(hiddenKey, hiddenDefaultValue))
       let updatedMaritalHistory = maritalHistory.set('adult_children', newData)
-      this.props.setParentState('applicantsHistory', updatedMaritalHistory.toJS())
+      this.props.setParentState('applicants_history', updatedMaritalHistory.toJS())
     } else {
       this.changeAdultChild(key, value, index)
     }

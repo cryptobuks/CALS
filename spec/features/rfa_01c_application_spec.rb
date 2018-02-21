@@ -18,7 +18,7 @@ RSpec.feature 'RFA01C', js: true do
     find('#child_in_homeYes').click
 
     click_button('Save Progress')
-
+    visit current_url
     expect(page.find('#edit_page > div > div > div > div.left-content.col-xs-3.col-sm-3.col-md-3.col-lg-3 > div > div.nav-menu.col-sm-10 > div > div.nav-menu > div:nth-child(3) > div > div > div > div > nav > ul > div > li > a').text).to eq('child identified')
 
     packet_url = current_url.gsub('/edit', '') + '/packet'
@@ -29,11 +29,11 @@ RSpec.feature 'RFA01C', js: true do
     fill_in('desiredChildCardfirst_name', with: first_name, match: :prefer_exact)
     fill_in('desiredChildCardmiddle_name', with: 'k', match: :prefer_exact)
     fill_in('desiredChildCardlast_name', with: last_name, match: :prefer_exact)
-    fill_in('street_address', with: 'address here', match: :prefer_exact)
+    fill_in('Residentialstreet_address', with: 'address here', match: :prefer_exact)
     fill_in('desiredChildCarddate_of_birth', with: '01/01/2000', match: :prefer_exact)
     select 'Sr', from: 'desiredChildCardname_suffix'
     select 'TK', from: 'grade'
-    fill_in('Zip', with: '12345', match: :prefer_exact)
+    fill_in('Residentialzip', with: '12345', match: :prefer_exact)
     find(:css, '.Select--single').click
     find(:css, '#react-select-2--option-0').click
     select 'Male', from: 'gender'
@@ -43,10 +43,10 @@ RSpec.feature 'RFA01C', js: true do
     expect(page).to have_css(:span, text: 'Alabama')
     expect(find_field('gender').value).to eq '1'
     expect(find_field('name_of_school').value).to eq 'School name'
-    expect(find_field('Zip').value).to eq '12345'
+    expect(find_field('Residentialzip').value).to eq '12345'
     expect(find_field('grade').value).to eq '1'
     expect(find_field('desiredChildCardname_suffix').value).to eq '6'
-    expect(find_field('street_address').value).to eq 'address here'
+    expect(find_field('Residentialstreet_address').value).to eq 'address here'
     expect(find_field('desiredChildCarddate_of_birth').value).to eq '01/01/2000'
   end
 end

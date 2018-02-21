@@ -73,7 +73,7 @@ export default class ApplicantCard extends React.Component {
           <Employment
             stateTypes={this.props.stateTypes}
             salaryTypes={this.props.salaryTypes}
-            employment={this.props.applicantFields.employment}
+            employment={this.props.applicantFields.employment || undefined}
             setParentState={this.setApplicantState} />
         </div>
 

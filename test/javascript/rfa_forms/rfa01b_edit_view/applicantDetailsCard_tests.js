@@ -111,7 +111,7 @@ describe('Verify ApplicantDetailsCard card', function () {
     })
 
     it('onChange event on street address', () => {
-      let applicantDetails = componentMountNoResidence.find('#zip').hostNodes()
+      let applicantDetails = componentMountNoResidence.find('#Residentialzip').hostNodes()
       spyOn(componentMountNoResidence.instance(), 'onAddressChange').and.callThrough()
       componentMountNoResidence.update()
       applicantDetails.simulate('change', {target: {value: '95823'}})

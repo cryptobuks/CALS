@@ -27,22 +27,22 @@ export default class MinorCardsGroup extends React.Component {
   }
 
   addCard (event) {
-    this.props.setParentState('minorChildren', addCardAsJS(this.props.minorChildren, minorDefaults))
+    this.props.setParentState('minor_children', addCardAsJS(this.props.minorChildren, minorDefaults))
   }
 
   clickClose (cardIndex) {
-    this.props.setParentState('minorChildren',
+    this.props.setParentState('minor_children',
       removeCardWithId(this.props.minorChildren, cardIndex, minorDefaults))
   }
 
   onFieldChange (cardIndex, value, type) {
     let minorChildrenList = Immutable.fromJS(this.props.minorChildren)
     minorChildrenList = minorChildrenList.update(cardIndex, x => x.set(type, value))
-    this.props.setParentState('minorChildren', minorChildrenList.toJS())
+    this.props.setParentState('minor_children', minorChildrenList.toJS())
   }
 
   handleRelationshipTypeToApplicant (index, value, type) {
-    this.props.setParentState('minorChildren', handleRelationshipTypeToApplicant(index, value, type, this.props.minorChildren))
+    this.props.setParentState('minor_children', handleRelationshipTypeToApplicant(index, value, type, this.props.minorChildren))
   }
 
   render () {

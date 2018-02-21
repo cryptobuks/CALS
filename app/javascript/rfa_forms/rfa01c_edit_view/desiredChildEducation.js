@@ -37,7 +37,8 @@ const DesiredChildEducation = ({
         addressTitle='Address'
         id='street_address'
         addressFields={child.school_address}
-        onSelection={(autofillData) => setParentState(index, 'school_address', autofillData)}
+        parentStateKey='school_address'
+        setParentState={(fieldId, autofillData) => setParentState(index, fieldId, autofillData)}
         onChange={(fieldId, event) => handleAddressChange(fieldId, event, index)} />
     </div>
   </div>

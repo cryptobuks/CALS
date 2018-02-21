@@ -30,7 +30,7 @@ export default class ApplicantMaritalHistoryCard extends React.Component {
             selectClassName='reusable-select'
             label='Select Applicant'
             optionList={setToWhomOptionList(this.props.applicants)}
-            value={maritalHistory.applicant_id}
+            value={handleToWhomValue(maritalHistory.applicant_id, this.props.applicants).id}
             onChange={(event) => this.props.changeMaritalHistory('applicant_id',
               dictionaryNilSelect(event.target.options).id, this.props.index)} />
 

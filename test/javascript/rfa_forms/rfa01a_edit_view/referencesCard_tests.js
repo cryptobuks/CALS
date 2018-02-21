@@ -62,7 +62,7 @@ describe('References Card', () => {
     expect(setParentStateSpy).toHaveBeenCalledWith('email', 'test@test.com', 0)
   })
   it('check Address field loaded and field change', () => {
-    let physicalAddress = referencesComp.find('#street_address').hostNodes()
+    let physicalAddress = referencesComp.find('#Residentialstreet_address').hostNodes()
     physicalAddress.simulate('change', {target: {value: '2870 Gateway Oaks Dr'}})
     expect(setParentStateSpy).toHaveBeenCalledWith('mailing_address', { 'street_address': '2870 Gateway Oaks Dr', 'zip': '', 'city': '', 'state': null }, 0)
   })

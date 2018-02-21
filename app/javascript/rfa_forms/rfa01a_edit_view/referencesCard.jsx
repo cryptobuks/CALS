@@ -14,15 +14,22 @@ export default class ReferencesCard extends React.Component {
   constructor (props) {
     super(props)
     this.handleAddressChange = this.handleAddressChange.bind(this)
+    this.handleFullAddressChange = this.handleFullAddressChange.bind(this)
     this.state = {
       suggestions: []
     }
     this.props.validator.addFieldValidation(this.props.idPrefix + 'phone_number', phoneNumberRule)
   }
-  handleAddressChange (key, value, referencesIndex) {
+  handleAddressChange (key, value) {
     let mailingAddressObj = Immutable.fromJS(this.props.reference.mailing_address)
     mailingAddressObj = mailingAddressObj.set(key, value)
-    this.props.setParentState('mailing_address', mailingAddressObj.toJS(), referencesIndex)
+    this.props.setParentState('mailing_address', mailingAddressObj.toJS(), this.props.index)
+  }
+
+  handleFullAddressChange (key, value) {
+    let reference = Immutable.fromJS(this.props.reference)
+    reference = reference.set(key, value)
+    this.props.setParentState('mailing_address', reference.get(key), this.props.index)
   }
 
   render () {
@@ -46,9 +53,10 @@ export default class ReferencesCard extends React.Component {
             stateTypes={this.props.stateTypes}
             addressTitle='Physical Address'
             id='street_address'
+            parentStateKey='mailing_address'
+            setParentState={this.handleFullAddressChange}
             addressFields={this.props.reference.mailing_address}
-            onSelection={(autofillData) => this.props.setParentState('mailing_address', autofillData, this.props.index)}
-            onChange={(fieldId, event) => this.handleAddressChange(fieldId, event, this.props.index)}
+            onChange={(fieldId, event) => this.handleAddressChange(fieldId, event)}
           />
         </div>
         <div className='col-md-12'>

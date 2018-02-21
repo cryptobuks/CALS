@@ -3,44 +3,37 @@ import Immutable from 'immutable'
 import AddressCard from './addressCard'
 import AboutThisResidenceCard from './aboutThisResidenceCard.jsx'
 import PropTypes from 'prop-types'
-
-const blankResidenceFields = Object.freeze({
-  residence_ownership: '',
-  physical_mailing_similar: '',
-  weapon_in_home: '',
-  body_of_water_exist: '',
-  body_of_water_description: '',
-  others_using_residence_as_mailing: '',
-  directions_to_home: '',
-  home_languages: []
-})
+import {blankResidenceFields} from 'constants/defaultFields'
+import {physicalAddressType, mailingAddressType} from 'constants/rfaConstants'
+import CardLayout from 'components/common/cardLayout'
 
 export default class ResidenceCards extends React.Component {
   constructor (props) {
     super(props)
     this.setResidenceState = this.setResidenceState.bind(this)
     this.handleClearOnConditionalChange = this.handleClearOnConditionalChange.bind(this)
-    this.getFocusClassName = this.getFocusClassName.bind(this)
-  }
-
-  getFocusClassName (componentName) {
-    return this.props.focusComponentName === componentName ? 'edit' : 'show'
   }
 
   setResidenceState (key, value) {
-    let newData = Immutable.fromJS(this.props.residence || blankResidenceFields)
+    let newData = Immutable.fromJS(this.props.residence)
     newData = newData.set(key, value)
     this.props.setParentState('residence', newData.toJS())
   }
 
   handleClearOnConditionalChange (key, hiddenKey, value, hiddenDefaultValue) {
-    if (value === 'false') {
-    // if value is false, we want to clear the data
-    // for the field the conditonal question hides
-      let newData = Immutable.fromJS(this.props.residence)
-      newData = newData.set(key, value)
-      newData = newData.set(hiddenKey, hiddenDefaultValue)
-      this.props.setParentState('residence', newData.toJS())
+    if (value === 'true') {
+      let residence = Immutable.fromJS(this.props.residence)
+      residence = residence.set(key, value)
+      if (hiddenKey === 'addresses') {
+        // if value from the conditional is true, we want to clear the entered data
+        // in Mailing address. need to set the key/value from  regardless.
+        const index = this.props.residence.addresses.findIndex(o => o.type.value === 'Mailing')
+        residence = residence.setIn([hiddenKey, index], hiddenDefaultValue)
+        this.props.setParentState('residence', residence.toJS())
+      } else {
+        residence = residence.set(hiddenKey, hiddenDefaultValue)
+        this.props.setParentState('residence', residence.toJS())
+      }
     } else {
       this.setResidenceState(key, value)
     }
@@ -49,39 +42,48 @@ export default class ResidenceCards extends React.Component {
   render () {
     let residenceData = this.props.residence
     return (
-      <div className='residence_cards'>
-        <div id='residentAddress' onClick={() => this.props.setFocusState('residentAddress')}
-          className={this.getFocusClassName('residentAddress') + ' ' + 'card resident-section double-gap-top active-bar'}>
-          <div className='card-header'>
-            <span> Address</span>
-          </div>
+      <div>
+        <CardLayout
+          idClassName='residence_address_cards'
+          id='residentAddress'
+          textAlignment='left'
+          label='Address'
+          handleOnClick={() => this.props.setFocusState('residentAddress')}
+          focusClassName={this.props.getFocusClassName('residentAddress') + ' ' +
+          'card phone-section double-gap-top active-bar'}>
+
           <AddressCard
             stateTypes={this.props.stateTypes}
-            addresses={residenceData.addresses}
+            physicalAddress={residenceData.addresses.find(o => o.type.value === physicalAddressType)}
+            mailingAddress={residenceData.addresses.find(o => o.type.value === mailingAddressType)}
             physicalMailingSimilar={residenceData.physical_mailing_similar}
             setParentState={this.setResidenceState}
             handleClearOnConditionalChange={this.handleClearOnConditionalChange} />
+        </CardLayout>
 
-        </div>
-        <div id='aboutResidence' onClick={() => this.props.setFocusState('aboutResidence')}
-          className={this.getFocusClassName('aboutResidence') + ' ' + 'card about-resident-section double-gap-top active-bar'}>
-          <div className='card-header'>
-            <span>About This Residence</span>
-          </div>
+        <CardLayout
+          idClassName='residence_about_cards'
+          id='aboutResidence'
+          textAlignment='left'
+          label='About This Residence'
+          handleOnClick={() => this.props.setFocusState('aboutResidence')}
+          focusClassName={this.props.getFocusClassName('aboutResidence') + ' ' +
+          'card phone-section double-gap-top active-bar'}>
+
           <AboutThisResidenceCard
             residenceTypes={this.props.residenceTypes}
             languageTypes={this.props.languageTypes}
             aboutResidence={residenceData}
             setParentState={this.setResidenceState}
             handleClearOnConditionalChange={this.handleClearOnConditionalChange} />
-        </div>
+        </CardLayout>
       </div>
     )
   }
 }
 
 ResidenceCards.propTypes = {
-  residence: PropTypes.object.isRequired
+  residence: PropTypes.object
 }
 
 ResidenceCards.defaultProps = {

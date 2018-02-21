@@ -37,7 +37,7 @@ RSpec.feature 'RFA', js: true do
     fill_in('Name of the Employer', with: 'Employer Name', :match => :prefer_exact)
     fill_in('Occupation', with: 'Front End Developer', :match => :prefer_exact)
     fill_in('income', with: '10', :match => :prefer_exact)
-    fill_in('street_address', with: '2870 Gateway', :match => :prefer_exact)
+    fill_in('Residentialstreet_address', with: '2870 Gateway', :match => :prefer_exact)
     fill_in('Zip', with: '94403', :match => :prefer_exact)
     fill_in('City', with: 'Sacremento', :match => :prefer_exact)
     expect(page).to have_content 'Phone Number'
@@ -151,23 +151,23 @@ RSpec.feature 'RFA', js: true do
     fill_in('applicants[0].middle_name', with: 'k', :match => :prefer_exact)
     fill_in('applicants[0].last_name', with: Faker::Name.last_name, :match => :prefer_exact)
     expect(page).to have_content 'IV. Minor Children Residing in the Home'
-    fill_in('street_address', with: '2870 something else', :match => :prefer_exact)
-    fill_in('Zip', with: '12345', :match => :prefer_exact)
-    find('#mailing_similarYes').click
-    fill_in('street_address', with: 'maing address here', :match => :prefer_exact)
-    fill_in('zip', with: '12345', :match => :prefer_exact)
-    fill_in('city', with: 'secondary city', :match => :prefer_exact)
+    fill_in('Residentialstreet_address', with: '2870 something else', :match => :prefer_exact)
+    fill_in('Residentialzip', with: '12345', :match => :prefer_exact)
+    find('#mailing_similarNo').click
+    fill_in('Mailingstreet_address', with: 'maing address here', :match => :prefer_exact)
+    fill_in('Mailingzip', with: '12345', :match => :prefer_exact)
+    fill_in('Mailingcity', with: 'secondary city', :match => :prefer_exact)
     expect(page).to have_content 'About This Residence'
     select 'Own', from: 'residenceTypes'
     find('#weaponsYes').click
-
     find('#body_of_water_existYes').click
     find('#others_using_residence_as_mailingYes').click
     fill_in('directions', with: 'directions goes here', :match => :prefer_exact)
     page.find(:css, '.languages').click
-    page.find(:css, "#react-select-5--option-0").click
+    page.find(:css, "#react-select-4--option-0").click
+        byebug
     page.find(:css, '.languages').click
-    page.find(:css, "#react-select-5--option-1").click
+    page.find(:css, "#react-select-4--option-1").click
     expect(page).to have_css(:span, text: 'American Sign Language')
     expect(page).to have_css(:span, text: 'Armenian')
     click_button('Save Progress')
@@ -228,6 +228,31 @@ RSpec.feature 'RFA', js: true do
     expect(find_field('otherAdults[0].relationshipType').value).to eq '1'
     availableApplicantId = find_field('otherAdults[0].availableApplicants').value
     expect(find_field('otherAdults[0].availableApplicants').value).to eq availableApplicantId
+  end
+
+  scenario 'validate Marital History card', set_auth_header: true do
+    visit root_path
+    click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+    expect(page).to have_content 'Applicant 1 - Information'
+    applicant_1_first_name = 'Super'
+    applicant_1_last_name  = 'Man'
+    applicant_1_full_name  = applicant_1_first_name + ' ' + 'k' + ' ' + applicant_1_last_name
+    fill_in('applicants[0].first_name', with: applicant_1_first_name, :match => :prefer_exact)
+    fill_in('applicants[0].middle_name', with: 'k', :match => :prefer_exact)
+    fill_in('applicants[0].last_name', with: applicant_1_last_name, :match => :prefer_exact)
+    select applicant_1_full_name, from: 'applicantsHistory.former_spouses[0].applicant_id'
+    expect(page).to have_content 'VI.Applicant\'s Marital History'
+    select 'Married', from: 'applicantsHistory.former_spouses[0].relationship_type'
+
+    click_button('Save Progress')
+    expect(find_field('applicantsHistory.former_spouses[0].relationship_type').value).to eq '1'
+    find_field('applicantsHistory.former_spouses[0].applicant_id').should have_content(applicant_1_full_name)
+
+    visit page.driver.current_url
+    expect(find_field('applicantsHistory.former_spouses[0].relationship_type').value).to eq '1'
+    find_field('applicantsHistory.former_spouses[0].applicant_id').should have_content(applicant_1_full_name)
   end
 
 

@@ -147,7 +147,7 @@ describe('Verify RFA 01C child desired', function () {
       />)
     })
     it('verify street address change', () => {
-      let streetAddressField = childCardComponent.find('#street_address').hostNodes()
+      let streetAddressField = childCardComponent.find('#Residentialstreet_address').hostNodes()
       streetAddressField.simulate('change', {target: {value: '2870 Gateway Oaks Dr'}})
       let addressObj = childDesired.identified_children[0].school_address
       addressObj['street_address'] = '2870 Gateway Oaks Dr'

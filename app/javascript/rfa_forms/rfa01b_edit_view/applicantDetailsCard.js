@@ -10,6 +10,7 @@ import {BinarySelectorField} from 'components/common/binarySelectorField'
 import CardLayout from 'components/common/cardLayout'
 import AddressComponent from 'components/rfa_forms/addressComponent.js'
 import {Rfa01bApplicantDetailsCardText} from 'constants/rfaText'
+import {residenceAddressValueDefaults, rfa01BapplicantDefaults} from 'constants/defaultFields'
 import {DateField} from 'components/common/dateFields'
 
 import {getDictionaryId, dictionaryNilSelect, FormatDateForDisplay, FormatDateForPersistance} from 'helpers/commonHelper.jsx'
@@ -17,30 +18,6 @@ import Validator from 'helpers/validator'
 
 const dateValidator = {rule: 'isValidDate', message: 'date is invalid'}
 
-export const residenceAddressValueDefaults = Object.freeze({
-  street_address: '',
-  zip: '',
-  city: '',
-  state: null,
-  type: {
-    id: '1',
-    value: 'Residential'
-  }
-})
-
-export const applicantDefaults = Object.freeze({
-  resource_family_name: '',
-  applicant_first_name: '',
-  applicant_middle_name: '',
-  applicant_last_name: '',
-  applicant_name_suffix: null,
-  applicant_name_prefix: null,
-  ssn: '',
-  date_of_birth: '',
-  driver_license: '',
-  driver_license_state: null,
-  residence_address: residenceAddressValueDefaults
-})
 export default class ApplicantDetailsCard extends React.Component {
   constructor (props) {
     super(props)
@@ -48,10 +25,6 @@ export default class ApplicantDetailsCard extends React.Component {
     this.props.validator.addFieldValidation('date_of_birth', dateValidator)
   }
 
-  // validateDLcombo () {
-  //   console.log('validating')
-  // }
-  //
   onAddressChange (key, value) {
     let residenceAddress = Immutable.fromJS(this.props.application.residence_address || residenceAddressValueDefaults)
     residenceAddress = residenceAddress.set(key, value)
@@ -107,7 +80,9 @@ export default class ApplicantDetailsCard extends React.Component {
             addressTitle='Residence Address'
             id='street_address'
             addressFields={residenceAddressValues}
-            onSelection={(autofillData) => this.props.setParentState('residence_address', autofillData)}
+            parentStateKey='residence_address'
+            setParentState={this.props.setParentState}
+            //  onSelection={(autofillData) => this.props.setParentState('residence_address', autofillData)}
             onChange={(key, value) => this.onAddressChange(key, value)}
           /></div>
         <div className='col-lg-12'>
@@ -167,6 +142,6 @@ ApplicantDetailsCard.propTypes = {
   nameSuffixTypes: PropTypes.array
 }
 ApplicantDetailsCard.defaultProps = {
-  application: applicantDefaults,
+  application: rfa01BapplicantDefaults,
   errors: []
 }
