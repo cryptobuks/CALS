@@ -8,8 +8,7 @@ export default class AddressComponent extends React.PureComponent {
   constructor (props) {
     super(props)
     this.state = {
-      suggestions: [],
-      timeout: null
+      suggestions: []
     }
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this)
     this.onSelectionUpdateProp = this.onSelectionUpdateProp.bind(this)
@@ -30,10 +29,10 @@ export default class AddressComponent extends React.PureComponent {
 
   onSuggestionsFetchRequested ({value, reason}) {
     let current = this
-    if (this.state.timeout) {
-      clearTimeout(this.state.timeout)
+    if (this.fetchTimeout) {
+      clearTimeout(this.fetchTimeout)
     }
-    let timeout = setTimeout(function () {
+    this.fetchTimeout = setTimeout(function () {
       let url = '/geoservice/'
       let params = encodeURIComponent(value)
       fetchRequest(url, 'POST', params).then(
@@ -47,7 +46,6 @@ export default class AddressComponent extends React.PureComponent {
         })
       })
     }, 300)
-    this.setState({timeout: timeout})
   }
 
   onSelectionUpdateProp (updateSuggetions) {
