@@ -61,7 +61,6 @@ describe('verify Reusable Address Component', () => {
       headers: { 'content-type': 'application/json' }
     })
     addressComponent.instance().onSuggestionSelected('click', {})
-    jasmine.clock().tick(1000)
     expect(fetchMock.called(url)).toBe(true)
     expect(fetchMock._calls[url][0][1].method).toEqual('POST')
   })
