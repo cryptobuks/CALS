@@ -4,7 +4,7 @@ services:
     build: .
     command: bash -c 'yarn run spec-end2end-features'
     volumes:
-      - reports/:/var/www/cals/reports/
+      - ./reports/:/var/www/cals/reports/
     environment:
       CAPYBARA_APP_HOST: "${CAPYBARA_APP_HOST}"
       USERNAME: "${USERNAME}"

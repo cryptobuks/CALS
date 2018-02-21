@@ -10,7 +10,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..4PNLvs3sr0j0azmN.WYgFC2Iw8WbSizfFTy8FMoXqL8LKP2as0L0p0rf_ttZ9VQS0So1PkS_5c7y2fcb8l9vTGRDN864EOTkpcqGhIV_Ng6-3Xuz7FNAbqjPrDRcdftiMuy0i48tky7InQdiKlJLZTs95Pi_8esKxytw3KvxId0yn6mk0Pq7XP5uMOFyZA0exKj4iDCRgD3lexsN6Ow-9_w54xWGJODtz-nRd_Y0iYGwvBkysDFwv-FLBlwhLvU_SPfTsxdyP-C0l7P2vG4n_djcsrdxBgw0roS6mzUaP0fau3hASpyqy0GKRN_ms7VTxgV-B_lVPbX8g2IaN8Zt6hdQLDS6zvdrG2MWJMcDffePDFXvN9_dOZvZmgcmgZTROcpQBknREtIlCCDsDkCg8KWaslO99VjzQMkJIxmVM6-LoCJ8BMT0PVtZt20aEKI1YV-6CUueNGQoNxooFVeZ6_US4JXHA7cnMZbNszTDl05383PDUGCxMa6qXGyJ-lnEIIGoP6sPnO1PKQq78f8jpULTpJLgZk07FQvbS9i0plYIQshqZh9MfVCC3bmpu9BcPZc8M-htamDDJBcIDbYL2zcGQ76eXPpmjUsd_PYXQ51dWZ4PWSpuvEyGrCbZJ3e1Je4NwWV7afyAZq9kXg7hcJId_IBfWapTWFEKom-pOuKslhrCDZRVjtSMBc_wh8iTHlap5n19Y2SM1ULMW4yt5uhcFPTCSsATT0jLei0u2v9k2dM-XapCZrLaLcj7-wArU6Xm6YvtAakOXhD_nKMq7UbzIFNzKMP6X6qEze-e3ERZF36SytW6mKrkcdIwKOrQ9SvSgldLE5QF9xAr7yOrbVw8W4zOVyNX_rv61OAagQlzDLt0Ue0fwMegAhLq8IW-noGE-ULQ7FYYyDHL3CSBAOomGYHeBSJ0Uq-mc6jiLKubyfkF3jk37N8lOtetwI8SRbtdRQBMRfwsgNPkPL18a4_oLnGj9gWs6Qu2j3vSNuxiwy6tWxqcTNLE4TjNZkS6rvGlJEYOtQsoZxZSh7zdFtq9FxXBdg2N8PIlFyc_hY3jOgyzHnDxxY7rCXcmlb9h8hHf_DBv0v8JdP-EF44Xvxw.91COC62NtlRpq5bsWp3Mpw"
+      - "..o_HEUjT-A1EFOJwv.0tPu9rWyTW_cAlSF8SnHGB5Wa9KyiE-Al7YOP0t7fzSreYhBo8BLwiNIha7gUl0jpDgNeyxOygYVQm-P_kz9P1ZLnloQYFBAQ1aiziX-OshwDO7T49NIYSHEJLdJIPd1jtVNr-MlMXW2jQWpU3s4-sJdoxLdEj9o1QQETse90dELL3vzyXKGHiAOCrOtdmQbLZmJHt2i7XSeST-hEykRT92GJ5mujNOhx5AlRql38qdo4D__ANCaPqcEbFHun7rO02ONCTaS1pStqm3o6BqzdvGOvADiTzkYXQeBbVtBynApzKc5NBfxUGtO6OTRicAgDeZhW8qbJkhmPU20NeSgIvuJXl3zmQMjsDSy2l2YNBEmelO5x_sR45_CQB9KoMsnePolL9nDAwRauLxIakqsfnhWMhf3-D8jJbGN_7TQhKnFuhA8F0DIrtonY8D9V0fH6xxtCesDpTeXriuM8iYigYhqjxGvTj4SN7_hlrFxj5C8FhGeowKfrfsruapBm3yQ0mWSAW8ffVuMgGW18rLu_ugg0lS9RwCSeHjeIRHXcgz7YpFaBKvEBgOhiIlJcggk-p6aQKJ5Dj0xDnXa_Sua4IGnqfFv1T8bMHzsBrwj6ChAD9vD-No-nDvV3Xhw5EfXfR9LFaBaG8_oJauNJVkQrXCIdbk3hchdckDpgQWX3Cx6apT6N67bAGps_SMyCrSXGTx8QacJG0S1XaUuTeGgtY980RYkonoL3FvTkTyI7ZC-m778LP6HLCKcllNtUR3_YQgnkiLhQ42Zqd3m7WGeC3GmrGSaV782b36grr3udcfV_rk4EuViTL-JOpSJsPxLXNFHd8p6mammmVN6Drwc-cMu3Pyny1toORJS1JnQ7K8qr7JpWUf6-CDhLYuxhH6m7pyoNFTLA3-GbER7r7wz5zd4M_Zrt9AHxOR9vclOj9f73timXONQL4HuNCboogXSLk6ASrU0oA73zhp24cvXqM2gIjXjbOy0Cqr9ro8W9BE7H7DqTFD88ukcbbX8O7RJ6HYQvdSfS5zV-km7X02e34V-4A.Kmxy1LZ4_sds1En8eeJZdQ"
   response:
     status:
       code: 201
@@ -21,9 +21,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Wed, 07 Feb 2018 17:24:54 GMT
+      - Thu, 15 Feb 2018 03:36:51 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 06-Feb-2018 17:24:54
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 14-Feb-2018 03:36:51
         GMT
       x-content-type-options:
       - nosniff
@@ -39,14 +39,14 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "id" : 1918,
+          "id" : 2481,
           "is_initial_application" : false
         }
     http_version: 
-  recorded_at: Wed, 07 Feb 2018 17:24:55 GMT
+  recorded_at: Thu, 15 Feb 2018 03:36:51 GMT
 - request:
     method: post
-    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/1918/rfa-1b-forms/applicants/35
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/2481/rfa-1b-forms/applicants/35
     body:
       encoding: UTF-8
       string: "{}"
@@ -54,7 +54,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..4PNLvs3sr0j0azmN.WYgFC2Iw8WbSizfFTy8FMoXqL8LKP2as0L0p0rf_ttZ9VQS0So1PkS_5c7y2fcb8l9vTGRDN864EOTkpcqGhIV_Ng6-3Xuz7FNAbqjPrDRcdftiMuy0i48tky7InQdiKlJLZTs95Pi_8esKxytw3KvxId0yn6mk0Pq7XP5uMOFyZA0exKj4iDCRgD3lexsN6Ow-9_w54xWGJODtz-nRd_Y0iYGwvBkysDFwv-FLBlwhLvU_SPfTsxdyP-C0l7P2vG4n_djcsrdxBgw0roS6mzUaP0fau3hASpyqy0GKRN_ms7VTxgV-B_lVPbX8g2IaN8Zt6hdQLDS6zvdrG2MWJMcDffePDFXvN9_dOZvZmgcmgZTROcpQBknREtIlCCDsDkCg8KWaslO99VjzQMkJIxmVM6-LoCJ8BMT0PVtZt20aEKI1YV-6CUueNGQoNxooFVeZ6_US4JXHA7cnMZbNszTDl05383PDUGCxMa6qXGyJ-lnEIIGoP6sPnO1PKQq78f8jpULTpJLgZk07FQvbS9i0plYIQshqZh9MfVCC3bmpu9BcPZc8M-htamDDJBcIDbYL2zcGQ76eXPpmjUsd_PYXQ51dWZ4PWSpuvEyGrCbZJ3e1Je4NwWV7afyAZq9kXg7hcJId_IBfWapTWFEKom-pOuKslhrCDZRVjtSMBc_wh8iTHlap5n19Y2SM1ULMW4yt5uhcFPTCSsATT0jLei0u2v9k2dM-XapCZrLaLcj7-wArU6Xm6YvtAakOXhD_nKMq7UbzIFNzKMP6X6qEze-e3ERZF36SytW6mKrkcdIwKOrQ9SvSgldLE5QF9xAr7yOrbVw8W4zOVyNX_rv61OAagQlzDLt0Ue0fwMegAhLq8IW-noGE-ULQ7FYYyDHL3CSBAOomGYHeBSJ0Uq-mc6jiLKubyfkF3jk37N8lOtetwI8SRbtdRQBMRfwsgNPkPL18a4_oLnGj9gWs6Qu2j3vSNuxiwy6tWxqcTNLE4TjNZkS6rvGlJEYOtQsoZxZSh7zdFtq9FxXBdg2N8PIlFyc_hY3jOgyzHnDxxY7rCXcmlb9h8hHf_DBv0v8JdP-EF44Xvxw.91COC62NtlRpq5bsWp3Mpw"
+      - "..o_HEUjT-A1EFOJwv.0tPu9rWyTW_cAlSF8SnHGB5Wa9KyiE-Al7YOP0t7fzSreYhBo8BLwiNIha7gUl0jpDgNeyxOygYVQm-P_kz9P1ZLnloQYFBAQ1aiziX-OshwDO7T49NIYSHEJLdJIPd1jtVNr-MlMXW2jQWpU3s4-sJdoxLdEj9o1QQETse90dELL3vzyXKGHiAOCrOtdmQbLZmJHt2i7XSeST-hEykRT92GJ5mujNOhx5AlRql38qdo4D__ANCaPqcEbFHun7rO02ONCTaS1pStqm3o6BqzdvGOvADiTzkYXQeBbVtBynApzKc5NBfxUGtO6OTRicAgDeZhW8qbJkhmPU20NeSgIvuJXl3zmQMjsDSy2l2YNBEmelO5x_sR45_CQB9KoMsnePolL9nDAwRauLxIakqsfnhWMhf3-D8jJbGN_7TQhKnFuhA8F0DIrtonY8D9V0fH6xxtCesDpTeXriuM8iYigYhqjxGvTj4SN7_hlrFxj5C8FhGeowKfrfsruapBm3yQ0mWSAW8ffVuMgGW18rLu_ugg0lS9RwCSeHjeIRHXcgz7YpFaBKvEBgOhiIlJcggk-p6aQKJ5Dj0xDnXa_Sua4IGnqfFv1T8bMHzsBrwj6ChAD9vD-No-nDvV3Xhw5EfXfR9LFaBaG8_oJauNJVkQrXCIdbk3hchdckDpgQWX3Cx6apT6N67bAGps_SMyCrSXGTx8QacJG0S1XaUuTeGgtY980RYkonoL3FvTkTyI7ZC-m778LP6HLCKcllNtUR3_YQgnkiLhQ42Zqd3m7WGeC3GmrGSaV782b36grr3udcfV_rk4EuViTL-JOpSJsPxLXNFHd8p6mammmVN6Drwc-cMu3Pyny1toORJS1JnQ7K8qr7JpWUf6-CDhLYuxhH6m7pyoNFTLA3-GbER7r7wz5zd4M_Zrt9AHxOR9vclOj9f73timXONQL4HuNCboogXSLk6ASrU0oA73zhp24cvXqM2gIjXjbOy0Cqr9ro8W9BE7H7DqTFD88ukcbbX8O7RJ6HYQvdSfS5zV-km7X02e34V-4A.Kmxy1LZ4_sds1En8eeJZdQ"
   response:
     status:
       code: 500
@@ -65,9 +65,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Wed, 07 Feb 2018 17:24:55 GMT
+      - Thu, 15 Feb 2018 03:36:51 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 06-Feb-2018 17:24:55
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 14-Feb-2018 03:36:51
         GMT
       x-content-type-options:
       - nosniff
@@ -84,14 +84,14 @@ http_interactions:
       string: |-
         {
           "issue_details" : [ {
-            "incident_id" : "ed063909-ee6c-4469-be2a-957c069a7cf5",
+            "incident_id" : "2b3be0f7-3e5b-4988-9d9f-ad2c6aef5b0d",
             "type" : "unexpected_exception",
             "user_message" : "There was an error processing your request. It has been logged with unique incident id",
-            "stack_trace" : "java.lang.NullPointerException\\n\\tat gov.ca.cwds.cals.service.rfa.RFA1bService.find(RFA1bService.java:77)\\n\\tat gov.ca.cwds.cals.service.rfa.RFA1bService.create(RFA1bService.java:42)\\n\\tat gov.ca.cwds.cals.service.rfa.RFA1bService.create(RFA1bService.java:26)\\n\\tat gov.ca.cwds.rest.resources.TypedServiceBackedResourceDelegate.create(TypedServiceBackedResourceDelegate.java:79)\\n\\tat gov.ca.cwds.cals.web.rest.rfa.RFA1bFormsResource.createRFA1bFormForApplicant(RFA1bFormsResource.java:94)\\n\\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\\n\\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\\n\\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\\n\\tat java.lang.reflect.Method.invoke(Method.java:498)\\n\\tat org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)\\n\\tat org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)\\n\\tat org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)\\n\\tat org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)\\n\\tat org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)\\n\\tat org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)\\n\\tat org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)\\n\\tat org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)\\n\\tat org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)\\n\\tat org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)\\n\\tat org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)\\n\\tat org.glassfish.jersey.internal.Errors.process(Errors.java:315)\\n\\tat org.glassfish.jersey.internal.Errors.process(Errors.java:297)\\n\\tat org.glassfish.jersey.internal.Errors.process(Errors.java:267)\\n\\tat org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)\\n\\tat org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)\\n\\tat org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)\\n\\tat org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)\\n\\tat org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)\\n\\tat org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)\\n\\tat org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)\\n\\tat org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)\\n\\tat io.dropwizard.jetty.NonblockingServletHolder.handle(NonblockingServletHolder.java:49)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)\\n\\tat io.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:34)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat io.dropwizard.jersey.filter.AllowedMethodsFilter.handle(AllowedMethodsFilter.java:50)\\n\\tat io.dropwizard.jersey.filter.AllowedMethodsFilter.doFilter(AllowedMethodsFilter.java:44)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat gov.ca.cwds.cals.web.rest.filters.RequestResponseLoggingFilter.doFilter(RequestResponseLoggingFilter.java:92)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat gov.ca.cwds.cals.web.rest.filters.RequestExecutionContextFilter.doFilter(RequestExecutionContextFilter.java:55)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat gov.ca.cwds.rest.filters.WebSecurityFilter.doFilter(WebSecurityFilter.java:61)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)\\n\\tat org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:89)\\n\\tat com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:119)\\n\\tat com.google.inject.servlet.GuiceFilter$1.call(GuiceFilter.java:133)\\n\\tat com.google.inject.servlet.GuiceFilter$1.call(GuiceFilter.java:130)\\n\\tat com.google.inject.servlet.GuiceFilter$Context.call(GuiceFilter.java:203)\\n\\tat com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:130)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)\\n\\tat org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)\\n\\tat org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)\\n\\tat org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)\\n\\tat org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)\\n\\tat org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)\\n\\tat org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)\\n\\tat org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)\\n\\tat org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)\\n\\tat org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)\\n\\tat org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)\\n\\tat org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)\\n\\tat org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)\\n\\tat org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)\\n\\tat org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)\\n\\tat org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:541)\\n\\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)\\n\\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1592)\\n\\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)\\n\\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1239)\\n\\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)\\n\\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:481)\\n\\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1561)\\n\\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)\\n\\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1141)\\n\\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)\\n\\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\\n\\tat com.codahale.metrics.jetty9.InstrumentedHandler.handle(InstrumentedHandler.java:241)\\n\\tat io.dropwizard.jetty.RoutingHandler.handle(RoutingHandler.java:51)\\n\\tat org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:494)\\n\\tat io.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:68)\\n\\tat org.eclipse.jetty.server.handler.RequestLogHandler.handle(RequestLogHandler.java:56)\\n\\tat org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:169)\\n\\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\\n\\tat org.eclipse.jetty.server.Server.handle(Server.java:564)\\n\\tat org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:320)\\n\\tat org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:251)\\n\\tat org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)\\n\\tat org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:110)\\n\\tat org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)\\n\\tat org.eclipse.jetty.util.thread.Invocable.invokePreferred(Invocable.java:122)\\n\\tat org.eclipse.jetty.util.thread.strategy.ExecutingExecutionStrategy.invoke(ExecutingExecutionStrategy.java:58)\\n\\tat org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceConsume(ExecuteProduceConsume.java:201)\\n\\tat org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:133)\\n\\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:672)\\n\\tat org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:590)\\n\\tat java.lang.Thread.run(Thread.java:748)\\n"
+            "stack_trace" : "java.lang.NullPointerException\\n\\tat gov.ca.cwds.cals.service.rfa.RFA1bService.find(RFA1bService.java:77)\\n\\tat gov.ca.cwds.cals.service.rfa.RFA1bService.create(RFA1bService.java:42)\\n\\tat gov.ca.cwds.cals.service.rfa.RFA1bService.create(RFA1bService.java:26)\\n\\tat gov.ca.cwds.rest.resources.TypedServiceBackedResourceDelegate.create(TypedServiceBackedResourceDelegate.java:79)\\n\\tat gov.ca.cwds.cals.web.rest.rfa.RFA1bFormsResource.createRFA1bFormForApplicant(RFA1bFormsResource.java:94)\\n\\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\\n\\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\\n\\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\\n\\tat java.lang.reflect.Method.invoke(Method.java:498)\\n\\tat org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81)\\n\\tat org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144)\\n\\tat org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161)\\n\\tat org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160)\\n\\tat org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)\\n\\tat org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)\\n\\tat org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)\\n\\tat org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)\\n\\tat org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)\\n\\tat org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)\\n\\tat org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)\\n\\tat org.glassfish.jersey.internal.Errors.process(Errors.java:315)\\n\\tat org.glassfish.jersey.internal.Errors.process(Errors.java:297)\\n\\tat org.glassfish.jersey.internal.Errors.process(Errors.java:267)\\n\\tat org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)\\n\\tat org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)\\n\\tat org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)\\n\\tat org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)\\n\\tat org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)\\n\\tat org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)\\n\\tat org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)\\n\\tat org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)\\n\\tat io.dropwizard.jetty.NonblockingServletHolder.handle(NonblockingServletHolder.java:49)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)\\n\\tat io.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:34)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat io.dropwizard.jersey.filter.AllowedMethodsFilter.handle(AllowedMethodsFilter.java:50)\\n\\tat io.dropwizard.jersey.filter.AllowedMethodsFilter.doFilter(AllowedMethodsFilter.java:44)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat gov.ca.cwds.cals.web.rest.filters.RequestResponseLoggingFilter.doFilter(RequestResponseLoggingFilter.java:92)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat gov.ca.cwds.cals.web.rest.filters.RequestExecutionContextFilter.doFilter(RequestExecutionContextFilter.java:55)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat gov.ca.cwds.rest.filters.WebSecurityFilter.doFilter(WebSecurityFilter.java:61)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)\\n\\tat org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:89)\\n\\tat com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:119)\\n\\tat com.google.inject.servlet.GuiceFilter$1.call(GuiceFilter.java:133)\\n\\tat com.google.inject.servlet.GuiceFilter$1.call(GuiceFilter.java:130)\\n\\tat com.google.inject.servlet.GuiceFilter$Context.call(GuiceFilter.java:203)\\n\\tat com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:130)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)\\n\\tat org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)\\n\\tat org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)\\n\\tat org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)\\n\\tat org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)\\n\\tat org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)\\n\\tat org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)\\n\\tat org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)\\n\\tat org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)\\n\\tat org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)\\n\\tat org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)\\n\\tat org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)\\n\\tat org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)\\n\\tat org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)\\n\\tat org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)\\n\\tat org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)\\n\\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1621)\\n\\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:541)\\n\\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)\\n\\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1592)\\n\\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)\\n\\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1239)\\n\\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)\\n\\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:481)\\n\\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1561)\\n\\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)\\n\\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1141)\\n\\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)\\n\\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\\n\\tat com.codahale.metrics.jetty9.InstrumentedHandler.handle(InstrumentedHandler.java:241)\\n\\tat io.dropwizard.jetty.RoutingHandler.handle(RoutingHandler.java:51)\\n\\tat org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:494)\\n\\tat io.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:68)\\n\\tat org.eclipse.jetty.server.handler.RequestLogHandler.handle(RequestLogHandler.java:56)\\n\\tat org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:169)\\n\\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\\n\\tat org.eclipse.jetty.server.Server.handle(Server.java:564)\\n\\tat org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:320)\\n\\tat org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:251)\\n\\tat org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)\\n\\tat org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:110)\\n\\tat org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)\\n\\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:672)\\n\\tat org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:590)\\n\\tat java.lang.Thread.run(Thread.java:748)\\n"
           } ]
         }
     http_version: 
-  recorded_at: Wed, 07 Feb 2018 17:24:55 GMT
+  recorded_at: Thu, 15 Feb 2018 03:36:51 GMT
 - request:
     method: get
     uri: https://calsapi.preint.cwds.io/dictionaries/counties
@@ -102,7 +102,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..4PNLvs3sr0j0azmN.WYgFC2Iw8WbSizfFTy8FMoXqL8LKP2as0L0p0rf_ttZ9VQS0So1PkS_5c7y2fcb8l9vTGRDN864EOTkpcqGhIV_Ng6-3Xuz7FNAbqjPrDRcdftiMuy0i48tky7InQdiKlJLZTs95Pi_8esKxytw3KvxId0yn6mk0Pq7XP5uMOFyZA0exKj4iDCRgD3lexsN6Ow-9_w54xWGJODtz-nRd_Y0iYGwvBkysDFwv-FLBlwhLvU_SPfTsxdyP-C0l7P2vG4n_djcsrdxBgw0roS6mzUaP0fau3hASpyqy0GKRN_ms7VTxgV-B_lVPbX8g2IaN8Zt6hdQLDS6zvdrG2MWJMcDffePDFXvN9_dOZvZmgcmgZTROcpQBknREtIlCCDsDkCg8KWaslO99VjzQMkJIxmVM6-LoCJ8BMT0PVtZt20aEKI1YV-6CUueNGQoNxooFVeZ6_US4JXHA7cnMZbNszTDl05383PDUGCxMa6qXGyJ-lnEIIGoP6sPnO1PKQq78f8jpULTpJLgZk07FQvbS9i0plYIQshqZh9MfVCC3bmpu9BcPZc8M-htamDDJBcIDbYL2zcGQ76eXPpmjUsd_PYXQ51dWZ4PWSpuvEyGrCbZJ3e1Je4NwWV7afyAZq9kXg7hcJId_IBfWapTWFEKom-pOuKslhrCDZRVjtSMBc_wh8iTHlap5n19Y2SM1ULMW4yt5uhcFPTCSsATT0jLei0u2v9k2dM-XapCZrLaLcj7-wArU6Xm6YvtAakOXhD_nKMq7UbzIFNzKMP6X6qEze-e3ERZF36SytW6mKrkcdIwKOrQ9SvSgldLE5QF9xAr7yOrbVw8W4zOVyNX_rv61OAagQlzDLt0Ue0fwMegAhLq8IW-noGE-ULQ7FYYyDHL3CSBAOomGYHeBSJ0Uq-mc6jiLKubyfkF3jk37N8lOtetwI8SRbtdRQBMRfwsgNPkPL18a4_oLnGj9gWs6Qu2j3vSNuxiwy6tWxqcTNLE4TjNZkS6rvGlJEYOtQsoZxZSh7zdFtq9FxXBdg2N8PIlFyc_hY3jOgyzHnDxxY7rCXcmlb9h8hHf_DBv0v8JdP-EF44Xvxw.91COC62NtlRpq5bsWp3Mpw"
+      - "..o_HEUjT-A1EFOJwv.0tPu9rWyTW_cAlSF8SnHGB5Wa9KyiE-Al7YOP0t7fzSreYhBo8BLwiNIha7gUl0jpDgNeyxOygYVQm-P_kz9P1ZLnloQYFBAQ1aiziX-OshwDO7T49NIYSHEJLdJIPd1jtVNr-MlMXW2jQWpU3s4-sJdoxLdEj9o1QQETse90dELL3vzyXKGHiAOCrOtdmQbLZmJHt2i7XSeST-hEykRT92GJ5mujNOhx5AlRql38qdo4D__ANCaPqcEbFHun7rO02ONCTaS1pStqm3o6BqzdvGOvADiTzkYXQeBbVtBynApzKc5NBfxUGtO6OTRicAgDeZhW8qbJkhmPU20NeSgIvuJXl3zmQMjsDSy2l2YNBEmelO5x_sR45_CQB9KoMsnePolL9nDAwRauLxIakqsfnhWMhf3-D8jJbGN_7TQhKnFuhA8F0DIrtonY8D9V0fH6xxtCesDpTeXriuM8iYigYhqjxGvTj4SN7_hlrFxj5C8FhGeowKfrfsruapBm3yQ0mWSAW8ffVuMgGW18rLu_ugg0lS9RwCSeHjeIRHXcgz7YpFaBKvEBgOhiIlJcggk-p6aQKJ5Dj0xDnXa_Sua4IGnqfFv1T8bMHzsBrwj6ChAD9vD-No-nDvV3Xhw5EfXfR9LFaBaG8_oJauNJVkQrXCIdbk3hchdckDpgQWX3Cx6apT6N67bAGps_SMyCrSXGTx8QacJG0S1XaUuTeGgtY980RYkonoL3FvTkTyI7ZC-m778LP6HLCKcllNtUR3_YQgnkiLhQ42Zqd3m7WGeC3GmrGSaV782b36grr3udcfV_rk4EuViTL-JOpSJsPxLXNFHd8p6mammmVN6Drwc-cMu3Pyny1toORJS1JnQ7K8qr7JpWUf6-CDhLYuxhH6m7pyoNFTLA3-GbER7r7wz5zd4M_Zrt9AHxOR9vclOj9f73timXONQL4HuNCboogXSLk6ASrU0oA73zhp24cvXqM2gIjXjbOy0Cqr9ro8W9BE7H7DqTFD88ukcbbX8O7RJ6HYQvdSfS5zV-km7X02e34V-4A.Kmxy1LZ4_sds1En8eeJZdQ"
   response:
     status:
       code: 200
@@ -113,9 +113,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Wed, 07 Feb 2018 17:24:55 GMT
+      - Thu, 15 Feb 2018 03:36:51 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 06-Feb-2018 17:24:55
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 14-Feb-2018 03:36:51
         GMT
       vary:
       - Accept-Encoding
@@ -313,7 +313,7 @@ http_interactions:
           } ]
         }
     http_version: 
-  recorded_at: Wed, 07 Feb 2018 17:24:55 GMT
+  recorded_at: Thu, 15 Feb 2018 03:36:51 GMT
 - request:
     method: get
     uri: https://calsapi.preint.cwds.io/dictionaries/name-suffix-types
@@ -324,7 +324,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..4PNLvs3sr0j0azmN.WYgFC2Iw8WbSizfFTy8FMoXqL8LKP2as0L0p0rf_ttZ9VQS0So1PkS_5c7y2fcb8l9vTGRDN864EOTkpcqGhIV_Ng6-3Xuz7FNAbqjPrDRcdftiMuy0i48tky7InQdiKlJLZTs95Pi_8esKxytw3KvxId0yn6mk0Pq7XP5uMOFyZA0exKj4iDCRgD3lexsN6Ow-9_w54xWGJODtz-nRd_Y0iYGwvBkysDFwv-FLBlwhLvU_SPfTsxdyP-C0l7P2vG4n_djcsrdxBgw0roS6mzUaP0fau3hASpyqy0GKRN_ms7VTxgV-B_lVPbX8g2IaN8Zt6hdQLDS6zvdrG2MWJMcDffePDFXvN9_dOZvZmgcmgZTROcpQBknREtIlCCDsDkCg8KWaslO99VjzQMkJIxmVM6-LoCJ8BMT0PVtZt20aEKI1YV-6CUueNGQoNxooFVeZ6_US4JXHA7cnMZbNszTDl05383PDUGCxMa6qXGyJ-lnEIIGoP6sPnO1PKQq78f8jpULTpJLgZk07FQvbS9i0plYIQshqZh9MfVCC3bmpu9BcPZc8M-htamDDJBcIDbYL2zcGQ76eXPpmjUsd_PYXQ51dWZ4PWSpuvEyGrCbZJ3e1Je4NwWV7afyAZq9kXg7hcJId_IBfWapTWFEKom-pOuKslhrCDZRVjtSMBc_wh8iTHlap5n19Y2SM1ULMW4yt5uhcFPTCSsATT0jLei0u2v9k2dM-XapCZrLaLcj7-wArU6Xm6YvtAakOXhD_nKMq7UbzIFNzKMP6X6qEze-e3ERZF36SytW6mKrkcdIwKOrQ9SvSgldLE5QF9xAr7yOrbVw8W4zOVyNX_rv61OAagQlzDLt0Ue0fwMegAhLq8IW-noGE-ULQ7FYYyDHL3CSBAOomGYHeBSJ0Uq-mc6jiLKubyfkF3jk37N8lOtetwI8SRbtdRQBMRfwsgNPkPL18a4_oLnGj9gWs6Qu2j3vSNuxiwy6tWxqcTNLE4TjNZkS6rvGlJEYOtQsoZxZSh7zdFtq9FxXBdg2N8PIlFyc_hY3jOgyzHnDxxY7rCXcmlb9h8hHf_DBv0v8JdP-EF44Xvxw.91COC62NtlRpq5bsWp3Mpw"
+      - "..o_HEUjT-A1EFOJwv.0tPu9rWyTW_cAlSF8SnHGB5Wa9KyiE-Al7YOP0t7fzSreYhBo8BLwiNIha7gUl0jpDgNeyxOygYVQm-P_kz9P1ZLnloQYFBAQ1aiziX-OshwDO7T49NIYSHEJLdJIPd1jtVNr-MlMXW2jQWpU3s4-sJdoxLdEj9o1QQETse90dELL3vzyXKGHiAOCrOtdmQbLZmJHt2i7XSeST-hEykRT92GJ5mujNOhx5AlRql38qdo4D__ANCaPqcEbFHun7rO02ONCTaS1pStqm3o6BqzdvGOvADiTzkYXQeBbVtBynApzKc5NBfxUGtO6OTRicAgDeZhW8qbJkhmPU20NeSgIvuJXl3zmQMjsDSy2l2YNBEmelO5x_sR45_CQB9KoMsnePolL9nDAwRauLxIakqsfnhWMhf3-D8jJbGN_7TQhKnFuhA8F0DIrtonY8D9V0fH6xxtCesDpTeXriuM8iYigYhqjxGvTj4SN7_hlrFxj5C8FhGeowKfrfsruapBm3yQ0mWSAW8ffVuMgGW18rLu_ugg0lS9RwCSeHjeIRHXcgz7YpFaBKvEBgOhiIlJcggk-p6aQKJ5Dj0xDnXa_Sua4IGnqfFv1T8bMHzsBrwj6ChAD9vD-No-nDvV3Xhw5EfXfR9LFaBaG8_oJauNJVkQrXCIdbk3hchdckDpgQWX3Cx6apT6N67bAGps_SMyCrSXGTx8QacJG0S1XaUuTeGgtY980RYkonoL3FvTkTyI7ZC-m778LP6HLCKcllNtUR3_YQgnkiLhQ42Zqd3m7WGeC3GmrGSaV782b36grr3udcfV_rk4EuViTL-JOpSJsPxLXNFHd8p6mammmVN6Drwc-cMu3Pyny1toORJS1JnQ7K8qr7JpWUf6-CDhLYuxhH6m7pyoNFTLA3-GbER7r7wz5zd4M_Zrt9AHxOR9vclOj9f73timXONQL4HuNCboogXSLk6ASrU0oA73zhp24cvXqM2gIjXjbOy0Cqr9ro8W9BE7H7DqTFD88ukcbbX8O7RJ6HYQvdSfS5zV-km7X02e34V-4A.Kmxy1LZ4_sds1En8eeJZdQ"
   response:
     status:
       code: 200
@@ -335,9 +335,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Wed, 07 Feb 2018 17:24:55 GMT
+      - Thu, 15 Feb 2018 03:36:51 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 06-Feb-2018 17:24:55
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 14-Feb-2018 03:36:51
         GMT
       vary:
       - Accept-Encoding
@@ -385,7 +385,7 @@ http_interactions:
           } ]
         }
     http_version: 
-  recorded_at: Wed, 07 Feb 2018 17:24:55 GMT
+  recorded_at: Thu, 15 Feb 2018 03:36:51 GMT
 - request:
     method: get
     uri: https://calsapi.preint.cwds.io/dictionaries/name-prefix-types
@@ -396,7 +396,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..4PNLvs3sr0j0azmN.WYgFC2Iw8WbSizfFTy8FMoXqL8LKP2as0L0p0rf_ttZ9VQS0So1PkS_5c7y2fcb8l9vTGRDN864EOTkpcqGhIV_Ng6-3Xuz7FNAbqjPrDRcdftiMuy0i48tky7InQdiKlJLZTs95Pi_8esKxytw3KvxId0yn6mk0Pq7XP5uMOFyZA0exKj4iDCRgD3lexsN6Ow-9_w54xWGJODtz-nRd_Y0iYGwvBkysDFwv-FLBlwhLvU_SPfTsxdyP-C0l7P2vG4n_djcsrdxBgw0roS6mzUaP0fau3hASpyqy0GKRN_ms7VTxgV-B_lVPbX8g2IaN8Zt6hdQLDS6zvdrG2MWJMcDffePDFXvN9_dOZvZmgcmgZTROcpQBknREtIlCCDsDkCg8KWaslO99VjzQMkJIxmVM6-LoCJ8BMT0PVtZt20aEKI1YV-6CUueNGQoNxooFVeZ6_US4JXHA7cnMZbNszTDl05383PDUGCxMa6qXGyJ-lnEIIGoP6sPnO1PKQq78f8jpULTpJLgZk07FQvbS9i0plYIQshqZh9MfVCC3bmpu9BcPZc8M-htamDDJBcIDbYL2zcGQ76eXPpmjUsd_PYXQ51dWZ4PWSpuvEyGrCbZJ3e1Je4NwWV7afyAZq9kXg7hcJId_IBfWapTWFEKom-pOuKslhrCDZRVjtSMBc_wh8iTHlap5n19Y2SM1ULMW4yt5uhcFPTCSsATT0jLei0u2v9k2dM-XapCZrLaLcj7-wArU6Xm6YvtAakOXhD_nKMq7UbzIFNzKMP6X6qEze-e3ERZF36SytW6mKrkcdIwKOrQ9SvSgldLE5QF9xAr7yOrbVw8W4zOVyNX_rv61OAagQlzDLt0Ue0fwMegAhLq8IW-noGE-ULQ7FYYyDHL3CSBAOomGYHeBSJ0Uq-mc6jiLKubyfkF3jk37N8lOtetwI8SRbtdRQBMRfwsgNPkPL18a4_oLnGj9gWs6Qu2j3vSNuxiwy6tWxqcTNLE4TjNZkS6rvGlJEYOtQsoZxZSh7zdFtq9FxXBdg2N8PIlFyc_hY3jOgyzHnDxxY7rCXcmlb9h8hHf_DBv0v8JdP-EF44Xvxw.91COC62NtlRpq5bsWp3Mpw"
+      - "..o_HEUjT-A1EFOJwv.0tPu9rWyTW_cAlSF8SnHGB5Wa9KyiE-Al7YOP0t7fzSreYhBo8BLwiNIha7gUl0jpDgNeyxOygYVQm-P_kz9P1ZLnloQYFBAQ1aiziX-OshwDO7T49NIYSHEJLdJIPd1jtVNr-MlMXW2jQWpU3s4-sJdoxLdEj9o1QQETse90dELL3vzyXKGHiAOCrOtdmQbLZmJHt2i7XSeST-hEykRT92GJ5mujNOhx5AlRql38qdo4D__ANCaPqcEbFHun7rO02ONCTaS1pStqm3o6BqzdvGOvADiTzkYXQeBbVtBynApzKc5NBfxUGtO6OTRicAgDeZhW8qbJkhmPU20NeSgIvuJXl3zmQMjsDSy2l2YNBEmelO5x_sR45_CQB9KoMsnePolL9nDAwRauLxIakqsfnhWMhf3-D8jJbGN_7TQhKnFuhA8F0DIrtonY8D9V0fH6xxtCesDpTeXriuM8iYigYhqjxGvTj4SN7_hlrFxj5C8FhGeowKfrfsruapBm3yQ0mWSAW8ffVuMgGW18rLu_ugg0lS9RwCSeHjeIRHXcgz7YpFaBKvEBgOhiIlJcggk-p6aQKJ5Dj0xDnXa_Sua4IGnqfFv1T8bMHzsBrwj6ChAD9vD-No-nDvV3Xhw5EfXfR9LFaBaG8_oJauNJVkQrXCIdbk3hchdckDpgQWX3Cx6apT6N67bAGps_SMyCrSXGTx8QacJG0S1XaUuTeGgtY980RYkonoL3FvTkTyI7ZC-m778LP6HLCKcllNtUR3_YQgnkiLhQ42Zqd3m7WGeC3GmrGSaV782b36grr3udcfV_rk4EuViTL-JOpSJsPxLXNFHd8p6mammmVN6Drwc-cMu3Pyny1toORJS1JnQ7K8qr7JpWUf6-CDhLYuxhH6m7pyoNFTLA3-GbER7r7wz5zd4M_Zrt9AHxOR9vclOj9f73timXONQL4HuNCboogXSLk6ASrU0oA73zhp24cvXqM2gIjXjbOy0Cqr9ro8W9BE7H7DqTFD88ukcbbX8O7RJ6HYQvdSfS5zV-km7X02e34V-4A.Kmxy1LZ4_sds1En8eeJZdQ"
   response:
     status:
       code: 200
@@ -407,9 +407,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Wed, 07 Feb 2018 17:24:55 GMT
+      - Thu, 15 Feb 2018 03:36:51 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 06-Feb-2018 17:24:55
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 14-Feb-2018 03:36:51
         GMT
       vary:
       - Accept-Encoding
@@ -448,7 +448,7 @@ http_interactions:
           } ]
         }
     http_version: 
-  recorded_at: Wed, 07 Feb 2018 17:24:55 GMT
+  recorded_at: Thu, 15 Feb 2018 03:36:51 GMT
 - request:
     method: get
     uri: https://calsapi.preint.cwds.io/dictionaries/states
@@ -459,7 +459,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..4PNLvs3sr0j0azmN.WYgFC2Iw8WbSizfFTy8FMoXqL8LKP2as0L0p0rf_ttZ9VQS0So1PkS_5c7y2fcb8l9vTGRDN864EOTkpcqGhIV_Ng6-3Xuz7FNAbqjPrDRcdftiMuy0i48tky7InQdiKlJLZTs95Pi_8esKxytw3KvxId0yn6mk0Pq7XP5uMOFyZA0exKj4iDCRgD3lexsN6Ow-9_w54xWGJODtz-nRd_Y0iYGwvBkysDFwv-FLBlwhLvU_SPfTsxdyP-C0l7P2vG4n_djcsrdxBgw0roS6mzUaP0fau3hASpyqy0GKRN_ms7VTxgV-B_lVPbX8g2IaN8Zt6hdQLDS6zvdrG2MWJMcDffePDFXvN9_dOZvZmgcmgZTROcpQBknREtIlCCDsDkCg8KWaslO99VjzQMkJIxmVM6-LoCJ8BMT0PVtZt20aEKI1YV-6CUueNGQoNxooFVeZ6_US4JXHA7cnMZbNszTDl05383PDUGCxMa6qXGyJ-lnEIIGoP6sPnO1PKQq78f8jpULTpJLgZk07FQvbS9i0plYIQshqZh9MfVCC3bmpu9BcPZc8M-htamDDJBcIDbYL2zcGQ76eXPpmjUsd_PYXQ51dWZ4PWSpuvEyGrCbZJ3e1Je4NwWV7afyAZq9kXg7hcJId_IBfWapTWFEKom-pOuKslhrCDZRVjtSMBc_wh8iTHlap5n19Y2SM1ULMW4yt5uhcFPTCSsATT0jLei0u2v9k2dM-XapCZrLaLcj7-wArU6Xm6YvtAakOXhD_nKMq7UbzIFNzKMP6X6qEze-e3ERZF36SytW6mKrkcdIwKOrQ9SvSgldLE5QF9xAr7yOrbVw8W4zOVyNX_rv61OAagQlzDLt0Ue0fwMegAhLq8IW-noGE-ULQ7FYYyDHL3CSBAOomGYHeBSJ0Uq-mc6jiLKubyfkF3jk37N8lOtetwI8SRbtdRQBMRfwsgNPkPL18a4_oLnGj9gWs6Qu2j3vSNuxiwy6tWxqcTNLE4TjNZkS6rvGlJEYOtQsoZxZSh7zdFtq9FxXBdg2N8PIlFyc_hY3jOgyzHnDxxY7rCXcmlb9h8hHf_DBv0v8JdP-EF44Xvxw.91COC62NtlRpq5bsWp3Mpw"
+      - "..o_HEUjT-A1EFOJwv.0tPu9rWyTW_cAlSF8SnHGB5Wa9KyiE-Al7YOP0t7fzSreYhBo8BLwiNIha7gUl0jpDgNeyxOygYVQm-P_kz9P1ZLnloQYFBAQ1aiziX-OshwDO7T49NIYSHEJLdJIPd1jtVNr-MlMXW2jQWpU3s4-sJdoxLdEj9o1QQETse90dELL3vzyXKGHiAOCrOtdmQbLZmJHt2i7XSeST-hEykRT92GJ5mujNOhx5AlRql38qdo4D__ANCaPqcEbFHun7rO02ONCTaS1pStqm3o6BqzdvGOvADiTzkYXQeBbVtBynApzKc5NBfxUGtO6OTRicAgDeZhW8qbJkhmPU20NeSgIvuJXl3zmQMjsDSy2l2YNBEmelO5x_sR45_CQB9KoMsnePolL9nDAwRauLxIakqsfnhWMhf3-D8jJbGN_7TQhKnFuhA8F0DIrtonY8D9V0fH6xxtCesDpTeXriuM8iYigYhqjxGvTj4SN7_hlrFxj5C8FhGeowKfrfsruapBm3yQ0mWSAW8ffVuMgGW18rLu_ugg0lS9RwCSeHjeIRHXcgz7YpFaBKvEBgOhiIlJcggk-p6aQKJ5Dj0xDnXa_Sua4IGnqfFv1T8bMHzsBrwj6ChAD9vD-No-nDvV3Xhw5EfXfR9LFaBaG8_oJauNJVkQrXCIdbk3hchdckDpgQWX3Cx6apT6N67bAGps_SMyCrSXGTx8QacJG0S1XaUuTeGgtY980RYkonoL3FvTkTyI7ZC-m778LP6HLCKcllNtUR3_YQgnkiLhQ42Zqd3m7WGeC3GmrGSaV782b36grr3udcfV_rk4EuViTL-JOpSJsPxLXNFHd8p6mammmVN6Drwc-cMu3Pyny1toORJS1JnQ7K8qr7JpWUf6-CDhLYuxhH6m7pyoNFTLA3-GbER7r7wz5zd4M_Zrt9AHxOR9vclOj9f73timXONQL4HuNCboogXSLk6ASrU0oA73zhp24cvXqM2gIjXjbOy0Cqr9ro8W9BE7H7DqTFD88ukcbbX8O7RJ6HYQvdSfS5zV-km7X02e34V-4A.Kmxy1LZ4_sds1En8eeJZdQ"
   response:
     status:
       code: 200
@@ -470,9 +470,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Wed, 07 Feb 2018 17:24:55 GMT
+      - Thu, 15 Feb 2018 03:36:51 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 06-Feb-2018 17:24:55
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 14-Feb-2018 03:36:51
         GMT
       vary:
       - Accept-Encoding
@@ -667,10 +667,10 @@ http_interactions:
           } ]
         }
     http_version: 
-  recorded_at: Wed, 07 Feb 2018 17:24:55 GMT
+  recorded_at: Thu, 15 Feb 2018 03:36:51 GMT
 - request:
     method: get
-    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/1918/rfa-1b-forms/35
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/2481/rfa-1b-forms/35
     body:
       encoding: US-ASCII
       string: ''
@@ -678,7 +678,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..4PNLvs3sr0j0azmN.WYgFC2Iw8WbSizfFTy8FMoXqL8LKP2as0L0p0rf_ttZ9VQS0So1PkS_5c7y2fcb8l9vTGRDN864EOTkpcqGhIV_Ng6-3Xuz7FNAbqjPrDRcdftiMuy0i48tky7InQdiKlJLZTs95Pi_8esKxytw3KvxId0yn6mk0Pq7XP5uMOFyZA0exKj4iDCRgD3lexsN6Ow-9_w54xWGJODtz-nRd_Y0iYGwvBkysDFwv-FLBlwhLvU_SPfTsxdyP-C0l7P2vG4n_djcsrdxBgw0roS6mzUaP0fau3hASpyqy0GKRN_ms7VTxgV-B_lVPbX8g2IaN8Zt6hdQLDS6zvdrG2MWJMcDffePDFXvN9_dOZvZmgcmgZTROcpQBknREtIlCCDsDkCg8KWaslO99VjzQMkJIxmVM6-LoCJ8BMT0PVtZt20aEKI1YV-6CUueNGQoNxooFVeZ6_US4JXHA7cnMZbNszTDl05383PDUGCxMa6qXGyJ-lnEIIGoP6sPnO1PKQq78f8jpULTpJLgZk07FQvbS9i0plYIQshqZh9MfVCC3bmpu9BcPZc8M-htamDDJBcIDbYL2zcGQ76eXPpmjUsd_PYXQ51dWZ4PWSpuvEyGrCbZJ3e1Je4NwWV7afyAZq9kXg7hcJId_IBfWapTWFEKom-pOuKslhrCDZRVjtSMBc_wh8iTHlap5n19Y2SM1ULMW4yt5uhcFPTCSsATT0jLei0u2v9k2dM-XapCZrLaLcj7-wArU6Xm6YvtAakOXhD_nKMq7UbzIFNzKMP6X6qEze-e3ERZF36SytW6mKrkcdIwKOrQ9SvSgldLE5QF9xAr7yOrbVw8W4zOVyNX_rv61OAagQlzDLt0Ue0fwMegAhLq8IW-noGE-ULQ7FYYyDHL3CSBAOomGYHeBSJ0Uq-mc6jiLKubyfkF3jk37N8lOtetwI8SRbtdRQBMRfwsgNPkPL18a4_oLnGj9gWs6Qu2j3vSNuxiwy6tWxqcTNLE4TjNZkS6rvGlJEYOtQsoZxZSh7zdFtq9FxXBdg2N8PIlFyc_hY3jOgyzHnDxxY7rCXcmlb9h8hHf_DBv0v8JdP-EF44Xvxw.91COC62NtlRpq5bsWp3Mpw"
+      - "..o_HEUjT-A1EFOJwv.0tPu9rWyTW_cAlSF8SnHGB5Wa9KyiE-Al7YOP0t7fzSreYhBo8BLwiNIha7gUl0jpDgNeyxOygYVQm-P_kz9P1ZLnloQYFBAQ1aiziX-OshwDO7T49NIYSHEJLdJIPd1jtVNr-MlMXW2jQWpU3s4-sJdoxLdEj9o1QQETse90dELL3vzyXKGHiAOCrOtdmQbLZmJHt2i7XSeST-hEykRT92GJ5mujNOhx5AlRql38qdo4D__ANCaPqcEbFHun7rO02ONCTaS1pStqm3o6BqzdvGOvADiTzkYXQeBbVtBynApzKc5NBfxUGtO6OTRicAgDeZhW8qbJkhmPU20NeSgIvuJXl3zmQMjsDSy2l2YNBEmelO5x_sR45_CQB9KoMsnePolL9nDAwRauLxIakqsfnhWMhf3-D8jJbGN_7TQhKnFuhA8F0DIrtonY8D9V0fH6xxtCesDpTeXriuM8iYigYhqjxGvTj4SN7_hlrFxj5C8FhGeowKfrfsruapBm3yQ0mWSAW8ffVuMgGW18rLu_ugg0lS9RwCSeHjeIRHXcgz7YpFaBKvEBgOhiIlJcggk-p6aQKJ5Dj0xDnXa_Sua4IGnqfFv1T8bMHzsBrwj6ChAD9vD-No-nDvV3Xhw5EfXfR9LFaBaG8_oJauNJVkQrXCIdbk3hchdckDpgQWX3Cx6apT6N67bAGps_SMyCrSXGTx8QacJG0S1XaUuTeGgtY980RYkonoL3FvTkTyI7ZC-m778LP6HLCKcllNtUR3_YQgnkiLhQ42Zqd3m7WGeC3GmrGSaV782b36grr3udcfV_rk4EuViTL-JOpSJsPxLXNFHd8p6mammmVN6Drwc-cMu3Pyny1toORJS1JnQ7K8qr7JpWUf6-CDhLYuxhH6m7pyoNFTLA3-GbER7r7wz5zd4M_Zrt9AHxOR9vclOj9f73timXONQL4HuNCboogXSLk6ASrU0oA73zhp24cvXqM2gIjXjbOy0Cqr9ro8W9BE7H7DqTFD88ukcbbX8O7RJ6HYQvdSfS5zV-km7X02e34V-4A.Kmxy1LZ4_sds1En8eeJZdQ"
   response:
     status:
       code: 404
@@ -689,9 +689,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Wed, 07 Feb 2018 17:24:55 GMT
+      - Thu, 15 Feb 2018 03:36:52 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 06-Feb-2018 17:24:55
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 14-Feb-2018 03:36:52
         GMT
       x-content-type-options:
       - nosniff
@@ -708,17 +708,17 @@ http_interactions:
       string: |-
         {
           "issue_details" : [ {
-            "incident_id" : "ed51d326-be03-4ec9-b976-4c348efe365a",
+            "incident_id" : "394d071d-d11d-46b6-85ed-fe29f7104d0a",
             "type" : "expected_exception",
             "user_message" : "There was an error processing your request. It has been logged with unique incident id",
             "technical_message" : "Applicant is not found by Form Id and Applicant Id"
           } ]
         }
     http_version: 
-  recorded_at: Wed, 07 Feb 2018 17:24:55 GMT
+  recorded_at: Thu, 15 Feb 2018 03:36:52 GMT
 - request:
     method: get
-    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/1918?expanded=true
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/2481?expanded=true
     body:
       encoding: US-ASCII
       string: ''
@@ -726,7 +726,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..4PNLvs3sr0j0azmN.WYgFC2Iw8WbSizfFTy8FMoXqL8LKP2as0L0p0rf_ttZ9VQS0So1PkS_5c7y2fcb8l9vTGRDN864EOTkpcqGhIV_Ng6-3Xuz7FNAbqjPrDRcdftiMuy0i48tky7InQdiKlJLZTs95Pi_8esKxytw3KvxId0yn6mk0Pq7XP5uMOFyZA0exKj4iDCRgD3lexsN6Ow-9_w54xWGJODtz-nRd_Y0iYGwvBkysDFwv-FLBlwhLvU_SPfTsxdyP-C0l7P2vG4n_djcsrdxBgw0roS6mzUaP0fau3hASpyqy0GKRN_ms7VTxgV-B_lVPbX8g2IaN8Zt6hdQLDS6zvdrG2MWJMcDffePDFXvN9_dOZvZmgcmgZTROcpQBknREtIlCCDsDkCg8KWaslO99VjzQMkJIxmVM6-LoCJ8BMT0PVtZt20aEKI1YV-6CUueNGQoNxooFVeZ6_US4JXHA7cnMZbNszTDl05383PDUGCxMa6qXGyJ-lnEIIGoP6sPnO1PKQq78f8jpULTpJLgZk07FQvbS9i0plYIQshqZh9MfVCC3bmpu9BcPZc8M-htamDDJBcIDbYL2zcGQ76eXPpmjUsd_PYXQ51dWZ4PWSpuvEyGrCbZJ3e1Je4NwWV7afyAZq9kXg7hcJId_IBfWapTWFEKom-pOuKslhrCDZRVjtSMBc_wh8iTHlap5n19Y2SM1ULMW4yt5uhcFPTCSsATT0jLei0u2v9k2dM-XapCZrLaLcj7-wArU6Xm6YvtAakOXhD_nKMq7UbzIFNzKMP6X6qEze-e3ERZF36SytW6mKrkcdIwKOrQ9SvSgldLE5QF9xAr7yOrbVw8W4zOVyNX_rv61OAagQlzDLt0Ue0fwMegAhLq8IW-noGE-ULQ7FYYyDHL3CSBAOomGYHeBSJ0Uq-mc6jiLKubyfkF3jk37N8lOtetwI8SRbtdRQBMRfwsgNPkPL18a4_oLnGj9gWs6Qu2j3vSNuxiwy6tWxqcTNLE4TjNZkS6rvGlJEYOtQsoZxZSh7zdFtq9FxXBdg2N8PIlFyc_hY3jOgyzHnDxxY7rCXcmlb9h8hHf_DBv0v8JdP-EF44Xvxw.91COC62NtlRpq5bsWp3Mpw"
+      - "..o_HEUjT-A1EFOJwv.0tPu9rWyTW_cAlSF8SnHGB5Wa9KyiE-Al7YOP0t7fzSreYhBo8BLwiNIha7gUl0jpDgNeyxOygYVQm-P_kz9P1ZLnloQYFBAQ1aiziX-OshwDO7T49NIYSHEJLdJIPd1jtVNr-MlMXW2jQWpU3s4-sJdoxLdEj9o1QQETse90dELL3vzyXKGHiAOCrOtdmQbLZmJHt2i7XSeST-hEykRT92GJ5mujNOhx5AlRql38qdo4D__ANCaPqcEbFHun7rO02ONCTaS1pStqm3o6BqzdvGOvADiTzkYXQeBbVtBynApzKc5NBfxUGtO6OTRicAgDeZhW8qbJkhmPU20NeSgIvuJXl3zmQMjsDSy2l2YNBEmelO5x_sR45_CQB9KoMsnePolL9nDAwRauLxIakqsfnhWMhf3-D8jJbGN_7TQhKnFuhA8F0DIrtonY8D9V0fH6xxtCesDpTeXriuM8iYigYhqjxGvTj4SN7_hlrFxj5C8FhGeowKfrfsruapBm3yQ0mWSAW8ffVuMgGW18rLu_ugg0lS9RwCSeHjeIRHXcgz7YpFaBKvEBgOhiIlJcggk-p6aQKJ5Dj0xDnXa_Sua4IGnqfFv1T8bMHzsBrwj6ChAD9vD-No-nDvV3Xhw5EfXfR9LFaBaG8_oJauNJVkQrXCIdbk3hchdckDpgQWX3Cx6apT6N67bAGps_SMyCrSXGTx8QacJG0S1XaUuTeGgtY980RYkonoL3FvTkTyI7ZC-m778LP6HLCKcllNtUR3_YQgnkiLhQ42Zqd3m7WGeC3GmrGSaV782b36grr3udcfV_rk4EuViTL-JOpSJsPxLXNFHd8p6mammmVN6Drwc-cMu3Pyny1toORJS1JnQ7K8qr7JpWUf6-CDhLYuxhH6m7pyoNFTLA3-GbER7r7wz5zd4M_Zrt9AHxOR9vclOj9f73timXONQL4HuNCboogXSLk6ASrU0oA73zhp24cvXqM2gIjXjbOy0Cqr9ro8W9BE7H7DqTFD88ukcbbX8O7RJ6HYQvdSfS5zV-km7X02e34V-4A.Kmxy1LZ4_sds1En8eeJZdQ"
   response:
     status:
       code: 200
@@ -737,9 +737,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Wed, 07 Feb 2018 17:24:55 GMT
+      - Thu, 15 Feb 2018 03:36:52 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 06-Feb-2018 17:24:55
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 14-Feb-2018 03:36:52
         GMT
       vary:
       - Accept-Encoding
@@ -757,14 +757,14 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "id" : 1918,
+          "id" : 2481,
           "is_initial_application" : false
         }
     http_version: 
-  recorded_at: Wed, 07 Feb 2018 17:24:55 GMT
+  recorded_at: Thu, 15 Feb 2018 03:36:52 GMT
 - request:
     method: get
-    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/1918/rfa-1c-forms/
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/2481/rfa-1c-forms/
     body:
       encoding: US-ASCII
       string: ''
@@ -772,7 +772,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..4PNLvs3sr0j0azmN.WYgFC2Iw8WbSizfFTy8FMoXqL8LKP2as0L0p0rf_ttZ9VQS0So1PkS_5c7y2fcb8l9vTGRDN864EOTkpcqGhIV_Ng6-3Xuz7FNAbqjPrDRcdftiMuy0i48tky7InQdiKlJLZTs95Pi_8esKxytw3KvxId0yn6mk0Pq7XP5uMOFyZA0exKj4iDCRgD3lexsN6Ow-9_w54xWGJODtz-nRd_Y0iYGwvBkysDFwv-FLBlwhLvU_SPfTsxdyP-C0l7P2vG4n_djcsrdxBgw0roS6mzUaP0fau3hASpyqy0GKRN_ms7VTxgV-B_lVPbX8g2IaN8Zt6hdQLDS6zvdrG2MWJMcDffePDFXvN9_dOZvZmgcmgZTROcpQBknREtIlCCDsDkCg8KWaslO99VjzQMkJIxmVM6-LoCJ8BMT0PVtZt20aEKI1YV-6CUueNGQoNxooFVeZ6_US4JXHA7cnMZbNszTDl05383PDUGCxMa6qXGyJ-lnEIIGoP6sPnO1PKQq78f8jpULTpJLgZk07FQvbS9i0plYIQshqZh9MfVCC3bmpu9BcPZc8M-htamDDJBcIDbYL2zcGQ76eXPpmjUsd_PYXQ51dWZ4PWSpuvEyGrCbZJ3e1Je4NwWV7afyAZq9kXg7hcJId_IBfWapTWFEKom-pOuKslhrCDZRVjtSMBc_wh8iTHlap5n19Y2SM1ULMW4yt5uhcFPTCSsATT0jLei0u2v9k2dM-XapCZrLaLcj7-wArU6Xm6YvtAakOXhD_nKMq7UbzIFNzKMP6X6qEze-e3ERZF36SytW6mKrkcdIwKOrQ9SvSgldLE5QF9xAr7yOrbVw8W4zOVyNX_rv61OAagQlzDLt0Ue0fwMegAhLq8IW-noGE-ULQ7FYYyDHL3CSBAOomGYHeBSJ0Uq-mc6jiLKubyfkF3jk37N8lOtetwI8SRbtdRQBMRfwsgNPkPL18a4_oLnGj9gWs6Qu2j3vSNuxiwy6tWxqcTNLE4TjNZkS6rvGlJEYOtQsoZxZSh7zdFtq9FxXBdg2N8PIlFyc_hY3jOgyzHnDxxY7rCXcmlb9h8hHf_DBv0v8JdP-EF44Xvxw.91COC62NtlRpq5bsWp3Mpw"
+      - "..o_HEUjT-A1EFOJwv.0tPu9rWyTW_cAlSF8SnHGB5Wa9KyiE-Al7YOP0t7fzSreYhBo8BLwiNIha7gUl0jpDgNeyxOygYVQm-P_kz9P1ZLnloQYFBAQ1aiziX-OshwDO7T49NIYSHEJLdJIPd1jtVNr-MlMXW2jQWpU3s4-sJdoxLdEj9o1QQETse90dELL3vzyXKGHiAOCrOtdmQbLZmJHt2i7XSeST-hEykRT92GJ5mujNOhx5AlRql38qdo4D__ANCaPqcEbFHun7rO02ONCTaS1pStqm3o6BqzdvGOvADiTzkYXQeBbVtBynApzKc5NBfxUGtO6OTRicAgDeZhW8qbJkhmPU20NeSgIvuJXl3zmQMjsDSy2l2YNBEmelO5x_sR45_CQB9KoMsnePolL9nDAwRauLxIakqsfnhWMhf3-D8jJbGN_7TQhKnFuhA8F0DIrtonY8D9V0fH6xxtCesDpTeXriuM8iYigYhqjxGvTj4SN7_hlrFxj5C8FhGeowKfrfsruapBm3yQ0mWSAW8ffVuMgGW18rLu_ugg0lS9RwCSeHjeIRHXcgz7YpFaBKvEBgOhiIlJcggk-p6aQKJ5Dj0xDnXa_Sua4IGnqfFv1T8bMHzsBrwj6ChAD9vD-No-nDvV3Xhw5EfXfR9LFaBaG8_oJauNJVkQrXCIdbk3hchdckDpgQWX3Cx6apT6N67bAGps_SMyCrSXGTx8QacJG0S1XaUuTeGgtY980RYkonoL3FvTkTyI7ZC-m778LP6HLCKcllNtUR3_YQgnkiLhQ42Zqd3m7WGeC3GmrGSaV782b36grr3udcfV_rk4EuViTL-JOpSJsPxLXNFHd8p6mammmVN6Drwc-cMu3Pyny1toORJS1JnQ7K8qr7JpWUf6-CDhLYuxhH6m7pyoNFTLA3-GbER7r7wz5zd4M_Zrt9AHxOR9vclOj9f73timXONQL4HuNCboogXSLk6ASrU0oA73zhp24cvXqM2gIjXjbOy0Cqr9ro8W9BE7H7DqTFD88ukcbbX8O7RJ6HYQvdSfS5zV-km7X02e34V-4A.Kmxy1LZ4_sds1En8eeJZdQ"
   response:
     status:
       code: 404
@@ -785,9 +785,9 @@ http_interactions:
       content-type:
       - text/html;charset=iso-8859-1
       date:
-      - Wed, 07 Feb 2018 17:24:55 GMT
+      - Thu, 15 Feb 2018 03:36:52 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 06-Feb-2018 17:24:55
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 14-Feb-2018 03:36:52
         GMT
       x-content-type-options:
       - nosniff
@@ -808,10 +808,10 @@ http_interactions:
         <title>Error 404 Not Found</title>
         </head>
         <body><h2>HTTP ERROR 404</h2>
-        <p>Problem accessing /rfa-1a-forms/1918/rfa-1c-forms/. Reason:
+        <p>Problem accessing /rfa-1a-forms/2481/rfa-1c-forms/. Reason:
         <pre>    Not Found</pre></p>
         </body>
         </html>
     http_version: 
-  recorded_at: Wed, 07 Feb 2018 17:24:55 GMT
+  recorded_at: Thu, 15 Feb 2018 03:36:52 GMT
 recorded_with: VCR 3.0.3

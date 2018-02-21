@@ -22,7 +22,7 @@ class Rfa::A01Controller < CalsBaseController
     @application.minorChildren = rfa_minor_children_helper.find_items_by_application_id(params[:id])
     @application.other_adults = rfa_other_adults_helper.find_items_by_application_id(params[:id])
     @application.fosterCareHistory = rfa_adoption_history_helper.find_by_application_id(params[:id])
-    @application.relationshipBetweenApplicants = rfa_relation_between_applicants_helper.find_by_application_id(params[:id])
+    @application.applicants_relationship = rfa_relation_between_applicants_helper.find_by_application_id(params[:id])
     @application.child_desired = rfa_child_desired_helper.find_by_application_id(params[:id])
     @application.references = rfa_references_helper.find_items_by_application_id(params[:id])
     @application.rfa1c_forms = rfa_c01_application_helper.all(params[:id])
@@ -37,12 +37,14 @@ class Rfa::A01Controller < CalsBaseController
     @application_response[:minorChildren] = process_items_for_persistance(minor_children_params, rfa_minor_children_helper, params[:id]) if params[:minorChildren].present?
     @application_response[:other_adults] = process_items_for_persistance(other_adults_params, rfa_other_adults_helper, params[:id]) if params[:other_adults].present?
     @application_response[:fosterCareHistory] = process_items_for_persistance(adoption_history_params, rfa_adoption_history_helper, params[:id]) if params[:fosterCareHistory].present?
-    @application_response[:relationshipBetweenApplicants] = process_items_for_persistance(relationship_between_applicants_params, rfa_relation_between_applicants_helper, params[:id]) if params[:relationshipBetweenApplicants].present?
+    @application_response[:relationshipBetweenApplicants] = process_items_for_persistance(relationship_between_applicants_params, rfa_relation_between_applicants_helper, params[:id]) if params[:applicants_relationship].present?
     @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, params[:id]) if params[:references].present?
     @application_response[:child_desired] = process_items_for_persistance(child_desired_params, rfa_child_desired_helper, params[:id]) if params[:child_desired].present?
     @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, params[:id]) if params[:references].present?
 
     render json: rfa_application_helper.find_by_application_id(params[:id])
+  rescue ApiError => e
+    render json: e.response, status: e.status
   end
 
   private
@@ -114,7 +116,7 @@ class Rfa::A01Controller < CalsBaseController
   end
 
   def relationship_between_applicants_params
-    params.require(:relationshipBetweenApplicants).permit(:to_delete, :other_relationship, :place_of_relationship_city,
+    params.require(:applicants_relationship).permit(:to_delete, :other_relationship, :place_of_relationship_city,
                                                           :date_of_relationship, relationship_type: %i[id value],
                                                           place_of_relationship_state: %i[id value])
   end
@@ -122,7 +124,7 @@ class Rfa::A01Controller < CalsBaseController
 
   def child_desired_params
     params.require(:child_desired).permit(:to_delete, :child_identified, :child_in_home, preferred_ages: %i[id value],
-                                         preferred_sibling_group_up_to: %i[id value])
+                                          preferred_sibling_group_up_to: %i[id value])
   end
 
   def adoption_history_params

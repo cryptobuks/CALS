@@ -4,16 +4,10 @@ import RelationshipBetweenApplicantsFields from './relationshipBetweenApplicants
 import {getFocusClassName} from 'helpers/cardsHelper.jsx'
 
 const blankValues = Object.freeze({
-  relationship_type: {
-    id: 0,
-    value: ''
-  },
+  relationship_type: null,
   date_of_relationship: '',
   place_of_relationship_city: '',
-  place_of_relationship_state: {
-    id: 0,
-    value: ''
-  }
+  place_of_relationship_state: null
 })
 
 export default class RelationshipBetweenApplicantsCard extends React.Component {
@@ -25,11 +19,11 @@ export default class RelationshipBetweenApplicantsCard extends React.Component {
   setState (key, value) {
     let newData = Immutable.fromJS(this.props.relationshipBetweenApplicants)
     newData = newData.set(key, value)
-    this.props.setParentState('relationshipBetweenApplicants', newData.toJS())
+    this.props.setParentState('applicants_relationship', newData.toJS())
   }
 
   render () {
-    let data = this.props.relationshipBetweenApplicants
+    const data = this.props.relationshipBetweenApplicants
     const idPrefix = 'relationshipBetweenApplicants.'
 
     return (

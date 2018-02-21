@@ -4,6 +4,7 @@ import LogoHeader from 'components/common/logoHeader'
 import PageHeader from 'components/common/pageHeader'
 import RfaSideBar from 'rfa_forms/rfa_sidebar/index'
 import Button from 'components/common/button'
+import ApiErrorMessages from 'components/common/errors/apiErrorMessages'
 
 const PageTemplate = ({
   headerLabel,
@@ -19,6 +20,7 @@ const PageTemplate = ({
   childIdentified,
   isNavLinkActive,
   handleNavLinkClick,
+  errors,
   children
 }) => (
   <div className='main_page'>
@@ -44,6 +46,7 @@ const PageTemplate = ({
             textAlignment={buttonTextAlignment}
             onClick={onButtonClick} />
         </div>
+        <ApiErrorMessages errors={errors}/>
         {children}
       </div>
     </div>
