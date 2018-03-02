@@ -20,7 +20,8 @@ export default class Search extends React.Component {
       disablePrevious: true,
       fromValue: 0,
       sizeValue: 5,
-      pageNumber: 1
+      pageNumber: 1,
+      searchId: {}
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.searchApiCall = this.searchApiCall.bind(this)
@@ -29,6 +30,15 @@ export default class Search extends React.Component {
     this.backToPreviousPage = this.backToPreviousPage.bind(this)
     this.nextPageLinkStatus = this.nextPageLinkStatus.bind(this)
     this.previousPageLinkStatus = this.previousPageLinkStatus.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  handleInputChange (key, value) {
+    let newSearchId = this.state.searchId
+    newSearchId[key] = value
+    this.setState({
+      searchId: newSearchId
+    })
   }
 
   handleToggle () {
@@ -85,7 +95,8 @@ export default class Search extends React.Component {
   previousPageLinkStatus (fromValue, sizeValue) {
     if (fromValue - sizeValue < 0 || fromValue === 0) {
       this.setState({
-        pageNumber: 1
+        pageNumber: 1,
+        fromValue
       })
       return true
     }
@@ -119,11 +130,16 @@ export default class Search extends React.Component {
       <div className='search_page'>
         <div className='search-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <SearchInput
-            searchApiCall={this.searchApiCall.bind(this)}
+            searchApiCall={this.searchApiCall}
+            handleInputChange={this.handleInputChange}
             countyList={this.props.countyTypes}
             facilityTypes={this.props.facilityTypes}
             userDetails={this.props.user || undefined}
-          />
+            countyValue={this.state.searchId.countyValue || this.props.user.county_name}
+            facilityTypeValue={this.state.searchId.facilityTypeValue}
+            facilityIdValue={this.state.searchId.facilityIdValue}
+            facilityNameValue={this.state.searchId.facilityNameValue}
+            facilityAddressValue={this.state.searchId.facilityAddressValue} />
         </div>
         {searchResponseHasValues &&
           <SearchDetails
@@ -135,11 +151,11 @@ export default class Search extends React.Component {
             sizeValue={this.state.sizeValue}
             fromValue={this.state.fromValue}
             pageNumber={this.state.pageNumber}
-            searchApiCall={this.searchApiCall.bind(this)}
-            handleToggle={this.handleToggle.bind(this)}
-            changeToNextPage={this.changeToNextPage.bind(this)}
-            backToPreviousPage={this.backToPreviousPage.bind(this)}
-            handleChange={this.handleChange.bind(this)} />}
+            searchApiCall={this.searchApiCall}
+            handleToggle={this.handleToggle}
+            changeToNextPage={this.changeToNextPage}
+            backToPreviousPage={this.backToPreviousPage}
+            handleChange={this.handleChange} />}
         <div className='result-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           {this.state.isToggled && <SearchGrid searchResults={this.state.searchResults} />}
           {!this.state.isToggled && <SearchList searchResults={this.state.searchResults} />}

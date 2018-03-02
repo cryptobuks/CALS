@@ -6,48 +6,35 @@ import {dictionaryNilSelectValue, floatToNextInt} from 'helpers/commonHelper.jsx
 export default class SearchDetails extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      searchData: this.props.inputData.split(',')
-    }
     this.removeCriteria = this.removeCriteria.bind(this)
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.inputData.split(',') !== this.state.searchData) {
-      this.setState({
-        searchData: nextProps.inputData.split(',')
-      })
-    }
-  }
-
   removeCriteria (event) {
-    const newState = this.state.searchData
-    if (newState.indexOf(event) > -1) {
-      newState.splice(newState.indexOf(event), 1, '')
-      this.setState(
-        {
-          searchData: newState
-        }
-      )
+    const newQuery = this.props.inputData.split(',')
+    if (newQuery.indexOf(event) > -1) {
+      newQuery.splice(newQuery.indexOf(event), 1, '')
+      this.props.searchApiCall(newQuery.toString(), 0, this.props.sizeValue)
     }
-    this.props.searchApiCall(this.state.searchData.toString(), 0, this.props.sizeValue)
   }
 
   render () {
     const searchCount = this.props.totalNoOfFacilities
     const noOfPages = floatToNextInt(searchCount, this.props.sizeValue)
+    const searchQuery = this.props.inputData.split(',')
     let searchFacilityId = null
-    if (this.state.searchData[2] && this.state.searchData[2].length > 1) {
-      searchFacilityId = (<p>Facility ID:
-      <span>{this.state.searchData[2]}</span>
-      <span id='rm_criteria' onClick={this.removeCriteria.bind(this, this.state.searchData[2])} alt='cross-icon' className='cross-icon' />
-      </p>)
+    if (searchQuery[2] && searchQuery[2].length > 1) {
+      searchFacilityId = (
+        <p>Facility ID:
+        <span>{searchQuery[2]}</span>
+        <span id='rm_criteria' onClick={this.removeCriteria.bind(this, searchQuery[2])} alt='cross-icon' className='cross-icon' />
+        </p>
+      )
     }
     let searchFacilityName = null
-    if (this.state.searchData[3] && this.state.searchData[3].length > 1) {
+    if (searchQuery[3] && searchQuery[3].length > 1) {
       searchFacilityName = (<p>Facility Name:
-      <span>{this.state.searchData[3]}</span>
-      <span onClick={this.removeCriteria.bind(this, this.state.searchData[3])} alt='cross-icon' className='cross-icon' />
+      <span>{searchQuery[3]}</span>
+      <span onClick={this.removeCriteria.bind(this, searchQuery[3])} alt='cross-icon' className='cross-icon' />
       </p>)
     }
     const facilityIterate = resultsPerPage.map((noOfResults) =>

@@ -20,13 +20,17 @@ describe('Verify search input component', function () {
         id: '',
         value: ''
       }
-    ]
+    ],
+    countyValue: 'Los Angeles'
 
   }
 
   const spySearchApiCall = jasmine.createSpy('searchApiCall')
+  const spyHandleInputChange = jasmine.createSpy('handleInputChange')
 
-  const searchInputComp = mount(<SearchInput {...props} searchApiCall={spySearchApiCall} />)
+  const searchInputComp = mount(<SearchInput {...props} 
+    searchApiCall={spySearchApiCall}
+    handleInputChange={spyHandleInputChange} />)
 
   it('verify component load', () => {
     expect(searchInputComp.length).toBe(1)
