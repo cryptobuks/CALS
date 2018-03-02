@@ -6,6 +6,7 @@ describe('Verify Search component', function () {
   let handleToggleSpy
   let searchComp
   let handleChangeSpy
+  let handleInputChangeSpy
 
   beforeEach(() => {
     const props = {
@@ -28,6 +29,7 @@ describe('Verify Search component', function () {
 
     handleToggleSpy = spyOn(SearchApp.prototype, 'handleToggle').and.callThrough()
     handleChangeSpy = spyOn(SearchApp.prototype, 'handleChange').and.callThrough()
+    handleInputChangeSpy = spyOn(SearchApp.prototype, 'handleInputChange').and.callThrough()
 
     searchComp = mount(<SearchApp {...props}
     />)
@@ -82,5 +84,11 @@ describe('Verify Search component', function () {
     let dropdownForfacilitiesCount = searchComp.find('#dropdownFacilities')
     dropdownForfacilitiesCount.simulate('change', {target: {options: {'2': {id: '2', value: 15}, selectedIndex: 2}}})
     expect(handleChangeSpy).toHaveBeenCalledWith(15)
+  })
+
+  it('verify county dropdown value change ', () => {
+    let countyDropDownChange = searchComp.find('#county_select')
+    countyDropDownChange.simulate('change', {target: {options: {'19': {id: '19', value: 'Los Angeles'}, selectedIndex: 19}}})
+    expect(handleInputChangeSpy).toHaveBeenCalledWith('countyValue', 'Los Angeles')
   })
 })
