@@ -40,7 +40,7 @@ gem 'webpacker', '~> 3.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-gem 'cwds-authentication', github: 'ca-cwds/cwds-authentication', :ref => "30227d0"
+gem 'cwds-authentication', github: 'ca-cwds/cwds-authentication', :ref => '82c1dcf'
 #gem 'woodduck-rails', github: "ca-cwds/woodduck-rails", branch: 'development'
 
 group :development, :test do

@@ -1,0 +1,7 @@
+# AllCops:
+#   Excludes:
+    # - app/javascript
+Metrics/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  CountComments: false

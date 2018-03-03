@@ -46,7 +46,7 @@ def register_internet_explorer(capybara_config, selenium_browser)
 end
 
 def registar_chrome(capybara_config, selenium_browser)
-  capability_options = selenium_browser == :headless_chrome ? %w[headless disable-gpu no-sandbox] : []
+  capability_options = selenium_browser == :headless_chrome ? %w[headless disable-gpu no-sandbox window-size=1200,719] : []
 
   capybara_config.register_driver selenium_browser do |app|
     capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(

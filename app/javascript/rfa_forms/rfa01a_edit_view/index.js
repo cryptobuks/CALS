@@ -19,6 +19,7 @@ import {getDictionaryId, dictionaryNilSelect, checkArrayObjectPresence} from 'he
 import {checkForNameValidation} from 'helpers/cardsHelper.jsx'
 import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
 import Validator from 'helpers/validator'
+import ScrollSpy from 'components/common/scrollSpy'
 
 export default class Rfa01EditView extends React.Component {
   constructor (props) {
@@ -156,150 +157,163 @@ export default class Rfa01EditView extends React.Component {
           onFieldChange={(event) => this.setApplicationState('application_county',
             dictionaryNilSelect(event.target.options))} />
 
-        <ApplicantCardsGroup
-          suffixTypes={this.props.suffixTypes}
-          prefixTypes={this.props.prefixTypes}
-          nameTypes={this.props.nameTypes}
-          phoneTypes={this.props.phoneTypes}
-          salaryTypes={this.props.salaryTypes}
-          stateTypes={this.props.stateTypes}
-          educationLevels={this.props.educationLevels}
-          genderTypes={this.props.genderTypes}
-          // raceTypes={this.props.raceTypes}
-          ethnicityTypes={this.props.ethnicityTypes}
-          languageTypes={this.props.languageTypes}
-          focusComponentName={this.state.focusComponentName}
-          applicants={this.state.application.get('applicants') || undefined}
-          setParentState={this.setApplicationState}
-          setFocusState={this.setFocusState}
-          getFocusClassName={this.getFocusClassName}
-          hasValidName={this.state.disableSave}
-          validator={this.validator}
-          errors={this.state.errors.applicants} />
-
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-          id='applicant-residence-card'>
-          <h3>II. Applicant (S) - <span>Residence</span></h3>
-          <ResidenceCards
-            focusComponentName={this.state.focusComponentName}
-            residence={(this.state.application.get('residence') && this.state.application.get('residence').toJS()) || undefined}
-            setFocusState={this.setFocusState}
-            getFocusClassName={this.getFocusClassName}
-            languageTypes={this.props.languageTypes}
-            residenceTypes={this.props.residenceTypes}
-            stateTypes={this.props.stateTypes}
-            setParentState={this.setApplicationState} />
-        </div>
-
-        <div className={hideRelationshipBetweenApplicants}
-          id='relationship-between-applicants-card'>
-          <h3>III.<span>Relationship Between Applicant</span></h3>
-          <RelationshipBetweenApplicantsCardMain
-            focusComponentName={this.state.focusComponentName}
-            relationshipBetweenApplicants={(this.state.application.get('applicants_relationship') && this.state.application.get('applicants_relationship').toJS()) || undefined}
-            getFocusClassName={this.getFocusClassName}
-            setParentState={this.setApplicationState}
-            setFocusState={this.setFocusState}
-            stateTypes={this.props.stateTypes}
-            relationshipTypes={this.props.relationshipTypes}
-            validator={this.validator}
-            errors={this.state.errors.relationshipBetweenApplicants}
-            applicants={applicantsAsJs} />
-        </div>
-
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-          id='minor-child-card'>
-          <h3>IV. <span>Minor Children Residing in the Home</span></h3>
-          <MinorCardsGroup
-            genderTypes={this.props.genderTypes}
-            relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
-            getFocusClassName={this.getFocusClassName}
-            setFocusState={this.setFocusState}
-            setParentState={this.setApplicationState}
-            validator={this.validator}
-            errors={this.state.errors.minorChildren}
-            applicants={applicantsAsJs}
-            minorChildren={(this.state.application.get('minor_children') && this.state.application.get('minor_children').toJS()) || undefined} />
-        </div>
-
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-          id='other-adults-card'>
-          <h3>V.<span>Other Adults Residing or Regularly Present in the Home</span></h3>
-          <p> Each adult residing or regularly present in the home must complete a Criminal Record Statement RFA 01B</p>
-          <OtherAdultsCard
-            getFocusClassName={this.getFocusClassName}
-            setFocusState={this.setFocusState}
-            setParentState={this.setApplicationState}
-            validator={this.validator}
-            errors={this.state.errors.otherAdults}
-            applicants={applicantsAsJs}
-            otherAdults={(this.state.application.get('other_adults') && this.state.application.get('other_adults').toJS()) || undefined}
-            relationship_types={this.props.relationshipToApplicantTypes} />
-        </div>
-
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-          id='marital-history-card'>
-          <h3>VI.<span>Applicant's Marital History</span></h3>
-          <ApplicantMaritalHistoryCardGroup
-            focusComponentName={this.state.focusComponentName}
-            getFocusClassName={this.getFocusClassName}
-            applicants={applicantsAsJs}
-            applicantsHistory={(this.state.application.get('applicants_history') && this.state.application.get('applicants_history').toJS()) || undefined}
-            setFocusState={this.setFocusState}
-            setParentState={this.setApplicationState}
-            relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
-            relationshipTypes={this.props.relationshipTypes}
-            suffixTypes={this.props.suffixTypes}
-            prefixTypes={this.props.prefixTypes}
-            nameTypes={this.props.nameTypes}
-            stateTypes={this.props.stateTypes}
-            marriageTerminationReasons={this.props.marriageTerminationReasons}
-            validator={this.validator}
-            errors={this.state.errors.applicantsHistory} />
-        </div>
-
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-          id='child-desired-card'>
-          <h3>VII.<span>Child Desired </span></h3>
-          <ChildDesiredMain
-            focusComponentName={this.state.focusComponentName}
-            childDesired={(this.state.application.get('child_desired') && this.state.application.get('child_desired').toJS()) || undefined}
-            getFocusClassName={this.getFocusClassName}
-            setFocusState={this.setFocusState}
-            setParentState={this.setApplicationState}
-            siblingGroups={this.props.siblingGroups}
-            ageGroups={this.props.ageGroups} />
-        </div>
-
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-          id='foster-care-card'>
-          <h3>VIII. Foster Care / Adoption / Licensure History</h3>
-          {/*  todo: convert ...this.props to individual listed props */}
-          <FosterCareHistoryCardMain
-            focusComponentName={this.state.focusComponentName}
-            fosterCareHistory={(this.state.application.get('adoption_history') && this.state.application.get('adoption_history').toJS()) || {}}
-            getFocusClassName={this.getFocusClassName}
-            setParentState={this.setApplicationState}
-            setFocusState={this.setFocusState}
-            {...this.props} />
-        </div>
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
-          id='reference-card'>
-          <h3>IX. References</h3>
-          <ReferencesMain
-            focusComponentName={this.state.focusComponentName}
-            setParentState={this.setApplicationState}
-            getFocusClassName={this.getFocusClassName}
-            setFocusState={this.setFocusState}
-            stateTypes={this.props.stateTypes}
-            references={(this.state.application.get('references') && this.state.application.get('references').toJS()) || undefined}
-            suffixTypes={this.props.suffixTypes}
-            prefixTypes={this.props.prefixTypes}
-            nameTypes={this.props.nameTypes}
-            validator={this.validator}
-            errors={this.state.errors.reference} />
-        </div>
-
+        <ScrollSpy onEnter={() => this.handleNavLinkClick('#applicants-card')}>
+          <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+            id='applicants-card'>
+            <ApplicantCardsGroup
+              suffixTypes={this.props.suffixTypes}
+              prefixTypes={this.props.prefixTypes}
+              nameTypes={this.props.nameTypes}
+              phoneTypes={this.props.phoneTypes}
+              salaryTypes={this.props.salaryTypes}
+              stateTypes={this.props.stateTypes}
+              educationLevels={this.props.educationLevels}
+              genderTypes={this.props.genderTypes}
+              // raceTypes={this.props.raceTypes}
+              ethnicityTypes={this.props.ethnicityTypes}
+              languageTypes={this.props.languageTypes}
+              focusComponentName={this.state.focusComponentName}
+              applicants={this.state.application.get('applicants') || undefined}
+              setParentState={this.setApplicationState}
+              setFocusState={this.setFocusState}
+              getFocusClassName={this.getFocusClassName}
+              hasValidName={this.state.disableSave}
+              validator={this.validator}
+              errors={this.state.errors.applicants} />
+          </div>
+        </ScrollSpy>
+        <ScrollSpy onEnter={() => this.handleNavLinkClick('#applicant-residence-card')}>
+          <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+            id='applicant-residence-card'>
+            <h3>II. Applicant (S) - <span>Residence</span></h3>
+            <ResidenceCards
+              focusComponentName={this.state.focusComponentName}
+              residence={(this.state.application.get('residence') && this.state.application.get('residence').toJS()) || undefined}
+              setFocusState={this.setFocusState}
+              getFocusClassName={this.getFocusClassName}
+              languageTypes={this.props.languageTypes}
+              residenceTypes={this.props.residenceTypes}
+              stateTypes={this.props.stateTypes}
+              setParentState={this.setApplicationState} />
+          </div>
+        </ScrollSpy>
+        <ScrollSpy onEnter={() => this.handleNavLinkClick('#relationship-between-applicants-card')}>
+          <div className={hideRelationshipBetweenApplicants}
+            id='relationship-between-applicants-card'>
+            <h3>III.<span>Relationship Between Applicant</span></h3>
+            <RelationshipBetweenApplicantsCardMain
+              focusComponentName={this.state.focusComponentName}
+              relationshipBetweenApplicants={(this.state.application.get('applicants_relationship') && this.state.application.get('applicants_relationship').toJS()) || undefined}
+              getFocusClassName={this.getFocusClassName}
+              setParentState={this.setApplicationState}
+              setFocusState={this.setFocusState}
+              stateTypes={this.props.stateTypes}
+              relationshipTypes={this.props.relationshipTypes}
+              validator={this.validator}
+              errors={this.state.errors.relationshipBetweenApplicants}
+              applicants={applicantsAsJs} />
+          </div>
+        </ScrollSpy>
+        <ScrollSpy onEnter={() => this.handleNavLinkClick('#minor-child-card')}>
+          <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+            id='minor-child-card'>
+            <h3>IV. <span>Minor Children Residing in the Home</span></h3>
+            <MinorCardsGroup
+              genderTypes={this.props.genderTypes}
+              relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
+              getFocusClassName={this.getFocusClassName}
+              setFocusState={this.setFocusState}
+              setParentState={this.setApplicationState}
+              validator={this.validator}
+              errors={this.state.errors.minorChildren}
+              applicants={applicantsAsJs}
+              minorChildren={(this.state.application.get('minor_children') && this.state.application.get('minor_children').toJS()) || undefined} />
+          </div>
+        </ScrollSpy>
+        <ScrollSpy onEnter={() => this.handleNavLinkClick('#other-adults-card')}>
+          <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+            id='other-adults-card'>
+            <h3>V.<span>Other Adults Residing or Regularly Present in the Home</span></h3>
+            <p> Each adult residing or regularly present in the home must complete a Criminal Record Statement RFA 01B</p>
+            <OtherAdultsCard
+              getFocusClassName={this.getFocusClassName}
+              setFocusState={this.setFocusState}
+              setParentState={this.setApplicationState}
+              validator={this.validator}
+              errors={this.state.errors.otherAdults}
+              applicants={applicantsAsJs}
+              otherAdults={(this.state.application.get('other_adults') && this.state.application.get('other_adults').toJS()) || undefined}
+              relationship_types={this.props.relationshipToApplicantTypes} />
+          </div>
+        </ScrollSpy>
+        <ScrollSpy onEnter={() => this.handleNavLinkClick('#marital-history-card')}>
+          <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+            id='marital-history-card'>
+            <h3>VI.<span>Applicant's Marital History</span></h3>
+            <ApplicantMaritalHistoryCardGroup
+              focusComponentName={this.state.focusComponentName}
+              getFocusClassName={this.getFocusClassName}
+              applicants={applicantsAsJs}
+              applicantsHistory={(this.state.application.get('applicants_history') && this.state.application.get('applicants_history').toJS()) || undefined}
+              setFocusState={this.setFocusState}
+              setParentState={this.setApplicationState}
+              relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
+              relationshipTypes={this.props.relationshipTypes}
+              suffixTypes={this.props.suffixTypes}
+              prefixTypes={this.props.prefixTypes}
+              nameTypes={this.props.nameTypes}
+              stateTypes={this.props.stateTypes}
+              marriageTerminationReasons={this.props.marriageTerminationReasons}
+              validator={this.validator}
+              errors={this.state.errors.applicantsHistory} />
+          </div>
+        </ScrollSpy>
+        <ScrollSpy onEnter={() => this.handleNavLinkClick('#child-desired-card')} >
+          <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+            id='child-desired-card'>
+            <h3>VII.<span>Child Desired </span></h3>
+            <ChildDesiredMain
+              focusComponentName={this.state.focusComponentName}
+              childDesired={(this.state.application.get('child_desired') && this.state.application.get('child_desired').toJS()) || undefined}
+              getFocusClassName={this.getFocusClassName}
+              setFocusState={this.setFocusState}
+              setParentState={this.setApplicationState}
+              siblingGroups={this.props.siblingGroups}
+              ageGroups={this.props.ageGroups} />
+          </div>
+        </ScrollSpy>
+        <ScrollSpy onEnter={() => this.handleNavLinkClick('#foster-care-card')} >
+          <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+            id='foster-care-card'>
+            <h3>VIII. Foster Care / Adoption / Licensure History</h3>
+            {/*  todo: convert ...this.props to individual listed props */}
+            <FosterCareHistoryCardMain
+              focusComponentName={this.state.focusComponentName}
+              fosterCareHistory={(this.state.application.get('adoption_history') && this.state.application.get('adoption_history').toJS()) || {}}
+              getFocusClassName={this.getFocusClassName}
+              setParentState={this.setApplicationState}
+              setFocusState={this.setFocusState}
+              {...this.props} />
+          </div>
+        </ScrollSpy>
+        <ScrollSpy onEnter={() => this.handleNavLinkClick('#reference-card')}>
+          <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
+            id='reference-card'>
+            <h3>IX. References</h3>
+            <ReferencesMain
+              focusComponentName={this.state.focusComponentName}
+              setParentState={this.setApplicationState}
+              getFocusClassName={this.getFocusClassName}
+              setFocusState={this.setFocusState}
+              stateTypes={this.props.stateTypes}
+              references={(this.state.application.get('references') && this.state.application.get('references').toJS()) || undefined}
+              suffixTypes={this.props.suffixTypes}
+              prefixTypes={this.props.prefixTypes}
+              nameTypes={this.props.nameTypes}
+              validator={this.validator}
+              errors={this.state.errors.reference} />
+          </div>
+        </ScrollSpy>
       </PageTemplate>
     )
   }

@@ -13,9 +13,10 @@ describe CalsBaseController do
   end
 
   it 'sets token when token is empty' do
+    allow(Cwds::Authentication).to receive(:token_generation).with('dcba', AUTHENTICATION_API_BASE_URL).and_return('abcd')
     allow(Cwds::Authentication).to receive(:token_validation).with('abcd', AUTHENTICATION_API_BASE_URL).and_return(true)
 
-    process :custom, method: :get, params: {token: 'abcd'}
+    process :custom, method: :get, params: {accessCode: 'dcba'}
     expect(session['token']).to eq('abcd')
   end
 
