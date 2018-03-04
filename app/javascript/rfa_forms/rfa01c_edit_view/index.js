@@ -105,7 +105,8 @@ export default class Rfa01cList extends React.Component {
         childIdentified={this.state.rfa_a01_application.child_desired &&
         this.state.rfa_a01_application.child_desired.child_identified}
         isNavLinkActive={this.isNavLinkActive}
-        handleNavLinkClick={this.handleNavLinkClick} >
+        handleNavLinkClick={this.handleNavLinkClick}
+        errors={this.state.errors.issue_details} >
         <CardsGroupLayout>
           <CountyUseOnlyCard
             countyUseOnlyCardId='county_use_only'
