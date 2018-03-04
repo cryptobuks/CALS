@@ -6,13 +6,13 @@ const ApiErrorMessages = ({errors}) => (
     <div key={'error' + '[' + index + ']'} >
       <span className='input-error-message' role='alert'>Type: {error.type}</span>
       <span className='input-error-message' role='alert'>Message: {error.user_message}</span>
-      {error.type === 'business_validation' || 'json_processing_exception' ? (
-        <span className='input-error-message' role='alert'>Technical Message: {error.technical_message}</span>
-      ) : (
+      {error.type === 'constraint_validation' ? (
         <div>
           <span className='input-error-message' role='alert'>Property: {error.property}</span>
-          <span className='input-error-message' role='alert'>Invalid Value : {error.invalid_value.id}</span>
+          <span className='input-error-message' role='alert'>Invalid Value : {error.invalid_value}</span>
         </div>
+      ) : (
+        <span className='input-error-message' role='alert'>Technical Message: {error.technical_message}</span>
       )
       }
     </div>
