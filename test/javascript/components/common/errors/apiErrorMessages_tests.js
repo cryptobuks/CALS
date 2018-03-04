@@ -23,7 +23,7 @@ describe('Api Error Message', () => {
       'type': 'constraint_validation',
       'user_message': 'Applicant with first name - [test], last name - [fix] and name suffix - [] already exists in application',
       'property': 'BV000005',
-      'invalid_value': {'id': '0'}
+      'invalid_value': 'value'
     } ]
     apiErrorComp = mount(<ApiErrorMessages errors={props} />)
     expect(apiErrorComp.find('span').length).toEqual(4)
