@@ -46,11 +46,11 @@ export default class Search extends React.Component {
 
   searchApiCall (getFromValue, getSizeValue) {
     const params = {
-      'county.value': this.state.inputData.countyValue,
-      'type.value': this.state.inputData.facilityTypeValue,
-      id: this.state.inputData.facilityIdValue,
-      name: this.state.inputData.facilityNameValue,
-      'addresses.address.street_address': this.state.inputData.facilityAddressValue
+      'county.value': [this.state.inputData.countyValue],
+      'type.value': [this.state.inputData.facilityTypeValue],
+      id: [this.state.inputData.facilityIdValue],
+      name: [this.state.inputData.facilityNameValue],
+      'addresses.address.street_address': [this.state.inputData.facilityAddressValue]
     }
 
     // call http request function with arguments
