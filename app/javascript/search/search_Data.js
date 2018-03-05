@@ -12,7 +12,7 @@ export default class SearchDetails extends React.Component {
       searchFacilityId = (
         <p>Facility ID:
         <span>{this.props.inputData.facilityIdValue}</span>
-        <span id='rm_criteria' onClick={this.props.handleInputChange.bind(this, 'facilityIdValue', '')} alt='cross-icon' className='cross-icon' />
+        <span id='rm_criteria' onClick={() => { this.props.handleInputChange('facilityIdValue', ''); this.props.searchApiCall(this.props.fromValue, this.props.sizeValue) }} alt='cross-icon' className='cross-icon' />
         </p>
       )
     }
@@ -21,7 +21,7 @@ export default class SearchDetails extends React.Component {
       searchFacilityName = (
         <p>Facility Name:
         <span>{this.props.inputData.facilityNameValue}</span>
-        <span onClick={this.props.handleInputChange.bind(this, 'facilityNameValue', '')} alt='cross-icon' className='cross-icon' />
+        <span onClick={() => { this.props.handleInputChange('facilityNameValue', ''); this.props.searchApiCall(this.props.fromValue, this.props.sizeValue) }} alt='cross-icon' className='cross-icon' />
         </p>
       )
     }
