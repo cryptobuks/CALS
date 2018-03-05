@@ -7,10 +7,7 @@ import {userDefaults} from 'constants/defaultFields.js'
 export default class SearchInput extends React.Component {
   sendSearchInput (event) {
     event.preventDefault()
-    const finalQuery = (this.props.countyValue + ',' + this.props.facilityTypeValue + ',' + this.props.facilityIdValue + ',' + this.props.facilityNameValue + ',' + this.props.facilityAddressValue)
-    const fromValue = 0
-    const sizeValue = 5
-    this.props.searchApiCall(finalQuery, fromValue, sizeValue)
+    this.props.searchApiCall(0, 10)
   }
   render () {
     const facilityTypes = this.props.facilityTypes
@@ -30,7 +27,7 @@ export default class SearchInput extends React.Component {
                 <span>County</span>
               </div>
               <div>
-                <select className='searchSelect' id='county_select' value={this.props.countyValue} onChange={(event) => this.props.handleInputChange('countyValue', dictionaryNilSelectValue(event.target.options))}>
+                <select className='searchSelect' id='county_select' value={this.props.inputData.countyValue} onChange={(event) => this.props.handleInputChange('countyValue', dictionaryNilSelectValue(event.target.options))}>
                   <option value=' ' />
                   {countyIterate}
                 </select>
@@ -41,7 +38,7 @@ export default class SearchInput extends React.Component {
                 <span>Facility Type</span>
               </div>
               <div>
-                <select className='searchSelect' id='facility_select' value={this.props.facilityTypeValue} onChange={(event) => this.props.handleInputChange('facilityTypeValue', dictionaryNilSelectValue(event.target.options))}>
+                <select className='searchSelect' id='facility_select' value={this.props.inputData.facilityTypeValue} onChange={(event) => this.props.handleInputChange('facilityTypeValue', dictionaryNilSelectValue(event.target.options))}>
                   <option value='' />
                   {facilityIterate}
                 </select>
@@ -52,7 +49,7 @@ export default class SearchInput extends React.Component {
               columnWidth={2}>
               <InputComponent id='facilityIdValue'
                 fieldClassName='form-control'
-                value={this.props.facilityIdValue}
+                value={this.props.inputData.facilityIdValue}
                 placeholder='Enter Facility ID #'
                 type='text'
                 onChange={(event) => this.props.handleInputChange('facilityIdValue', event.target.value)} />
@@ -62,7 +59,7 @@ export default class SearchInput extends React.Component {
               columnWidth={3}>
               <InputComponent id='facilityNameValue'
                 fieldClassName='form-control'
-                value={this.props.facilityNameValue}
+                value={this.props.inputData.facilityNameValue}
                 placeholder='Enter Facility Name'
                 type='text'
                 onChange={(event) => this.props.handleInputChange('facilityNameValue', event.target.value)} />
@@ -72,7 +69,7 @@ export default class SearchInput extends React.Component {
               columnWidth={3}>
               <InputComponent id='facilityAddressValue'
                 fieldClassName='form-control'
-                value={this.props.facilityAddressValue}
+                value={this.props.inputData.facilityAddressValue}
                 placeholder='Enter Facility Address'
                 type='text'
                 onChange={(event) => this.props.handleInputChange('facilityAddressValue', event.target.value)} />

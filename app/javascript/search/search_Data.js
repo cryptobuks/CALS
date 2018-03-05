@@ -4,38 +4,26 @@ import {resultsPerPage} from './common/commonUtils'
 import {dictionaryNilSelectValue, floatToNextInt} from 'helpers/commonHelper.jsx'
 
 export default class SearchDetails extends React.Component {
-  constructor (props) {
-    super(props)
-    this.removeCriteria = this.removeCriteria.bind(this)
-  }
-
-  removeCriteria (event) {
-    const newQuery = this.props.inputData.split(',')
-    if (newQuery.indexOf(event) > -1) {
-      newQuery.splice(newQuery.indexOf(event), 1, '')
-      this.props.searchApiCall(newQuery.toString(), 0, this.props.sizeValue)
-    }
-  }
-
   render () {
     const searchCount = this.props.totalNoOfFacilities
     const noOfPages = floatToNextInt(searchCount, this.props.sizeValue)
-    const searchQuery = this.props.inputData.split(',')
     let searchFacilityId = null
-    if (searchQuery[2] && searchQuery[2].length > 1) {
+    if (this.props.inputData.facilityIdValue) {
       searchFacilityId = (
         <p>Facility ID:
-        <span>{searchQuery[2]}</span>
-        <span id='rm_criteria' onClick={this.removeCriteria.bind(this, searchQuery[2])} alt='cross-icon' className='cross-icon' />
+        <span>{this.props.inputData.facilityIdValue}</span>
+        <span id='rm_criteria' onClick={this.props.handleInputChange('facilityIdValue', '')} alt='cross-icon' className='cross-icon' />
         </p>
       )
     }
     let searchFacilityName = null
-    if (searchQuery[3] && searchQuery[3].length > 1) {
-      searchFacilityName = (<p>Facility Name:
-      <span>{searchQuery[3]}</span>
-      <span onClick={this.removeCriteria.bind(this, searchQuery[3])} alt='cross-icon' className='cross-icon' />
-      </p>)
+    if (this.props.inputData.facilityNameValue) {
+      searchFacilityName = (
+        <p>Facility Name:
+        <span>{this.props.inputData.facilityNameValue}</span>
+        <span onClick={this.props.handleInputChange('facilityNameValue', '')} alt='cross-icon' className='cross-icon' />
+        </p>
+      )
     }
     const facilityIterate = resultsPerPage.map((noOfResults) =>
       <option key={noOfResults} value={noOfResults}>{noOfResults}</option>

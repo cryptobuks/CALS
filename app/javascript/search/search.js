@@ -13,7 +13,6 @@ export default class Search extends React.Component {
     this.state = {
       landingPageUrl: props.landingUrl,
       isToggled: true,
-      inputData: ' ',
       searchResults: undefined,
       totalNoOfResults: 0,
       disableNext: false,
@@ -21,7 +20,7 @@ export default class Search extends React.Component {
       fromValue: 0,
       sizeValue: 5,
       pageNumber: 1,
-      searchId: {}
+      inputData: {countyValue: this.props.user.county_name}
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.searchApiCall = this.searchApiCall.bind(this)
@@ -34,10 +33,10 @@ export default class Search extends React.Component {
   }
 
   handleInputChange (key, value) {
-    let newSearchId = this.state.searchId
-    newSearchId[key] = value
+    let newInputData = this.state.inputData
+    newInputData[key] = value
     this.setState({
-      searchId: newSearchId
+      inputData: newInputData
     })
   }
 
@@ -45,15 +44,13 @@ export default class Search extends React.Component {
     this.setState({isToggled: !this.state.isToggled})
   }
 
-  searchApiCall (DataSearch, getFromValue, getSizeValue) {
-    const query = DataSearch.split(',')
-
+  searchApiCall (getFromValue, getSizeValue) {
     const params = {
-      'county.value': [query[0]],
-      'type.value': [query[1]],
-      id: [query[2]],
-      name: [query[3]],
-      'addresses.address.street_address': query.slice(4, (query.length))
+      'county.value': this.state.inputData.countyValue,
+      'type.value': this.state.inputData.facilityTypeValue,
+      id: this.state.inputData.facilityIdValue,
+      name: this.state.inputData.facilityNameValue,
+      'addresses.address.street_address': this.state.inputData.facilityAddressValue
     }
 
     // call http request function with arguments
@@ -62,7 +59,6 @@ export default class Search extends React.Component {
       return response.json()
     }).then((data) => {
       this.setState({
-        inputData: DataSearch,
         searchResults: data.facilities,
         totalNoOfResults: data.total,
         sizeValue: getSizeValue,
@@ -82,7 +78,7 @@ export default class Search extends React.Component {
       sizeValue: parseInt(facilitiesPerPage),
       fromValue: 0
     }, () => {
-      this.searchApiCall(this.state.inputData, this.state.fromValue, this.state.sizeValue)
+      this.searchApiCall(this.state.fromValue, this.state.sizeValue)
     })
   }
 
@@ -108,7 +104,7 @@ export default class Search extends React.Component {
       disablePrevious: false,
       pageNumber: pageNumber + 1
     }, () => {
-      this.searchApiCall(this.state.inputData, this.state.fromValue, this.state.sizeValue)
+      this.searchApiCall(this.state.fromValue, this.state.sizeValue)
     })
   }
 
@@ -118,7 +114,7 @@ export default class Search extends React.Component {
       disableNext: false,
       pageNumber: pageNumber - 1
     }, () => {
-      this.searchApiCall(this.state.inputData, this.state.fromValue, this.state.sizeValue)
+      this.searchApiCall(this.state.fromValue, this.state.sizeValue)
     })
   }
 
@@ -135,11 +131,7 @@ export default class Search extends React.Component {
             countyList={this.props.countyTypes}
             facilityTypes={this.props.facilityTypes}
             userDetails={this.props.user || undefined}
-            countyValue={this.state.searchId.countyValue || this.props.user.county_name}
-            facilityTypeValue={this.state.searchId.facilityTypeValue}
-            facilityIdValue={this.state.searchId.facilityIdValue}
-            facilityNameValue={this.state.searchId.facilityNameValue}
-            facilityAddressValue={this.state.searchId.facilityAddressValue} />
+            inputData={this.state.inputData} />
         </div>
         {searchResponseHasValues &&
           <SearchDetails
@@ -155,7 +147,8 @@ export default class Search extends React.Component {
             handleToggle={this.handleToggle}
             changeToNextPage={this.changeToNextPage}
             backToPreviousPage={this.backToPreviousPage}
-            handleChange={this.handleChange} />}
+            handleChange={this.handleChange}
+            handleInputChange={this.handleInputChange} />}
         <div className='result-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           {this.state.isToggled && <SearchGrid searchResults={this.state.searchResults} />}
           {!this.state.isToggled && <SearchList searchResults={this.state.searchResults} />}
