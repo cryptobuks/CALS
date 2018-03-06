@@ -53,7 +53,7 @@ export default class Search extends React.Component {
       'addresses.address.street_address': [this.state.inputData.facilityAddressValue]
     }
 
-    // call http request function with arguments
+    // call http  request function with arguments
     let url = '/facilities/search' + '?from=' + getFromValue + '&size=' + getSizeValue
     fetchRequest(url, 'POST', params).then((response) => {
       return response.json()
