@@ -55,13 +55,13 @@ export default class SearchDetails extends React.Component {
           <span className='page_number'>{this.props.pageNumber}</span>
           <span>of</span>
           <span className='noOfPages'>{noOfPages}</span>
-          <button disabled={this.props.disableNext} onClick={() => this.props.changeToNextPage(this.props.fromValue, this.props.sizeValue, this.props.pageNumber)} className='next btn btn-default'><p>&#8250;</p></button>
+          <button id='next_button' disabled={this.props.disableNext} onClick={() => this.props.changeToNextPage(this.props.fromValue, this.props.sizeValue, this.props.pageNumber)} className='next btn btn-default'><p>&#8250;</p></button>
           {searchFacilityId}
           {searchFacilityName}
         </div>
         <div className='toggle_result col-xs-12 col-sm-3 col-md-3 col-lg-3'>
           <div className='pull-right'>
-            <button id='toggle_button' onClick={this.props.handleToggle} className={(this.props.toggeledResult ? 'line_off-icon' : 'line_on-icon') + ' ' + 'navbar-brand'} alt={'list'} />
+            <div id='toggle_button' onClick={this.props.handleToggle} className={(this.props.toggeledResult ? 'line_off-icon' : 'line_on-icon') + ' ' + 'navbar-brand'} alt={'list'} />
             <div onClick={this.props.handleToggle} className={(this.props.toggeledResult ? 'grid_on-icon' : 'grid_off-icon') + ' ' + 'navbar-brand'} alt={'grid'} />
           </div>
         </div>

@@ -67,6 +67,6 @@ describe('Verify search input component', function () {
   it('verify clicking search button calls searchApiCall method', () => {
     let searchFacility = searchInputComp.find('.btn-primary')
     searchFacility.simulate('submit')
-    expect(spySearchApiCall).toHaveBeenCalledWith('Los Angeles,Adoption Agency,300665437,Lederhouse Transitions,36 Sequoia Dr, Aliso Viejo, CA 92656', 0, 5)
+    expect(spySearchApiCall).toHaveBeenCalledWith(0, 5)
   })
 })
