@@ -45,12 +45,13 @@ export default class Search extends React.Component {
   }
 
   searchApiCall (getFromValue, getSizeValue) {
+    const address = this.state.inputData.facilityAddressValue
     const params = {
       'county.value': [this.state.inputData.countyValue],
       'type.value': [this.state.inputData.facilityTypeValue],
       id: [this.state.inputData.facilityIdValue],
       name: [this.state.inputData.facilityNameValue],
-      'addresses.address.street_address': [this.state.inputData.facilityAddressValue]
+      'addresses.address.street_address': address ? address.split(',') : ['']
     }
 
     // call http  request function with arguments
@@ -62,6 +63,7 @@ export default class Search extends React.Component {
         searchResults: data.facilities,
         totalNoOfResults: data.total,
         sizeValue: getSizeValue,
+        pageNumber: getFromValue === 0 ? 1 : this.state.pageNumber,
         disableNext: this.nextPageLinkStatus(data.total, getFromValue, getSizeValue),
         disablePrevious: this.previousPageLinkStatus(getFromValue, getSizeValue)
       })
@@ -90,10 +92,6 @@ export default class Search extends React.Component {
 
   previousPageLinkStatus (fromValue, sizeValue) {
     if (fromValue - sizeValue < 0 || fromValue === 0) {
-      this.setState({
-        pageNumber: 1,
-        fromValue
-      })
       return true
     }
   }
@@ -131,7 +129,11 @@ export default class Search extends React.Component {
             countyList={this.props.countyTypes}
             facilityTypes={this.props.facilityTypes}
             userDetails={this.props.user || undefined}
-            inputData={this.state.inputData} />
+            countyValue={this.state.inputData.countyValue}
+            facilityTypeValue={this.state.inputData.facilityTypeValue}
+            facilityIdValue={this.state.inputData.facilityIdValue}
+            facilityNameValue={this.state.inputData.facilityNameValue}
+            facilityAddressValue={this.state.inputData.facilityAddressValue} />
         </div>
         {searchResponseHasValues &&
           <SearchDetails
