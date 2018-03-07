@@ -48,7 +48,7 @@ export default class Search extends React.Component {
   searchApiCall (getFromValue, getSizeValue) {
     const address = this.state.inputData.facilityAddressValue
     const params = {
-      'county.value': this.state.inputData.countyValue,
+      'county.value': this.state.inputData.countyValue || this.props.user.county_name,
       'type.value': this.state.inputData.facilityTypeValue,
       id: this.state.inputData.facilityIdValue,
       name: this.state.inputData.facilityNameValue
@@ -139,7 +139,7 @@ export default class Search extends React.Component {
             handleInputChange={this.handleInputChange}
             countyList={this.props.countyTypes}
             facilityTypes={this.props.facilityTypes}
-            countyValue={this.state.inputData.countyValue}
+            countyValue={this.state.inputData.countyValue || this.props.user.county_name}
             facilityTypeValue={this.state.inputData.facilityTypeValue || undefined}
             facilityIdValue={this.state.inputData.facilityIdValue || undefined}
             facilityNameValue={this.state.inputData.facilityNameValue || undefined }
