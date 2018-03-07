@@ -9,6 +9,11 @@ describe('Verify Search component', function () {
 
   beforeEach(() => {
     const props = {
+      total: 0,
+      pageNumber: 1,
+      from: 0,
+      size: 5,
+      inputData: '',
       facilityTypes: [
         {
           id: '',

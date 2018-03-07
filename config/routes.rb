@@ -5,12 +5,14 @@ Rails.application.routes.draw do
     collection { post :search }
   end
 
-  resources :search, only: [:index] do
+  resources :search do
+    collection {post :index}
   end
 
   # heartbeat page
   get 'heartbeat', to: 'heartbeat#show'
   get 'logout',   to: 'cals_base#logout'
+
 
 
   namespace :rfa do

@@ -24,21 +24,21 @@ RSpec.feature 'RFA', js: true do
     expect(find('a.link.active').text).to eq '1. Applicant Information'
     page.execute_script "window.scrollTo(0,2500)"
     expect(find('a.link.active').text).to eq '2. Applicant Residence'
-    page.execute_script "window.scrollTo(0,4000)"
+    page.execute_script "window.scrollTo(0,3500)"
     expect(find('a.link.active').text).to eq '4. Minor Children'
-    page.execute_script "window.scrollTo(0,5000)"
+    page.execute_script "window.scrollTo(0,4000)"
     expect(find('a.link.active').text).to eq '5. Other Adults'
     page.execute_script "window.scrollTo(0,6000)"
     expect(find('a.link.active').text).to eq '6. Marital History'
-    page.execute_script "window.scrollTo(0,7500)"
+    page.execute_script "window.scrollTo(0,7000)"
     expect(find('a.link.active').text).to eq '7. Child Desired'
-    page.execute_script "window.scrollTo(0,8500)"
+    page.execute_script "window.scrollTo(0,8000)"
     expect(find('a.link.active').text).to eq '8. Foster Care History'
     page.execute_script "window.scrollTo(0,10000)"
     expect(find('a.link.active').text).to eq '9. References'
     click_button('Add Another Applicant +')
     fill_in('applicants[0].first_name', with: Faker::Name.first_name, :match => :prefer_exact)
-    page.execute_script "window.scrollTo(0,5700)"
+    page.execute_script "window.scrollTo(0,5000)"
     expect(find('a.link.active').text).to eq '3. Applicant Relationship'
   end
 
@@ -124,17 +124,29 @@ RSpec.feature 'RFA', js: true do
 
   end
 
-  scenario 'remove leading spaces in the names', set_auth_header: true do
+  # scenario 'remove leading spaces in the names', set_auth_header: true do
+  #   visit root_path
+  #   click_button 'Create RFA Application (Form 01)'
+  #   expect(page).to have_content 'Rfa-01A Section Summary'
+  #   page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+  #   expect(page).to have_content 'Applicant 1 - Information'
+  #   fill_in 'applicants[0].first_name', with: " "
+  #   fill_in 'applicants[0].last_name', with: " "
+  #   click_button('Save Progress')
+  #   expect(find_field('applicants[0].first_name').value).to eq 'first'
+  #   expect(find_field('applicants[0].last_name').value).to eq 'last'
+  # end
+
+  scenario 'check for disabled save button when applicant names are empty', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'
     expect(page).to have_content 'Rfa-01A Section Summary'
     page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
-    fill_in 'applicants[0].first_name', with: "  first"
-    fill_in 'applicants[0].last_name', with: "  last"
-    click_button('Save Progress')
-    expect(find_field('applicants[0].first_name').value).to eq 'first'
-    expect(find_field('applicants[0].last_name').value).to eq 'last'
+    expect(page).to have_button('Save Progress', disabled: true)
+    fill_in 'applicants[0].first_name', with: "  "
+    fill_in 'applicants[0].last_name', with: "  "
+    expect(page).to have_button('Save Progress', disabled: true)
   end
 
   scenario 'prevent backspace navigation on IE', set_auth_header: true do

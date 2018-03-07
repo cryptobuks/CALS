@@ -9,6 +9,7 @@ class Rfa::B01Controller < CalsBaseController
   end
 
   def edit
+    @user = user_from_session
     @application_id = params[:application_id]
     @dictionaries = dictionaries_helper.rfa_b01_dictioniaries
     @rfa_b01_application = rfa_b01_application_helper.find_by_id(params[:id], @application_id)

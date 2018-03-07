@@ -2,18 +2,18 @@ import React from 'react'
 import InputDataBlock from './common/inputDataBlock.js'
 import {InputComponent} from 'components/common/inputFields'
 import {dictionaryNilSelectValue} from 'helpers/commonHelper.jsx'
-import {userDefaults} from 'constants/defaultFields.js'
+// import {userDefaults} from 'constants/defaultFields.js'
 
 export default class SearchInput extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       searchId: {
-        countyValue: this.props.userDetails.county_name || userDefaults.county_name,
-        facilityTypeValue: '',
-        facilityIdValue: '',
-        facilityNameValue: '',
-        facilityAddressValue: ''
+        countyValue: this.props.countyValue,
+        facilityTypeValue: this.props.facilityTypeValue,
+        facilityIdValue: this.props.facilityId,
+        facilityNameValue: this.props.facilityName,
+        facilityAddressValue: this.props.facilityAddress
       }
     }
     this.handleChange = this.handleChange.bind(this)
@@ -30,9 +30,7 @@ export default class SearchInput extends React.Component {
   sendSearchInput (event) {
     event.preventDefault()
     const finalQuery = (this.state.searchId.countyValue + ',' + this.state.searchId.facilityTypeValue + ',' + this.state.searchId.facilityIdValue + ',' + this.state.searchId.facilityNameValue + ',' + this.state.searchId.facilityAddressValue)
-    const fromValue = 0
-    const sizeValue = 5
-    this.props.searchApiCall(finalQuery, fromValue, sizeValue)
+    this.props.searchApiCall(finalQuery, this.props.fromValue, this.props.sizeValue)
   }
   render () {
     const facilityTypes = this.props.facilityTypes
@@ -111,5 +109,11 @@ export default class SearchInput extends React.Component {
   }
 }
 SearchInput.defaultProps = {
-  userDetails: userDefaults
+  countyValue: '',
+  facilityTypeValue: '',
+  facilityId: '',
+  facilityName: '',
+  facilityAddress: '',
+  fromValue: 0,
+  sizeValue: 5
 }

@@ -10,7 +10,7 @@ RSpec.feature 'RFA01C', js: true do
     page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
     first_name = 'Kimberley'
-    last_name = "O'Reily"
+    last_name = "RReily"
     fill_in('applicants[0].first_name', with: first_name, match: :prefer_exact)
     fill_in('applicants[0].middle_name', with: 'k', match: :prefer_exact)
     fill_in('applicants[0].last_name', with: last_name, match: :prefer_exact)
@@ -21,11 +21,12 @@ RSpec.feature 'RFA01C', js: true do
     visit current_url
     expect(page.find('#edit_page > div > div > div > div.left-content.col-xs-3.col-sm-3.col-md-3.col-lg-3 > div > div.nav-menu.col-sm-10 > div > div.nav-menu > div:nth-child(3) > div > div > div > div > nav > ul > div > li > a').text).to eq('child identified')
 
-    packet_url = current_url.gsub('/edit', '') + '/packet'
-    visit current_url
-    visit packet_url
-
-    page.find('#Rfa01COverview').find('a.btn.btn-default').click
+    # packet_url = current_url.gsub('/edit', '') + '/packet'
+    # visit current_url
+    # visit packet_url
+    # byebug
+    # page.find('#Rfa01COverview').find('a.btn.btn-default').click
+    click_link('child identified')
     fill_in('desiredChildCardfirst_name', with: first_name, match: :prefer_exact)
     fill_in('desiredChildCardmiddle_name', with: 'k', match: :prefer_exact)
     fill_in('desiredChildCardlast_name', with: last_name, match: :prefer_exact)

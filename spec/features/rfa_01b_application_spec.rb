@@ -15,11 +15,10 @@ RSpec.feature 'RFA01B', js: true do
     fill_in('applicants[0].last_name', with: last_name, match: :prefer_exact)
     click_button('Save Progress')
     visit page.driver.current_url
-#byebug
     expect(page.find('#edit_page > div > div > div > div.left-content.col-xs-3.col-sm-3.col-md-3.col-lg-3 > div > div.nav-menu.col-sm-10 > div > div.nav-menu > div:nth-child(2) > div > div > div > div > nav > ul > div > div:nth-child(1) > li > a').text).to eq("#{first_name} #{last_name}")
 
     click_link("#{first_name} #{last_name}")
-
+    #byebug
     fill_in('NameOfResourceFamily', with: 'test', match: :prefer_exact)
     fill_in('ssn', with: '123-45-6789', match: :prefer_exact)
     fill_in('driversLicenseNumberId', with: 'D123', match: :prefer_exact)

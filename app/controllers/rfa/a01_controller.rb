@@ -14,6 +14,7 @@ class Rfa::A01Controller < CalsBaseController
 
   def edit
     # @all dictionaries
+    @user = user_from_session
     @dictionaries = dictionaries_helper.rfa_a01_dictioniaries
     @application = rfa_application_helper.find_by_id(params[:id])
     @application.applicants = rfa_applicant_helper.find_items_by_application_id(params[:id])
