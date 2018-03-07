@@ -23,8 +23,8 @@ export const checkForValueOrBlank = (value) => {
   return value || ''
 }
 
-export const checkforNull = (value) => {
-  return value !== null ? value : undefined
+export const checkForValue = (value) => {
+  return value || undefined
 }
 
 export const respectiveNumberOrNA = (phones, phoneRelation) => {

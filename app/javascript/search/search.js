@@ -6,7 +6,7 @@ import SearchNotFound from './search_notfount'
 import SearchDetails from './search_Data'
 import {fetchRequest} from '../helpers/http'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
-import {checkforNull} from 'search/common/commonUtils'
+import {checkForValue} from 'search/common/commonUtils'
 
 export default class Search extends React.Component {
   constructor (props) {
@@ -47,10 +47,10 @@ export default class Search extends React.Component {
   searchApiCall (getFromValue, getSizeValue) {
     const params = {
       'county.value': this.state.inputData.countyValue || this.props.user.county_name,
-      'type.value': this.state.inputData.facilityTypeValue || undefined,
-      id: this.state.inputData.facilityIdValue || undefined,
-      name: this.state.inputData.facilityNameValue || undefined,
-      'addresses.address.street_address': this.state.inputData.facilityAddressValue || undefined
+      'type.value': checkForValue(this.state.inputData.facilityTypeValue),
+      id: checkForValue(this.state.inputData.facilityIdValue),
+      name: checkForValue(this.state.inputData.facilityNameValue),
+      'addresses.address.street_address': checkForValue(this.state.inputData.facilityAddressValue)
     }
 
     // call http request function with arguments
@@ -62,7 +62,7 @@ export default class Search extends React.Component {
         searchResults: data.facilities,
         totalNoOfResults: data.total,
         sizeValue: getSizeValue,
-        // pageNumber: getFromValue === 0 ? 1 : this.state.pageNumber,
+        pageNumber: getFromValue === 0 ? 1 : this.state.pageNumber,
         disableNext: this.nextPageLinkStatus(data.total, getFromValue, getSizeValue),
         disablePrevious: this.previousPageLinkStatus(getFromValue, getSizeValue)
       })
@@ -84,8 +84,7 @@ export default class Search extends React.Component {
   handleChange (facilitiesPerPage) {
     this.setState({
       sizeValue: parseInt(facilitiesPerPage),
-      fromValue: 0,
-      pageNumber: 1
+      fromValue: 0
     }, () => {
       this.searchApiCall(this.state.fromValue, this.state.sizeValue)
     })
@@ -96,12 +95,6 @@ export default class Search extends React.Component {
   }
 
   previousPageLinkStatus (fromValue, sizeValue) {
-    if (fromValue - sizeValue < 0 || fromValue === 0) {
-      this.setState({
-        pageNumber: 1,
-        disablePrevious: true
-      })
-    }
     return (fromValue - sizeValue < 0 || fromValue === 0)
   }
 
@@ -138,10 +131,10 @@ export default class Search extends React.Component {
             countyList={this.props.countyTypes}
             facilityTypes={this.props.facilityTypes}
             countyValue={this.state.inputData.countyValue || this.props.user.county_name}
-            facilityTypeValue={this.state.inputData.facilityTypeValue || undefined}
-            facilityIdValue={this.state.inputData.facilityIdValue || undefined}
-            facilityNameValue={this.state.inputData.facilityNameValue || undefined}
-            facilityAddressValue={this.state.inputData.facilityAddressValue || undefined} />
+            facilityTypeValue={checkForValue(this.state.inputData.facilityTypeValue)}
+            facilityIdValue={checkForValue(this.state.inputData.facilityIdValue)}
+            facilityNameValue={checkForValue(this.state.inputData.facilityNameValue)}
+            facilityAddressValue={checkForValue(this.state.inputData.facilityAddressValue)} />
         </div>
         {searchResponseHasValues &&
           <SearchDetails
