@@ -29,7 +29,7 @@ export default class ChildDesiredCard extends React.Component {
       <form>
         <div>
           <YesNoRadioComponent
-            label='Has the child been identified?'
+            label='Has the child been identified? (required)'
             idPrefix='child_identified'
             value={(this.props.desiredChildSection.child_identified)}
             onFieldChange={(event) => this.props.setParentState('child_identified', event.target.value)} />
@@ -45,7 +45,7 @@ export default class ChildDesiredCard extends React.Component {
           selectClassName='reusable-select'
           agePreferences={this.props.desiredChildSection.preferred_ages}
           optionList={arrayLastToFirst(this.props.ageGroups)}
-          label='Age'
+          label='Age (required)'
           sectionDesc='If a child has not been identified, or if you are open to caring for
           additional children, please indicate your preferences:'
           onChange={this.onChange}

@@ -28,7 +28,7 @@ export class PhoneNumberField extends React.PureComponent {
           gridClassName='col-md-4'
           id={this.phoneNumberId}
           value={phoneFields.number}
-          label='Phone Number'
+          label='Phone Number (required)'
           placeholder=''
           blurPlaceholder=''
           focusPlaceholder='(___)___-____'

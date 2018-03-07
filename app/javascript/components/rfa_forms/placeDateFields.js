@@ -17,6 +17,8 @@ const PlaceDateField = ({
   stateTypes,
   onStateChange,
   errors,
+  cityLabel,
+  stateLabel,
   onBlurChange
 }) => {
   return (
@@ -32,7 +34,7 @@ const PlaceDateField = ({
 
       <InputComponent
         gridClassName='col-md-4'
-        label='City'
+        label={cityLabel}
         id={cityId}
         type='text'
         value={cityValue}
@@ -41,7 +43,7 @@ const PlaceDateField = ({
       <DropDownField
         gridClassName='col-md-4'
         selectClassName='reusable-select'
-        label='State'
+        label={stateLabel}
         id={stateId}
         value={stateValue}
         optionList={stateTypes}
@@ -57,6 +59,11 @@ PlaceDateField.propTypes = {
   onCityChange: PropTypes.func.isRequired,
   stateTypes: PropTypes.array,
   onStateChange: PropTypes.func.isRequired
+}
+
+PlaceDateField.defaultProps = {
+  cityLabel: 'City',
+  stateLabel: 'State'
 }
 
 export {PlaceDateField}

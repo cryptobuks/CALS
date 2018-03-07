@@ -35,7 +35,7 @@ export default class AddressCard extends React.Component {
         <div className='row'>
           <AddressComponent
             stateTypes={this.props.stateTypes}
-            addressTitle='Physical Address'
+            addressTitle='Physical Address (required)'
             id='street_address'
             addressType={physicalAddressType}
             addressFields={this.props.physicalAddress}
@@ -44,7 +44,7 @@ export default class AddressCard extends React.Component {
             parentStateKey='addresses'
             onChange={(fieldId, event) => this.onPhysicalAddressChange(fieldId, event)} />
           <YesNoRadioComponent
-            label='Mailing address the same as Physical Address?'
+            label='Mailing address the same as Physical Address? (required)'
             idPrefix='mailing_similar'
             value={this.props.physicalMailingSimilar}
             onFieldChange={(event) => this.props.handleClearOnConditionalChange(
@@ -53,7 +53,7 @@ export default class AddressCard extends React.Component {
             this.props.physicalMailingSimilar.toString() === 'false'
               ? <AddressComponent
                 stateTypes={this.props.stateTypes}
-                addressTitle='Mailing Address'
+                addressTitle='Mailing Address (required)'
                 id='street_address'
                 parentStateKey='addresses'
                 addressType={mailingAddressType}

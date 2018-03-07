@@ -62,7 +62,7 @@ const CompleteNameFields = ({
             value={getDictionaryId(nameType)}
             selectClassName={'reusable-select'}
             optionList={nameTypes}
-            label={'Name Type'}
+            label={'Name Type (required)'}
             onChange={(event, id) => onChange(onChangePrefix + 'name_type', dictionaryNilSelect(event.target.options), index)} />
         </div>
       }

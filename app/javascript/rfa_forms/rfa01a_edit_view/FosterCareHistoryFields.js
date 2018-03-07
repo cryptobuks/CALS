@@ -249,7 +249,7 @@ export class FosterCareHistoryFields extends React.Component {
               // Question 2
               }
               <YesNoRadioComponent
-                label='Have you previously applied for adoption?'
+                label='Have you previously applied for adoption? (required)'
                 idPrefix='q2-select-dropdown'
                 value={q2History.have_applied_for_adoption}
                 onFieldChange={(event) => this.handleClearOnConditionalChange('applications_for_adoption_q2', 'have_applied_for_adoption', event.target.value, 'facilities', [''])} />
@@ -303,11 +303,11 @@ export class FosterCareHistoryFields extends React.Component {
                       <AgencyComponent
                         index={index}
                         id={'Q3-' + index}
-                        label='Agency Name'
+                        label='Agency Name (required)'
                         placeholder=''
                         agencies={q3History.agencies}
                         defKey='facility_operation_licenses_q3'subKey='agencies'
-                        dropdownLabel='License Type'
+                        dropdownLabel='License Type (required)'
                         inputId={'agency-q3-name-' + index}
                         dropDownId={'agency-q3-type-' + index}
                         optionList={Object.keys(licenseTypes).map(function (v) { return licenseTypes[v] })}
@@ -390,11 +390,11 @@ export class FosterCareHistoryFields extends React.Component {
                       <AgencyComponent
                         index={index}
                         id={'Q5-' + index}
-                        label='Agency Name'
+                        label='Agency Name (required)'
                         placeholder=''
                         agencies={q5History.agencies}
                         defKey='denial_history_q5' subKey='agencies'
-                        dropdownLabel='License Type'
+                        dropdownLabel='License Type (required)'
                         inputId={'agency-q5-name-' + index}
                         dropDownId={'agency-q5-type-' + index}
                         optionList={Object.keys(licenseTypes).map(function (v) { return licenseTypes[v] })}
@@ -435,11 +435,11 @@ export class FosterCareHistoryFields extends React.Component {
                       <AgencyComponent
                         index={index}
                         id={'Q6-' + index}
-                        label='Agency Name'
+                        label='Agency Name (required)'
                         placeholder=''
                         agencies={q6History.agencies}
                         defKey='suspension_revocation_history_q6'subKey='agencies'
-                        dropdownLabel='License Type'
+                        dropdownLabel='License Type (required)'
                         inputId={'agency-q6-name-' + index}
                         dropDownId={'agency-q6-type-' + index}
                         optionList={Object.keys(licenseTypes).map(function (v) { return licenseTypes[v] })}

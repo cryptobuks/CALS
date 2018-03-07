@@ -23,7 +23,7 @@ export default class AdultChildrenFields extends React.Component {
             id={this.props.idPrefix + 'relationship_type'}
             selectClassName='reusable-select'
             optionList={this.props.relationshipToApplicantTypes}
-            label='Relationship Type'
+            label='Relationship Type (required)'
             value={getDictionaryId(adultChild.relationship_to_applicants[0].relationship_to_applicant)}
             onChange={(event) => this.props.handleRelationshipTypeToApplicant(this.props.index,
               dictionaryNilSelect(event.target.options), 'relationship_to_applicant')} />
@@ -51,7 +51,7 @@ export default class AdultChildrenFields extends React.Component {
         </div>
         <div className='col-md-12'>
           <YesNoRadioComponent
-            label='Lives in home?'
+            label='Lives in home? (required)'
             idPrefix={this.props.idPrefix + 'lives_in_home'}
             value={adultChild.lives_in_home}
             onFieldChange={(event) => this.props.handleClearOnConditionalChange('lives_in_home', 'address', event.target.value, addressDefaults, this.props.index)} />
@@ -61,7 +61,7 @@ export default class AdultChildrenFields extends React.Component {
             : <AddressComponent
               index={this.props.index}
               stateTypes={this.props.stateTypes}
-              addressTitle='Physical Address'
+              addressTitle='Physical Address (required)'
               id='street_address'
               addressFields={adultChild.address}
               parentStateKey='address'
