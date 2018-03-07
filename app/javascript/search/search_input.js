@@ -91,9 +91,9 @@ export default class SearchInput extends React.Component {
 SearchInput.defaultProps = {
   countyValue: '',
   facilityTypeValue: '',
-  facilityId: '',
-  facilityName: '',
-  facilityAddress: '',
+  facilityIdValue: '',
+  facilityNameValue: '',
+  facilityAddressValue: '',
   fromValue: 0,
   sizeValue: 5
 }

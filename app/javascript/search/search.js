@@ -12,11 +12,10 @@ export default class Search extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      // landingPageUrl: props.landingUrl,
       isToggled: true,
-      searchResults: undefined,
-      totalNoOfResults: 0,
       inputData: props.inputData,
+      totalNoOfResults: 0,
+      searchResults: undefined,
       pageNumber: props.pageNumber,
       disableNext: this.nextPageLinkStatus(props.total, props.from, props.size),
       disablePrevious: undefined,
@@ -46,13 +45,13 @@ export default class Search extends React.Component {
   }
 
   searchApiCall (getFromValue, getSizeValue) {
-    const address = this.state.inputData.facilityAddressValue
+    // const address = this.state.inputData.facilityAddressValue
     const params = {
       'county.value': this.state.inputData.countyValue || this.props.user.county_name,
       'type.value': this.state.inputData.facilityTypeValue,
       id: this.state.inputData.facilityIdValue,
-      name: this.state.inputData.facilityNameValue
-      // 'addresses.address.street_address': address ? address.split(',') : ['']
+      name: this.state.inputData.facilityNameValue,
+      'addresses.address.street_address': this.state.inputData.facilityAddressValue
     }
 
     // call http request function with arguments
@@ -140,10 +139,10 @@ export default class Search extends React.Component {
             countyList={this.props.countyTypes}
             facilityTypes={this.props.facilityTypes}
             countyValue={this.state.inputData.countyValue || this.props.user.county_name}
-            facilityTypeValue={this.state.inputData.facilityTypeValue || undefined}
-            facilityIdValue={this.state.inputData.facilityIdValue || undefined}
-            facilityNameValue={this.state.inputData.facilityNameValue || undefined }
-            facilityAddressValue={this.state.inputData.facilityAddressValue || undefined} />
+            facilityTypeValue={this.state.inputData.facilityTypeValue}
+            facilityIdValue={this.state.inputData.facilityIdValue}
+            facilityNameValue={this.state.inputData.facilityNameValue}
+            facilityAddressValue={this.state.inputData.facilityAddressValue} />
         </div>
         {searchResponseHasValues &&
           <SearchDetails
