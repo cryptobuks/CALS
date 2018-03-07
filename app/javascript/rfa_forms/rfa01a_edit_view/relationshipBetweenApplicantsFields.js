@@ -38,7 +38,7 @@ export default class RelationshipBetweenApplicantsFields extends React.Component
             selectClassName='reusable-select'
             value={getDictionaryId(relationship.relationship_type)}
             optionList={this.props.relationshipTypes}
-            label={'Relationship between ' + applicantsFullNames}
+            label={'Relationship between ' + applicantsFullNames + ' (required)'}
             onChange={(event) => this.props.setParentState('relationship_type', dictionaryNilSelect(event.target.options))} />
         </div>
         <div className={'relationship-status ' + hideRelationshipDetails}>Status of relationship</div>
@@ -46,7 +46,7 @@ export default class RelationshipBetweenApplicantsFields extends React.Component
 
           <DateField
             gridClassName='col-md-4'
-            label='Date'
+            label='Date (required)'
             id={'date_of_relationship'}
             value={FormatDateForDisplay(relationship.date_of_relationship || '')}
             errors={fieldErrorsAsImmutableSet(this.props.errors.date_of_relationship)}
@@ -55,19 +55,19 @@ export default class RelationshipBetweenApplicantsFields extends React.Component
             onBlur={(event) => this.props.validator.validateField(relationshipId, event.target.value)} />
           <InputComponent gridClassName='col-md-4' id='place_of_relationship_city'
             value={relationship.place_of_relationship_city}
-            label='City' placeholder='Enter City'
+            label='City (required)' placeholder='Enter City'
             type='text' onChange={(event) => this.props.setParentState('place_of_relationship_city', event.target.value)} />
           <DropDownField gridClassName='col-md-4' id='place_of_relationship_state'
             value={getDictionaryId(relationship.place_of_relationship_state)}
             selectClassName='reusable-select'
             optionList={this.props.stateTypes}
-            label='State'
+            label='State (required)'
             onChange={(event) => this.props.setParentState('place_of_relationship_state', dictionaryNilSelect(event.target.options))} />
         </div>
         <div className={hideOtherRelationship}>
           <TextAreaComponent gridClassName='col-md-12' id='other_relationship'
             value={relationship.other_relationship}
-            label='Please provide details of other_relationship' placeholder=''
+            label='Please provide details of other_relationship (required)' placeholder=''
             onChange={(event) => this.props.setParentState('other_relationship', event.target.value)} />
 
         </div>

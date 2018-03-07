@@ -37,19 +37,19 @@ export default class AboutThisResidenceCard extends React.Component {
               selectClassName={'reusable-select'}
               value={getDictionaryId(aboutResidence.residence_ownership)}
               optionList={this.props.residenceTypes}
-              label={'Do you own, rent or lease the residence?'}
+              label={'Do you own, rent or lease the residence? (required)'}
               onChange={(event) => this.props.setParentState('residence_ownership', dictionaryNilSelect(event.target.options))}
             />
             <div>
               <YesNoRadioComponent
-                label='Weapons in home?'
+                label='Weapons in home? (required)'
                 idPrefix='weapons'
                 value={aboutResidence.weapon_in_home}
                 onFieldChange={(event) => this.props.setParentState('weapon_in_home', event.target.value)} />
             </div>
             <div>
               <YesNoRadioComponent
-                label='Body of Water?'
+                label='Body of Water? (required)'
                 idPrefix='body_of_water_exist'
                 value={aboutResidence.body_of_water_exist}
                 onFieldChange={(event) => this.props.handleClearOnConditionalChange('body_of_water_exist', 'body_of_water_description', event.target.value, '')} />
@@ -62,7 +62,7 @@ export default class AboutThisResidenceCard extends React.Component {
             </div>
             <div>
               <YesNoRadioComponent
-                label='Does any person not listed in this document use the residence as their mailing address?'
+                label='Does any person not listed in this document use the residence as their mailing address? (required)'
                 idPrefix='others_using_residence_as_mailing'
                 value={(aboutResidence.others_using_residence_as_mailing)}
                 onFieldChange={(event) => this.props.handleClearOnConditionalChange('others_using_residence_as_mailing', 'other_people_using_residence_as_mailing', event.target.value, [othersUsingAddressMailing])} />
@@ -86,7 +86,7 @@ export default class AboutThisResidenceCard extends React.Component {
               onChange={(event) => this.props.setParentState('directions_to_home', event.target.value)} />
 
             <MultiSelect
-              label='Language(s) spoken in the home'
+              label='Language(s) spoken in the home (required)'
               values={aboutResidence.home_languages}
               className='languages'
               optionList={this.props.languageTypes}

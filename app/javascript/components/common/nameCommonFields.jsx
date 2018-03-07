@@ -12,13 +12,13 @@ const NameCommonFields = ({
   onChange
 }) => {
   return (
-    <div>
+    <div className='spacing'>
       <InputComponent
         gridClassName='col-md-4'
         id={idPrefix + 'first_name'}
         value={firstName}
         maxLength='20'
-        label={index === undefined ? 'Legal First Name' : 'First Name'}
+        label={index === undefined ? 'Legal First Name (required)' : 'First Name (required)'}
         placeholder='Enter First Name'
         type='text'
         onChange={(event) => onChange(onChangePrefix + 'first_name', event.target.value, index)} />
@@ -36,7 +36,7 @@ const NameCommonFields = ({
         id={idPrefix + 'last_name'}
         value={lastName}
         maxLength='25'
-        label={index === undefined ? 'Legal Last Name' : 'Last Name'}
+        label={index === undefined ? 'Legal Last Name (required)' : 'Last Name (required)'}
         placeholder='Enter Last Name'
         type='text'
         onChange={(event) => onChange(onChangePrefix + 'last_name', event.target.value, index)} />

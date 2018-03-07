@@ -12,6 +12,10 @@
   border-left: 0.7rem solid transparent;
 }
 
+.spacing {
+	white-space: nowrap;
+}
+
 select:focus {
   border: 0.1rem solid;
   border-radius: 0.2rem;

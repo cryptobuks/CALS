@@ -51,7 +51,7 @@ export default class ReferencesCard extends React.Component {
           <AddressComponent
             index={this.props.index}
             stateTypes={this.props.stateTypes}
-            addressTitle='Physical Address'
+            addressTitle='Physical Address (required)'
             id='street_address'
             parentStateKey='mailing_address'
             setParentState={this.handleFullAddressChange}
@@ -64,7 +64,7 @@ export default class ReferencesCard extends React.Component {
             gridClassName='col-md-4'
             id={phoneNumberId}
             value={this.props.reference.phone_number}
-            label='Phone Number'
+            label='Phone Number (required)'
             placeholder=''
             blurPlaceholder=''
             focusPlaceholder='(___)___-____'
@@ -79,7 +79,7 @@ export default class ReferencesCard extends React.Component {
 
           <InputComponent gridClassName='col-md-4' id='email'
             value={this.props.reference.email}
-            label='Email' placeholder=''
+            label='Email (required)' placeholder=''
             type='text' onChange={(event) => this.props.setParentState('email',
               event.target.value, this.props.index)} />
         </div>
