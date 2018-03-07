@@ -28,7 +28,7 @@ export default class ApplicantMaritalHistoryCard extends React.PureComponent {
             gridClassName='col-md-4'
             id={this.props.idPrefix + 'applicant_id'}
             selectClassName='reusable-select'
-            label='Select Applicant'
+            label='Select Applicant (required)'
             optionList={setToWhomOptionList(this.props.applicants)}
             value={handleToWhomValue(maritalHistory.applicant_id, this.props.applicants).id}
             onChange={(event) => this.props.changeMaritalHistory('applicant_id',
@@ -37,7 +37,7 @@ export default class ApplicantMaritalHistoryCard extends React.PureComponent {
           <DropDownField
             gridClassName='col-md-4'
             selectClassName={'reusable-select'}
-            label={'Relationship Type'}
+            label={'Relationship Type (required)'}
             id={this.props.idPrefix + 'relationship_type'}
             optionList={this.props.relationshipTypes}
             value={getDictionaryId(maritalHistory.relationship_type)}
@@ -59,6 +59,8 @@ export default class ApplicantMaritalHistoryCard extends React.PureComponent {
 
           <PlaceDateField
             dateId={this.props.idPrefix + 'date_of_marriage'}
+            cityLabel='City (required)'
+            stateLabel='State (required)'
             cityId={this.props.idPrefix + 'place_of_marriage_city'}
             stateId={this.props.idPrefix + 'place_of_marriage_state'}
             dateValue={FormatDateForDisplay(maritalHistory.date_of_marriage)}

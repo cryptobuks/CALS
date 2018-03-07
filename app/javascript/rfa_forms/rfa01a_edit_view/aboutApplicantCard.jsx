@@ -69,7 +69,7 @@ export default class AboutApplicant extends React.PureComponent {
                 onChange={(event) => this.props.setParentState('highest_education_level', dictionaryNilSelect(event.target.options))} />
 
               <DateField
-                gridClassName='col-md-4' label='Date of Birth' id={this.dateOfBirthId}
+                gridClassName='col-md-4' label='Date of Birth (required)' id={this.dateOfBirthId}
                 value={FormatDateForDisplay(aboutApplicantFields.date_of_birth)}
                 errors={fieldErrorsAsImmutableSet(this.props.errors.date_of_birth)}
                 onChange={(event) => this.props.setParentState('date_of_birth', FormatDateForPersistance(event.target.value))}
@@ -101,7 +101,7 @@ export default class AboutApplicant extends React.PureComponent {
                 selectClassName='reusable-select'
                 value={getDictionaryId(aboutApplicantFields.driver_license_state)}
                 optionList={this.props.stateTypes}
-                label='Driver License State'
+                label={aboutApplicantFields.driver_license_number ? 'Driver License State (Required)' : 'Driver License State'}
                 onChange={(event) => this.props.setParentState('driver_license_state', dictionaryNilSelect(event.target.options))}
                 errors={fieldErrorsAsImmutableSet(this.props.errors.driver_license_state)}
                 onBlur={(event) => this.validateDLcombo(this.driversLicenseStateId, event.target.value, this.driversLicenseNumberId, 'driver_license_number')} />
