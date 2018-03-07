@@ -11,7 +11,7 @@ describe('Verify Search component', function () {
       pageNumber: 1,
       from: 0,
       size: 5,
-      inputData: '',
+      inputData: {},
       facilityTypes: [
         {
           id: '',
@@ -93,11 +93,5 @@ describe('Verify Search component', function () {
     let countyDropDownChange = searchComp.find('#county_select')
     countyDropDownChange.simulate('change', {target: {options: {'19': {id: '19', value: 'Los Angeles'}, selectedIndex: 19}}})
     expect(handleInputChangeSpy).toHaveBeenCalledWith('countyValue', 'Los Angeles')
-  })
-
-  it('verify onclick for next button', () => {
-    let nextButton = searchComp.find('#next_button')
-    nextButton.simulate('click')
-    expect(changeToNextPageSpy).toHaveBeenCalledWith(0, 5, 1)
   })
 })

@@ -45,7 +45,6 @@ export default class Search extends React.Component {
   }
 
   searchApiCall (getFromValue, getSizeValue) {
-    // const address = this.state.inputData.facilityAddressValue
     const params = {
       'county.value': this.state.inputData.countyValue || this.props.user.county_name,
       'type.value': this.state.inputData.facilityTypeValue,

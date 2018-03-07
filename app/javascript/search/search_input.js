@@ -52,7 +52,6 @@ export default class SearchInput extends React.Component {
                 value={this.props.facilityIdValue}
                 placeholder='Enter Facility ID #'
                 type='text'
-                onBlur={this.sendSearchInput.bind(this)}
                 onChange={(event) => this.props.handleInputChange('facilityIdValue', event.target.value)}/>
             </InputDataBlock>
             <InputDataBlock
@@ -63,7 +62,6 @@ export default class SearchInput extends React.Component {
                 value={this.props.facilityNameValue}
                 placeholder='Enter Facility Name'
                 type='text'
-                onBlur={this.sendSearchInput.bind(this)}
                 onChange={(event) => this.props.handleInputChange('facilityNameValue', event.target.value)} />
             </InputDataBlock>
             <InputDataBlock
