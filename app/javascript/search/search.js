@@ -64,7 +64,7 @@ export default class Search extends React.Component {
         searchResults: data.facilities,
         totalNoOfResults: data.total,
         sizeValue: getSizeValue,
-        pageNumber: getFromValue === 0 ? 1 : this.state.pageNumber,
+        // pageNumber: getFromValue === 0 ? 1 : this.state.pageNumber,
         disableNext: this.nextPageLinkStatus(data.total, getFromValue, getSizeValue),
         disablePrevious: this.previousPageLinkStatus(getFromValue, getSizeValue)
       })
