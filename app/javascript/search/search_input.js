@@ -2,7 +2,6 @@ import React from 'react'
 import InputDataBlock from './common/inputDataBlock.js'
 import {InputComponent} from 'components/common/inputFields'
 import {dictionaryNilSelectValue} from 'helpers/commonHelper.jsx'
-// import {userDefaults} from 'constants/defaultFields.js'
 
 export default class SearchInput extends React.Component {
   sendSearchInput (event) {
