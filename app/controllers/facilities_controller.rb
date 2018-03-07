@@ -25,8 +25,8 @@ class FacilitiesController < CalsBaseController
     params_dictionary = {}
     parsed_post_data.each do |k, v|
       if k == 'addresses.address.street_address'
-         params_dictionary[k] = v.split(',')
-       else
+        params_dictionary[k] = v.split(',')
+      else
         params_dictionary[k] = [v]
       end
     end

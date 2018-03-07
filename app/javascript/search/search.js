@@ -47,10 +47,10 @@ export default class Search extends React.Component {
   searchApiCall (getFromValue, getSizeValue) {
     const params = {
       'county.value': this.state.inputData.countyValue || this.props.user.county_name,
-      'type.value': this.state.inputData.facilityTypeValue,
-      id: this.state.inputData.facilityIdValue,
-      name: this.state.inputData.facilityNameValue,
-      'addresses.address.street_address': this.state.inputData.facilityAddressValue
+      'type.value': this.state.inputData.facilityTypeValue || undefined,
+      id: this.state.inputData.facilityIdValue || undefined,
+      name: this.state.inputData.facilityNameValue || undefined,
+      'addresses.address.street_address': this.state.inputData.facilityAddressValue || undefined
     }
 
     // call http request function with arguments
@@ -138,10 +138,10 @@ export default class Search extends React.Component {
             countyList={this.props.countyTypes}
             facilityTypes={this.props.facilityTypes}
             countyValue={this.state.inputData.countyValue || this.props.user.county_name}
-            facilityTypeValue={this.state.inputData.facilityTypeValue}
-            facilityIdValue={this.state.inputData.facilityIdValue}
-            facilityNameValue={this.state.inputData.facilityNameValue}
-            facilityAddressValue={this.state.inputData.facilityAddressValue} />
+            facilityTypeValue={this.state.inputData.facilityTypeValue || undefined}
+            facilityIdValue={this.state.inputData.facilityIdValue || undefined}
+            facilityNameValue={this.state.inputData.facilityNameValue || undefined}
+            facilityAddressValue={this.state.inputData.facilityAddressValue || undefined} />
         </div>
         {searchResponseHasValues &&
           <SearchDetails
