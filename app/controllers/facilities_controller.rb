@@ -46,19 +46,12 @@ class FacilitiesController < CalsBaseController
     session[:from] = params['from'].to_i
     session[:size] = params['size'].to_i
     session[:page_number] = params['pageNumber'].to_i
-    session[:county_value] = params['county.value']
-    session[:facility_type] = params['type.value']
-    session[:facility_id] = params['id']
-    session[:facility_name] = params['name']
-    session[:facility_address] = params['addresses.address.street_address']
-    input_data = {}
-    input_data['countyValue'] = session[:county_value]
-    input_data['facilityTypeValue']= session[:facility_type]
-    input_data['facilityIdValue'] = session[:facility_id]
-    input_data['facilityNameValue'] = session[:facility_name]
-    input_data['facilityAddressValue'] = session[:facility_address]
-    session[:input_data] = input_data
-    #session[:input_data] = [params['county.value'], params['type.value'], params['id'], params['name'], params['addresses.address.street_address']].join(',')
+    session[:input_data] = {}
+    session[:input_data]['countyValue'] = params['county.value']
+    session[:input_data]['facilityTypeValue'] = params['type.value']
+    session[:input_data]['facilityIdValue'] = params['id']
+    session[:input_data]['facilityNameValue'] = params['name']
+    session[:input_data]['facilityAddressValue'] = params['addresses.address.street_address']
   end
 
   private

@@ -51,8 +51,8 @@ export default class Search extends React.Component {
       'county.value': this.state.inputData.countyValue || this.props.user.county_name,
       'type.value': this.state.inputData.facilityTypeValue,
       id: this.state.inputData.facilityIdValue,
-      name: this.state.inputData.facilityNameValue
-      // 'addresses.address.street_address': address ? address.split(',') : ['']
+      name: this.state.inputData.facilityNameValue,
+      'addresses.address.street_address': address ? address.split(',') : ['']
     }
 
     // call http request function with arguments
