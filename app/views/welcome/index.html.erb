@@ -4,7 +4,7 @@
     <div id="links" class="container col-xs-12">
       <%= button_to "Create RFA Application (Form 01)" , rfa_a01_index_path,  {method: :post} %>
       <br/>
-      <%= button_to "Search for Facilities" , search_index_path, {method: :get} %>
+      <%= button_to "Search for Facilities", {:controller => "search", :action => "index"} , :method=>:post,  params: { search_params: 'yes'} %>
     </div >
   </div>
   <div class="col-xs-12 col-md-8 col-sm-8 col-lg-8">

@@ -10,6 +10,10 @@ class CalsBaseController < ApplicationController
     redirect_to Cwds::Authentication.logout_url(AUTHENTICATION_API_BASE_URL, default_callback_url)
   end
 
+  def user_from_session
+    User.new(JSON.parse(session[:user_details])) if session[:user_details].present?
+  end
+
   protected
 
   def process_items_for_persistance(items, helper, parent_id)
@@ -52,7 +56,7 @@ class CalsBaseController < ApplicationController
         redirect_to Cwds::Authentication.authentication_url(AUTHENTICATION_API_BASE_URL, request.url)
       end
     end
-    session[:user_details] = Cwds::Authentication.store_user_details_from_token(token) if session[:user_details].blank?
-    @user = get_user_from_session if session[:user_details].present?
+    # session[:user_details] = Cwds::Authentication.store_user_details_from_token(token) if session[:user_details].blank?
+    # @user = get_user_from_session if session[:user_details].present?
   end
 end

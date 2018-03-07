@@ -2,12 +2,12 @@ import React from 'react'
 import InputDataBlock from './common/inputDataBlock.js'
 import {InputComponent} from 'components/common/inputFields'
 import {dictionaryNilSelectValue} from 'helpers/commonHelper.jsx'
-import {userDefaults} from 'constants/defaultFields.js'
+// import {userDefaults} from 'constants/defaultFields.js'
 
 export default class SearchInput extends React.Component {
   sendSearchInput (event) {
     event.preventDefault()
-    this.props.searchApiCall(0, 5)
+    this.props.searchApiCall(this.props.fromValue, this.props.sizeValue)
   }
   render () {
     const facilityTypes = this.props.facilityTypes
@@ -89,10 +89,11 @@ export default class SearchInput extends React.Component {
 }
 
 SearchInput.defaultProps = {
-  userDetails: userDefaults,
   countyValue: '',
   facilityTypeValue: '',
-  facilityIdValue: '',
-  facilityNameValue: '',
-  facilityAddressValue: ''
+  facilityId: '',
+  facilityName: '',
+  facilityAddress: '',
+  fromValue: 0,
+  sizeValue: 5
 }

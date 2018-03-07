@@ -23,6 +23,10 @@ export const checkForValueOrBlank = (value) => {
   return value || ''
 }
 
+export const checkforNull = (value) => {
+  return value !== null ? value : undefined
+}
+
 export const respectiveNumberOrNA = (phones, phoneRelation) => {
   const phoneObject = phones && phones.find(o => o.relation === phoneRelation)
   if (phoneObject && Boolean(phoneObject.number)) {

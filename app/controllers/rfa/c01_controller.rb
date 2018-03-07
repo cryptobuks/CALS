@@ -5,6 +5,7 @@ class Rfa::C01Controller < CalsBaseController
   end
 
   def edit
+    @user = user_from_session
     @dictionaries = dictionaries_helper.rfa_c01_dictioniaries
     @rfa_c1_application = rfa_c01_application_helper.find_by_id(params[:a01_id], params[:id])
     @rfa_a01_application = rfa_application_helper.find_by_application_id(params[:a01_id])

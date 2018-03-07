@@ -2,6 +2,12 @@ require 'rails_helper'
 require 'vcr'
 
 RSpec.feature 'Facilities', js: true, set_auth_header: true  do
+  before(:each) do
+    allow_any_instance_of(SearchController).to receive(:user_from_session).and_return(FactoryGirl.build(:user))
+    allow_any_instance_of(FacilitiesController).to receive(:store_in_session).and_return(true)
+    #allow_any_instance_of(FacilitiesController).to receive(:store_facility_response_in_session).and_return(true)
+  end
+
   scenario 'List of facilities from search results' do
     facilities_list
   end
@@ -71,8 +77,26 @@ RSpec.feature 'Facilities', js: true, set_auth_header: true  do
     expect(page).to have_text('Sandy Beach Foster Care Home')
   end
 
+  # scenario 'test pagination and back button' do
+  #   visit search_index_path
+  #   find_button('search').click
+  #   expect(find_field('dropdownFacilities').value).to eq '5'
+  #   expect(page).to have_css(:span, text: '1')
+  #   expect(page).to have_css(:span, text: '696')
+  #   expect(page).to have_text('Ricardo, Cecilio & Tessie')
+  #   click_link('Ricardo, Cecilio & Tessie')
+  #   click_button('Back')
+  #   expect(find_field('dropdownFacilities').value).to eq '5'
+  #   expect(page).to have_css(:span, text: '1')
+  #   expect(page).to have_css(:span, text: '696')
+  #   expect(page).to have_text('Ricardo, Cecilio & Tessie')
+  # end
+
+
+
   def facilities_list
     visit search_index_path
+    #select "Orange", :from => "county_select"
     fill_in 'Enter Facility Name', with: 'Lederhouse Transitions'
     find_button('search').click
     expect(page).to have_text('Lederhouse Transitions')

@@ -9,9 +9,6 @@ export default class FacilityDetails extends React.Component {
     return (
       <div className='facility-details grid_view col-xs-12 col-sm-12 col-md-12 col-lg-12'>
         <div>
-          <h1>
-            {result.name}
-          </h1>
           <div>
             <h3>
                       FACILITY TYPE : {' ' + checkForNA(result.type)}

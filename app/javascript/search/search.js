@@ -6,21 +6,22 @@ import SearchNotFound from './search_notfount'
 import SearchDetails from './search_Data'
 import {fetchRequest} from '../helpers/http'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
+import {checkforNull} from 'search/common/commonUtils'
 
 export default class Search extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      landingPageUrl: props.landingUrl,
+      // landingPageUrl: props.landingUrl,
       isToggled: true,
       searchResults: undefined,
       totalNoOfResults: 0,
-      disableNext: false,
-      disablePrevious: true,
-      fromValue: 0,
-      sizeValue: 5,
-      pageNumber: 1,
-      inputData: {countyValue: this.props.user.county_name}
+      inputData: props.inputData,
+      pageNumber: props.pageNumber,
+      disableNext: this.nextPageLinkStatus(props.total, props.from, props.size),
+      disablePrevious: undefined,
+      fromValue: props.from,
+      sizeValue: props.size
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.searchApiCall = this.searchApiCall.bind(this)
@@ -47,15 +48,15 @@ export default class Search extends React.Component {
   searchApiCall (getFromValue, getSizeValue) {
     const address = this.state.inputData.facilityAddressValue
     const params = {
-      'county.value': [this.state.inputData.countyValue],
-      'type.value': [this.state.inputData.facilityTypeValue],
-      id: [this.state.inputData.facilityIdValue],
-      name: [this.state.inputData.facilityNameValue],
-      'addresses.address.street_address': address ? address.split(',') : ['']
+      'county.value': this.state.inputData.countyValue,
+      'type.value': this.state.inputData.facilityTypeValue,
+      id: this.state.inputData.facilityIdValue,
+      name: this.state.inputData.facilityNameValue
+      // 'addresses.address.street_address': address ? address.split(',') : ['']
     }
 
     // call http request function with arguments
-    let url = '/facilities/search' + '?from=' + getFromValue + '&size=' + getSizeValue
+    let url = '/facilities/search' + '?from=' + getFromValue + '&size=' + getSizeValue + '&pageNumber=' + this.state.pageNumber
     fetchRequest(url, 'POST', params).then((response) => {
       return response.json()
     }).then((data) => {
@@ -75,25 +76,35 @@ export default class Search extends React.Component {
     })
   }
 
+  componentDidMount () {
+    this.previousPageLinkStatus(this.state.fromValue, this.state.sizeValue)
+    if (Object.keys(this.state.inputData).length !== 0) {
+      this.searchApiCall(this.state.fromValue, this.state.sizeValue)
+    }
+  }
+
   handleChange (facilitiesPerPage) {
     this.setState({
       sizeValue: parseInt(facilitiesPerPage),
-      fromValue: 0
+      fromValue: 0,
+      pageNumber: 1
     }, () => {
       this.searchApiCall(this.state.fromValue, this.state.sizeValue)
     })
   }
 
   nextPageLinkStatus (total, fromValue, sizeValue) {
-    if (fromValue + sizeValue >= total || total < 5) {
-      return true
-    }
+    return (fromValue + sizeValue >= total || total < 5)
   }
 
   previousPageLinkStatus (fromValue, sizeValue) {
     if (fromValue - sizeValue < 0 || fromValue === 0) {
-      return true
+      this.setState({
+        pageNumber: 1,
+        disablePrevious: true
+      })
     }
+    return (fromValue - sizeValue < 0 || fromValue === 0)
   }
 
   changeToNextPage (fromValue, sizeValue, pageNumber) {
@@ -128,12 +139,11 @@ export default class Search extends React.Component {
             handleInputChange={this.handleInputChange}
             countyList={this.props.countyTypes}
             facilityTypes={this.props.facilityTypes}
-            userDetails={this.props.user || undefined}
             countyValue={this.state.inputData.countyValue}
-            facilityTypeValue={this.state.inputData.facilityTypeValue}
-            facilityIdValue={this.state.inputData.facilityIdValue}
-            facilityNameValue={this.state.inputData.facilityNameValue}
-            facilityAddressValue={this.state.inputData.facilityAddressValue} />
+            facilityTypeValue={this.state.inputData.facilityTypeValue || undefined}
+            facilityIdValue={this.state.inputData.facilityIdValue || undefined}
+            facilityNameValue={this.state.inputData.facilityNameValue || undefined }
+            facilityAddressValue={this.state.inputData.facilityAddressValue || undefined} />
         </div>
         {searchResponseHasValues &&
           <SearchDetails
