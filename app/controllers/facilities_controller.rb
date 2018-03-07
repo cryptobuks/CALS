@@ -24,13 +24,12 @@ class FacilitiesController < CalsBaseController
     parsed_post_data = JSON.parse(post_data)
     params_dictionary = {}
     parsed_post_data.each do |k, v|
-      # if k == 'addresses.address.street_address'
-        # params_dictionary[k] = v
-      # else
+      if k == 'addresses.address.street_address'
+        params_dictionary[k] = v.split(',')
+      else
         params_dictionary[k] = [v]
-      # end
+      end
     end
-    byebug
     query_hash = QueryPreprocessor.params_to_query_hash(params_dictionary)
     logger.info "query_hash: #{query_hash}"
     es_query_json = Elastic::QueryBuilder.facility_search_v1(query_hash, from_params, size_params).to_json
