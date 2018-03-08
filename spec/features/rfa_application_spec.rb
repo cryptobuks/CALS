@@ -20,26 +20,26 @@ RSpec.feature 'RFA', js: true do
     click_button 'Create RFA Application (Form 01)'
     expect(page).to have_content 'Rfa-01A Section Summary'
     page.find('#Rfa01AOverview').find('a.btn.btn-default').click
-    page.execute_script "window.scrollTo(0,420)"
+    page.execute_script "document.getElementById('applicants-card').scrollIntoView()"
     expect(find('a.link.active').text).to eq '1. Applicant Information'
-    page.execute_script "window.scrollTo(0,2620)"
+    page.execute_script "document.getElementById('applicant-residence-card').scrollIntoView()"
     expect(find('a.link.active').text).to eq '2. Applicant Residence'
-    page.execute_script "window.scrollTo(0,3430)"
-    expect(find('a.link.active').text).to eq '4. Minor Children'
-    page.execute_script "window.scrollTo(0,3970)"
-    expect(find('a.link.active').text).to eq '5. Other Adults'
-    page.execute_script "window.scrollTo(0,4570)"
-    expect(find('a.link.active').text).to eq '6. Marital History'
-    page.execute_script "window.scrollTo(0,6530)"
-    expect(find('a.link.active').text).to eq '7. Child Desired'
-    page.execute_script "window.scrollTo(0,7250)"
-    expect(find('a.link.active').text).to eq '8. Foster Care History'
-    page.execute_script "window.scrollTo(0,8270)"
-    expect(find('a.link.active').text).to eq '9. References'
     click_button('Add Another Applicant +')
     fill_in('applicants[0].first_name', with: Faker::Name.first_name, :match => :prefer_exact)
-    page.execute_script "window.scrollTo(0,5070)"
+    page.execute_script "document.getElementById('relationship-between-applicants-card').scrollIntoView()"
     expect(find('a.link.active').text).to eq '3. Applicant Relationship'
+    page.execute_script "document.getElementById('minor-child-card').scrollIntoView()"
+    expect(find('a.link.active').text).to eq '4. Minor Children'
+    page.execute_script "document.getElementById('other-adults-card').scrollIntoView()"
+    expect(find('a.link.active').text).to eq '5. Other Adults'
+    page.execute_script "document.getElementById('marital-history-card').scrollIntoView()"
+    expect(find('a.link.active').text).to eq '6. Marital History'
+    page.execute_script "document.getElementById('child-desired-card').scrollIntoView()"
+    expect(find('a.link.active').text).to eq '7. Child Desired'
+    page.execute_script "document.getElementById('foster-care-card').scrollIntoView()"
+    expect(find('a.link.active').text).to eq '8. Foster Care History'
+    page.execute_script "document.getElementById('reference-card').scrollIntoView()"
+    expect(find('a.link.active').text).to eq '9. References'
   end
 
   scenario 'validate full applicant card', set_auth_header: true do
