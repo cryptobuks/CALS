@@ -115,6 +115,12 @@ export const checkForNameValidation = (applicantData) => {
   return validationResult
 }
 
+export const checkFieldsForSubmit = (application) => {
+  let validationResult = false
+    // TODO: add check for validations
+  return validationResult
+}
+
 export const arrayLastToFirst = (arraytoSort) => {
   if (arraytoSort.length > 1) {
     let finalArray = Immutable.fromJS(arraytoSort).slice(0, -1).toJS()

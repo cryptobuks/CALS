@@ -16,39 +16,43 @@ class Rfa::A01Controller < CalsBaseController
     # @all dictionaries
     @user = user_from_session
     @dictionaries = dictionaries_helper.rfa_a01_dictioniaries
-    @application = rfa_application_helper.find_by_id(params[:id])
-    @application.applicants = rfa_applicant_helper.find_items_by_application_id(params[:id])
-    @application.residence = rfa_residence_helper.find_by_application_id(params[:id])
-    @application.applicants_history = rfa_applicant_history_helper.find_by_application_id(params[:id])
-    @application.minor_children = rfa_minor_children_helper.find_items_by_application_id(params[:id])
-    @application.other_adults = rfa_other_adults_helper.find_items_by_application_id(params[:id])
-    @application.adoption_history = rfa_adoption_history_helper.find_by_application_id(params[:id])
-    @application.applicants_relationship = rfa_relation_between_applicants_helper.find_by_application_id(params[:id])
-    @application.child_desired = rfa_child_desired_helper.find_by_application_id(params[:id])
-    @application.references = rfa_references_helper.find_items_by_application_id(params[:id])
-    @application.rfa1c_forms = rfa_c01_application_helper.all(params[:id])
+    @application = rfa_application_helper.find_by_application_id(params[:id])
   end
 
   def update
-    @application_response = {}
-    @application_response[:application_county] = process_items_for_persistance(application_county_params, rfa_application_helper, params[:id]) if params[:application_county].present?
-    @application_response[:applicants] = process_items_for_persistance(applicant_params, rfa_applicant_helper, params[:id]) if params[:applicants].present?
-    @application_response[:residence] = process_items_for_persistance(residence_params, rfa_residence_helper, params[:id]) if params[:residence].present?
-    @application_response[:applicants_history] = process_items_for_persistance(applicants_history_params, rfa_applicant_history_helper, params[:id]) if params[:applicants_history].present?
-    @application_response[:minor_children] = process_items_for_persistance(minor_children_params, rfa_minor_children_helper, params[:id]) if params[:minor_children].present?
-    @application_response[:other_adults] = process_items_for_persistance(other_adults_params, rfa_other_adults_helper, params[:id]) if params[:other_adults].present?
-    @application_response[:adoption_history] = process_items_for_persistance(adoption_history_params, rfa_adoption_history_helper, params[:id]) if params[:adoption_history].present?
-    @application_response[:applicants_relationship] = process_items_for_persistance(relationship_between_applicants_params, rfa_relation_between_applicants_helper, params[:id]) if params[:applicants_relationship].present?
-    @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, params[:id]) if params[:references].present?
-    @application_response[:child_desired] = process_items_for_persistance(child_desired_params, rfa_child_desired_helper, params[:id]) if params[:child_desired].present?
-    @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, params[:id]) if params[:references].present?
-
-    render json: rfa_application_helper.find_by_application_id(params[:id])
+    @application_id= params[:id]
+    process_application_for_persistance(@application_id)
+    render json: rfa_application_helper.find_by_application_id(@application_id)
   rescue ApiError => e
     render json: e.response, status: e.status
   end
 
+  def submit
+    @application_id= params[:id]
+    response = process_application_for_persistance(@application_id)
+    rfa_application_helper.submit_application(@application_id)
+    render json: rfa_application_helper.find_by_application_id(@application_id)
+  rescue  => e
+    render json: e.response, status: e.status
+  end
+
   private
+
+  def process_application_for_persistance(application_id)
+    @application_response = {}
+    @application_response[:application_county] = process_items_for_persistance(application_county_params, rfa_application_helper, application_id) if params[:application_county].present?
+    @application_response[:applicants] = process_items_for_persistance(applicant_params, rfa_applicant_helper, application_id) if params[:applicants].present?
+    @application_response[:residence] = process_items_for_persistance(residence_params, rfa_residence_helper, application_id) if params[:residence].present?
+    @application_response[:applicants_history] = process_items_for_persistance(applicants_history_params, rfa_applicant_history_helper, application_id) if params[:applicants_history].present?
+    @application_response[:minor_children] = process_items_for_persistance(minor_children_params, rfa_minor_children_helper, application_id) if params[:minor_children].present?
+    @application_response[:other_adults] = process_items_for_persistance(other_adults_params, rfa_other_adults_helper, application_id) if params[:other_adults].present?
+    @application_response[:adoption_history] = process_items_for_persistance(adoption_history_params, rfa_adoption_history_helper, application_id) if params[:adoption_history].present?
+    @application_response[:applicants_relationship] = process_items_for_persistance(relationship_between_applicants_params, rfa_relation_between_applicants_helper, application_id) if params[:applicants_relationship].present?
+    @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper,application_id) if params[:references].present?
+    @application_response[:child_desired] = process_items_for_persistance(child_desired_params, rfa_child_desired_helper,application_id) if params[:child_desired].present?
+    @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, application_id) if params[:references].present?
+    return @application_response
+  end
 
   def application_county_params
     params.permit(:id, :to_delete, {application_county: %i[value id]})

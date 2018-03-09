@@ -14,6 +14,12 @@ module Concerns::Rfa::ApplicationApiProtocolProvider
       JSON.parse(response.body)
     end
 
+    def submit_application(auth_header, application_id)
+      byebug
+      response = FaradayCals.post("/rfa-1a-forms/#{application_id}/status", auth_header, '{"status":"SUBMITTED"}')
+      response.status == 200 ? JSON.parse(response.body) : nil
+    end
+
     def update(auth_header, parent_id, _id, body)
       response = FaradayCals.put("/rfa-1a-forms/#{parent_id}", auth_header, body)
       new(JSON.parse(response.body))

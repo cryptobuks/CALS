@@ -16,7 +16,7 @@ import PageTemplate from 'components/common/pageTemplate'
 import './stylesheets/cards-main.scss'
 import {fetchRequest} from 'helpers/http'
 import {getDictionaryId, dictionaryNilSelect, checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
-import {checkForNameValidation} from 'helpers/cardsHelper.jsx'
+import {checkForNameValidation, checkFieldsForSubmit} from 'helpers/cardsHelper.jsx'
 import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
 import Validator from 'helpers/validator'
 import ScrollSpy from 'components/common/scrollSpy'
@@ -24,7 +24,9 @@ import ScrollSpy from 'components/common/scrollSpy'
 export default class Rfa01EditView extends React.Component {
   constructor (props) {
     super(props)
-    this.submitForm = this.submitForm.bind(this)
+    this.saveProgress = this.saveProgress.bind(this)
+    this.submit = this.submit.bind(this)
+    this.fetchToRails = this.fetchToRails.bind(this)
     this.getFocusClassName = this.getFocusClassName.bind(this)
     this.setApplicationState = this.setApplicationState.bind(this)
     this.setFocusState = this.setFocusState.bind(this)
@@ -37,6 +39,7 @@ export default class Rfa01EditView extends React.Component {
       focusComponentName: '',
       activeNavLinkHref: '',
       application: this.props.application,
+      disableSumbit: checkFieldsForSubmit(this.props.application),
       disableSave: !(checkForNameValidation(this.props.application.applicants)),
       errors: {}
     }
@@ -63,9 +66,18 @@ export default class Rfa01EditView extends React.Component {
     // set Dictionaty Here
   }
 
-  submitForm () {
+  saveProgress () {
     const url = '/rfa/a01/' + this.props.application_id
-    fetchRequest(url, 'PUT', this.state.application.toJS())
+    this.fetchToRails(url, 'PUT', this.state.application.toJS())
+  }
+
+  submit () {
+    const url = '/rfa/a01/submit'
+    this.fetchToRails(url, 'POST', this.state.application.toJS())
+  }
+
+  fetchToRails (url, method, body) {
+    fetchRequest(url, method, body)
       .then((response) => {
         return response.json()
       }).then((data) => {
@@ -133,11 +145,14 @@ export default class Rfa01EditView extends React.Component {
     return (
       <PageTemplate
         headerLabel='Resource Family Application - Confidential (RFA 01A)'
-        buttonId='saveProgress'
-        buttonLabel='Save Progress'
-        buttonTextAlignment='right'
-        onButtonClick={this.submitForm}
+        saveProgressId='saveProgress'
+        saveProgressLabel='Save Progress'
+        onSaveProgressClick={this.saveProgress}
         disableSave={this.state.disableSave}
+        submitId={'submitApplication' + stateApplicationJS.id}
+        disableSubmit={this.state.disableSubmit}
+        submitLabel='Submit'
+        onSubmitClick={this.submit}
         rfa01aApplicationId={stateApplicationJS.id}
         onRfa01AForm
         rfa01cForms={stateApplicationJS.rfa1c_forms}

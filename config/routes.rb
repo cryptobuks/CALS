@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   namespace :rfa do
     resources :a01 do
+      collection {post :submit}
       resources :applicant, only: [:index, :create, :edit]
       resource :residence, only: [:show, :create, :edit]
       resources :packet

@@ -4,6 +4,7 @@ import Collapsible from 'react-collapsible'
 import Affix from 'react-overlays/lib/AutoAffix'
 import PropTypes from 'prop-types'
 import {NavLinks} from 'react-wood-duck'
+import Button from 'components/common/button'
 import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
 import A01SideBar from './a01SideBar'
 import B01SideBar from './b01SideBar'
@@ -19,6 +20,7 @@ export default class RfaSideBar extends React.Component {
       <div className='col-sm-12'>
         <div className='nav-menu col-sm-10'>
           <Affix>
+
             <div className='nav-menu'>
               <A01SideBar
                 isNavLinkActive={this.props.isNavLinkActive}
@@ -40,6 +42,18 @@ export default class RfaSideBar extends React.Component {
                 rfa01aApplicationId={this.props.rfa01aApplicationId}
                 childIdentified={this.props.childIdentified}
                 rfa01cForm={rfa01cForms} />
+
+              <Button
+                id={this.props.saveProgressId}
+                disabled={this.props.disableSave}
+                label={this.props.saveProgressLabel}
+                onClick={this.props.onSaveProgressClick} />
+
+              <Button
+                id={this.props.submitId}
+                disabled={this.props.disableSubmit}
+                label={this.props.submitLabel}
+                onClick={this.props.onSubmitClick} />
             </div>
           </Affix>
         </div>
