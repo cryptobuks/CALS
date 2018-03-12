@@ -17,18 +17,13 @@ export default class Search extends React.Component {
       totalNoOfResults: 0,
       searchResults: undefined,
       pageNumber: props.pageNumber,
-      disableNext: this.nextPageLinkStatus(props.total, props.from, props.size),
-      disablePrevious: undefined,
       fromValue: props.from,
       sizeValue: props.size
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.searchApiCall = this.searchApiCall.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.changeToNextPage = this.changeToNextPage.bind(this)
-    this.backToPreviousPage = this.backToPreviousPage.bind(this)
-    this.nextPageLinkStatus = this.nextPageLinkStatus.bind(this)
-    this.previousPageLinkStatus = this.previousPageLinkStatus.bind(this)
+    this.changePage = this.changePage.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.removeCriteria = this.removeCriteria.bind(this)
   }
@@ -68,9 +63,7 @@ export default class Search extends React.Component {
         searchResults: data.facilities,
         totalNoOfResults: data.total,
         sizeValue: getSizeValue,
-        pageNumber: getFromValue === 0 ? 1 : this.state.pageNumber,
-        disableNext: this.nextPageLinkStatus(data.total, getFromValue, getSizeValue),
-        disablePrevious: this.previousPageLinkStatus(getFromValue, getSizeValue)
+        pageNumber: getFromValue === 0 ? 1 : this.state.pageNumber
       })
     }).catch(error => {
       console.log(error)
@@ -81,7 +74,6 @@ export default class Search extends React.Component {
   }
 
   componentDidMount () {
-    this.previousPageLinkStatus(this.state.fromValue, this.state.sizeValue)
     if (Object.keys(this.state.inputData).length !== 0) {
       this.searchApiCall(this.state.fromValue, this.state.sizeValue)
     }
@@ -96,29 +88,10 @@ export default class Search extends React.Component {
     })
   }
 
-  nextPageLinkStatus (total, fromValue, sizeValue) {
-    return (fromValue + sizeValue >= total || total < 5)
-  }
-
-  previousPageLinkStatus (fromValue, sizeValue) {
-    return (fromValue - sizeValue < 0 || fromValue === 0)
-  }
-
-  changeToNextPage (fromValue, sizeValue, pageNumber) {
+  changePage (pageNumber) {
     this.setState({
-      fromValue: fromValue + sizeValue,
-      disablePrevious: false,
-      pageNumber: pageNumber + 1
-    }, () => {
-      this.searchApiCall(this.state.fromValue, this.state.sizeValue)
-    })
-  }
-
-  backToPreviousPage (fromValue, sizeValue, pageNumber) {
-    this.setState({
-      fromValue: fromValue - sizeValue,
-      disableNext: false,
-      pageNumber: pageNumber - 1
+      fromValue: this.state.sizeValue * (pageNumber - 1),
+      pageNumber: pageNumber
     }, () => {
       this.searchApiCall(this.state.fromValue, this.state.sizeValue)
     })
@@ -147,15 +120,12 @@ export default class Search extends React.Component {
             inputData={this.state.inputData}
             totalNoOfFacilities={this.state.totalNoOfResults}
             toggeledResult={this.state.isToggled}
-            disablePrevious={this.state.disablePrevious}
-            disableNext={this.state.disableNext}
             sizeValue={this.state.sizeValue}
             fromValue={this.state.fromValue}
             pageNumber={this.state.pageNumber}
             searchApiCall={this.searchApiCall}
             handleToggle={this.handleToggle}
-            changeToNextPage={this.changeToNextPage}
-            backToPreviousPage={this.backToPreviousPage}
+            changePage={this.changePage}
             handleChange={this.handleChange}
             handleInputChange={this.handleInputChange}
             removeCriteria={this.removeCriteria} />}
