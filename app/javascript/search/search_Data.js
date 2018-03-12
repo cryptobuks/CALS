@@ -12,7 +12,7 @@ export default class SearchDetails extends React.Component {
       searchFacilityId = (
         <p>Facility ID:
         <span>{this.props.inputData.facilityIdValue}</span>
-        <span id='rm_criteria' onClick={() => { this.props.handleInputChange('facilityIdValue', ''); this.props.searchApiCall(this.props.fromValue, this.props.sizeValue) }} alt='cross-icon' className='cross-icon' />
+        <span id='rm_criteria' onClick={() => { this.props.removeCriteria('facilityIdValue') }} alt='cross-icon' className='cross-icon' />
         </p>
       )
     }
@@ -21,7 +21,7 @@ export default class SearchDetails extends React.Component {
       searchFacilityName = (
         <p>Facility Name:
         <span>{this.props.inputData.facilityNameValue}</span>
-        <span onClick={() => { this.props.handleInputChange('facilityNameValue', ''); this.props.searchApiCall(this.props.fromValue, this.props.sizeValue) }} alt='cross-icon' className='cross-icon' />
+        <span onClick={() => { this.props.removeCriteria('facilityNameValue') }} alt='cross-icon' className='cross-icon' />
         </p>
       )
     }
@@ -71,5 +71,26 @@ export default class SearchDetails extends React.Component {
 }
 
 SearchDetails.propTypes = {
-  state: PropTypes.object
+  state: PropTypes.object,
+  totalNoOfFacilities: PropTypes.number,
+  fromValue: PropTypes.number,
+  sizeValue: PropTypes.number,
+  handleChange: PropTypes.func,
+  disablePrevious: PropTypes.bool,
+  backToPreviousPage: PropTypes.func,
+  pageNumber: PropTypes.number,
+  disableNext: PropTypes.bool,
+  changeToNextPage: PropTypes.func,
+  handleToggle: PropTypes.func,
+  toggeledResult: PropTypes.bool,
+  removeCriteria: PropTypes.func
+}
+SearchDetails.defaultProps = {
+  totalNoOfFacilities: 0,
+  disablePrevious: true,
+  pageNumber: 1,
+  disableNext: false,
+  toggeledResult: true,
+  fromValue: 0,
+  sizeValue: 5
 }

@@ -30,6 +30,7 @@ export default class Search extends React.Component {
     this.nextPageLinkStatus = this.nextPageLinkStatus.bind(this)
     this.previousPageLinkStatus = this.previousPageLinkStatus.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.removeCriteria = this.removeCriteria.bind(this)
   }
 
   handleInputChange (key, value) {
@@ -38,6 +39,11 @@ export default class Search extends React.Component {
     this.setState({
       inputData: newInputData
     })
+  }
+
+  removeCriteria (value) {
+    this.handleInputChange(value, '')
+    this.searchApiCall(this.state.fromValue, this.state.sizeValue)
   }
 
   handleToggle () {
@@ -151,7 +157,8 @@ export default class Search extends React.Component {
             changeToNextPage={this.changeToNextPage}
             backToPreviousPage={this.backToPreviousPage}
             handleChange={this.handleChange}
-            handleInputChange={this.handleInputChange} />}
+            handleInputChange={this.handleInputChange}
+            removeCriteria={this.removeCriteria} />}
         <div className='result-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           {this.state.isToggled && <SearchGrid searchResults={this.state.searchResults} />}
           {!this.state.isToggled && <SearchList searchResults={this.state.searchResults} />}

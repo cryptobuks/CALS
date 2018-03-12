@@ -2,12 +2,9 @@ import React from 'react'
 import InputDataBlock from './common/inputDataBlock.js'
 import {InputComponent} from 'components/common/inputFields'
 import {dictionaryNilSelectValue} from 'helpers/commonHelper.jsx'
+import PropTypes from 'prop-types'
 
 export default class SearchInput extends React.Component {
-  sendSearchInput (event) {
-    event.preventDefault()
-    this.props.searchApiCall(this.props.fromValue, this.props.sizeValue)
-  }
   render () {
     const facilityTypes = this.props.facilityTypes
     const countyList = this.props.countyList
@@ -19,7 +16,7 @@ export default class SearchInput extends React.Component {
     )
     return (
       <div className='search_input col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-        <form onSubmit={this.sendSearchInput.bind(this)}>
+        <form onSubmit={(event) => { event.preventDefault(); this.props.searchApiCall(this.props.fromValue, this.props.sizeValue) }}>
           <div className='field_input col-xs-12 col-sm-11 col-md-11 col-lg-11'>
             <div className='input_data col-xs-12 col-sm-2 col-md-2 col-lg-2'>
               <div>
@@ -83,6 +80,18 @@ export default class SearchInput extends React.Component {
       </div>
     )
   }
+}
+
+SearchInput.propTypes = {
+  countyValue: PropTypes.string,
+  facilityTypeValue: PropTypes.string,
+  facilityIdValue: PropTypes.string,
+  facilityNameValue: PropTypes.string,
+  facilityAddressValue: PropTypes.string,
+  fromValue: PropTypes.number,
+  sizeValue: PropTypes.number,
+  searchApiCall: PropTypes.func,
+  handleInputChange: PropTypes.func
 }
 
 SearchInput.defaultProps = {
