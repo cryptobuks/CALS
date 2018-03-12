@@ -74,7 +74,6 @@ export default class SearchDetails extends React.Component {
 }
 
 SearchDetails.propTypes = {
-  state: PropTypes.object,
   totalNoOfFacilities: PropTypes.number,
   sizeValue: PropTypes.number,
   pageNumber: PropTypes.number,
