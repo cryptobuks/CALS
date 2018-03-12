@@ -16,7 +16,7 @@ export default class SearchInput extends React.Component {
     )
     return (
       <div className='search_input col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-        <form onSubmit={(event) => { event.preventDefault(); this.props.searchApiCall(this.props.fromValue, this.props.sizeValue) }}>
+        <form onSubmit={(event) => { event.preventDefault(); this.props.searchApiCall(0, this.props.sizeValue) }}>
           <div className='field_input col-xs-12 col-sm-11 col-md-11 col-lg-11'>
             <div className='input_data col-xs-12 col-sm-2 col-md-2 col-lg-2'>
               <div>
