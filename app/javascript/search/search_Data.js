@@ -7,10 +7,11 @@ export default class SearchDetails extends React.Component {
   render () {
     const searchCount = this.props.totalNoOfFacilities
     const noOfPages = floatToNextInt(searchCount, this.props.sizeValue)
+    const fromValue = this.props.sizeValue * (this.props.pageNumber - 1)
     let disableNext = false
-    disableNext = this.props.fromValue + this.props.sizeValue >= searchCount || searchCount < 5
+    disableNext = fromValue + this.props.sizeValue >= searchCount || searchCount < 5
     let disablePrevious = true
-    disablePrevious = this.props.fromValue - this.props.sizeValue < 0 || this.props.fromValue === 0
+    disablePrevious = fromValue - this.props.sizeValue < 0 || fromValue === 0
     let searchFacilityId = null
     if (this.props.inputData.facilityIdValue) {
       searchFacilityId = (
@@ -52,7 +53,7 @@ export default class SearchDetails extends React.Component {
             className='search_dropdown'
             id='dropdownFacilities'
             value={this.props.sizeValue}
-            onChange={(event) => this.props.handleChange(dictionaryNilSelectValue(event.target.options))}>
+            onChange={(event) => this.props.searchApiCall(0, parseInt(dictionaryNilSelectValue(event.target.options)))}>
             {facilityIterate}
           </select>
           <button disabled={disablePrevious} onClick={() => this.props.changePage(this.props.pageNumber - 1)} className='previous btn btn-default'><p>&#8249;</p></button>

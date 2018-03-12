@@ -17,12 +17,10 @@ export default class Search extends React.Component {
       totalNoOfResults: 0,
       searchResults: undefined,
       pageNumber: props.pageNumber,
-      fromValue: props.from,
       sizeValue: props.size
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.searchApiCall = this.searchApiCall.bind(this)
-    this.handleChange = this.handleChange.bind(this)
     this.changePage = this.changePage.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.removeCriteria = this.removeCriteria.bind(this)
@@ -38,7 +36,7 @@ export default class Search extends React.Component {
 
   removeCriteria (value) {
     this.handleInputChange(value, '')
-    this.searchApiCall(this.state.fromValue, this.state.sizeValue)
+    this.searchApiCall(0, this.state.sizeValue)
   }
 
   handleToggle () {
@@ -75,26 +73,15 @@ export default class Search extends React.Component {
 
   componentDidMount () {
     if (Object.keys(this.state.inputData).length !== 0) {
-      this.searchApiCall(this.state.fromValue, this.state.sizeValue)
+      const fromValue = this.state.sizeValue * (this.state.pageNumber - 1)
+      this.searchApiCall(fromValue, this.state.sizeValue)
     }
   }
 
-  handleChange (facilitiesPerPage) {
-    this.setState({
-      sizeValue: parseInt(facilitiesPerPage),
-      fromValue: 0
-    }, () => {
-      this.searchApiCall(this.state.fromValue, this.state.sizeValue)
-    })
-  }
-
   changePage (pageNumber) {
-    this.setState({
-      fromValue: this.state.sizeValue * (pageNumber - 1),
-      pageNumber: pageNumber
-    }, () => {
-      this.searchApiCall(this.state.fromValue, this.state.sizeValue)
-    })
+    const fromValue = this.state.sizeValue * (pageNumber - 1)
+    this.searchApiCall(fromValue, this.state.sizeValue)
+    this.setState({pageNumber: pageNumber})
   }
 
   render () {
@@ -121,12 +108,10 @@ export default class Search extends React.Component {
             totalNoOfFacilities={this.state.totalNoOfResults}
             toggeledResult={this.state.isToggled}
             sizeValue={this.state.sizeValue}
-            fromValue={this.state.fromValue}
             pageNumber={this.state.pageNumber}
             searchApiCall={this.searchApiCall}
             handleToggle={this.handleToggle}
             changePage={this.changePage}
-            handleChange={this.handleChange}
             handleInputChange={this.handleInputChange}
             removeCriteria={this.removeCriteria} />}
         <div className='result-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
