@@ -8,10 +8,8 @@ export default class SearchDetails extends React.Component {
     const searchCount = this.props.totalNoOfFacilities
     const noOfPages = floatToNextInt(searchCount, this.props.sizeValue)
     const fromValue = this.props.sizeValue * (this.props.pageNumber - 1)
-    let disableNext = false
-    disableNext = fromValue + this.props.sizeValue >= searchCount || searchCount < 5
-    let disablePrevious = true
-    disablePrevious = fromValue - this.props.sizeValue < 0 || fromValue === 0
+    let disableNext = fromValue + this.props.sizeValue >= searchCount || searchCount < 5
+    let disablePrevious = fromValue - this.props.sizeValue < 0 || fromValue === 0
     let searchFacilityId = null
     if (this.props.inputData.facilityIdValue) {
       searchFacilityId = (
@@ -78,24 +76,17 @@ export default class SearchDetails extends React.Component {
 SearchDetails.propTypes = {
   state: PropTypes.object,
   totalNoOfFacilities: PropTypes.number,
-  fromValue: PropTypes.number,
   sizeValue: PropTypes.number,
-  handleChange: PropTypes.func,
-  disablePrevious: PropTypes.bool,
-  backToPreviousPage: PropTypes.func,
   pageNumber: PropTypes.number,
-  disableNext: PropTypes.bool,
-  changeToNextPage: PropTypes.func,
   handleToggle: PropTypes.func,
   toggeledResult: PropTypes.bool,
-  removeCriteria: PropTypes.func
+  removeCriteria: PropTypes.func,
+  searchApiCall: PropTypes.func,
+  changePage: PropTypes.func
 }
 SearchDetails.defaultProps = {
   totalNoOfFacilities: 0,
-  disablePrevious: true,
   pageNumber: 1,
-  disableNext: false,
   toggeledResult: true,
-  fromValue: 0,
-  sizeValue: 5
+  sizeValue: 10
 }

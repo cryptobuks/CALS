@@ -88,7 +88,7 @@ export const mailingAddressType = 'Mailing'
 
 export const listOfStatus = ['LICENSED', 'CERTIFIED/APPROVED', 'LICENSED(PENDING CAPACITY CHANGE)']
 
-export const resultsPerPage = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+export const resultsPerPage = [10, 20, 30, 40, 50]
 
 export const handleLicenseEffectiveDate = (result) => {
   if (result.status) {

@@ -43,7 +43,6 @@ class FacilitiesController < CalsBaseController
   end
 
   def store_in_session(params)
-    session[:from] = params['from'].to_i
     session[:size] = params['size'].to_i
     session[:page_number] = params['pageNumber'].to_i
     session[:input_data] = {}

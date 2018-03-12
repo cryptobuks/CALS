@@ -88,7 +88,6 @@ SearchInput.propTypes = {
   facilityIdValue: PropTypes.string,
   facilityNameValue: PropTypes.string,
   facilityAddressValue: PropTypes.string,
-  fromValue: PropTypes.number,
   sizeValue: PropTypes.number,
   searchApiCall: PropTypes.func,
   handleInputChange: PropTypes.func
@@ -100,6 +99,5 @@ SearchInput.defaultProps = {
   facilityIdValue: '',
   facilityNameValue: '',
   facilityAddressValue: '',
-  fromValue: 0,
-  sizeValue: 5
+  sizeValue: 10
 }

@@ -3,7 +3,7 @@ import SearchApp from '../../../app/javascript/search/search'
 import {shallow, mount} from 'enzyme'
 
 describe('Verify Search component', function () {
-  let handleToggleSpy, searchComp, handleChangeSpy, handleInputChangeSpy, changeToNextPageSpy
+  let handleToggleSpy, searchComp, handleChangeSpy, handleInputChangeSpy, changePageSpy, searchApiCallSpy
 
   beforeEach(() => {
     const props = {
@@ -30,9 +30,9 @@ describe('Verify Search component', function () {
     }
 
     handleToggleSpy = spyOn(SearchApp.prototype, 'handleToggle').and.callThrough()
-    handleChangeSpy = spyOn(SearchApp.prototype, 'handleChange').and.callThrough()
+    searchApiCallSpy = spyOn(SearchApp.prototype, 'searchApiCall').and.callThrough()
     handleInputChangeSpy = spyOn(SearchApp.prototype, 'handleInputChange').and.callThrough()
-    changeToNextPageSpy = spyOn(SearchApp.prototype, 'changeToNextPage').and.callThrough()
+    changePageSpy = spyOn(SearchApp.prototype, 'changePage').and.callThrough()
 
     searchComp = mount(<SearchApp {...props}
     />)
@@ -85,8 +85,8 @@ describe('Verify Search component', function () {
 
   it('verify dropDown value change number of facilities', () => {
     let dropdownForfacilitiesCount = searchComp.find('#dropdownFacilities')
-    dropdownForfacilitiesCount.simulate('change', {target: {options: {'2': {id: '2', value: 15}, selectedIndex: 2}}})
-    expect(handleChangeSpy).toHaveBeenCalledWith(15)
+    dropdownForfacilitiesCount.simulate('change', {target: {options: {'5': {id: '5', value: '5'}, selectedIndex: 5}}})
+    expect(searchApiCallSpy).toHaveBeenCalledWith(0, 5)
   })
 
   it('verify county dropdown value change ', () => {

@@ -18,9 +18,10 @@ describe('Verify search input component', function () {
     ],
     countyValue: 'Los Angeles',
     facilityTypeValue: 'Adoption Agency',
-    facilityIdValue: 300665437,
+    facilityIdValue: '300665437',
     facilityNameValue: 'Lederhouse Transitions',
-    facilityAddressValue: '36 Sequoia Dr, Aliso Viejo, CA 92656'
+    facilityAddressValue: '36 Sequoia Dr, Aliso Viejo, CA 92656',
+    fromValue: 0
   }
 
   const spySearchApiCall = jasmine.createSpy('searchApiCall')
@@ -48,8 +49,8 @@ describe('Verify search input component', function () {
 
   it('verify facility Id value after component render', () => {
     let facilityId = searchInputComp.find('#facilityIdValue').hostNodes()
-    facilityId.simulate('change', {target: {value: 300665437}})
-    expect(spyHandleInputChange).toHaveBeenCalledWith('facilityIdValue', 300665437)
+    facilityId.simulate('change', {target: {value: '300665437'}})
+    expect(spyHandleInputChange).toHaveBeenCalledWith('facilityIdValue', '300665437')
   })
 
   it('verify facility name value after component render', () => {
@@ -67,6 +68,6 @@ describe('Verify search input component', function () {
   it('verify clicking search button calls searchApiCall method', () => {
     let searchFacility = searchInputComp.find('.btn-primary')
     searchFacility.simulate('submit')
-    expect(spySearchApiCall).toHaveBeenCalledWith(0, 5)
+    expect(spySearchApiCall).toHaveBeenCalledWith(0, 10)
   })
 })
