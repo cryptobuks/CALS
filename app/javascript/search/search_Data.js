@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {resultsPerPage} from './common/commonUtils'
-import {dictionaryNilSelectValue, floatToNextInt} from 'helpers/commonHelper.jsx'
+import {dictionaryNilSelectValue, floatToNextInt, getFromValue} from 'helpers/commonHelper.jsx'
 
 export default class SearchDetails extends React.Component {
   render () {
     const searchCount = this.props.totalNoOfFacilities
     const noOfPages = floatToNextInt(searchCount, this.props.sizeValue)
-    const fromValue = this.props.sizeValue * (this.props.pageNumber - 1)
-    let disableNext = fromValue + this.props.sizeValue >= searchCount || searchCount < 5
-    let disablePrevious = fromValue - this.props.sizeValue < 0 || fromValue === 0
+    const fromValue = getFromValue(this.props.sizeValue, this.props.pageNumber)
+    let disableNext = fromValue + this.props.sizeValue >= searchCount
+    let disablePrevious = fromValue - this.props.sizeValue < 0
     let searchFacilityId = null
     if (this.props.inputData.facilityIdValue) {
       searchFacilityId = (

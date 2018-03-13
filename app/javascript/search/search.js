@@ -7,6 +7,7 @@ import SearchDetails from './search_Data'
 import {fetchRequest} from '../helpers/http'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
 import {checkForValue} from 'search/common/commonUtils'
+import {getFromValue} from 'helpers/commonHelper.jsx'
 
 export default class Search extends React.Component {
   constructor (props) {
@@ -73,7 +74,7 @@ export default class Search extends React.Component {
 
   componentDidMount () {
     if (Object.keys(this.state.inputData).length !== 0) {
-      const fromValue = this.state.sizeValue * (this.state.pageNumber - 1)
+      const fromValue = getFromValue(this.state.sizeValue, this.state.pageNumber)
       this.searchApiCall(fromValue, this.state.sizeValue)
     }
   }
