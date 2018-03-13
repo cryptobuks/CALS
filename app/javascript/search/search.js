@@ -7,14 +7,17 @@ import SearchDetails from './search_Data'
 import {fetchRequest} from '../helpers/http'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
 import {checkforNull} from 'search/common/commonUtils'
+// import {bindActionCreators} from 'redux'
+import {addValue} from 'actions/search_action'
+import {connect} from 'react-redux'
 
-export default class Search extends React.Component {
+class Search extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       // landingPageUrl: props.landingUrl,
       isToggled: true,
-      inputData: props.inputData,
+      // inputData: props.inputData,
       searchResults: undefined,
       totalNoOfResults: 0,
       pageNumber: props.pageNumber,
@@ -120,6 +123,7 @@ export default class Search extends React.Component {
   }
 
   render () {
+    console.log(this.props.inputData)
     const initialLoad = this.state.searchResults === undefined
     const searchResponseHasValues = this.state.searchResults && this.state.searchResults.length > 0
 
@@ -131,10 +135,11 @@ export default class Search extends React.Component {
             countyList={this.props.countyTypes}
             facilityTypes={this.props.facilityTypes}
             countyValue={this.props.countyValue}
-            facilityTypeValue={checkforNull(this.props.facilityTypeValue)}
-            facilityId={checkforNull(this.props.facilityId)}
-            facilityName={checkforNull(this.props.facilityName)}
-            facilityAddress={checkforNull(this.props.facilityAddress)}
+            facilityTypeValue={this.props.inputData.facilityTypeValue}
+            facilityIdValue={this.props.inputData.facilityIdValue}
+            facilityNameValue={this.props.inputData.facilityNameValue}
+            facilityAddressValue={this.props.inputData.facilityAddressValue}
+            addValue={this.props.addValue}
           />
         </div>
         {searchResponseHasValues &&
@@ -161,3 +166,13 @@ export default class Search extends React.Component {
     )
   }
 }
+
+function mapStateToProps (state) {
+  return {
+    inputData: state.searchReducer.inputData
+  }
+}
+// function mapDispatchToProps (dispatch) {
+//   return bindActionCreators({addValue}, dispatch)
+// }
+export default connect(mapStateToProps, {addValue})(Search)

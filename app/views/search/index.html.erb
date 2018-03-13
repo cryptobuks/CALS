@@ -7,13 +7,15 @@
   	from: @from ? @from : 0,
   	size: @size ? @size : 5,
   	pageNumber: @page_number ? @page_number : 1,
-  	inputData: @input_data ? @input_data : '',
+  	#inputData: @input_data ? @input_data : '',
   	countyValue: @county_value ? @county_value : @user.county_name,
   	facilityTypeValue: @facility_type_value,
   	facilityId: @facility_id,
   	facilityName: @facility_name,
   	facilityAddress: @facility_address
   }) %>
+  <%= react_component("facility", { facility: @facility, children: @children, complaints: @complaints }, {prerender: false}) %>
   <%= javascript_pack_tag 'search' %>
+  <%#= javascript_pack_tag 'facility' %>
   <%= stylesheet_pack_tag 'search' %>
 </div>
