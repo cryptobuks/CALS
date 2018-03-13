@@ -26,6 +26,10 @@ export const checkArrayObjectPresence = (obj) => {
   return (obj && obj.length > 0) ? obj : null
 }
 
+export const isBoolean = (val) => {
+  return (typeof val === 'boolean' || val === 'true' || val === 'false')
+}
+
 export const removeLegalNameType = (nameTypes) => {
   delete nameTypes[2]
   return nameTypes

@@ -39,7 +39,7 @@ export default class Rfa01EditView extends React.Component {
       focusComponentName: '',
       activeNavLinkHref: '',
       application: this.props.application,
-      disableSumbit: checkFieldsForSubmit(this.props.application),
+      disableSubmit: !(checkFieldsForSubmit(this.props.application)),
       disableSave: !(checkForNameValidation(this.props.application.applicants)),
       errors: {}
     }
@@ -109,16 +109,13 @@ export default class Rfa01EditView extends React.Component {
     // const requiredFieldsErrors = this.validator.allFieldErrorsByRule('isRequired')
     // this.setState({disableSave: requiredFieldsErrors.size > 0})
     if (key === 'applicants') {
-      if (checkForNameValidation(value.toJS())) {
-        this.setState({
-          disableSave: false
-        })
-      } else {
-        this.setState({
-          disableSave: true
-        })
-      }
+      this.setState({
+        disableSave: !checkForNameValidation(value.toJS())
+      })
     }
+    this.setState({
+      disableSubmit: !checkFieldsForSubmit(this.state.application.set(key, value).toJS())
+    })
   }
 
   setFocusState (focusComponentName) {

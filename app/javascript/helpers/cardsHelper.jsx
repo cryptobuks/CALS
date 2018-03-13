@@ -1,5 +1,5 @@
 import Immutable from 'immutable'
-import {checkArrayObjectPresence} from './commonHelper'
+import {checkArrayObjectPresence, isBoolean} from './commonHelper'
 
 export const addCardAsJS = (inputArray, newCardFields) => {
   if (Immutable.Iterable.isIterable(inputArray)) {
@@ -117,8 +117,62 @@ export const checkForNameValidation = (applicantData) => {
 
 export const checkFieldsForSubmit = (application) => {
   let validationResult = false
-    // TODO: add check for validations
+  let isValidApplicants = true
+  if (typeof (application.applicants) !== 'undefined') {
+    for (let i = 0; i < application.applicants.length; i++) {
+      let isValidApplicant = isApplicantReadyForSubmit(application.applicants[i])
+      isValidApplicants = isValidApplicants && isValidApplicant
+    }
+  } else {
+    isValidApplicants = false
+  }
+  validationResult = isValidApplicants && isResidenceReadyForSubmit(application.residence)
+  // residence.addresses[0] is always residentail address
+  validationResult = validationResult && isAddressReadyForSubmit(application.residence.addresses[0])
   return validationResult
+}
+
+export const isApplicantReadyForSubmit = (applicant) => {
+  let isValidName = (
+    applicant.first_name.trim().length > 0 &&
+    applicant.last_name.trim().length > 0 &&
+    (typeof (applicant.date_of_birth) !== 'undefined' && applicant.date_of_birth.length > 0))
+  let isValidDLState = true
+  if (applicant.driver_license_number.trim().length > 0) {
+    isValidDLState = applicant.driver_license_state && Object.keys(applicant.driver_license_state).length > 0
+  }
+  let isValidPhone = false
+  if (typeof (applicant.phones) !== 'undefined' && applicant.phones) {
+    isValidPhone = true
+    for (let j = 0; j < applicant.phones.length; j++) {
+      isValidPhone = isValidPhone && applicant.phones[j].number.trim().length > 0
+    }
+  }
+  return (isValidName && isValidDLState && isValidPhone)
+}
+
+export const isResidenceReadyForSubmit = (residence) => {
+  if (typeof (residence) !== 'undefined' && residence) {
+    return (isBoolean(residence.physical_mailing_similar) &&
+(residence.residence_ownership && Object.keys(residence.residence_ownership).length) > 0 &&
+isBoolean(residence.weapon_in_home) &&
+isBoolean(residence.body_of_water_exist) &&
+isBoolean(residence.others_using_residence_as_mailing) &&
+Object.keys(residence.home_languages).length > 0)
+  } else {
+    return false
+  }
+}
+
+export const isAddressReadyForSubmit = (address) => {
+  if (typeof (address) !== 'undefined' && address) {
+    return (address.street_address.trim().length > 0 &&
+  address.zip.trim().length > 0 &&
+  address.city.trim().length > 0 &&
+  (address.state && Object.keys(address.state).length) > 0)
+  } else {
+    return false
+  }
 }
 
 export const arrayLastToFirst = (arraytoSort) => {
