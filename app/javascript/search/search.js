@@ -80,7 +80,7 @@ export default class Search extends React.Component {
   }
 
   changePage (pageNumber) {
-    const fromValue = this.state.sizeValue * (pageNumber - 1)
+    const fromValue = getFromValue(this.state.sizeValue, pageNumber)
     this.setState({
       pageNumber: pageNumber}, () => {
       this.searchApiCall(fromValue, this.state.sizeValue)
