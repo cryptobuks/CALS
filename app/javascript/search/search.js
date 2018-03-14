@@ -27,6 +27,7 @@ export default class Search extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this)
     this.removeCriteria = this.removeCriteria.bind(this)
     this.handleSearchCriteria = this.handleSearchCriteria.bind(this)
+    this.handleOnSubmit = this.handleOnSubmit.bind(this)
   }
 
   handleSearchCriteria (key, value) {
@@ -43,6 +44,14 @@ export default class Search extends React.Component {
     this.setState({
       inputData: newInputData
     })
+  }
+
+  handleOnSubmit (event) {
+    event.preventDefault()
+    if (this.state.inputData.facilityNameValue) {
+      this.handleSearchCriteria('facilityNameValue', this.state.inputData.facilityNameValue)
+    }
+    this.searchApiCall(0, this.state.sizeValue)
   }
 
   removeCriteria (value) {
@@ -105,6 +114,7 @@ export default class Search extends React.Component {
       <div className='search_page'>
         <div className='search-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <SearchInput
+            handleOnSubmit={this.handleOnSubmit}
             searchApiCall={this.searchApiCall}
             handleInputChange={this.handleInputChange}
             countyList={this.props.countyTypes}

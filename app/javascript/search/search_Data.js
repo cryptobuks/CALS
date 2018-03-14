@@ -4,11 +4,6 @@ import {resultsPerPage} from './common/commonUtils'
 import {dictionaryNilSelectValue, floatToNextInt, getFromValue} from 'helpers/commonHelper.jsx'
 
 export default class SearchDetails extends React.Component {
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.searchResults !== this.props.searchResults) {
-      this.props.handleSearchCriteria('facilityNameValue', this.props.inputData.facilityNameValue)
-    }
-  }
   render () {
     const searchCount = this.props.totalNoOfFacilities
     const noOfPages = floatToNextInt(searchCount, this.props.sizeValue)
