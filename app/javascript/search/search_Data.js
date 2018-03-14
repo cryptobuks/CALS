@@ -4,6 +4,11 @@ import {resultsPerPage} from './common/commonUtils'
 import {dictionaryNilSelectValue, floatToNextInt, getFromValue} from 'helpers/commonHelper.jsx'
 
 export default class SearchDetails extends React.Component {
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.searchResults !== this.props.searchResults) {
+      this.props.handleSearchCriteria('facilityNameValue', this.props.inputData.facilityNameValue)
+    }
+  }
   render () {
     const searchCount = this.props.totalNoOfFacilities
     const noOfPages = floatToNextInt(searchCount, this.props.sizeValue)
@@ -20,10 +25,10 @@ export default class SearchDetails extends React.Component {
       )
     }
     let searchFacilityName = null
-    if (this.props.inputData.facilityNameValue) {
+    if (this.props.searchCriteria.facilityNameValue) {
       searchFacilityName = (
         <p>Facility Name:
-        <span>{this.props.inputData.facilityNameValue}</span>
+        <span>{this.props.searchCriteria.facilityNameValue}</span>
         <span onClick={() => { this.props.removeCriteria('facilityNameValue') }} alt='cross-icon' className='cross-icon' />
         </p>
       )
@@ -87,5 +92,6 @@ SearchDetails.defaultProps = {
   totalNoOfFacilities: 0,
   pageNumber: 1,
   toggeledResult: true,
-  sizeValue: 10
+  sizeValue: 10,
+  facilityNameValue: ''
 }

@@ -18,13 +18,23 @@ export default class Search extends React.Component {
       totalNoOfResults: 0,
       searchResults: undefined,
       pageNumber: props.pageNumber,
-      sizeValue: props.size
+      sizeValue: props.size,
+      searchCriteria: {}
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.searchApiCall = this.searchApiCall.bind(this)
     this.changePage = this.changePage.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.removeCriteria = this.removeCriteria.bind(this)
+    this.handleSearchCriteria = this.handleSearchCriteria.bind(this)
+  }
+
+  handleSearchCriteria (key, value) {
+    let newSearchCriteria = this.state.searchCriteria
+    newSearchCriteria[key] = value
+    this.setState({
+      searchCriteria: newSearchCriteria
+    })
   }
 
   handleInputChange (key, value) {
@@ -107,6 +117,9 @@ export default class Search extends React.Component {
         </div>
         {searchResponseHasValues &&
           <SearchDetails
+            searchCriteria={this.state.searchCriteria}
+            handleSearchCriteria={this.handleSearchCriteria}
+            searchResults={this.state.searchResults}
             inputData={this.state.inputData}
             totalNoOfFacilities={this.state.totalNoOfResults}
             toggeledResult={this.state.isToggled}
