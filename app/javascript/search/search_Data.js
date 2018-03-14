@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {resultsPerPage} from './common/commonUtils'
+import SearchCriteria from './searchCriteria'
 import {dictionaryNilSelectValue, floatToNextInt, getFromValue} from 'helpers/commonHelper.jsx'
 
 export default class SearchDetails extends React.Component {
@@ -10,24 +11,6 @@ export default class SearchDetails extends React.Component {
     const fromValue = getFromValue(this.props.sizeValue, this.props.pageNumber)
     let disableNext = fromValue + this.props.sizeValue >= searchCount
     let disablePrevious = fromValue - this.props.sizeValue < 0
-    let searchFacilityId = null
-    if (this.props.inputData.facilityIdValue) {
-      searchFacilityId = (
-        <p>Facility ID:
-        <span>{this.props.inputData.facilityIdValue}</span>
-        <span id='rm_criteria' onClick={() => { this.props.removeCriteria('facilityIdValue') }} alt='cross-icon' className='cross-icon' />
-        </p>
-      )
-    }
-    let searchFacilityName = null
-    if (this.props.searchCriteria.facilityNameValue) {
-      searchFacilityName = (
-        <p>Facility Name:
-        <span>{this.props.searchCriteria.facilityNameValue}</span>
-        <span onClick={() => { this.props.removeCriteria('facilityNameValue') }} alt='cross-icon' className='cross-icon' />
-        </p>
-      )
-    }
     const facilityIterate = resultsPerPage.map((noOfResults) =>
       <option key={noOfResults} value={noOfResults}>{noOfResults}</option>
     )
@@ -59,8 +42,21 @@ export default class SearchDetails extends React.Component {
           <span>of</span>
           <span className='noOfPages'>{noOfPages}</span>
           <button id='next_button' disabled={disableNext} onClick={() => this.props.changePage(this.props.pageNumber + 1)} className='next btn btn-default'><p>&#8250;</p></button>
-          {searchFacilityId}
-          {searchFacilityName}
+          {this.props.searchCriteria.facilityIdValue &&
+            <SearchCriteria
+              criteriaName= {'Facility Id:'}
+              value= {this.props.searchCriteria.facilityIdValue}
+              id={'rm_criteria'}
+              onClick= {() => { this.props.removeCriteria('facilityIdValue') }}
+              alt={'cross-icon'}
+              className={'cross-icon'} />}
+          {this.props.searchCriteria.facilityNameValue &&
+            <SearchCriteria
+              criteriaName= {'Facility Name:'}
+              value= {this.props.searchCriteria.facilityNameValue}
+              onClick= {() => { this.props.removeCriteria('facilityNameValue') }}
+              alt={'cross-icon'}
+              className={'cross-icon'} />}
         </div>
         <div className='toggle_result col-xs-12 col-sm-3 col-md-3 col-lg-3'>
           <div className='pull-right'>

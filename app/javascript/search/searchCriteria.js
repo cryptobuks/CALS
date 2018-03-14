@@ -2,29 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const SearchCriteria = ({
-  criteria,
-  child,
-  schoolGrades,
-  stateTypes,
-  setParentState,
-  handleAddressChange
+  criteriaName,
+  value,
+  id,
+  onClick,
+  alt,
+  className
 }) => (
-  <p>Facility Name:
-  <span>{this.props.searchCriteria.facilityNameValue}</span>
-  <span onClick={() => { this.props.removeCriteria('facilityNameValue') }} alt='cross-icon' className='cross-icon' />
+  <p>{criteriaName}
+    <span>{value}</span>
+    <span id={id} onClick={onClick} alt={alt} className={className} />
   </p>
 )
 
 SearchCriteria.propTypes = {
-  // index: PropTypes.number,
-  // schoolGrades: PropTypes.array,
-  // stateTypes: PropTypes.array,
-  // child: PropTypes.object,
-  // setParentState: PropTypes.func,
-  // handleAddressChange: PropTypes.func
+  value: PropTypes.string
 }
 
 SearchCriteria.defaultProps = {
-  // index: 0
+  value: ''
 }
 export default SearchCriteria

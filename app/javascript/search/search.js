@@ -51,11 +51,15 @@ export default class Search extends React.Component {
     if (this.state.inputData.facilityNameValue) {
       this.handleSearchCriteria('facilityNameValue', this.state.inputData.facilityNameValue)
     }
+    if (this.state.inputData.facilityIdValue) {
+      this.handleSearchCriteria('facilityIdValue', this.state.inputData.facilityIdValue)
+    }
     this.searchApiCall(0, this.state.sizeValue)
   }
 
   removeCriteria (value) {
     this.handleInputChange(value, '')
+    this.handleSearchCriteria(value, '')
     this.searchApiCall(0, this.state.sizeValue)
   }
 
