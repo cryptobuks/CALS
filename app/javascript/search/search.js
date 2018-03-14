@@ -132,8 +132,6 @@ export default class Search extends React.Component {
         {searchResponseHasValues &&
           <SearchDetails
             searchCriteria={this.state.searchCriteria}
-            handleSearchCriteria={this.handleSearchCriteria}
-            searchResults={this.state.searchResults}
             inputData={this.state.inputData}
             totalNoOfFacilities={this.state.totalNoOfResults}
             toggeledResult={this.state.isToggled}

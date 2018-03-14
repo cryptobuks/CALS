@@ -84,5 +84,6 @@ SearchDetails.defaultProps = {
   pageNumber: 1,
   toggeledResult: true,
   sizeValue: 10,
-  facilityNameValue: ''
+  facilityNameValue: '',
+  facilityIdValue: ''
 }
