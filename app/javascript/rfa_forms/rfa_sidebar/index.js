@@ -46,13 +46,13 @@ export default class RfaSideBar extends React.Component {
               <Button
                 id={this.props.saveProgressId}
                 disabled={this.props.disableSave}
-                label={this.props.saveProgressLabel}
+                label='Save Progress'
                 onClick={this.props.onSaveProgressClick} />
 
               <Button
                 id={this.props.submitId}
                 disabled={this.props.disableSubmit}
-                label={this.props.submitLabel}
+                label='Submit'
                 onClick={this.props.onSubmitClick} />
             </div>
           </Affix>

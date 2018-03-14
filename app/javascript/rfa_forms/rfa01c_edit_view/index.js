@@ -4,7 +4,7 @@ import _ from 'lodash'
 import DesiredChildCardGroup from 'rfa_forms/rfa01c_edit_view/desiredChildCardGroup'
 import {CountyUseOnlyCard} from 'components/rfa_forms/countyUseOnlyCard'
 import {fetchRequest} from 'helpers/http'
-import {checkForNameValidation} from 'helpers/cardsHelper.jsx'
+import {checkForNameValidation, checkFieldsForSubmit} from 'helpers/cardsHelper.jsx'
 import Validator from 'helpers/validator'
 import CardsGroupLayout from 'components/common/cardsGroupLayout'
 import PageTemplate from 'components/common/pageTemplate'
@@ -14,7 +14,9 @@ import Button from 'components/common/button'
 export default class Rfa01cList extends React.Component {
   constructor (props) {
     super(props)
-    this.submitForm = this.submitForm.bind(this)
+    this.saveProgress = this.saveProgress.bind(this)
+    this.submit = this.submit.bind(this)
+    this.fetchToRails = this.fetchToRails.bind(this)
     this.getFocusClassName = this.getFocusClassName.bind(this)
     this.setApplicationState = this.setApplicationState.bind(this)
     this.setFocusState = this.setFocusState.bind(this)
@@ -25,6 +27,8 @@ export default class Rfa01cList extends React.Component {
 
     this.state = {
       focusComponentName: '',
+      disableSubmit: true, //! (checkFieldsForSubmit(this.props.rfa_a01_application)),
+      disableSave: !(checkForNameValidation(this.props.rfa_a01_application.applicants)),
       application: this.props.rfa_c1_application,
       rfa_a01_application: this.props.rfa_a01_application,
       activeNavLinkId: this.props.rfa_c1_application.id,
@@ -42,10 +46,18 @@ export default class Rfa01cList extends React.Component {
     this.setState({errors: currentErrors})
   }
 
-  submitForm () {
+  saveProgress () {
     let url = '/rfa/a01/' + this.state.rfa_a01_application.id + '/c01/' + this.state.application.id
-    let params = this.state.application
-    fetchRequest(url, 'PUT', params)
+    this.fetchToRails(url, 'PUT', this.state.application)
+  }
+
+  submit () {
+    const url = '/rfa/a01/submit'
+    this.fetchToRails(url, 'POST', this.state.rfa_a01_application)
+  }
+
+  fetchToRails (url, method, body) {
+    fetchRequest(url, method, body)
       .then((response) => {
         return response.json()
       }).then((data) => {
@@ -59,9 +71,9 @@ export default class Rfa01cList extends React.Component {
             errors: data
           })
         }
-      }).catch((error) => {
+      }).catch((errors) => {
         this.setState({
-          errors: error
+          errors: errors
         })
       })
   }
@@ -70,6 +82,9 @@ export default class Rfa01cList extends React.Component {
     let newState = Immutable.fromJS(this.state)
     newState = newState.setIn(['application', key], value)
     this.setState(newState.toJS())
+    this.setState({
+      disableSubmit: true //! checkFieldsForSubmit(newState.toJS())
+    })
   }
 
   setFocusState (focusComponentName) {
@@ -94,10 +109,12 @@ export default class Rfa01cList extends React.Component {
     return (
       <PageTemplate
         headerLabel='Resource Family Application - Confidential (RFA O1C)'
-        buttonId='desiredChildCardsaveProgress'
-        buttonLabel='Save Progress'
-        buttonTextAlignment='right'
-        onButtonClick={this.submitForm}
+        saveProgressId='desiredChildCardsaveProgress'
+        onSaveProgressClick={this.saveProgress}
+        disableSave={this.state.disableSave}
+        submitId={'submitApplication' + this.state.rfa_a01_application.id}
+        disableSubmit={this.state.disableSubmit}
+        onSubmitClick={this.submit}
         rfa01aApplicationId={this.state.rfa_a01_application.id}
         rfa01cForms={this.state.rfa_a01_application.rfa1c_forms}
         applicants={this.state.rfa_a01_application.applicants}

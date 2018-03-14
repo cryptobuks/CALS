@@ -143,12 +143,10 @@ export default class Rfa01EditView extends React.Component {
       <PageTemplate
         headerLabel='Resource Family Application - Confidential (RFA 01A)'
         saveProgressId='saveProgress'
-        saveProgressLabel='Save Progress'
         onSaveProgressClick={this.saveProgress}
         disableSave={this.state.disableSave}
         submitId={'submitApplication' + stateApplicationJS.id}
         disableSubmit={this.state.disableSubmit}
-        submitLabel='Submit'
         onSubmitClick={this.submit}
         rfa01aApplicationId={stateApplicationJS.id}
         onRfa01AForm

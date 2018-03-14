@@ -42,24 +42,15 @@ const PageTemplate = ({
           handleNavLinkClick={handleNavLinkClick}
           saveProgressId={saveProgressId}
           disableSave={disableSave}
-          saveProgressLabel={saveProgressLabel}
           onSaveProgressClick={onSaveProgressClick}
           submitId={submitId}
           disableSubmit={disableSubmit}
-          submitLabel={submitLabel}
           onSubmitClick={onSubmitClick} />
 
       </div>
       <div className='col-xs-9 col-sm-9 col-md-9 col-lg-9'>
         <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <PageHeader headerLabel={headerLabel} />
-
-          {/* <Button
-            id={buttonId}
-            disabled={disableSave}
-            label={buttonLabel}
-            textAlignment={buttonTextAlignment}
-            onClick={onButtonClick} /> */}
         </div>
         <ApiErrorMessages errors={errors} />
         {children}

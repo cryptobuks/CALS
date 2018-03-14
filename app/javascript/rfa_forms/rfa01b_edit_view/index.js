@@ -13,7 +13,8 @@ import RfaSideBar from 'rfa_forms/rfa_sidebar/index.js'
 import {CountyUseOnlyCard} from 'components/rfa_forms/countyUseOnlyCard.js'
 import {getDictionaryId, dictionaryNilSelect, checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
 import CardsGroupLayout from 'components/common/cardsGroupLayout.js'
-import {addCardAsJS, getFocusClassName, removeCard} from 'helpers/cardsHelper.jsx'
+import {addCardAsJS, getFocusClassName, removeCard, checkForNameValidation, checkFieldsForSubmit} from 'helpers/cardsHelper.jsx'
+
 import Validator from 'helpers/validator'
 import PageTemplate from 'components/common/pageTemplate'
 import {disclosureDefaults} from 'constants/defaultFields'
@@ -21,7 +22,9 @@ import {disclosureDefaults} from 'constants/defaultFields'
 export default class Rfa01bList extends React.Component {
   constructor (props) {
     super(props)
-    this.submitForm = this.submitForm.bind(this)
+    this.saveProgress = this.saveProgress.bind(this)
+    this.submit = this.submit.bind(this)
+    this.fetchToRails = this.fetchToRails.bind(this)
     this.getFocusClassName = this.getFocusClassName.bind(this)
     this.setFocusState = this.setFocusState.bind(this)
     this.setApplicationState = this.setApplicationState.bind(this)
@@ -36,6 +39,8 @@ export default class Rfa01bList extends React.Component {
       application: this.props.rfa_b01_application,
       activeNavLinkId: this.props.rfa_b01_application.id,
       rfa_a01_application: this.props.rfa_a01_application,
+      disableSubmit: true, //! checkFieldsForSubmit(this.props.rfa_a01_application),
+      disableSave: !(checkForNameValidation(this.props.rfa_a01_application.applicants)),
       disclosureInstructionsDisplay: null,
       privacyStatementDisplay: null,
       focusComponentName: '',
@@ -55,9 +60,18 @@ export default class Rfa01bList extends React.Component {
     this.setState({errors: currentErrors})
   }
 
-  submitForm () {
+  saveProgress () {
     let url = '/rfa/b01/' + this.props.application_id
-    fetchRequest(url, 'PUT', this.state.application)
+    this.fetchToRails(url, 'PUT', this.state.application)
+  }
+
+  submit () {
+    const url = '/rfa/a01/submit'
+    this.fetchToRails(url, 'POST', this.state.rfa_a01_application)
+  }
+
+  fetchToRails (url, method, body) {
+    fetchRequest(url, method, body)
       .then((response) => {
         return response.json()
       }).then((data) => {
@@ -90,6 +104,9 @@ export default class Rfa01bList extends React.Component {
     let newState = Immutable.fromJS(this.state)
     newState = newState.setIn(['application', key], value)
     this.setState(newState.toJS())
+    this.setState({
+      disableSubmit: true//! checkFieldsForSubmit(newState.toJS())
+    })
   }
 
   setDisplayState (key, value) {
@@ -124,10 +141,12 @@ export default class Rfa01bList extends React.Component {
     return (
       <PageTemplate
         headerLabel='Resource Family Application - Confidential (RFA 01B)'
-        buttonId='saveProgress'
-        buttonLabel='Save Progress'
-        buttonTextAlignment='right'
-        onButtonClick={this.submitForm}
+        saveProgressId='saveProgress'
+        onSaveProgressClick={this.saveProgress}
+        disableSave={this.state.disableSave}
+        submitId={'submitApplication' + this.state.rfa_a01_application.id}
+        disableSubmit={this.state.disableSubmit}
+        onSubmitClick={this.submit}
         rfa01aApplicationId={this.state.rfa_a01_application.id}
         rfa01cForms={this.state.rfa_a01_application.rfa1c_forms}
         applicants={this.state.rfa_a01_application.applicants}
