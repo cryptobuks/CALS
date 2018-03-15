@@ -39,8 +39,8 @@ export default class Facility extends React.Component {
         <div className='body_cwds col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <FacilityDetails facilityData={propsData} />
           <FacilityAddress facilityData={propsData} />
-          {childrenResults && <FacilityChildren facilityData={childrenResults} />}
-          {complaintsResults && <FacilityComplaints facilityData={complaintsResults} />}
+          {childrenResults && <FacilityChildren facilityData={childrenResults.children} />}
+          {complaintsResults && <FacilityComplaints facilityData={complaintsResults.complaints} />}
         </div>
       </div>
     )
