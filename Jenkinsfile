@@ -92,7 +92,7 @@ def getNewTagNumber(baseTagNumber, sprints) {
     return newTagNumber
 }
 
-node {
+node('cals-slave') {
     checkout scm
     env.DISABLE_SPRING = 1
 
