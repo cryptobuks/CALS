@@ -6,12 +6,13 @@ import GridOuterLayout from './common/gridOuterLayout.js'
 import {checkForNA, checkValueForNull, respectiveNumberOrNA, respectiveFullAddressOrNA,
   primaryPhoneRelation, alternativePhoneRelation, physicalAddressType} from './common/commonUtils'
 
-export default class SearchGrid extends React.Component {
-  render () {
-    const searchResults = this.props.searchResults
-    const gridResult = searchResults.map((result, index) => {
-      return (
-        <div key={index} className='grid_view_inner col-xs-12 col-sm-12 col-md-12 col-lg-12' >
+const SearchGrid = ({
+  searchResults
+}) => (
+  <div className='grid_view col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+    {(
+      searchResults.map((result, index) => {
+        return (<div key={index} className='grid_view_inner col-xs-12 col-sm-12 col-md-12 col-lg-12' >
           <div className='col-xs-12 col-sm-1 col-md-1 col-lg-1'>
             <a href={urlPrefixHelper('/facilities/' + result.id)}><div className='home-icon' /></a>
           </div>
@@ -62,16 +63,11 @@ export default class SearchGrid extends React.Component {
                 value={respectiveNumberOrNA(result.phones, alternativePhoneRelation)} />
             </GridOuterLayout>
           </div>
-        </div>
-      )
-    })
-    return (
-      <div className='grid_view col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-        {gridResult}
-      </div>
-    )
-  }
-}
+        </div>)
+      })
+    )}
+  </div>
+)
 
 SearchGrid.propTypes = {
   searchResults: PropTypes.array.isRequired
@@ -80,3 +76,5 @@ SearchGrid.propTypes = {
 SearchGrid.defaultProps = {
   searchResults: []
 }
+
+export default SearchGrid
