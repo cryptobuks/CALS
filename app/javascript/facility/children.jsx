@@ -25,7 +25,7 @@ const Children = ({
           </tr>
         </thead>
         <tbody >
-          {facilityData.map((child) => {
+          {facilityData.children.map((child) => {
             return (
               <tr key={child.id} >
                 <td data-label='id'> {child.id} </td>

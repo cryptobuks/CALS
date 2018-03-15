@@ -10,6 +10,9 @@ describe('Render Search Data', function () {
     fromValue: 0,
     sizeValue: 5,
     pageNumber: 4,
+    searchCriteria: {
+      facilityIdValue: 'home'
+    },
     searchData: [
       {
         assigned_worker: 'Kari Gutierrez',

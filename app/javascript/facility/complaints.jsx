@@ -23,7 +23,7 @@ const Complaints = ({
           </tr>
         </thead>
         <tbody >
-          {facilityData.map((complaint) => {
+          {facilityData.complaints.map((complaint) => {
             return (
               <tr key={complaint.id} >
                 <td data-label='id'> {complaint.id} </td>
