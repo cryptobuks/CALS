@@ -26,16 +26,8 @@ export default class Search extends React.Component {
     this.changePage = this.changePage.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.removeCriteria = this.removeCriteria.bind(this)
-    this.handleSearchCriteria = this.handleSearchCriteria.bind(this)
     this.handleOnSubmit = this.handleOnSubmit.bind(this)
-  }
-
-  handleSearchCriteria (key, value) {
-    let newSearchCriteria = this.state.searchCriteria
-    newSearchCriteria[key] = value
-    this.setState({
-      searchCriteria: newSearchCriteria
-    })
+    this.handleSearchCriteria = this.handleSearchCriteria.bind(this)
   }
 
   handleInputChange (key, value) {
@@ -43,6 +35,14 @@ export default class Search extends React.Component {
     newInputData[key] = value
     this.setState({
       inputData: newInputData
+    })
+  }
+
+  handleSearchCriteria (key, value) {
+    let newSearchCriteria = this.state.searchCriteria
+    newSearchCriteria[key] = value
+    this.setState({
+      searchCriteria: newSearchCriteria
     })
   }
 
@@ -54,13 +54,13 @@ export default class Search extends React.Component {
     if (this.state.inputData.facilityIdValue) {
       this.handleSearchCriteria('facilityIdValue', this.state.inputData.facilityIdValue)
     }
-    this.searchApiCall(0, this.state.sizeValue)
+    this.searchApiCall(0, 10)
   }
 
   removeCriteria (value) {
     this.handleInputChange(value, '')
-    this.handleSearchCriteria(value, '')
     this.searchApiCall(0, this.state.sizeValue)
+    this.handleSearchCriteria(value, '')
   }
 
   handleToggle () {
@@ -119,7 +119,6 @@ export default class Search extends React.Component {
         <div className='search-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <SearchInput
             handleOnSubmit={this.handleOnSubmit}
-            searchApiCall={this.searchApiCall}
             handleInputChange={this.handleInputChange}
             countyList={this.props.countyTypes}
             facilityTypes={this.props.facilityTypes}
@@ -132,7 +131,6 @@ export default class Search extends React.Component {
         {searchResponseHasValues &&
           <SearchDetails
             searchCriteria={this.state.searchCriteria}
-            inputData={this.state.inputData}
             totalNoOfFacilities={this.state.totalNoOfResults}
             toggeledResult={this.state.isToggled}
             sizeValue={this.state.sizeValue}
@@ -140,7 +138,6 @@ export default class Search extends React.Component {
             searchApiCall={this.searchApiCall}
             handleToggle={this.handleToggle}
             changePage={this.changePage}
-            handleInputChange={this.handleInputChange}
             removeCriteria={this.removeCriteria} />}
         <div className='result-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           {this.state.isToggled && <SearchGrid searchResults={this.state.searchResults} />}
