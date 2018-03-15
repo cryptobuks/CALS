@@ -94,7 +94,6 @@ SearchInput.propTypes = {
   sizeValue: PropTypes.number,
   handleInputChange: PropTypes.func
 }
-
 SearchInput.defaultProps = {
   countyValue: '',
   facilityTypeValue: '',

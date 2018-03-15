@@ -6,23 +6,10 @@ import FacilityComplaints from './complaints.jsx'
 import {PageHeader} from 'react-wood-duck'
 import Button from 'components/common/button'
 import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
+import BreadCrumb from 'components/common/breadCrumb'
 import './stylesheets/facility.scss'
 
 export default class Facility extends React.Component {
-  handleNavigation () {
-    const url = '/search'
-    window.location.href = urlPrefixHelper(url)
-  }
-
-  buttonlink () {
-    return (
-      <Button
-        id='backButton'
-        label='Back'
-        onClick={this.handleNavigation.bind(this)}
-      />
-    )
-  }
   render () {
     const propsData = this.props.facility
     const childrenResults = this.props.children
@@ -31,7 +18,11 @@ export default class Facility extends React.Component {
       <div className='main_page'>
         <PageHeader
           pageTitle={this.props.facility.name}
-          button={this.buttonlink()}
+          button={null}
+        />
+        <BreadCrumb
+          breadCrumbSign=">"
+          children={<a href={urlPrefixHelper('/search')}> Facility Search</a>}
         />
         <div className='header_cwds col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <div className='header-logo' />

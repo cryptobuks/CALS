@@ -6,6 +6,8 @@ import SearchNotFound from './search_notfount'
 import SearchDetails from './search_Data'
 import {fetchRequest} from '../helpers/http'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
+import {PageHeader} from 'react-wood-duck'
+import BreadCrumb from 'components/common/breadCrumb'
 import {checkForValue} from 'search/common/commonUtils'
 import {getFromValue} from 'helpers/commonHelper.jsx'
 
@@ -116,6 +118,11 @@ export default class Search extends React.Component {
 
     return (
       <div className='search_page'>
+        <PageHeader
+          pageTitle='Facility Search'
+          button={null}
+        />
+        <BreadCrumb />
         <div className='search-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <SearchInput
             handleOnSubmit={this.handleOnSubmit}
