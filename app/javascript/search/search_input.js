@@ -2,36 +2,9 @@ import React from 'react'
 import InputDataBlock from './common/inputDataBlock.js'
 import {InputComponent} from 'components/common/inputFields'
 import {dictionaryNilSelectValue} from 'helpers/commonHelper.jsx'
-// import {userDefaults} from 'constants/defaultFields.js'
+import PropTypes from 'prop-types'
 
 export default class SearchInput extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      searchId: {
-        countyValue: this.props.countyValue,
-        facilityTypeValue: this.props.facilityTypeValue,
-        facilityIdValue: this.props.facilityId,
-        facilityNameValue: this.props.facilityName,
-        facilityAddressValue: this.props.facilityAddress
-      }
-    }
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange (key, value) {
-    let newSearchId = this.state.searchId
-    newSearchId[key] = value
-    this.setState({
-      searchId: newSearchId
-    })
-  }
-
-  sendSearchInput (event) {
-    event.preventDefault()
-    const finalQuery = (this.state.searchId.countyValue + ',' + this.state.searchId.facilityTypeValue + ',' + this.state.searchId.facilityIdValue + ',' + this.state.searchId.facilityNameValue + ',' + this.state.searchId.facilityAddressValue)
-    this.props.searchApiCall(finalQuery, this.props.fromValue, this.props.sizeValue)
-  }
   render () {
     const facilityTypes = this.props.facilityTypes
     const countyList = this.props.countyList
@@ -43,14 +16,14 @@ export default class SearchInput extends React.Component {
     )
     return (
       <div className='search_input col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-        <form onSubmit={this.sendSearchInput.bind(this)}>
+        <form onSubmit={(event) => { event.preventDefault(); this.props.searchApiCall(0, this.props.sizeValue) }}>
           <div className='field_input col-xs-12 col-sm-11 col-md-11 col-lg-11'>
             <div className='input_data col-xs-12 col-sm-2 col-md-2 col-lg-2'>
               <div>
                 <span>County</span>
               </div>
               <div>
-                <select className='searchSelect' id='county_select' value={this.state.searchId.countyValue} onChange={(event) => this.handleChange('countyValue', dictionaryNilSelectValue(event.target.options))}>
+                <select className='searchSelect' id='county_select' value={this.props.countyValue} onChange={(event) => this.props.handleInputChange('countyValue', dictionaryNilSelectValue(event.target.options))}>
                   <option value=' ' />
                   {countyIterate}
                 </select>
@@ -61,7 +34,7 @@ export default class SearchInput extends React.Component {
                 <span>Facility Type</span>
               </div>
               <div>
-                <select className='searchSelect' id='facility_select' value={this.state.searchId.facilityTypeValue} onChange={(event) => this.handleChange('facilityTypeValue', dictionaryNilSelectValue(event.target.options))}>
+                <select className='searchSelect' id='facility_select' value={this.props.facilityTypeValue} onChange={(event) => this.props.handleInputChange('facilityTypeValue', dictionaryNilSelectValue(event.target.options))}>
                   <option value='' />
                   {facilityIterate}
                 </select>
@@ -72,30 +45,30 @@ export default class SearchInput extends React.Component {
               columnWidth={2}>
               <InputComponent id='facilityIdValue'
                 fieldClassName='form-control'
-                value={this.state.searchId.facilityIdValue}
+                value={this.props.facilityIdValue}
                 placeholder='Enter Facility ID #'
                 type='text'
-                onChange={(event) => this.handleChange('facilityIdValue', event.target.value)} />
+                onChange={(event) => this.props.handleInputChange('facilityIdValue', event.target.value)}/>
             </InputDataBlock>
             <InputDataBlock
               title='Facility Name'
               columnWidth={3}>
               <InputComponent id='facilityNameValue'
                 fieldClassName='form-control'
-                value={this.state.searchId.facilityNameValue}
+                value={this.props.facilityNameValue}
                 placeholder='Enter Facility Name'
                 type='text'
-                onChange={(event) => this.handleChange('facilityNameValue', event.target.value)} />
+                onChange={(event) => this.props.handleInputChange('facilityNameValue', event.target.value)} />
             </InputDataBlock>
             <InputDataBlock
               title='Facility Address'
               columnWidth={3}>
               <InputComponent id='facilityAddressValue'
                 fieldClassName='form-control'
-                value={this.state.searchId.facilityAddressValue}
+                value={this.props.facilityAddressValue}
                 placeholder='Enter Facility Address'
                 type='text'
-                onChange={(event) => this.handleChange('facilityAddressValue', event.target.value)} />
+                onChange={(event) => this.props.handleInputChange('facilityAddressValue', event.target.value)} />
             </InputDataBlock>
           </div>
           <div className='field_search col-xs-12 col-sm-1 col-md-1 col-lg-1'>
@@ -108,12 +81,23 @@ export default class SearchInput extends React.Component {
     )
   }
 }
+
+SearchInput.propTypes = {
+  countyValue: PropTypes.string,
+  facilityTypeValue: PropTypes.string,
+  facilityIdValue: PropTypes.string,
+  facilityNameValue: PropTypes.string,
+  facilityAddressValue: PropTypes.string,
+  sizeValue: PropTypes.number,
+  searchApiCall: PropTypes.func,
+  handleInputChange: PropTypes.func
+}
+
 SearchInput.defaultProps = {
   countyValue: '',
   facilityTypeValue: '',
-  facilityId: '',
-  facilityName: '',
-  facilityAddress: '',
-  fromValue: 0,
-  sizeValue: 5
+  facilityIdValue: '',
+  facilityNameValue: '',
+  facilityAddressValue: '',
+  sizeValue: 10
 }

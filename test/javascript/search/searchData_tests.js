@@ -9,7 +9,7 @@ describe('Render Search Data', function () {
     totalNoOfFacilities: 64,
     fromValue: 0,
     sizeValue: 5,
-    pageNumber: 1,
+    pageNumber: 4,
     searchData: [
       {
         assigned_worker: 'Kari Gutierrez',
@@ -40,17 +40,13 @@ describe('Render Search Data', function () {
     ]
   }
 
-  const spyHandleChange = jasmine.createSpy('handleChange')
   const spyHandleToggle = jasmine.createSpy('handleToggle')
-  const spyPreviousButton = jasmine.createSpy('backToPreviousPage')
-  const spyNextButton = jasmine.createSpy('changeToNextPage')
+  const spyChangePage = jasmine.createSpy('changePage')
   const spySearchInput = jasmine.createSpy('searchApiCall')
 
   const dataCompRendered = mount(<SearchData {...props}
-    handleChange={spyHandleChange}
     handleToggle={spyHandleToggle}
-    backToPreviousPage={spyPreviousButton}
-    changeToNextPage={spyNextButton}
+    changePage={spyChangePage}
     totalNoOfFacilities={64}
     toggeledResult={true}
     searchApiCall={spySearchInput} />)
@@ -62,7 +58,7 @@ describe('Render Search Data', function () {
   it('verify number of facilities dropdown after component render', () => {
     let dropDownFacilities = dataCompRendered.find('.search_dropdown')
     dropDownFacilities.simulate('change', {target: {options: {'5': {id: '5', value: '5'}, selectedIndex: 5}}})
-    expect(spyHandleChange).toHaveBeenCalledWith('5')
+    expect(spySearchInput).toHaveBeenCalledWith(0, 5)
   })
 
   it('Verify number of pages', () => {
@@ -70,18 +66,18 @@ describe('Render Search Data', function () {
   })
 
   it('Verify page number', () => {
-    expect(dataCompRendered.find('.page_number').props().children).toBe(1)
+    expect(dataCompRendered.find('.page_number').props().children).toBe(4)
   })
 
   it('clicks previous on pagination', () => {
     let previousButton = dataCompRendered.find('.previous')
     previousButton.simulate('click')
-    expect(spyPreviousButton).toHaveBeenCalledWith(0, 5, 1)
+    expect(spyChangePage).toHaveBeenCalledWith(3)
   })
 
   it('clicks next on pagination', () => {
     let nextButton = dataCompRendered.find('.next')
     nextButton.simulate('click')
-    expect(spyNextButton).toHaveBeenCalledWith(0, 5, 1)
+    expect(spyChangePage).toHaveBeenCalledWith(3)
   })
 })
