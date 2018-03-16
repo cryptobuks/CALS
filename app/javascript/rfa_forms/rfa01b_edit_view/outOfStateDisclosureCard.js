@@ -4,7 +4,7 @@ import Immutable from 'immutable'
 import YesNoRadioComponent from 'components/common/yesNoFields'
 import CardLayout from 'components/common/cardLayout'
 import MultiSelect from 'components/common/multiSelect'
-import {Rfa01bOutOfStateDisclosureCardText} from 'constants/rfaText'
+import {Rfa01bOutOfStateDisclosureCardText, RfaCommon} from 'constants/rfaText'
 import {getDictionaryId, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
 
 const otherStatesOfLivingDefaults = Object.freeze({
@@ -37,7 +37,7 @@ export default class OutOfStateDisclosureCard extends React.Component {
         {livedInOtherState === 'true'
           ? <div>
             <MultiSelect
-              label={Rfa01bOutOfStateDisclosureCardText.identifyStates}
+              label={Rfa01bOutOfStateDisclosureCardText.identifyStates + RfaCommon.requiredIndicator}
               values={this.props.otherStatesOfLiving}
               optionList={this.props.stateTypes}
               className='outOfStateDisclosureCard'

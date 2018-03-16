@@ -5,7 +5,6 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'react-wood-duck/dist/styles/application.scss';
-@import 'react-select/dist/react-select.css';
 @import './sidebar.scss';
 
 .active-bar {
@@ -13,7 +12,7 @@
 }
 
 .spacing {
-	white-space: nowrap;
+  white-space: nowrap;
 }
 
 select:focus {
