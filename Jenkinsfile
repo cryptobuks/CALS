@@ -105,13 +105,8 @@ node('cals-slave') {
     try {
         stage('Install Dependencies') {
             curStage = 'dependencies'
-            echo 'which ruby'
-            sh 'which ruby'
-            echo 'which bundler'
-            sh 'which bundler'
-            echo 'which bundle'
-            sh 'which bundle'
-            sh 'env'
+            sh 'bundle install'
+            sh 'yarn install'
         }
         stage('Lint') {
             curStage = 'lint'
