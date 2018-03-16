@@ -85,5 +85,12 @@ describe('Verify californiaCriminalBackground card', function () {
       cardComponent.simulate('change', {target: {value: 'testing'}})
       expect(setParentStateSpy).toHaveBeenCalledWith('convicted_in_california_disclosures', [ Object({ offense: 'testing', offense_city: '', offense_state: Object({ value: 'California', id: 'CA' }), offense_date: '', when_offense_happen: '', offense_details: '' }) ])
     })
+    it('check required fields indicator', () => {
+      let componentHtml = componentMountWithoutDisclosures.html()
+      expect(componentHtml).toContain('What was the offense? (required)')
+      expect(componentHtml).toContain('Where did the offense happen? (City, State, Country or other location information) (required)')
+      expect(componentHtml).toContain('When did the offense happen? (required)')
+      expect(componentHtml).toContain('Explain what happened. (required)')
+    })
   })
 })

@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  cals:
+    build: .
+    # command:
+    ports:
+      - 3000:3000
+    environment:
+      BASE_SEARCH_API_URL: 'https://dora.preint.cwds.io'
+      CALS_API_URL: 'https://calsapi.preint.cwds.io'
+      GEO_SERVICE_URL: 'https://geo.preint.cwds.io'
+      AUTHENTICATION_API_BASE_URL: 'https://web.preint.cwds.io/perry'
+      RAILS_SERVE_STATIC_FILES: 'true'
+      RAILS_RELATIVE_URL_ROOT: '/cals'
+      REDIS_HOST: 'redis'
+      REDIS_PORT: 6379
+    links:
+      - redis
+    stdin_open: true
+    tty: true
+
+  redis:
+    image: 'redis:3.0'
+    ports:
+      - 6379:6379
