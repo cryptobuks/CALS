@@ -18,7 +18,8 @@ export default class RfaSideBar extends React.Component {
 
       <div className='col-sm-12'>
         <div className='nav-menu col-sm-10'>
-          <Affix>
+          {/* affixStyles are in PX by default */}
+          <Affix affixStyle={{top: 80}}>
             <div className='nav-menu'>
               <A01SideBar
                 isNavLinkActive={this.props.isNavLinkActive}

@@ -21,8 +21,7 @@ export default class Facility extends React.Component {
           button={null}
         />
         <BreadCrumb
-          breadCrumbSign=">"
-          children={<a href={urlPrefixHelper('/search')}> Facility Search</a>}
+          navigationElements={[<a href={urlPrefixHelper('/search')}>Facility Search</a>]}
         />
         <div className='header_cwds col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <div className='header-logo' />
