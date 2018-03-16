@@ -111,8 +111,7 @@ node('cals-slave') {
             sh 'which bundler'
             echo 'which bundle'
             sh 'which bundle'
-            sh 'bundle install'
-            sh 'yarn install'
+            sh 'env'
         }
         stage('Lint') {
             curStage = 'lint'
