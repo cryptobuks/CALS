@@ -26,6 +26,13 @@ const PageTemplate = ({
 }) => (
   <div className='main_page'>
     <LogoHeader />
+    <PageHeader
+      headerLabel={headerLabel}
+      buttonId={buttonId}
+      disableSave={disableSave}
+      buttonLabel={buttonLabel}
+      buttonTextAlignment={buttonTextAlignment}
+      onButtonClick={onButtonClick} />
     <div className='form-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
       <div className='left-content col-xs-3 col-sm-3 col-md-3 col-lg-3'>
         <RfaSideBar
@@ -40,14 +47,7 @@ const PageTemplate = ({
       </div>
       <div className='col-xs-9 col-sm-9 col-md-9 col-lg-9'>
         <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-          <PageHeader headerLabel={headerLabel} />
 
-          <Button
-            id={buttonId}
-            disabled={disableSave}
-            label={buttonLabel}
-            textAlignment={buttonTextAlignment}
-            onClick={onButtonClick} />
         </div>
         <ApiErrorMessages errors={errors} />
         {children}
