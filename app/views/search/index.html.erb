@@ -4,15 +4,9 @@
   	landingUrl: @landingPage_url,
   	countyTypes: @dictionaries[:county_types],
   	facilityTypes: @dictionaries[:facility_types],
-  	from: @from ? @from : 0,
-  	size: @size ? @size : 5,
+  	size: @size ? @size : 10,
   	pageNumber: @page_number ? @page_number : 1,
-  	inputData: @input_data ? @input_data : '',
-  	countyValue: @county_value ? @county_value : @user.county_name,
-  	facilityTypeValue: @facility_type_value,
-  	facilityId: @facility_id,
-  	facilityName: @facility_name,
-  	facilityAddress: @facility_address
+  	inputData: @input_data ? @input_data : {},
   }) %>
   <%= javascript_pack_tag 'search' %>
   <%= stylesheet_pack_tag 'search' %>

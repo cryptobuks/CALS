@@ -25,7 +25,7 @@ class FacilitiesController < CalsBaseController
     params_dictionary = {}
     parsed_post_data.each do |k, v|
       if k == 'addresses.address.street_address'
-        params_dictionary[k] = v
+        params_dictionary[k] = v.split(',')
       else
         params_dictionary[k] = [v]
       end
@@ -39,25 +39,18 @@ class FacilitiesController < CalsBaseController
     @facilities_response['facilities'] = @facilities['hits']['hits'].collect { |facility| facility['_source']}
     @facilities_response['facilities'].sort_by! {|facility_name| facility_name['name']}
     @facilities_response['total'] = @facilities['hits']['total']
-    #store_facility_response_in_session
     json_response @facilities_response
   end
 
-  # def store_facility_response_in_session
-  #   session[:facility_response] = @facilities_response['facilities']
-  #   session[:total] = @facilities_response['total'].to_i
-  # end
-
   def store_in_session(params)
-    session[:from] = params['from'].to_i
     session[:size] = params['size'].to_i
     session[:page_number] = params['pageNumber'].to_i
-    session[:county_value] = params['county.value']
-    session[:facility_type] = params['type.value']
-    session[:facility_id] = params['id']
-    session[:facility_name] = params['name']
-    session[:facility_address] = params['addresses.address.street_address']
-    session[:input_data] = [params['county.value'], params['type.value'], params['id'], params['name'], params['addresses.address.street_address']].join(',')
+    session[:input_data] = {}
+    session[:input_data]['countyValue'] = params['county.value']
+    session[:input_data]['facilityTypeValue'] = params['type.value']
+    session[:input_data]['facilityIdValue'] = params['id']
+    session[:input_data]['facilityNameValue'] = params['name']
+    session[:input_data]['facilityAddressValue'] = params['addresses.address.street_address']
   end
 
   private

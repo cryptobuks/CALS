@@ -34,6 +34,10 @@ export const removeLegalNameType = (nameTypes) => {
   delete nameTypes[2]
   return nameTypes
 }
+
+export const getFromValue = (pageSize, pageNumber) => {
+  return pageSize * (pageNumber - 1)
+}
 export const FormatDateForPersistance = (dateString) => {
   let persistantDateString
   if (dateString) {

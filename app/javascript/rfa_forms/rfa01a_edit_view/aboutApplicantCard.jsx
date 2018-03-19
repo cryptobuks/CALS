@@ -88,7 +88,7 @@ export default class AboutApplicant extends React.PureComponent {
                 selectClassName='reusable-select'
                 optionList={this.props.ethnicityTypes}
                 label='Race / Ethnicity'
-                onChange={(event) => this.props.setParentState('ethnicity', {id: dictionaryNilSelectValue(event.target.options), value: dictionaryNilSelectText(event.target.options)})} />
+                onChange={(event) => this.props.setParentState('ethnicity', dictionaryNilSelect(event.target.options))} />
 
               <InputField gridClassName='col-md-4' id={this.driversLicenseNumberId}
                 value={aboutApplicantFields.driver_license_number}

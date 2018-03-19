@@ -19,7 +19,11 @@ module CalsFaradayMiddleware
       status = response[:status]
 
       case status
+      when 500
+        raise_error(env, response)
       when 422
+        raise_error(env, response)
+      when 403
         raise_error(env, response)
       end
     end

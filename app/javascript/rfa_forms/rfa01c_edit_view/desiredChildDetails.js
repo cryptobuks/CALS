@@ -4,6 +4,7 @@ import {DateField} from 'components/common/dateFields'
 import CompleteNameFields from './../rfa01a_edit_view/completeNameField'
 import {InputComponent} from 'components/common/inputFields'
 import {dictionaryNilSelect, getDictionaryId, FormatDateForPersistance, FormatDateForDisplay} from 'helpers/commonHelper.jsx'
+import {RfaCommon} from 'constants/rfaText'
 
 import PropTypes from 'prop-types'
 
@@ -33,7 +34,7 @@ const DesiredChildDetails = ({
     <div className='col-md-12'>
       <DateField
         gridClassName='col-md-4'
-        label='Date of Birth'
+        label={'Date of Birth' + RfaCommon.requiredIndicator}
         id={idPrefix + 'date_of_birth'}
         value={FormatDateForDisplay(child.date_of_birth)}
         onChange={(event) => setParentState(index, 'date_of_birth', FormatDateForPersistance(event.target.value))}

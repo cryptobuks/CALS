@@ -68,5 +68,9 @@ describe('Verify out Of state disclosure card card', function () {
       cardComponent.simulate('change', [{id: 'AK', value: 'Alaska'}])
       expect(setParentStateSpy).toHaveBeenCalledWith('other_states_of_living', [{id: 'AK', value: 'Alaska'}])
     })
+
+    it('check required fields indicator', () => {
+      expect(componentMountinState.html()).toContain('If YES, identify each state and complete a LIC 198B for each state listed (required)')
+    })
   })
 })

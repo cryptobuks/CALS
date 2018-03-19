@@ -8,12 +8,9 @@ import ApiErrorMessages from 'components/common/errors/apiErrorMessages'
 
 const PageTemplate = ({
   headerLabel,
-  saveProgressId,
-  saveProgressLabel,
+  disableSave,
   onSaveProgressClick,
-  submitId,
   disableSubmit,
-  submitLabel,
   onSubmitClick,
   applicants,
   rfa01aApplicationId,
@@ -23,12 +20,17 @@ const PageTemplate = ({
   childIdentified,
   isNavLinkActive,
   handleNavLinkClick,
-  disableSave,
   errors,
   children
 }) => (
   <div className='main_page'>
     <LogoHeader />
+    <PageHeader
+      headerLabel={headerLabel}
+      disableSave={disableSave}
+      onSaveProgressClick={onSaveProgressClick}
+      disableSubmit={disableSubmit}
+      onSubmitClick={onSubmitClick} />
     <div className='form-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
       <div className='left-content col-xs-3 col-sm-3 col-md-3 col-lg-3'>
         <RfaSideBar
@@ -39,19 +41,10 @@ const PageTemplate = ({
           onRfa01AForm={onRfa01AForm}
           childIdentified={childIdentified}
           isNavLinkActive={isNavLinkActive}
-          handleNavLinkClick={handleNavLinkClick}
-          saveProgressId={saveProgressId}
-          disableSave={disableSave}
-          onSaveProgressClick={onSaveProgressClick}
-          submitId={submitId}
-          disableSubmit={disableSubmit}
-          onSubmitClick={onSubmitClick} />
+          handleNavLinkClick={handleNavLinkClick} />
 
       </div>
       <div className='col-xs-9 col-sm-9 col-md-9 col-lg-9'>
-        <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-          <PageHeader headerLabel={headerLabel} />
-        </div>
         <ApiErrorMessages errors={errors} />
         {children}
       </div>

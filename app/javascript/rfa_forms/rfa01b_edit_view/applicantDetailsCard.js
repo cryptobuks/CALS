@@ -9,7 +9,7 @@ import {DropDownFormField} from 'components/common/dropDownFormField.jsx'
 import {BinarySelectorField} from 'components/common/binarySelectorField'
 import CardLayout from 'components/common/cardLayout'
 import AddressComponent from 'components/rfa_forms/addressComponent.js'
-import {Rfa01bApplicantDetailsCardText} from 'constants/rfaText'
+import {Rfa01bApplicantDetailsCardText, RfaCommon} from 'constants/rfaText'
 import {residenceAddressValueDefaults, rfa01BapplicantDefaults} from 'constants/defaultFields'
 import {DateField} from 'components/common/dateFields'
 
@@ -57,7 +57,7 @@ export default class ApplicantDetailsCard extends React.Component {
             gridClassName='col-md-12'
             id='NameOfResourceFamily'
             value={application.resource_family_name}
-            label='Name of Resource Family'
+            label={'Name of Resource Family' + RfaCommon.requiredIndicator}
             type='text'
             onChange={(event) => this.props.setParentState('resource_family_name', event.target.value)} />
         </div>
@@ -77,7 +77,7 @@ export default class ApplicantDetailsCard extends React.Component {
           <AddressComponent
             index={0}
             stateTypes={this.props.stateTypes}
-            addressTitle='Residence Address'
+            addressTitle={'Residence Address' + RfaCommon.requiredIndicator}
             id='street_address'
             addressFields={residenceAddressValues}
             parentStateKey='residence_address'
@@ -96,7 +96,7 @@ export default class ApplicantDetailsCard extends React.Component {
 
           <DateField
             gridClassName='col-md-4'
-            label='Date of Birth'
+            label={'Date of Birth' + RfaCommon.requiredIndicator}
             id='date_of_birth'
             value={FormatDateForDisplay(application.date_of_birth)}
             errors={fieldErrorsAsImmutableSet(this.props.errors.date_of_birth)}
@@ -122,7 +122,7 @@ export default class ApplicantDetailsCard extends React.Component {
             selectClassName='reusable-select'
             value={getDictionaryId(application.driver_license_state)}
             optionList={this.props.stateTypes}
-            label='Driver License State'
+            label={application.driver_license ? 'Driver License State' + RfaCommon.requiredIndicator : 'Driver License State'}
             onChange={(event) => this.props.setParentState('driver_license_state', dictionaryNilSelect(event.target.options))}
             errors={fieldErrorsAsImmutableSet()}
           //  onBlur={(event) => this.validateDLcombo()}

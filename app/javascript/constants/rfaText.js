@@ -1,3 +1,7 @@
+const RfaCommon = Object.freeze({
+  'requiredIndicator': ' (required)'
+})
+
 const Rfa01bDisclosureInstructions = Object.freeze({
   'disclosure_instructions_start': 'If you choose YES on any of the following questions, please give details on disclosure of criminal background section, indicating the nature and circumstances of each crime, date and location in which each crime occured.',
   'disclosure_instructions_if': 'You must disclose convictions, including reckless and drunk driving convictions even if:',
@@ -57,4 +61,5 @@ export {Rfa01bDisclosureInstructions,
   Rfa01bCaliforniaCriminalBackGroundCardText,
   Rfa01bCrimeBackGroundAgainstCohabCardText,
   Rfa01bCriminalFieldsCardText,
-  Rfa01bOutsideCACriminalBackgroundCardText}
+  Rfa01bOutsideCACriminalBackgroundCardText,
+  RfaCommon}

@@ -85,6 +85,20 @@ RSpec.feature 'RFA', js: true do
     expect(find_field('applicants[0].phones[0].number').value).to eq '(201) 222-2345'
   end
 
+scenario 'validate submit button functionality', set_auth_header: true do
+  visit root_path
+  click_button 'Create RFA Application (Form 01)'
+  expect(page).to have_content 'Rfa-01A Section Summary'
+  page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+  expect(page).to have_content 'Applicant 1 - Information'
+  fill_in('applicants[0].first_name', with: 'Geovanni', :match => :prefer_exact)
+  expect(page).to have_button('Save Progress', disabled: true)
+  expect(page).to have_button('Submit', disabled: true)
+  fill_in('applicants[0].last_name', with: 'Moen', :match => :prefer_exact)
+  expect(page).to have_button('Save Progress', disabled: false)
+  expect(page).to have_button('Submit', disabled: true)
+
+end
   scenario 'show error validation message on full Applicant Card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'

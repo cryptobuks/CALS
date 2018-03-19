@@ -19,8 +19,8 @@ export default class RfaSideBar extends React.Component {
 
       <div className='col-sm-12'>
         <div className='nav-menu col-sm-10'>
-          <Affix>
-
+          {/* affixStyles are in PX by default */}
+          <Affix affixStyle={{top: 80}}>
             <div className='nav-menu'>
               <A01SideBar
                 isNavLinkActive={this.props.isNavLinkActive}
@@ -42,18 +42,6 @@ export default class RfaSideBar extends React.Component {
                 rfa01aApplicationId={this.props.rfa01aApplicationId}
                 childIdentified={this.props.childIdentified}
                 rfa01cForm={rfa01cForms} />
-
-              <Button
-                id={this.props.saveProgressId}
-                disabled={this.props.disableSave}
-                label='Save Progress'
-                onClick={this.props.onSaveProgressClick} />
-
-              <Button
-                id={this.props.submitId}
-                disabled={this.props.disableSubmit}
-                label='Submit'
-                onClick={this.props.onSubmitClick} />
             </div>
           </Affix>
         </div>

@@ -9,15 +9,15 @@ RUN cd /cals \
   && bundle install \
   && yarn install
 
-# ENV variables
-ENV BASE_CALS_API_URL=http://calsmockapi:3001/v1 \
-  AUTHENTICATION_API_BASE_URL=http://perry.dev.cwds.tabordasolutions.net \
-  REDIS_HOST=calsredis \
-  REDIS_PORT=6379 \
+ENV RAILS_ENV=production \
+  NODE_ENV=production \
   RAILS_RELATIVE_URL_ROOT=/cals
 
+# Will remove this once nginx is configured by devops
+ENV RAILS_SERVE_STATIC_FILES=true
+
 # compile assets
-RUN bundle exec rails assets:precompile RAILS_ENV=development
+RUN bundle exec rails assets:precompile
 
 # run rails server
-CMD rails server -e development -b 0.0.0.0 -p 3000
+CMD rails server -b 0.0.0.0 -p 3000
