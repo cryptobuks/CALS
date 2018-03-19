@@ -1,0 +1,561 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/counties
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 9dd4c411-7aff-4c00-afeb-4c3ea8bdd466
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Mon, 19 Mar 2018 22:00:15 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 18-Mar-2018 22:00:15
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '596'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Alameda",
+            "id" : 1
+          }, {
+            "value" : "Alpine",
+            "id" : 2
+          }, {
+            "value" : "Amador",
+            "id" : 3
+          }, {
+            "value" : "Butte",
+            "id" : 4
+          }, {
+            "value" : "Calaveras",
+            "id" : 5
+          }, {
+            "value" : "Colusa",
+            "id" : 6
+          }, {
+            "value" : "Contra Costa",
+            "id" : 7
+          }, {
+            "value" : "Del Norte",
+            "id" : 8
+          }, {
+            "value" : "El Dorado",
+            "id" : 9
+          }, {
+            "value" : "Fresno",
+            "id" : 10
+          }, {
+            "value" : "Glenn",
+            "id" : 11
+          }, {
+            "value" : "Humboldt",
+            "id" : 12
+          }, {
+            "value" : "Imperial",
+            "id" : 13
+          }, {
+            "value" : "Inyo",
+            "id" : 14
+          }, {
+            "value" : "Kern",
+            "id" : 15
+          }, {
+            "value" : "Kings",
+            "id" : 16
+          }, {
+            "value" : "Lake",
+            "id" : 17
+          }, {
+            "value" : "Lassen",
+            "id" : 18
+          }, {
+            "value" : "Los Angeles",
+            "id" : 19
+          }, {
+            "value" : "Madera",
+            "id" : 20
+          }, {
+            "value" : "Marin",
+            "id" : 21
+          }, {
+            "value" : "Mariposa",
+            "id" : 22
+          }, {
+            "value" : "Mendocino",
+            "id" : 23
+          }, {
+            "value" : "Merced",
+            "id" : 24
+          }, {
+            "value" : "Modoc",
+            "id" : 25
+          }, {
+            "value" : "Mono",
+            "id" : 26
+          }, {
+            "value" : "Monterey",
+            "id" : 27
+          }, {
+            "value" : "Napa",
+            "id" : 28
+          }, {
+            "value" : "Nevada",
+            "id" : 29
+          }, {
+            "value" : "Orange",
+            "id" : 30
+          }, {
+            "value" : "Placer",
+            "id" : 31
+          }, {
+            "value" : "Plumas",
+            "id" : 32
+          }, {
+            "value" : "Riverside",
+            "id" : 33
+          }, {
+            "value" : "Sacramento",
+            "id" : 34
+          }, {
+            "value" : "San Benito",
+            "id" : 35
+          }, {
+            "value" : "San Bernardino",
+            "id" : 36
+          }, {
+            "value" : "San Diego",
+            "id" : 37
+          }, {
+            "value" : "San Francisco",
+            "id" : 38
+          }, {
+            "value" : "San Joaquin",
+            "id" : 39
+          }, {
+            "value" : "San Luis Obispo",
+            "id" : 40
+          }, {
+            "value" : "San Mateo",
+            "id" : 41
+          }, {
+            "value" : "Santa Barbara",
+            "id" : 42
+          }, {
+            "value" : "Santa Clara",
+            "id" : 43
+          }, {
+            "value" : "Santa Cruz",
+            "id" : 44
+          }, {
+            "value" : "Shasta",
+            "id" : 45
+          }, {
+            "value" : "Sierra",
+            "id" : 46
+          }, {
+            "value" : "Siskiyou",
+            "id" : 47
+          }, {
+            "value" : "Solano",
+            "id" : 48
+          }, {
+            "value" : "Sonoma",
+            "id" : 49
+          }, {
+            "value" : "Stanislaus",
+            "id" : 50
+          }, {
+            "value" : "State of California",
+            "id" : 59
+          }, {
+            "value" : "Sutter",
+            "id" : 51
+          }, {
+            "value" : "Tehama",
+            "id" : 52
+          }, {
+            "value" : "Trinity",
+            "id" : 53
+          }, {
+            "value" : "Tulare",
+            "id" : 54
+          }, {
+            "value" : "Tuolumne",
+            "id" : 55
+          }, {
+            "value" : "Ventura",
+            "id" : 56
+          }, {
+            "value" : "Yolo",
+            "id" : 57
+          }, {
+            "value" : "Yuba",
+            "id" : 58
+          } ]
+        }
+    http_version: 
+  recorded_at: Mon, 19 Mar 2018 22:00:15 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/facility-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 9dd4c411-7aff-4c00-afeb-4c3ea8bdd466
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Mon, 19 Mar 2018 22:00:15 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 18-Mar-2018 22:00:15
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '494'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Foster Family Agency Certified Home",
+            "id" : 9
+          }, {
+            "value" : "Adoption Agency",
+            "id" : 400
+          }, {
+            "value" : "Resource Family Home",
+            "id" : 403
+          }, {
+            "value" : "Foster Family Agency",
+            "id" : 430
+          }, {
+            "value" : "Foster Family AG-Sub",
+            "id" : 431
+          }, {
+            "value" : "Small Family Home",
+            "id" : 710
+          }, {
+            "value" : "Foster Family Home",
+            "id" : 711
+          }, {
+            "value" : "Crisis Nursery",
+            "id" : 720
+          }, {
+            "value" : "Temporary Shelter Care Facility",
+            "id" : 721
+          }, {
+            "value" : "Transitional Shelter Care",
+            "id" : 722
+          }, {
+            "value" : "Transitional Housing Placement Program",
+            "id" : 726
+          }, {
+            "value" : "Community Treatment Facility",
+            "id" : 728
+          }, {
+            "value" : "GH-Enhanced Behavioral Supports Home",
+            "id" : 729
+          }, {
+            "value" : "Group Home",
+            "id" : 730
+          }, {
+            "value" : "Out Of State GH",
+            "id" : 731
+          }, {
+            "value" : "Runaway And Homeless Youth Shelter-GH",
+            "id" : 732
+          }, {
+            "value" : "Short Term Residential Therapeutic Program",
+            "id" : 733
+          }, {
+            "value" : "County Shelter/Receiving Home(Non EA/AFDC)",
+            "id" : 790
+          }, {
+            "value" : "Court Specified Home",
+            "id" : 791
+          }, {
+            "value" : "Relative/NREFM Home",
+            "id" : 793
+          }, {
+            "value" : "Tribe Specified Home",
+            "id" : 795
+          }, {
+            "value" : "Guardian Home",
+            "id" : 796
+          }, {
+            "value" : "Supervised Independent Living Placement",
+            "id" : 800
+          }, {
+            "value" : "Foster Fam Agency Cert Resource Fam Home",
+            "id" : 808
+          } ]
+        }
+    http_version: 
+  recorded_at: Mon, 19 Mar 2018 22:00:15 GMT
+- request:
+    method: post
+    uri: https://dora.preint.cwds.io/dora/facilities/facility/_search
+    body:
+      encoding: UTF-8
+      string: '{"query":{"bool":{"should":[{"bool":{"must":[{"match_phrase":{"county.value":"Los
+        Angeles"}}]}}]}},"from":"0","size":"10"}'
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 9dd4c411-7aff-4c00-afeb-4c3ea8bdd466
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/json
+      date:
+      - Mon, 19 Mar 2018 22:00:16 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 18-Mar-2018 22:00:17
+        GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"took":27,"timed_out":false,"_shards":{"total":5,"successful":5,"failed":0},"hits":{"total":3294,"max_score":1.5748664,"hits":[{"_index":"facilities","_type":"facility","_id":"9B5pK65194","_score":1.5748664,"_source":{"href":null,"id":"9B5pK65194","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"19316
+        Reinhart","city":"Carson","state":"CA","zip_code":"90746","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"9DbRqUs077","_score":1.5748664,"_source":{"href":null,"id":"9DbRqUs077","capacity_last_changed":null,"type":{"id":"711","value":"Foster
+        Family Home"},"name":"FFH 20","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":{"id":"0002","value":"Pending"},"capacity":4,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"334
+        Sesame Street","city":"Fresno","state":"CA","zip_code":"90210","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"3OVqidl197","_score":1.5748664,"_source":{"href":null,"id":"3OVqidl197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"725
+        Palm","city":"Altadena","state":"CA","zip_code":"91001","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"EEwv7B3197","_score":1.5748664,"_source":{"href":null,"id":"EEwv7B3197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Ricardo, Cecilio & Tessie","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":4,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"423
+        Exton","city":"Inglewood","state":"CA","zip_code":"90302","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"FoW6g9x197","_score":1.5748664,"_source":{"href":null,"id":"FoW6g9x197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"2282
+        Halcyon Way Ave","city":"Pomona","state":"CA","zip_code":"91767","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"KzuinCr194","_score":1.5748664,"_source":{"href":null,"id":"KzuinCr194","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"14104
+        Lemoli Apt","city":"Hawthorne","state":"CA","zip_code":"90250","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"5YgGfJ3197","_score":1.5748664,"_source":{"href":null,"id":"5YgGfJ3197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"19318
+        Groverdale","city":"Covina","state":"CA","zip_code":"91722","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"D2XuOyg1v7","_score":1.5748664,"_source":{"href":null,"id":"D2XuOyg1v7","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Melissa Velasquez","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":4,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[{"id":null,"relation":"primary","type":null,"number":"8059407901"},{"id":null,"relation":"alternate","type":null,"number":"8059407901"}],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"43646
+        Fig Ave.","city":"Lancaster","state":"CA","zip_code":"93535","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"1jL4dWr1la","_score":1.5748664,"_source":{"href":null,"id":"1jL4dWr1la","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Nelson, Christopher & Jana","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":3,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"25508
+        Via Juana","city":"Valencia","state":"CA","zip_code":"91355","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"6hImJt3197","_score":1.5748664,"_source":{"href":null,"id":"6hImJt3197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"28441
+        Rancho California","city":"Temecula","state":"CA","zip_code":"92390","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}}]}}'
+    http_version: 
+  recorded_at: Mon, 19 Mar 2018 22:00:17 GMT
+- request:
+    method: post
+    uri: https://dora.preint.cwds.io/dora/facilities/facility/_search
+    body:
+      encoding: UTF-8
+      string: '{"query":{"bool":{"should":[{"bool":{"must":[{"match_phrase":{"county.value":"Los
+        Angeles"}}]}}]}},"from":"10","size":"10"}'
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 9dd4c411-7aff-4c00-afeb-4c3ea8bdd466
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/json
+      date:
+      - Mon, 19 Mar 2018 22:00:18 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 18-Mar-2018 22:00:18
+        GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"took":9,"timed_out":false,"_shards":{"total":5,"successful":5,"failed":0},"hits":{"total":3294,"max_score":1.5748664,"hits":[{"_index":"facilities","_type":"facility","_id":"OkKjOan197","_score":1.5748664,"_source":{"href":null,"id":"OkKjOan197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"David/margaret Ffa","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[{"id":null,"relation":"primary","type":null,"number":"9095965921"}],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"1350
+        Third","city":"La Verne","state":"CA","zip_code":"91750","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"4MOo44f30A","_score":1.5748664,"_source":{"href":null,"id":"4MOo44f30A","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Zamora, Lupe","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"739
+        E Walnut Ave #103","city":"Pasadena","state":"CA","zip_code":"91101","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"8FfB4Sn194","_score":1.5748664,"_source":{"href":null,"id":"8FfB4Sn194","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[{"id":null,"relation":"primary","type":null,"number":"9098612920"}],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"24015
+        Meadow Fall","city":"Diamond Bar","state":"CA","zip_code":"91765","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"PXEkzzN197","_score":1.5748664,"_source":{"href":null,"id":"PXEkzzN197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"1075
+        Delay","city":"Glendora","state":"CA","zip_code":"91740","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"TLf42sr194","_score":1.5748664,"_source":{"href":null,"id":"TLf42sr194","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"2409
+        117th","city":"Hawthorne","state":"CA","zip_code":"90250","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"SZdrmkL197","_score":1.5748664,"_source":{"href":null,"id":"SZdrmkL197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"144
+        Racquet Club","city":"Compton","state":"CA","zip_code":"90220","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"AtAm5AX1mA","_score":1.5748664,"_source":{"href":null,"id":"AtAm5AX1mA","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Palomarez, Josefina","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":2,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"1504
+        Sunkist Avenue","city":"La Puente","state":"CA","zip_code":"91746","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"HTcKyCf194","_score":1.5748664,"_source":{"href":null,"id":"HTcKyCf194","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"Po
+        Box 11128","city":"Lancaster","state":"CA","zip_code":"93534","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"ShqWxpx197","_score":1.5748664,"_source":{"href":null,"id":"ShqWxpx197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Holman, Cassielene","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":4,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"3900
+        Dublin","city":"Carson","state":"CA","zip_code":"90746","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"JH02doP197","_score":1.5748664,"_source":{"href":null,"id":"JH02doP197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Bledsoe, Delores","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":6,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"1917
+        McMillan","city":"Compton","state":"CA","zip_code":"90221","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}}]}}'
+    http_version: 
+  recorded_at: Mon, 19 Mar 2018 22:00:18 GMT
+- request:
+    method: post
+    uri: https://dora.preint.cwds.io/dora/facilities/facility/_search
+    body:
+      encoding: UTF-8
+      string: '{"query":{"bool":{"should":[{"bool":{"must":[{"match_phrase":{"county.value":"Los
+        Angeles"}}]}}]}},"from":"0","size":"20"}'
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 9dd4c411-7aff-4c00-afeb-4c3ea8bdd466
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/json
+      date:
+      - Mon, 19 Mar 2018 22:00:18 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 18-Mar-2018 22:00:18
+        GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"took":8,"timed_out":false,"_shards":{"total":5,"successful":5,"failed":0},"hits":{"total":3294,"max_score":1.5748664,"hits":[{"_index":"facilities","_type":"facility","_id":"9B5pK65194","_score":1.5748664,"_source":{"href":null,"id":"9B5pK65194","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"19316
+        Reinhart","city":"Carson","state":"CA","zip_code":"90746","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"9DbRqUs077","_score":1.5748664,"_source":{"href":null,"id":"9DbRqUs077","capacity_last_changed":null,"type":{"id":"711","value":"Foster
+        Family Home"},"name":"FFH 20","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":{"id":"0002","value":"Pending"},"capacity":4,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"334
+        Sesame Street","city":"Fresno","state":"CA","zip_code":"90210","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"3OVqidl197","_score":1.5748664,"_source":{"href":null,"id":"3OVqidl197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"725
+        Palm","city":"Altadena","state":"CA","zip_code":"91001","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"EEwv7B3197","_score":1.5748664,"_source":{"href":null,"id":"EEwv7B3197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Ricardo, Cecilio & Tessie","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":4,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"423
+        Exton","city":"Inglewood","state":"CA","zip_code":"90302","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"FoW6g9x197","_score":1.5748664,"_source":{"href":null,"id":"FoW6g9x197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"2282
+        Halcyon Way Ave","city":"Pomona","state":"CA","zip_code":"91767","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"KzuinCr194","_score":1.5748664,"_source":{"href":null,"id":"KzuinCr194","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"14104
+        Lemoli Apt","city":"Hawthorne","state":"CA","zip_code":"90250","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"5YgGfJ3197","_score":1.5748664,"_source":{"href":null,"id":"5YgGfJ3197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"19318
+        Groverdale","city":"Covina","state":"CA","zip_code":"91722","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"D2XuOyg1v7","_score":1.5748664,"_source":{"href":null,"id":"D2XuOyg1v7","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Melissa Velasquez","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":4,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[{"id":null,"relation":"primary","type":null,"number":"8059407901"},{"id":null,"relation":"alternate","type":null,"number":"8059407901"}],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"43646
+        Fig Ave.","city":"Lancaster","state":"CA","zip_code":"93535","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"1jL4dWr1la","_score":1.5748664,"_source":{"href":null,"id":"1jL4dWr1la","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Nelson, Christopher & Jana","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":3,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"25508
+        Via Juana","city":"Valencia","state":"CA","zip_code":"91355","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"6hImJt3197","_score":1.5748664,"_source":{"href":null,"id":"6hImJt3197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"28441
+        Rancho California","city":"Temecula","state":"CA","zip_code":"92390","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"OkKjOan197","_score":1.5748664,"_source":{"href":null,"id":"OkKjOan197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"David/margaret Ffa","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[{"id":null,"relation":"primary","type":null,"number":"9095965921"}],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"1350
+        Third","city":"La Verne","state":"CA","zip_code":"91750","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"4MOo44f30A","_score":1.5748664,"_source":{"href":null,"id":"4MOo44f30A","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Zamora, Lupe","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"739
+        E Walnut Ave #103","city":"Pasadena","state":"CA","zip_code":"91101","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"8FfB4Sn194","_score":1.5748664,"_source":{"href":null,"id":"8FfB4Sn194","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[{"id":null,"relation":"primary","type":null,"number":"9098612920"}],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"24015
+        Meadow Fall","city":"Diamond Bar","state":"CA","zip_code":"91765","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"PXEkzzN197","_score":1.5748664,"_source":{"href":null,"id":"PXEkzzN197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"1075
+        Delay","city":"Glendora","state":"CA","zip_code":"91740","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"TLf42sr194","_score":1.5748664,"_source":{"href":null,"id":"TLf42sr194","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"2409
+        117th","city":"Hawthorne","state":"CA","zip_code":"90250","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"SZdrmkL197","_score":1.5748664,"_source":{"href":null,"id":"SZdrmkL197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"144
+        Racquet Club","city":"Compton","state":"CA","zip_code":"90220","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"AtAm5AX1mA","_score":1.5748664,"_source":{"href":null,"id":"AtAm5AX1mA","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Palomarez, Josefina","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":2,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"1504
+        Sunkist Avenue","city":"La Puente","state":"CA","zip_code":"91746","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"HTcKyCf194","_score":1.5748664,"_source":{"href":null,"id":"HTcKyCf194","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":0,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"Po
+        Box 11128","city":"Lancaster","state":"CA","zip_code":"93534","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"ShqWxpx197","_score":1.5748664,"_source":{"href":null,"id":"ShqWxpx197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Holman, Cassielene","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":4,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"3900
+        Dublin","city":"Carson","state":"CA","zip_code":"90746","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}},{"_index":"facilities","_type":"facility","_id":"JH02doP197","_score":1.5748664,"_source":{"href":null,"id":"JH02doP197","capacity_last_changed":null,"type":{"id":"432","value":"Foster
+        Family Agency Certified Home"},"name":"Bledsoe, Delores","licensee_name":"","license_type":null,"assigned_worker":null,"district_office":null,"license_number":null,"status":null,"capacity":6,"license_effective_date":null,"original_application_recieved_date":null,"last_visit_date":null,"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":null,"last_deferred_visit_reason":null,"county":{"id":"19","value":"Los
+        Angeles","lis_code":null},"phones":[],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"1917
+        McMillan","city":"Compton","state":"CA","zip_code":"90221","zip_suffix_code":null}}],"visits":null,"annual_visit_year":null,"prelicensing_visit_date":null,"facility_source":"CWS/CMS"}}]}}'
+    http_version: 
+  recorded_at: Mon, 19 Mar 2018 22:00:19 GMT
+recorded_with: VCR 3.0.3

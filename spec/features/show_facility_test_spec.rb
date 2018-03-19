@@ -77,20 +77,20 @@ RSpec.feature 'Facilities', js: true, set_auth_header: true  do
     expect(page).to have_text('Sandy Beach Foster Care Home')
   end
 
-  # scenario 'test pagination and back button' do
-  #   visit search_index_path
-  #   find_button('search').click
-  #   expect(find_field('dropdownFacilities').value).to eq '5'
-  #   expect(page).to have_css(:span, text: '1')
-  #   expect(page).to have_css(:span, text: '696')
-  #   expect(page).to have_text('Ricardo, Cecilio & Tessie')
-  #   click_link('Ricardo, Cecilio & Tessie')
-  #   click_button('Back')
-  #   expect(find_field('dropdownFacilities').value).to eq '5'
-  #   expect(page).to have_css(:span, text: '1')
-  #   expect(page).to have_css(:span, text: '696')
-  #   expect(page).to have_text('Ricardo, Cecilio & Tessie')
-  # end
+  scenario 'test pagination and reset button' do
+    visit search_index_path
+    find_button('search').click
+    expect(find_field('dropdownFacilities').value).to eq '10'
+    expect(page).to have_css(:span, text: '1')
+    expect(page).to have_css(:span, text: '330')
+    find(:css, '#next_button').click
+    expect(page).to have_text('2')
+    select 20, :from => "dropdownFacilities"
+    expect(find_field('dropdownFacilities').value).to eq '20'
+    expect(page).to have_text('Zamora, Lupe')
+    find_button('reset').click
+    expect(page).not_to have_selector("#next_button")
+  end
 
 
 
