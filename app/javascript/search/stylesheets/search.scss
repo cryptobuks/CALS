@@ -96,7 +96,10 @@ input[type=number]::-webkit-outer-spin-button {
   padding-bottom: 20px;
 }
 .field_search .search_block {
-  margin-top: 17px;
+  margin: 17px 10px 10px 10px;
+}
+.field_search .reset_block {
+  margin: 17px 10px 10px 10px;
 }
 .field_search .search_block button {
   padding: 15px;
@@ -146,6 +149,7 @@ input[type=number]::-webkit-outer-spin-button {
 .field_search {
   padding-right: 0px;
   padding-left: 0px;
+  display: flex;
 }
 .error_message {
   padding: 20px 15px;

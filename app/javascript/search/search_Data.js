@@ -5,7 +5,6 @@ import SearchCriteria from './searchCriteria'
 import {dictionaryNilSelectValue, floatToNextInt, getFromValue} from 'helpers/commonHelper.jsx'
 
 const SearchDetails = ({
-  searchCriteria,
   totalNoOfFacilities,
   toggeledResult,
   sizeValue,
@@ -45,21 +44,6 @@ const SearchDetails = ({
         className='next btn btn-default'>
         <p>&#8250;</p>
       </button>
-      {searchCriteria.facilityIdValue &&
-            <SearchCriteria
-              criteriaName= {'Facility Id:'}
-              value= {searchCriteria.facilityIdValue}
-              id={'rm_criteria'}
-              onClick= {() => { removeCriteria('facilityIdValue') }}
-              alt={'cross-icon'}
-              className={'cross-icon'} />}
-      {searchCriteria.facilityNameValue &&
-            <SearchCriteria
-              criteriaName= {'Facility Name:'}
-              value= {searchCriteria.facilityNameValue}
-              onClick= {() => { removeCriteria('facilityNameValue') }}
-              alt={'cross-icon'}
-              className={'cross-icon'} />}
     </div>
     <div className='toggle_result col-xs-12 col-sm-3 col-md-3 col-lg-3'>
       <div className='pull-right'>

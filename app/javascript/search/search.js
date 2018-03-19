@@ -20,16 +20,14 @@ export default class Search extends React.Component {
       totalNoOfResults: 0,
       searchResults: undefined,
       pageNumber: props.pageNumber,
-      sizeValue: props.size,
-      searchCriteria: {}
+      sizeValue: props.size
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.searchApiCall = this.searchApiCall.bind(this)
     this.changePage = this.changePage.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
-    this.removeCriteria = this.removeCriteria.bind(this)
+    this.resetForm = this.resetForm.bind(this)
     this.handleOnSubmit = this.handleOnSubmit.bind(this)
-    this.handleSearchCriteria = this.handleSearchCriteria.bind(this)
   }
 
   handleInputChange (key, value) {
@@ -40,29 +38,16 @@ export default class Search extends React.Component {
     })
   }
 
-  handleSearchCriteria (key, value) {
-    let newSearchCriteria = this.state.searchCriteria
-    newSearchCriteria[key] = value
-    this.setState({
-      searchCriteria: newSearchCriteria
-    })
-  }
-
   handleOnSubmit (event) {
     event.preventDefault()
-    if (this.state.inputData.facilityNameValue) {
-      this.handleSearchCriteria('facilityNameValue', this.state.inputData.facilityNameValue)
-    }
-    if (this.state.inputData.facilityIdValue) {
-      this.handleSearchCriteria('facilityIdValue', this.state.inputData.facilityIdValue)
-    }
     this.searchApiCall(0, 10)
   }
 
-  removeCriteria (value) {
-    this.handleInputChange(value, '')
-    this.searchApiCall(0, this.state.sizeValue)
-    this.handleSearchCriteria(value, '')
+  resetForm (value) {
+    this.setState({
+      inputData: {}},
+    () => this.searchApiCall(0, this.state.sizeValue)
+    )
   }
 
   handleToggle () {
@@ -125,6 +110,7 @@ export default class Search extends React.Component {
         <BreadCrumb />
         <div className='search-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <SearchInput
+            resetForm={this.resetForm}
             handleOnSubmit={this.handleOnSubmit}
             handleInputChange={this.handleInputChange}
             countyList={this.props.countyTypes}
@@ -137,7 +123,6 @@ export default class Search extends React.Component {
         </div>
         {searchResponseHasValues &&
           <SearchDetails
-            searchCriteria={this.state.searchCriteria}
             totalNoOfFacilities={this.state.totalNoOfResults}
             toggeledResult={this.state.isToggled}
             sizeValue={this.state.sizeValue}
