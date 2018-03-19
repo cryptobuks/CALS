@@ -3,6 +3,7 @@ import DesiredChildCard from 'rfa_forms/rfa01c_edit_view/desiredChildCard'
 import {genderTypes, schoolGrades, countyTypes, suffixTypes, stateTypes} from './../../helpers/constants'
 import {shallow, mount} from 'enzyme'
 import Validator from 'helpers/validator'
+import {RfaCommon} from 'constants/rfaText'
 
 describe('Verify RFA 01C child desired', function () {
   const applicants = [{
@@ -130,6 +131,14 @@ describe('Verify RFA 01C child desired', function () {
     relationField.simulate('change', {target: {value: 'test'}})
     expect(setParentStateSpy).toHaveBeenCalledWith(0, 'relationship_to_applicants',
       [{applicant_id: 20, relationship_to_applicant_freeform: 'test', relationship_to_applicant: {value: '', id: 0}}])
+  })
+
+  it('verify required fields labels', () => {
+    let componentHtml = childCardComp.html()
+    expect(componentHtml).toContain('Is the child currently in your home?' + RfaCommon.requiredIndicator)
+    expect(childCardComp.find('[htmlFor="desiredChildCarddate_of_birth"]').html()).toContain('Date of Birth' + RfaCommon.requiredIndicator)
+    expect(childCardComp.find('[htmlFor="desiredChildCardfirst_name"]').html()).toContain('First Name' + RfaCommon.requiredIndicator)
+    expect(childCardComp.find('[htmlFor="desiredChildCardlast_name"]').html()).toContain('Last Name' + RfaCommon.requiredIndicator)
   })
 
   describe('Address component mount', () => {
