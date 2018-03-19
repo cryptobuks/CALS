@@ -12,7 +12,7 @@ const PageHeader = ({
   disableSave
 }) => (
   <div className='page-header-container'>
-    <Affix>
+    <Affix affixStyle={{zIndex: 100}}>
       <div className="page-header-mast">
         <div className="container">
           <div className="row">
