@@ -60,8 +60,7 @@ SearchDetails.propTypes = {
   handleToggle: PropTypes.func,
   toggeledResult: PropTypes.bool,
   searchApiCall: PropTypes.func,
-  changePage: PropTypes.func,
-  resetForm: PropTypes.func
+  changePage: PropTypes.func
 }
 SearchDetails.defaultProps = {
   totalNoOfFacilities: 0,
