@@ -76,7 +76,5 @@ describe('Verify PageTemplate', () => {
   })
   it('tests pageTemplate render', () => {
     expect(pageTemplateMount.find('.left-content').length).toEqual(1)
-    expect(pageTemplateMount.find('.page-header').length).toEqual(1)
-    expect(pageTemplateMount.find('.button').length).toEqual(2)
   })
 })

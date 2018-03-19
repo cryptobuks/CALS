@@ -13,5 +13,7 @@ describe('Verify Page Header rendering', function () {
   it('verify button render', () => {
     const saveButton = headerComp.find('button[id="saveProgress"]')
     expect(saveButton.length).toBe(1)
+    const submitButton = headerComp.find('button[id="submitApplication"]')
+    expect(submitButton.length).toBe(1)
   })
 })

@@ -9,13 +9,13 @@ describe('Rfa01EditView test', () => {
 
   describe('Set default value for application_county test', () => {
     const props = {
-      user: {county_code: '51'},
+      user: {county_code: 51},
       application: {},
       countyTypes: countyTypesArray
     }
     const _Rfa01EditView = shallow(<Rfa01EditView {...props} />)
     it('application_county', () => {
-      expect(_Rfa01EditView.state.application.application_county).toBe(countyType51)
+      expect(_Rfa01EditView.state().application.toJS().application_county).toBe(countyType51)
     })
   })
 
@@ -28,7 +28,7 @@ describe('Rfa01EditView test', () => {
     props.application.application_county = countyType52
     const _Rfa01EditView = shallow(<Rfa01EditView {...props} />)
     it('application_county', () => {
-      expect(_Rfa01EditView.state.application.application_county).toBe(countyType52)
+      expect(_Rfa01EditView.state().application.toJS().application_county).toBe(countyType52)
     })
   })
 })
