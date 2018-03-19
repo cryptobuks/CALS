@@ -97,8 +97,29 @@ scenario 'validate submit button functionality', set_auth_header: true do
   fill_in('applicants[0].last_name', with: 'Moen', :match => :prefer_exact)
   expect(page).to have_button('Save Progress', disabled: false)
   expect(page).to have_button('Submit', disabled: true)
-
+  fill_in('applicants[0].date_of_birth', with: '11/11/1111', :match => :prefer_exact)
+  expect(page).to have_content 'Phone Number'
+  fill_in 'applicants[0].phones[0].number', with: '201-222-2345'
+  fill_in('Residentialstreet_address', with: '2870 something else', :match => :prefer_exact)
+  fill_in('Residentialzip', with: '12345', :match => :prefer_exact)
+  fill_in('Residentialcity', with: 'Sacremento', :match => :prefer_exact)
+  find('#react-select-3--value').click
+  find('#react-select-3--option-1').click
+  find('#mailing_similarYes').click
+  expect(page).to have_content 'About This Residence'
+  select 'Own', from: 'residenceTypes'
+  find('#weaponsYes').click
+  find('#body_of_water_existYes').click
+  find('#others_using_residence_as_mailingYes').click
+  page.find(:css, '.languages').click
+  page.find(:css, "#react-select-4--option-0").click
+  page.find(:css, '.languages').click
+  page.find(:css, "#react-select-4--option-1").click
+  expect(page).to have_button('Submit', disabled: false)
+  #DevNote: this test case will be updated to include more fields as submit
+  #functionality is further fleshed out.
 end
+
   scenario 'show error validation message on full Applicant Card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'
