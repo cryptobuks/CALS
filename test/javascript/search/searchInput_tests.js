@@ -66,7 +66,7 @@ describe('Verify search input component', function () {
   })
 
   it('verify clicking search button calls handleOnSubmit method', () => {
-    let searchFacility = searchInputComp.find('.btn-primary')
+    let searchFacility = searchInputComp.find('#search')
     searchFacility.simulate('submit')
     expect(spyHandleOnSubmit).toHaveBeenCalled()
   })

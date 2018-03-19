@@ -27,6 +27,7 @@ const SearchDetails = ({
         )}
       </select>
       <button
+        id='previous_button'
         disabled={getFromValue(sizeValue, pageNumber) - sizeValue < 0}
         onClick={() => changePage(pageNumber - 1)}
         className='previous btn btn-default'>

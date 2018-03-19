@@ -82,7 +82,7 @@ const SearchInput = ({
           <button id='search' type='submit' className= 'btn btn-primary'>Search</button>
         </div>
         <div className='search_block '>
-          <button id='reset' type='button' onClick= {() => { resetForm() }} className= 'btn btn-primary'>Reset</button>
+          <button id='reset' type='button' onClick= {resetForm} className= 'btn btn-primary'>Reset</button>
         </div>
       </div>
     </form>
