@@ -81,7 +81,7 @@ const SearchInput = ({
         <div className='search_block '>
           <button id='search' type='submit' className= 'btn btn-primary'>Search</button>
         </div>
-        <div className='reset_block '>
+        <div className='search_block '>
           <button id='reset' type='button' onClick= {() => { resetForm() }} className= 'btn btn-primary'>Reset</button>
         </div>
       </div>
@@ -96,7 +96,9 @@ SearchInput.propTypes = {
   facilityNameValue: PropTypes.string,
   facilityAddressValue: PropTypes.string,
   sizeValue: PropTypes.number,
-  handleInputChange: PropTypes.func
+  handleInputChange: PropTypes.func,
+  resetForm: PropTypes.func,
+  handleOnSubmit: PropTypes.func
 }
 SearchInput.defaultProps = {
   countyValue: '',

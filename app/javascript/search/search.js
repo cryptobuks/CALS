@@ -43,11 +43,10 @@ export default class Search extends React.Component {
     this.searchApiCall(0, 10)
   }
 
-  resetForm (value) {
+  resetForm () {
     this.setState({
-      inputData: {}},
-    () => this.searchApiCall(0, this.state.sizeValue)
-    )
+      inputData: {},
+      searchResults: undefined})
   }
 
   handleToggle () {
@@ -129,8 +128,7 @@ export default class Search extends React.Component {
             pageNumber={this.state.pageNumber}
             searchApiCall={this.searchApiCall}
             handleToggle={this.handleToggle}
-            changePage={this.changePage}
-            removeCriteria={this.removeCriteria} />}
+            changePage={this.changePage} />}
         <div className='result-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           {this.state.isToggled && <SearchGrid searchResults={this.state.searchResults} />}
           {!this.state.isToggled && <SearchList searchResults={this.state.searchResults} />}

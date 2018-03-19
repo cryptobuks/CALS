@@ -10,8 +10,7 @@ const SearchDetails = ({
   pageNumber,
   searchApiCall,
   handleToggle,
-  changePage,
-  removeCriteria
+  changePage
 }) => (
   <div className='search-toggle col-xs-12 col-sm-12 col-md-12 col-lg-12'>
     <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
@@ -59,9 +58,9 @@ SearchDetails.propTypes = {
   pageNumber: PropTypes.number,
   handleToggle: PropTypes.func,
   toggeledResult: PropTypes.bool,
-  removeCriteria: PropTypes.func,
   searchApiCall: PropTypes.func,
-  changePage: PropTypes.func
+  changePage: PropTypes.func,
+  resetForm: PropTypes.func
 }
 SearchDetails.defaultProps = {
   totalNoOfFacilities: 0,
