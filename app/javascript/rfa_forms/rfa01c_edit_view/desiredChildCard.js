@@ -8,6 +8,7 @@ import YesNoRadioComponent from 'components/common/yesNoFields'
 import Button from 'components/common/button'
 import PropTypes from 'prop-types'
 import {relationshipToApplicantDefaults} from 'constants/defaultFields'
+import {RfaCommon} from 'constants/rfaText'
 
 const dateValidator = {rule: 'isValidDate', message: 'date is invalid'}
 
@@ -47,7 +48,7 @@ export default class DesiredChildCard extends React.Component {
         </div>
         <YesNoRadioComponent
           idPrefix={'child_identified' + index}
-          label='Is the child currently in your home?'
+          label={'Is the child currently in your home?' + RfaCommon.requiredIndicator}
           value={child.child_in_home}
           onFieldChange={(event) => this.props.setParentState(index, 'child_in_home', event.target.value)} />
         <DesiredChildDetails
