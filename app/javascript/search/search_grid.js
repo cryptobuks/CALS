@@ -25,7 +25,7 @@ const SearchGrid = ({
                 </p>
               </div>
               <GridInnerLayout
-                title='Facility ID/Approval #'
+                title='Facility ID / Approval #'
                 value={result.license_number} />
               <GridInnerLayout
                 title='Facility Type'

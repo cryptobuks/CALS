@@ -12,7 +12,7 @@ export const SearchList = ({
       <thead>
         <tr>
           <th>Facility Name </th>
-          <th>Facility license / Approval #</th>
+          <th>Facility ID / Approval #</th>
           <th>Facility Type / Facility Source</th>
           <th>Status</th>
           <th>Licensee Name</th>
