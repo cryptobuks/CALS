@@ -26,7 +26,7 @@ describe('Verify minor children Component View', function () {
   }
 
   let minorCardChildToDelete = {
-    to_delete: false,
+    to_delete: true,
     gender: {
       'id': 0,
       'value': ''
