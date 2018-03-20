@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {GlobalHeader} from 'react-wood-duck'
 
 export default class HeaderComponent extends React.Component {
@@ -7,19 +8,22 @@ export default class HeaderComponent extends React.Component {
     this.logoutCallback = this.logoutCallback.bind(this)
   }
 
-  logoutCallback (logoutUrl) {
-    window.location.href = logoutUrl
+  logoutCallback () {
+    window.location.href = this.props.logoutUrl
   }
 
   render () {
     return (
       <div>
         <GlobalHeader
-          logoutUrl={this.props.logoutUrl}
           profileName='Profile Name'
           profileAvatar='PN'
           logoutCallback={this.logoutCallback} />
       </div>
     )
   }
+}
+
+HeaderComponent.propTypes = {
+  logoutUrl: PropTypes.string
 }
