@@ -1,6 +1,5 @@
 import 'whatwg-fetch'
 import {urlPrefixHelper} from './url_prefix_helper.js.erb'
-import Immutable from 'immutable'
 
 export const getCsrfToken = function getCsrfToken (value) {
   var metas = document.getElementsByTagName('meta')
