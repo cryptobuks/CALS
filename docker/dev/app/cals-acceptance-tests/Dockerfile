@@ -1,4 +1,4 @@
-FROM ratneshraval/cals-base:0.5
+FROM ratneshraval/cals-base:0.6
 
 RUN mkdir /var/www \
   && cd /var/www

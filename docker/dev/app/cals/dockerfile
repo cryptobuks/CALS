@@ -1,4 +1,4 @@
-FROM ratneshraval/cals-base:0.5
+FROM ratneshraval/cals-base:0.6
 
 # clone CALS
 RUN git clone -b development https://github.com/ca-cwds/CALS.git /cals
