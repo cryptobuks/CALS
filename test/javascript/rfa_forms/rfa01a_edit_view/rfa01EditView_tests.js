@@ -1,10 +1,10 @@
 import React from 'react'
 import Rfa01EditView from 'rfa_forms/rfa01a_edit_view'
 import {siblingGroups, ageGroups, marriageTerminationReasons,
-relationshipToApplicantTypes, nameTypes, suffixTypes, prefixTypes,
-salaryTypes, relationshipTypes, applicantrelationTypes, educationLevels,
-ethnicityTypes, genderTypes, schoolGrades, stateTypes, languageTypes,
-residenceTypes, countyTypes, phoneTypes, licenseTypes} from './../../helpers/constants'
+  relationshipToApplicantTypes, nameTypes, suffixTypes, prefixTypes,
+  salaryTypes, relationshipTypes, applicantrelationTypes, educationLevels,
+  ethnicityTypes, genderTypes, schoolGrades, stateTypes, languageTypes,
+  residenceTypes, countyTypes, phoneTypes, licenseTypes} from './../../helpers/constants'
 import {shallow, mount} from 'enzyme'
 
 describe('Rfa01EditView test', () => {

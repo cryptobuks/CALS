@@ -3,8 +3,8 @@ import PageTemplate from 'components/common/pageTemplate'
 import {shallow, mount} from 'enzyme'
 
 describe('Verify PageTemplate', () => {
-  let pageTemplateMount,
-    rfa_a01_application_id = 242
+  let pageTemplateMount
+  let rfaA01ApplicationId = 242
   let handleNavLinkClickSpy = jasmine.createSpy('handleNavLinkClick')
   let isNavLinkActiveSpy = jasmine.createSpy('isNavLinkActive')
   let saveProgressSpy = jasmine.createSpy('saveProgress')
@@ -48,7 +48,7 @@ describe('Verify PageTemplate', () => {
       ]
     }
   ]
-  let rfa1c_forms = []
+  let rfa1cForms = []
   let otherAdults = []
   let childIdentified = {}
 
@@ -59,11 +59,11 @@ describe('Verify PageTemplate', () => {
         saveProgressId='saveProgress'
         onSaveProgressClick={saveProgressSpy}
         disableSave={false}
-        submitId={'submitApplication' + rfa_a01_application_id}
+        submitId={'submitApplication' + rfaA01ApplicationId}
         disableSubmit={false}
         onSubmitClick={submitSpy}
-        rfa01aApplicationId={rfa_a01_application_id}
-        rfa01cForms={rfa1c_forms}
+        rfa01aApplicationId={rfaA01ApplicationId}
+        rfa01cForms={rfa1cForms}
         applicants={applicants}
         otherAdults={otherAdults}
         childIdentified={childIdentified}
