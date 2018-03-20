@@ -55,8 +55,12 @@ export default class Search extends React.Component {
       'addresses.address.street_address': checkForValue(this.state.inputData.facilityAddressValue)
     }
 
+    // for future use
+    const sortBy = ''
+    const orderBy = ''
+
     // call http request function with arguments
-    let url = '/facilities/search' + '?from=' + getFromValue + '&size=' + getSizeValue + '&pageNumber=' + this.state.pageNumber
+    let url = '/facilities/search' + '?from=' + getFromValue + '&size=' + getSizeValue + '&pageNumber=' + this.state.pageNumber + '&sort=' + sortBy + '&order=' + orderBy
     fetchRequest(url, 'POST', params).then((response) => {
       return response.json()
     }).then((data) => {

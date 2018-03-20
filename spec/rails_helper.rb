@@ -27,10 +27,6 @@ RSpec.configure do |config|
     else
       stub_auth_tokens
     end
-    redis_instance = MockRedis.new
-    Redis.stub(:new).and_return(redis_instance)
-    Redis::Store.stub(:new).and_return(redis_instance)
-    # $redis.flushdb
   end
 
   def authenticate_user_by_filling_in_form
@@ -42,7 +38,6 @@ RSpec.configure do |config|
   end
 
   def stub_auth_tokens
-    #allow_any_instance_of(CalsBaseController).to receive(:user_from_session).and_return(FactoryGirl.build(:user))
     allow_any_instance_of(CalsBaseController).to receive(:authenticate_with_cwds).and_return(true)
     allow_any_instance_of(CalsBaseController).to receive(:get_session_token).and_return(ENV['TOKEN'])
     allow_any_instance_of(CalsBaseController).to receive(:store_token_in_redis).and_return(ENV['TOKEN'])
