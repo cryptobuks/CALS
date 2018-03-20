@@ -9,7 +9,7 @@ export const SearchList = ({
 }) => (
   <div className='main_table'>
     <table className='table'>
-      <thead>
+      {searchResults.length > 0 && <thead>
         <tr>
           <th>Facility Name </th>
           <th>Facility ID / Approval #</th>
@@ -23,7 +23,7 @@ export const SearchList = ({
           <th>Assigned Worker</th>
           <th>Alternative Number</th>
         </tr>
-      </thead>
+      </thead>}
       <tbody>
         {searchResults.map((result, index) => {
           return (
