@@ -469,14 +469,22 @@ const siblingGroups = Object.freeze({
   ]
 })
 
-export const licenseTypes = Object.freeze({
+const licenseTypes = Object.freeze({
   'items': [
     {
-      'id': 1,
-      'value': 'Approval'
+      'value': 'License',
+      'id': 1
+    },
+    {
+      'value': 'Certification',
+      'id': 2
+    },
+    {
+      'value': 'Approval',
+      'id': 3
     }
-  ]}
-)
+  ]
+})
 
 export const yesNo = Object.freeze({
   'items': [
@@ -490,7 +498,7 @@ export const yesNo = Object.freeze({
     }]}
 )
 
-export const phoneTypes = Object.freeze(
+const phoneTypes = Object.freeze(
   [
     {
       'id': 1,
@@ -562,6 +570,7 @@ const countyTypes = Object.freeze({
       'value': 'Calaveras',
       'id': 5
     }]})
+
 export {siblingGroups, ageGroups, marriageTerminationReasons, relationshipToApplicantTypes,
   nameTypes, suffixTypes, prefixTypes, salaryTypes, relationshipTypes, applicantrelationTypes,
-  educationLevels, ethnicityTypes, genderTypes, schoolGrades, stateTypes, languageTypes, residenceTypes, countyTypes, selectedYes }
+  educationLevels, ethnicityTypes, genderTypes, schoolGrades, stateTypes, languageTypes, residenceTypes, countyTypes, selectedYes, phoneTypes, licenseTypes }

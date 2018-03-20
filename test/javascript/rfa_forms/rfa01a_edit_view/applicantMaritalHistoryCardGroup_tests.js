@@ -180,14 +180,5 @@ describe('foster care card tests', function () {
       firstNameField.simulate('change', {target: {value: 'sacramento'}})
       expect(changeAdultHistoryAddressSpy).toHaveBeenCalledWith('street_address', 'sacramento', 0)
     })
-    it('verify handleRelationship Type To Applicant Former Spouse is called', () => {
-      expect(1).toBe(2)
-    })
-    it('verify handle Relationship Type To Applicant Adult Child is called', () => {
-      expect(1).toBe(2)
-    })
-    it('verify handle Clear On Conditional Change is called', () => {
-      expect(1).toBe(2)
-    })
   })
 })

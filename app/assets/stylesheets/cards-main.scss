@@ -1,0 +1,165 @@
+.cards-section {
+  margin: 0px auto;
+  position: relative;
+  padding: 0px 15px;
+  height: auto;
+}
+.cards-inner-label {
+  font-size: 20px;
+  padding-top: 40px;
+  font-weight:bold;
+}
+
+.cards-inner {
+  padding: 20px;
+  border: 1px solid #000;
+}
+.cards-inner label {
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+.cards-inner input {
+  display: block;
+  width: 100%;
+}
+.cards-inner .reusable-select {
+  margin: 5px 0;
+  float: left;
+}
+.card_submit {
+  text-align: left
+}
+.cards-inner form > div {
+  margin: 20px 0px
+}
+.name-section form, #minorsSection form {
+  float: left;
+  width: 100%;
+}
+
+.other-adults-section form {
+  float: left;
+}
+.list-item span {
+  margin-right: 20px;
+}
+.phone-section input[type='checkbox'] + label{
+  margin-top: 3rem;
+}
+//input[type='checkbox'], input[type='radio'] {
+//  width: 10%;
+//  height: 1.8rem;
+//  position: relative;
+//  margin: 0px;
+//}
+.add-another {
+  margin: 2.25rem 0px 2rem 0px;
+}
+.add-another button {
+  width: 100%;
+}
+.cards > span {
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.agency-list-item span {
+  background-color: #fff
+}
+.complete-name-fields-list-item span {
+  background-color: #fff
+}
+.input-error {
+  padding-top: 0rem;
+}
+
+.input-error-label {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.relationship-status {
+  padding: 35px 10px 0px 20px;
+  font-weight: bold;
+}
+
+.relationship-status-details {
+  margin-top: -15px;
+}
+
+.sibling {
+  p {
+    color: #000;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  div {
+    padding-left: 0px;
+  }
+  label {
+    margin-top: 2rem;
+  }
+}
+
+.age {
+  display: block;
+
+  label {
+    font-weight: bold;
+    max-width: 100%;
+  }
+  p {
+    color: #000000;
+    margin-top: 4rem;
+    margin-bottom: 0px;
+  }
+  input[type='checkbox'] + label {
+    margin-top: 2rem;
+    float: left;
+  }
+  div {
+    padding-left: 0px;
+  }
+}
+.remove-btn {
+  padding: 1.5rem 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.applicant-list-remove-btn {
+  padding-top: 3rem !important;
+  padding: 1.5rem 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.field-label {
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin: 5px 0;
+  float: left;
+  margin-top:3rem;
+  float: left;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding-top: 0.75rem;
+  color: #707070;
+}
+.facility-remove-btn {
+  line-height: 0.5rem !important;
+}
+
+.preferred-age-desc {
+  color: #767676;
+  margin-top: 4rem;
+  font-size: 1.5rem;
+  margin-bottom: -15px;
+  font-weight: 700;
+}
+.remove-padding {
+  padding: 0px;
+  margin-top: -2.3rem;
+}
