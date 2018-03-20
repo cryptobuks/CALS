@@ -11,8 +11,8 @@ var TestUtils = require('react-dom/test-utils')
 describe('Verify Applicant Card Group', () => {
   const isApplicantAdded = sinon.spy()
   const getFocusClassNameSpy = sinon.spy()
-  const applicants = Immutable.fromJS({
-    to_delete: false,
+  const applicants = [{
+    to_delete: true,
     first_name: '',
     middle_name: '',
     last_name: '',
@@ -21,7 +21,7 @@ describe('Verify Applicant Card Group', () => {
     driver_license_number: '',
     email: '',
     phones: null
-  })
+  }]
   let props = {
     nameTypes: nameTypes.items,
     suffixTypes: suffixTypes.items,
@@ -37,8 +37,23 @@ describe('Verify Applicant Card Group', () => {
     validator: new Validator({}),
     getFocusClassName: getFocusClassNameSpy
   }
-  let applicantRender = TestUtils.renderIntoDocument(<ApplicantCardsGroup {...props}/>)
+  let applicantRender = TestUtils.renderIntoDocument(<ApplicantCardsGroup {...props} />)
   let renderedDOM = (componentToRender) => ReactDOM.findDOMNode(componentToRender)
+  let componentToDelete = mount(<ApplicantCardsGroup
+    applicants={applicants}
+    nameTypes={nameTypes.items}
+    suffixTypes={suffixTypes.items}
+    prefixTypes={prefixTypes.items}
+    phoneTypes={nameTypes.items}
+    salaryTypes={salaryTypes.items}
+    stateTypes={stateTypes.items}
+    educationLevels={educationLevels.items}
+    genderTypes={genderTypes.items}
+    ethnicityTypes={ethnicityTypes.items}
+    languageTypes={languageTypes.items}
+    setParentState={isApplicantAdded}
+    validator={new Validator({})}
+    getFocusClassName={getFocusClassNameSpy} />)
 
   it('Spy on Button Click doesnot call', () => {
     const addCardButton = renderedDOM(applicantRender)
@@ -48,14 +63,19 @@ describe('Verify Applicant Card Group', () => {
     expect(isApplicantAdded.calledOnce).toBe(true)
   })
   it('verify default props', () => {
-    applicantRender = TestUtils.renderIntoDocument(<ApplicantCardsGroup {...props}/>)
+    applicantRender = TestUtils.renderIntoDocument(<ApplicantCardsGroup {...props} />)
     let applicantCard = renderedDOM(applicantRender)
     expect(applicantCard.children.length).toBe(2)
     expect(applicantCard.children[0].children[0].children[1].children.length).toEqual(4)
   })
+
+  it('tests toDelete', () => {
+    expect(componentToDelete.find('.card-body').length).toEqual(0)
+  })
+
   describe('close second applicant', () => {
     props.applicants = Immutable.fromJS([applicants, applicants])
-    applicantRender = TestUtils.renderIntoDocument(<ApplicantCardsGroup {...props}/>)
+    applicantRender = TestUtils.renderIntoDocument(<ApplicantCardsGroup {...props} />)
     let applicantCard = renderedDOM(applicantRender)
     let applicantsList = applicantCard.children[0].children[1].children
     it('Verify added applicant', () => {

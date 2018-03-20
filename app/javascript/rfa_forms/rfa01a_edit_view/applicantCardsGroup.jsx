@@ -75,6 +75,8 @@ export default class ApplicantCardsGroup extends React.Component {
                     />
                   </div>
                 )
+              } else {
+                return (null)
               }
             })
           }
