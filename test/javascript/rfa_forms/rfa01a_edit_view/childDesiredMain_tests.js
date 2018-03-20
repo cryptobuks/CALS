@@ -6,7 +6,7 @@ import {siblingGroups, ageGroups} from './../../helpers/constants'
 describe('Verify Child Desired Component', () => {
   let childDesiredComp, setParentStateSpy, getFocusClassNameSpy, setFocusStateSpy
   let childDesired = {
-    child_identified: false,
+    child_identified: true,
     child_in_home: false,
     preferred_ages: [
 
@@ -43,5 +43,11 @@ describe('Verify Child Desired Component', () => {
     let componentId = childDesiredComp.find('#child_identifiedtrue').hostNodes()
     componentId.simulate('change', {target: {value: 'false'}})
     expect(setParentStateSpy).toHaveBeenCalledWith('child_desired', Object({ child_identified: 'false', child_in_home: '', preferred_ages: [ ], preferred_sibling_group_up_to: Object({ id: '', value: '' }) }))
+  })
+
+  it('verify child component change State', () => {
+    let componentId = childDesiredComp.find('#child_identifiedfalse').hostNodes()
+    componentId.simulate('change', {target: {value: 'true'}})
+    expect(setParentStateSpy).toHaveBeenCalledWith('child_desired', Object({ child_identified: 'true', child_in_home: false, preferred_ages: [ ], preferred_sibling_group_up_to: Object({ id: '', value: '' }) }))
   })
 })
