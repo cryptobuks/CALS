@@ -31,7 +31,7 @@ describe('Verify other adults Component View', function () {
   }
 
   const OtherAdultsCardToDelete = {
-    to_delete: false,
+    to_delete: true,
     relationship_types: {
       items: []
     },

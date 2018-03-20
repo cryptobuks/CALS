@@ -73,6 +73,8 @@ export default class OtherAdultsCardsGroup extends React.Component {
                         errors={this.props.errors[index]} />
                     </div>
                   )
+                } else {
+                  return (null)
                 }
               })
             }
