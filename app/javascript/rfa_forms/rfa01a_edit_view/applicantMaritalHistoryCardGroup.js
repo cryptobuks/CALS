@@ -125,7 +125,7 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
                     { <ApplicantMaritalHistoryCard
                       index={index}
                       idPrefix={'applicantsHistory.former_spouses' + '[' + index + '].'}
-                      applicants={this.props.applicants || []}
+                      applicants={this.props.applicants}
                       maritalHistory={applicantMaritalHistory}
                       validator={this.props.validator}
                       changeMaritalHistory={this.changeMaritalHistory}
@@ -160,7 +160,7 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
                     { <AdultChildrenFields
                       index={index}
                       idPrefix={'applicantsHistory.adult_children' + '[' + index + '].'}
-                      applicants={this.props.applicants || []}
+                      applicants={this.props.applicants}
                       adultChild={adultChild}
                       validator={this.props.validator}
                       changeAdultChild={this.changeAdultChild}
@@ -191,6 +191,7 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
 }
 
 ApplicantMaritalHistoryCardGroup.defaultProps = {
+  applicants: [],
   applicantsHistory: applicantsHistoryDefaults,
   former_spouses: [formerSpousesDefaults],
   adult_children: [adultChildrenDefaults],

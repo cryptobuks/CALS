@@ -17,8 +17,9 @@ describe('Verify CountyUseOnlyCard Component', () => {
       }
     }
 
-    CountyUseOnlyCardComp = shallow(<CountyUseOnlyCard
+    CountyUseOnlyCardComp = mount(<CountyUseOnlyCard
       countyUseOnlyCardId='county_use_only'
+      focusComponentName='Rfa01BOverview'
       setFocusState={setFocusStateSpy}
       getFocusClassName={getFocusClassNameSpy}
       county={CountyUseOnlyCardFields.county}
@@ -30,8 +31,17 @@ describe('Verify CountyUseOnlyCard Component', () => {
     expect(CountyUseOnlyCardComp.length).toEqual(1)
   })
   it('verifies county field', () => {
-    let countyField = CountyUseOnlyCardComp.find('#county')
+    let countyField = CountyUseOnlyCardComp.find('#county').hostNodes()
     countyField.simulate('change', {target: {selectedOptions: [{value: '2', text: 'Alpine'}]}})
-    expect(onFieldChangeSpy).toHaveBeenCalledWith(Object({ target: Object({ selectedOptions: [ Object({ value: '2', text: 'Alpine' }) ] }) }))
+    expect(onFieldChangeSpy).toHaveBeenCalled()
+  })
+
+  it('verify CountyUseOnly card to check focus', () => {
+    let countyField = CountyUseOnlyCardComp.find('#county').hostNodes()
+    countyField.simulate('change', {target: {selectedOptions: [{value: '2', text: 'Alpine'}]}})
+    expect(getFocusClassNameSpy).toHaveBeenCalledWith('CountyUseOnlySection')
+    let cardSection = CountyUseOnlyCardComp.find('#CountyUseOnlySection')
+    cardSection.simulate('click')
+    expect(setFocusStateSpy).toHaveBeenCalled()
   })
 })

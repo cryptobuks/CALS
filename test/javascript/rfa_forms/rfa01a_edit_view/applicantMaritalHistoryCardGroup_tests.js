@@ -128,10 +128,15 @@ describe('foster care card tests', function () {
       }
 
       changeMaritalHistorySpy = spyOn(ApplicantMaritalHistoryCardGroup.prototype, 'changeMaritalHistory').and.callThrough()
+      changeAdultChildSpy = spyOn(ApplicantMaritalHistoryCardGroup.prototype, 'changeAdultChild').and.callThrough()
+      changeAdultHistoryAddressSpy = spyOn(ApplicantMaritalHistoryCardGroup.prototype, 'changeAdultHistoryAddress').and.callThrough()
+      handleRelationshipTypeToApplicantFormerSpouseSpy = spyOn(ApplicantMaritalHistoryCardGroup.prototype, 'handleRelationshipTypeToApplicantFormerSpouse').and.callThrough()
+      handleRelationshipTypeToApplicantAdultChildSpy = spyOn(ApplicantMaritalHistoryCardGroup.prototype, 'handleRelationshipTypeToApplicantAdultChild').and.callThrough()
 
       applicantMaritalHistoryCardGroupComponent = mount(
         <ApplicantMaritalHistoryCardGroup
           getFocusClassName={getFocusClassNameSpy}
+          focusComponentName='otherAdultsSection'
           applicants={[]}
           applicantsHistory={applicantsHistoryDefaults}
           setFocusState={setFocusStateSpy}
@@ -151,10 +156,38 @@ describe('foster care card tests', function () {
     it('verify Change Marital History', () => {
       let marriageCityField = applicantMaritalHistoryCardGroupComponent.find(
         'input[type="text"]').findWhere(n => n.props().id === 'applicantsHistory.former_spouses[0].place_of_marriage_city')
-
       marriageCityField.simulate('change', {target: {value: 'sacramento'}})
-
       expect(changeMaritalHistorySpy).toHaveBeenCalledWith('place_of_marriage_city', 'sacramento', 0)
+    })
+    it('verify set focus state is called', () => {
+      let marriageCityField = applicantMaritalHistoryCardGroupComponent.find(
+        'input[type="text"]').findWhere(n => n.props().id === 'applicantsHistory.former_spouses[0].place_of_marriage_city')
+      marriageCityField.simulate('change', {target: {value: 'sacramento'}})
+      expect(getFocusClassNameSpy).toHaveBeenCalledWith('ApplicantMaritalHistoryCardGroup')
+      let componentSection = applicantMaritalHistoryCardGroupComponent.find('#ApplicantMaritalHistoryCardGroup')
+      componentSection.simulate('click')
+      expect(setFocusStateSpy).toHaveBeenCalled()
+    })
+    it('verify change Adult History is called', () => {
+      let firstNameField = applicantMaritalHistoryCardGroupComponent.find(
+        'input[type="text"]').findWhere(n => n.props().id === 'first_name').hostNodes().last()
+      firstNameField.simulate('change', {target: {value: 'sacramento'}})
+      expect(changeAdultChildSpy).toHaveBeenCalledWith('first_name', 'sacramento', 0)
+    })
+    it('verify change Adult History Address is called', () => {
+      let firstNameField = applicantMaritalHistoryCardGroupComponent.find(
+        'input[type="text"]').findWhere(n => n.props().id === 'Residentialstreet_address').hostNodes().last()
+      firstNameField.simulate('change', {target: {value: 'sacramento'}})
+      expect(changeAdultHistoryAddressSpy).toHaveBeenCalledWith('street_address', 'sacramento', 0)
+    })
+    it('verify handleRelationship Type To Applicant Former Spouse is called', () => {
+      expect(1).toBe(2)
+    })
+    it('verify handle Relationship Type To Applicant Adult Child is called', () => {
+      expect(1).toBe(2)
+    })
+    it('verify handle Clear On Conditional Change is called', () => {
+      expect(1).toBe(2)
     })
   })
 })

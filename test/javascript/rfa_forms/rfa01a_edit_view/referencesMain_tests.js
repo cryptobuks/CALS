@@ -5,8 +5,8 @@ import {stateTypes, nameTypes, suffixTypes, prefixTypes} from '../../helpers/con
 import Validator from 'helpers/validator'
 
 describe('Verify References Main', () => {
-  let referenceMainComp, setParentStateSpy,
-    getFocusClassNameSpy, setFocusStateSpy,
+  let referenceMainComp, referenceMainFieldObjectComp,
+    setParentStateSpy, getFocusClassNameSpy, setFocusStateSpy,
     setApplicationStateSpy
   let fieldRefValues = {
     name_suffix: null,
@@ -24,6 +24,10 @@ describe('Verify References Main', () => {
     phone_number: '',
     email: ''
   }
+
+  let feildObjectRefValues = {
+    items: [fieldRefValues]
+  }
   beforeEach(() => {
     setParentStateSpy = jasmine.createSpy('setParentState')
     setApplicationStateSpy = jasmine.createSpy('setResidenceState')
@@ -35,6 +39,20 @@ describe('Verify References Main', () => {
       index={0}
       focusComponentName={getFocusClassNameSpy}
       references={[fieldRefValues]}
+      setParentState={setApplicationStateSpy}
+      getFocusClassName={getFocusClassNameSpy}
+      setFocusState={setFocusStateSpy}
+      stateTypes={stateTypes.items}
+      suffixTypes={suffixTypes.items}
+      prefixTypes={prefixTypes.items}
+      nameTypes={nameTypes.items}
+      idPrefix={'reference' + 1}
+      validator={validator} />)
+
+    referenceMainFieldObjectComp = mount(<ReferenceMain
+      index={0}
+      focusComponentName={getFocusClassNameSpy}
+      references={feildObjectRefValues}
       setParentState={setApplicationStateSpy}
       getFocusClassName={getFocusClassNameSpy}
       setFocusState={setFocusStateSpy}
@@ -61,5 +79,9 @@ describe('Verify References Main', () => {
     let firstReferenceSection = referenceMainComp.find('#referenceMain_0')
     firstReferenceSection.simulate('click')
     expect(setFocusStateSpy).toHaveBeenCalled()
+  })
+
+  it('tests references as an object with items', () => {
+    expect(referenceMainFieldObjectComp.length).toEqual(1)
   })
 })

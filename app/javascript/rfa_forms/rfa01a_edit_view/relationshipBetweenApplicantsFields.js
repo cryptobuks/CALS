@@ -24,7 +24,7 @@ export default class RelationshipBetweenApplicantsFields extends React.Component
   render () {
     const relationship = this.props.relationshipBetweenApplicants
     const applicants = this.props.applicants
-    const relationshipType = relationship.relationship_type !== null ? relationship.relationship_type.value : false
+    const relationshipType = typeof (relationship.relationship_type) !== 'undefined' && relationship.relationship_type !== null ? relationship.relationship_type.value : false
     const hideRelationshipDetails = relationshipType === 'Married' || relationshipType === 'Domestic Partnership' ? 'row' : 'row hidden'
     const hideOtherRelationship = relationshipType === 'Other' ? 'row' : 'row hidden'
     const applicantsFullNames = applicants.length > 1 ? applicants[0].first_name + ' ' + applicants[0].middle_name + ' ' + applicants[0].last_name + ' ' + ' and' + ' ' + applicants[1].first_name + ' ' + applicants[1].middle_name + ' ' + applicants[1].last_name : ''

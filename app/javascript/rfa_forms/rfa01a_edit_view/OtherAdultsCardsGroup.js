@@ -39,7 +39,7 @@ export default class OtherAdultsCardsGroup extends React.Component {
   }
 
   handleRelationshipTypeToApplicant (index, value, type) {
-    this.props.setParentState('other_adults', handleRelationshipTypeToApplicant(index, value, type, checkArrayObjectPresence(this.props.otherAdults) || [otherAdultsDefaults]))
+    this.props.setParentState('other_adults', handleRelationshipTypeToApplicant(index, value, type, checkArrayObjectPresence(this.props.otherAdults)))
   }
 
   render () {

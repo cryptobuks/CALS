@@ -1,12 +1,12 @@
 import React from 'react'
 import MinorCardsGroup, {minorDefaults} from 'rfa_forms/rfa01a_edit_view//minorCardsGroup.jsx'
 import {shallow, mount} from 'enzyme'
-import {genderTypes, relationshipTypes} from '../../helpers/constants'
+import {genderTypes, relationshipTypes, selectedYes} from '../../helpers/constants'
 import Validator from 'helpers/validator'
 describe('Verify minor children Component View', function () {
-  let component, componentMount, setFocusStateSpy
-  let props
-  const minorCardChild = {
+  let component, componentMount, setFocusStateSpy, onFieldChangeSpy
+  let props, handleRelationshipTypeToApplicantSpy, validator, componentToDelete
+  let minorCardChild = {
     gender: {
       'id': 0,
       'value': ''
@@ -20,7 +20,27 @@ describe('Verify minor children Component View', function () {
         }
       }
     ],
-    child_financially_supported: 'yes',
+    child_financially_supported: false,
+    child_adopted: 'yes',
+    date_of_birth: '2017-01-01'
+  }
+
+  let minorCardChildToDelete = {
+    to_delete: false,
+    gender: {
+      'id': 0,
+      'value': ''
+    },
+    relationship_to_applicants: [
+      {
+        applicant_id: null,
+        relationship_to_applicant: {
+          'id': 0,
+          'value': ''
+        }
+      }
+    ],
+    child_financially_supported: false,
     child_adopted: 'yes',
     date_of_birth: '2017-01-01'
   }
@@ -28,12 +48,12 @@ describe('Verify minor children Component View', function () {
   let setParentStateSpy = jasmine.createSpy()
   setFocusStateSpy = jasmine.createSpy('setFocusState')
   let getFocusClassNameSpy = jasmine.createSpy('getFocusClassName')
+  setParentStateSpy = jasmine.createSpy('setParentState')
+  handleRelationshipTypeToApplicantSpy = jasmine.createSpy('handleRelationshipTypeToApplicant')
+  onFieldChangeSpy = jasmine.createSpy('onFieldChange')
+  validator = new Validator({})
 
   beforeEach(() => {
-    setParentStateSpy = jasmine.createSpy('setParentState')
-    let handleRelationshipTypeToApplicantSpy = jasmine.createSpy('handleRelationshipTypeToApplicant')
-    let onFieldChangeSpy = jasmine.createSpy('onFieldChange')
-    let validator = new Validator({})
     props = {
       minorChildren: [minorCardChild],
       genderTypes: genderTypes.items,
@@ -48,6 +68,16 @@ describe('Verify minor children Component View', function () {
     component = shallow(
       <MinorCardsGroup {...props} />
     )
+
+    componentToDelete = mount(<MinorCardsGroup
+      minorChildren={[minorCardChildToDelete]}
+      genderTypes={genderTypes.items}
+      relationshipTypes={relationshipTypes}
+      relationshipToApplicantTypes={relationshipTypes}
+      setParentState={setParentStateSpy}
+      setFocusState={setFocusStateSpy}
+      getFocusClassName={getFocusClassNameSpy}
+      validator={validator} />)
 
     componentMount = mount(<MinorCardsGroup {...props} />)
   })
@@ -68,8 +98,16 @@ describe('Verify minor children Component View', function () {
       expect(setParentStateSpy).toHaveBeenCalledWith('minor_children', [minorCardChild])
     })
 
-    it('verify date of birth', () => {
-      // TODO will update when switching from react-maskedinput to cleave.js
+    it('tests toDelete', () => {
+      expect(componentToDelete.find('.card-body').length).toEqual(1)
+    })
+    it('tests onFieldChange', () => {
+      componentMount.update()
+      spyOn(componentMount.instance(), 'onFieldChange').and.callThrough()
+      let child_financially_supported = componentMount.find('#child_financially_supported').hostNodes()
+      child_financially_supported.simulate('change', selectedYes)
+      minorCardChild.child_financially_supported = '2'
+      expect(setParentStateSpy).toHaveBeenCalledWith('minor_children', [minorCardChild])
     })
   })
 

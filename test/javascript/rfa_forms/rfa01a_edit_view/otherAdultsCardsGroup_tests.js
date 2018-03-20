@@ -5,7 +5,10 @@ import {relationshipTypes} from '../../helpers/constants'
 import Validator from 'helpers/validator'
 
 describe('Verify other adults Component View', function () {
-  let component, componentMount, props, setParentStateSpy, otherAdultsCardCompWithoutOtherAdults
+  let component, componentMount, props, setParentStateSpy,
+    otherAdultsCardCompWithoutOtherAdults, setFocusStateSpy,
+    getFocusClassNameSpy, handleRelationshipTypeToApplicantSpy,
+    onFieldChangeSpy, validator, otherAdultsCardCompWithOtherAdultsToDelete
 
   const OtherAdultsCard = {
     relationship_types: {
@@ -27,18 +30,40 @@ describe('Verify other adults Component View', function () {
     date_of_birth: '2017-01-01'
   }
 
+  const OtherAdultsCardToDelete = {
+    to_delete: false,
+    relationship_types: {
+      items: []
+    },
+    relationship_to_applicants: [
+      {
+        applicant_id: null,
+        relationship_to_applicant: {
+          'id': 0,
+          'value': ''
+        }
+      }
+    ],
+    index: 0,
+    'first_name': '',
+    'middle_name': '',
+    'last_name': '',
+    date_of_birth: '2017-01-01'
+  }
+
   beforeEach(() => {
     setParentStateSpy = jasmine.createSpy('setParentState')
-    let setFocusStateSpy = jasmine.createSpy('setFocusState')
-    let getFocusClassNameSpy = jasmine.createSpy('getFocusClassName')
+    setFocusStateSpy = jasmine.createSpy('setFocusState')
+    getFocusClassNameSpy = jasmine.createSpy('getFocusClassName')
 
-    let handleRelationshipTypeToApplicantSpy = jasmine.createSpy('handleRelationshipTypeToApplicant')
-    let onFieldChangeSpy = jasmine.createSpy('onFieldChange')
-    let validator = new Validator({})
+    handleRelationshipTypeToApplicantSpy = jasmine.createSpy('handleRelationshipTypeToApplicant')
+    onFieldChangeSpy = jasmine.createSpy('onFieldChange')
+    validator = new Validator({})
     props = {
       otherAdults: [OtherAdultsCard],
       relationship_types: relationshipTypes,
       relationshipToApplicantTypes: relationshipTypes,
+      focusComponentName: 'ApplicantMaritalHistoryCardGroup',
       setParentState: setParentStateSpy,
       onFieldChange: onFieldChangeSpy,
       setFocusState: setFocusStateSpy,
@@ -51,9 +76,22 @@ describe('Verify other adults Component View', function () {
     )
     componentMount = mount(<OtherAdultsCardsGroup {...props} />)
 
-    otherAdultsCardCompWithoutOtherAdults = shallow(<OtherAdultsCardsGroup
+    otherAdultsCardCompWithoutOtherAdults = mount(<OtherAdultsCardsGroup
       otherAdults={[]}
       relationship_types={relationshipTypes}
+      focusComponentName='ApplicantMaritalHistoryCardGroup'
+      relationshipToApplicantTypes={relationshipTypes}
+      setParentState={setParentStateSpy}
+      onFieldChange={onFieldChangeSpy}
+      setFocusState={setFocusStateSpy}
+      getFocusClassName={getFocusClassNameSpy}
+      handleRelationshipTypeToApplicant={handleRelationshipTypeToApplicantSpy}
+      validator={validator} />)
+
+    otherAdultsCardCompWithOtherAdultsToDelete = shallow(<OtherAdultsCardsGroup
+      otherAdults={[OtherAdultsCardToDelete]}
+      relationship_types={relationshipTypes}
+      focusComponentName='ApplicantMaritalHistoryCardGroup'
       relationshipToApplicantTypes={relationshipTypes}
       setParentState={setParentStateSpy}
       onFieldChange={onFieldChangeSpy}
@@ -84,6 +122,18 @@ describe('Verify other adults Component View', function () {
 
     it('expect default props to be used', function () {
       expect(otherAdultsCardCompWithoutOtherAdults.find('.card-body').length).toEqual(1)
+    })
+    it('expect to_delete', function () {
+      expect(otherAdultsCardCompWithOtherAdultsToDelete.find('.card-body').length).toEqual(1)
+    })
+    it('expects set focus to be set on click', () => {
+      let NameFields = componentMount.find('input[type="text"]')
+      let lastNameField = NameFields.findWhere(n => n.props().id === 'otherAdults[0].lastName')
+      lastNameField.simulate('change', {target: {value: 'dude'}})
+      expect(getFocusClassNameSpy).toHaveBeenCalledWith('otherAdultsSection')
+      let componentSection = componentMount.find('#otherAdultsSection')
+      componentSection.simulate('click')
+      expect(setFocusStateSpy).toHaveBeenCalled()
     })
   })
 
