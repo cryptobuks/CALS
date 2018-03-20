@@ -23,8 +23,7 @@ describe FacilitiesController do
     it 'renders search' do
       request.headers['Content-Type'] = 'application/json'
       request.headers['Accept'] = 'application/json'
-
-      post :search, {:params => {:name => ['home']}}
+      post :search, {:params => {:name => ['home'], :sort=>[''], :order=>['']} }
       expect(response.status).to eq(200)
       expect(response.body.include?('TWEEDLE'))
     end

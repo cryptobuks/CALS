@@ -19,6 +19,30 @@ class Elastic::QueryBuilder
     }
   end
 
+  def self.sort_query(page_params)
+    if page_params['sort_params'].present? && page_params['order_params'].present?
+      return {
+        sort: [
+          {
+            page_params['sort_params'] =>
+            {
+              order: page_params['order_params']
+            }
+          }
+        ]
+      }
+    else
+      return { sort: [] }
+    end
+  end
+
+  def self.paginate_query(page_params)
+    return {
+      from: page_params['from_params'],
+      size: page_params['size_params']
+    }
+  end
+
   # query_array : array of hash - attributes and values to query
   # all keys of a hash will be combined with   AND
   #  each array item will be combined with  OR
@@ -28,7 +52,7 @@ class Elastic::QueryBuilder
   # returns:
   # {"query":{"bool":{"should":[{"bool":{"must":[{"match":{"fac_co_nbr":"28"}},{"match":{"fac_name":"home"}}]}},{"bool":{"must":[{"match":{"fac_co_nbr":"18"}}]}}]}}}
   #
-  def self.match_boolean(query_array, from_params, size_params)
+  def self.match_boolean(query_array)
 
     # prepare array of match queries.
     combined_query_array = []
@@ -44,21 +68,19 @@ class Elastic::QueryBuilder
         bool: {
           should: combined_query_array
         }
-      },
-      from: from_params,
-      size: size_params
+      }
     }
   end
 
-  def self.facility_search_v1(query_array, from_params, size_params)
+  def self.facility_search_v1(query_array, page_params)
     address_params = query_array.map {|param| param['addresses.address.street_address']}.first
     if address_params
       query_array_without_address = [query_array.first.except('addresses.address.street_address')]
-      search_query = match_boolean(query_array_without_address, from_params, size_params)
+      search_query = match_boolean(query_array_without_address).merge(paginate_query(page_params)).merge(sort_query(page_params))
       search_query[:query][:bool][:should].first[:bool][:must] << address_query(address_params)
       return search_query
     else
-      match_boolean(query_array, from_params, size_params)
+      match_boolean(query_array).merge(paginate_query(page_params)).merge(sort_query(page_params))
     end
   end
 
