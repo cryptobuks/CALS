@@ -19,7 +19,7 @@ const SearchInput = ({
 }) => (
   <div className='search_input col-xs-12 col-sm-12 col-md-12 col-lg-12'>
     <form onSubmit={handleOnSubmit}>
-      <div className='field_input col-xs-12 col-sm-9 col-md-9 col-lg-9'>
+      <div className='field_input col-xs-12 col-sm-10 col-md-10 col-lg-10'>
         <div className='input_data col-xs-12 col-sm-2 col-md-2 col-lg-2'>
           <div>
             <span>County</span>
@@ -77,7 +77,7 @@ const SearchInput = ({
             onChange={(event) => handleInputChange('facilityAddressValue', event.target.value)} />
         </InputDataBlock>
       </div>
-      <div className='field_search col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+      <div className='field_search col-xs-12 col-sm-2 col-md-2 col-lg-2'>
         <div className='search_block '>
           <button id='search' type='submit' className= 'btn btn-primary'>Search</button>
         </div>

@@ -2,14 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {checkforDateOrNa} from 'search/common/commonUtils'
 
-const title = 'Complaint History'
-
 const Complaints = ({
   facilityData
 }) => (
   <div className='facility-children col-xs-12 col-sm-12 col-md-12 col-lg-12'>
     <div className='facility-children-block'>
-      <div className='children-title'> <h3> {title} </h3> </div>
+      <div className='children-title'> <h3> {'Complaint History'} </h3> </div>
       <table className='table'>
         <thead>
           <tr>
