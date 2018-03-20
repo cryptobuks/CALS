@@ -16,13 +16,15 @@ Rails.application.routes.draw do
 
 
   namespace :rfa do
-    resources :a01 do
-      resources :applicant, only: [:index, :create, :edit]
-      resource :residence, only: [:show, :create, :edit]
-      resources :packet
-      resources :c01
+    constraints lambda{ |request| !DISABLE_RFA_APPLICATION } do
+      resources :a01 do
+        resources :applicant, only: [:index, :create, :edit]
+        resource :residence, only: [:show, :create, :edit]
+        resources :packet
+        resources :c01
+      end
+      resources :b01
     end
-    resources :b01
 
   end
   #get 'geoservice', to: 'geoservice#show'
